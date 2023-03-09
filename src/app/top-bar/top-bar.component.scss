@@ -1,0 +1,71 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+    gap: 16px;
+      
+      @media screen and (max-width: 600px) {
+        padding: 32px 32px 16px;
+      }
+  
+    &__search {
+      display: flex;
+      width: 100%;
+      max-width: 450px;
+      height: 34px;
+    }
+  
+    &__input {
+      width: 100%;
+      height: 100%;
+      padding: 0 40px 0 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #353340;
+      background-repeat: no-repeat;
+      background-position: 96%;
+      background-size: 14px;
+      border: none;
+      border-radius: 8px;
+      outline: 0;
+      box-shadow: 0 0 0 2px rgb(134 140 160 / 2%);
+    }
+  
+    &__user-wrapper {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+  
+    &__user {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    &__notif {
+      position: relative;
+      cursor: pointer;
+  
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 3px;
+        width: 5px;
+        height: 5px;
+        content: "";
+        background-color: red;
+        border: 2px solid #1f1d2b;
+        border-radius: 50%;
+      }
+    }
+  
+    &__notif-svg {
+      width: 20px;
+    }
+  }
