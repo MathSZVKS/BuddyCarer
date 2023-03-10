@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,4 +9,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 export class SideBarComponent {
   faCoffee = faCoffee;
+
+  @Input() userType = '';
 }
