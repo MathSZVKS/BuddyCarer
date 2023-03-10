@@ -9,13 +9,15 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ContentComponent } from './content/content.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     ContentComponent,
-    TopBarComponent
+    TopBarComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

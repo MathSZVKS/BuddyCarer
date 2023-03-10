@@ -1,304 +1,304 @@
 .content {
-    padding: 0 32px;
-      margin-bottom: 24px;
-    overflow: auto;
-  
-    &__video-heading {
-      position: sticky;
-      top: 0;
-      left: 0;
-      z-index: 5;
-      padding: 0 0 20px;
-      margin: 0;
-      font-size: 32px;
-      color: #fff;
-      background: linear-gradient(to bottom, #1f1d2b 0%, #1f1d2b 78%, rgb(31 29 43 / 0%) 100%);
-          
-          @media screen and (max-width: 600px) {
-        padding: 0 0 12px;
-              font-size: 24px;
-      }
-          
+  padding: 0 32px;
+  margin-bottom: 24px;
+  overflow: auto;
+
+  &__video-heading {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    padding: 0 0 20px;
+    margin: 0;
+    font-size: 32px;
+    color: #fff;
+    background: linear-gradient(to bottom, #1f1d2b 0%, #1f1d2b 78%, rgb(31 29 43 / 0%) 100%);
+
+    @media screen and (max-width: 600px) {
+      padding: 0 0 12px;
+      font-size: 24px;
     }
-  
-    &__video-title {
-      margin-top: 16px;
-      font-size: 20px;
-      font-weight: 400;
-      color: #fff;
+
+  }
+
+  &__video-title {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  &__video-card-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: auto;
     }
-  
-    &__video-card-wrapper {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-  
-      @media screen and (max-width: 767px) {
-        grid-template-columns: auto;
-      }
+  }
+
+  &__video-card-l {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 30px;
+    overflow: hidden;
+    background-color: #31abbd;
+    background-image: url(https://images.vexels.com/media/users/3/210964/isolated/preview/9b8f69a5180ae3b60f65d65612db7bda-cachorro-sorrindo-feliz-ilustracao.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 68%;
+    border-radius: 20px;
+    transition: background 0.3s;
+
+    @media screen and (max-width: 768px) {
+      background-size: 85%;
     }
-  
-    &__video-card-l {
-      position: relative;
-      display: flex;
+  }
+
+  &__video-card-title {
+    max-width: 7.2em;
+    margin: 4px 0 16px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__video-card-view {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  &__video-card-author {
+    position: relative;
+    transition: 0.3s all ease-in-out;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__card-author-img {
+    width: 42px;
+    height: 42px;
+    padding: 4px;
+    border: 1px solid #ffffffbf;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__card-author-icon {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    display: flex;
+    align-items: center;
+    width: 8px;
+    height: 8px;
+    padding: 2px;
+    background-color: #fff;
+    border: 2px solid #0daabc;
+    border-radius: 50%;
+  }
+
+  &__card-author-svg {
+    width: 16px;
+    color: #0daabc;
+  }
+
+  &__video-card-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__video-card-author-name {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__video-card-author-info {
+    font-size: 12px;
+    color: #fff;
+  }
+
+  &__video-card-s {
+    position: relative;
+    padding: 30px;
+    background-color: #696969;
+    background-image: url(https://images.vexels.com/media/users/3/310365/isolated/preview/a1c41242cb08bb9b27cfba1f835e6789-animal-de-cachorro-golden-retriever.png);
+    filter: saturate(1.4);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100%;
+    border-radius: 20px;
+
+    @media screen and (max-width: 768px) {
+      background-size: 100%;
+    }
+
+    .content__video-card-view {
       flex-direction: column;
-      align-self: stretch;
-      padding: 30px;
-      overflow: hidden;
-      background-color: #31abbd;
-      background-image: url(https://images.vexels.com/media/users/3/210964/isolated/preview/9b8f69a5180ae3b60f65d65612db7bda-cachorro-sorrindo-feliz-ilustracao.png);
-      background-repeat: no-repeat;
-          background-position-x: right;
-      background-size: 68%;
-      border-radius: 20px;
-      transition: background 0.3s;
-          
-          @media screen and (max-width: 768px) {
-          background-size: 85%;
+      align-items: flex-start;
+    }
+  }
+
+  &__video-time {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #fff;
+    text-align: end;
+    background-color: rgb(21 13 13 / 44%);
+    border-radius: 4px;
+  }
+
+  &__video-list {
+    display: grid;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__video-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #252936;
+    border-radius: 20px;
+    transition: 0.3s all ease-in-out;
+
+    &:hover {
+
+      video {
+        transform: scale(1.25);
+        transform-origin: center;
+
+        @media screen and (max-width: 768px) {
+          transform: none;
+        }
       }
-    }
-  
-    &__video-card-title {
-      max-width: 7.2em;
-      margin: 4px 0 16px;
-      font-size: 25px;
-      font-weight: 600;
-      color: #fff;
-    }
-  
-    &__video-card-view {
-      display: flex;
-      align-items: flex-end;
-      gap: 12px;
-    }
-  
-    &__video-card-author {
-      position: relative;
-      transition: 0.3s all ease-in-out;
-  
-      @media screen and (max-width: 768px) {
+
+      .content__video-card-author {
+        bottom: -44px;
+        transform: scale(0.6);
+      }
+
+      .content__video-pretitle {
+        opacity: 0;
+
+        @media screen and (max-width: 768px) {
+          opacity: 1;
+        }
+      }
+
+      .content__video-time {
         display: none;
       }
     }
-  
-    &__card-author-img {
-      width: 42px;
-      height: 42px;
-      padding: 4px;
-      border: 1px solid #ffffffbf;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  
-    &__card-author-icon {
-      position: absolute;
-      right: 0;
-      bottom: 4px;
+
+    @media screen and (max-width: 768px) {
       display: flex;
       align-items: center;
-      width: 8px;
-      height: 8px;
-      padding: 2px;
-      background-color: #fff;
-      border: 2px solid #0daabc;
-      border-radius: 50%;
+      background-color: initial;
+      gap: 16px;
     }
-  
-    &__card-author-svg {
-      width: 16px;
-      color: #0daabc;
-    }
-  
-    &__video-card-detail {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 8px;
-    }
-  
-    &__video-card-author-name {
+
+    video {
       display: block;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-    }
-  
-    &__video-card-author-info {
-      font-size: 12px;
-      color: #fff;
-    }
-  
-    &__video-card-s {
-      position: relative;
-      padding: 30px;
-      background-color: #696969;
-      background-image: url(https://images.vexels.com/media/users/3/310365/isolated/preview/a1c41242cb08bb9b27cfba1f835e6789-animal-de-cachorro-golden-retriever.png);
-      filter: saturate(1.4);
-      background-repeat: no-repeat;
-      background-position: top left;
-      background-size: 100%;
-      border-radius: 20px;
-          
-          @media screen and (max-width: 768px) {
-          background-size: 100%;
-      }
-  
-      .content__video-card-view {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  
-    &__video-time {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      padding: 4px 8px;
-      font-size: 12px;
-      color: #fff;
-      text-align: end;
-      background-color: rgb(21 13 13 / 44%);
-      border-radius: 4px;
-    }
-  
-    &__video-list {
-      display: grid;
       width: 100%;
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 20px;
-  
-      @media screen and (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-  
-      @media screen and (max-width: 768px) {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
-  
-    &__video-link {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      text-decoration: none;
-      background-color: #252936;
-      border-radius: 20px;
-      transition: 0.3s all ease-in-out;
-  
-      &:hover {
-  
-        video {
-          transform: scale(1.25);
-          transform-origin: center;
-  
-          @media screen and (max-width: 768px) {
-            transform: none;
-          }
-        }
-  
-        .content__video-card-author {
-          bottom: -44px;
-          transform: scale(0.6);
-        }
-  
-        .content__video-pretitle {
-          opacity: 0;
-  
-          @media screen and (max-width: 768px) {
-            opacity: 1;
-          }
-        }
-  
-        .content__video-time {
-          display: none;
-        }
-      }
-  
-      @media screen and (max-width: 768px) {
-        display: flex;
-        align-items: center;
-        background-color: initial;
-        gap: 16px;
-      }
-  
-      video {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-        max-height: 100%;
-        cursor: pointer;
-        border-radius: 20px 20px 0 0;
-        transition: 0.3s transform ease-in-out;
-  
-        @media screen and (max-width: 768px) {
-          border-radius: 20px;
-        }
-      }
-    }
-  
-    .vsc-controller {
-      display: none;
-    }
-  
-    &__video-wrapper {
-      position: relative;
-      width: 100%;
+      max-width: 100%;
       height: 100%;
-  
-      .content__video-card-author {
-        position: absolute;
-        right: 4px;
-        bottom: -28px;
-      }
-  
-      .content__video-time {
-        top: 10px;
-        right: 10px;
-        bottom: initial;
-        display: flex;
-        padding: 4px 8px;
-        font-size: 10px;
-        text-align: end;
-        background-color: rgb(21 13 13 / 44%);
-        border-radius: 8px;
-              
-              @media screen and (max-width: 600px) {
-                  display: none;
-              }
-      }
-    }
-  
-    &__video-info {
-      padding: 16px 20px;
-  
+      max-height: 100%;
+      cursor: pointer;
+      border-radius: 20px 20px 0 0;
+      transition: 0.3s transform ease-in-out;
+
       @media screen and (max-width: 768px) {
-        padding: 0;
-        font-size: 14px;
+        border-radius: 20px;
       }
-  
-      .content__video-card-author-info {
-        color: #808191;
-      }
-    }
-  
-    &__video-pretitle {
-      margin: 0;
-      font-size: 0.9em;
-      font-weight: 400px;
-      color: #808191;
-      transition: 0.3s opacity ease-in-out;
-    }
-  
-    &__video-caption {
-      margin: 0.6em 0;
-      font-size: 1.1em;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #fff;
     }
   }
+
+  .vsc-controller {
+    display: none;
+  }
+
+  &__video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .content__video-card-author {
+      position: absolute;
+      right: 4px;
+      bottom: -28px;
+    }
+
+    .content__video-time {
+      top: 10px;
+      right: 10px;
+      bottom: initial;
+      display: flex;
+      padding: 4px 8px;
+      font-size: 10px;
+      text-align: end;
+      background-color: rgb(21 13 13 / 44%);
+      border-radius: 8px;
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
+  &__video-info {
+    padding: 16px 20px;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .content__video-card-author-info {
+      color: #808191;
+    }
+  }
+
+  &__video-pretitle {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 400px;
+    color: #808191;
+    transition: 0.3s opacity ease-in-out;
+  }
+
+  &__video-caption {
+    margin: 0.6em 0;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+  }
+}
