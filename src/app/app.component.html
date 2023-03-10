@@ -1,12 +1,33 @@
-<div class="outer-container">
-    <div class="container">
-        <app-side-bar></app-side-bar>
-        <div class="main-wrapper">
-            <div class="topbar">
-                <app-search></app-search>
-                <app-top-bar></app-top-bar>
+<ng-container *ngIf="ClientLogged">
+    <div class="outer-container">
+        <div class="container">
+            <app-side-bar></app-side-bar>
+            <div class="main-wrapper">
+                <div class="topbar">
+                    <app-search></app-search>
+                    <app-top-bar></app-top-bar>
+                </div>
+                <app-content></app-content> 
             </div>
-            <app-content></app-content> 
         </div>
     </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="AdminLogged">
+    <div class="outer-container">
+        <div class="container">
+            <app-side-bar></app-side-bar>
+            <div class="main-wrapper">
+                <div class="topbar">
+                    <app-search></app-search>
+                    <app-top-bar></app-top-bar>
+                </div>
+                <app-content></app-content> 
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="inLogin">
+    LOGIN
+</ng-container>
