@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'buddyCarer';
-  inLogin = false;
+  
   userType = 'client';
+  inLogin = false;
 }
