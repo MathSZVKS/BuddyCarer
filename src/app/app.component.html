@@ -7,7 +7,7 @@
             <div class="main-wrapper">
                 <div class="topbar">
                     <app-search></app-search>
-                    <app-top-bar></app-top-bar>
+                    <app-top-bar (loginEvent)="openLoginInterface()"></app-top-bar>
                 </div>
                 <app-content style="overflow: auto;"></app-content> 
             </div>
@@ -19,8 +19,8 @@
     <div class="outer-container">
         <div class="container">
             <div class="main-wrapper">
-                <div class="topbar">
-                    <app-top-bar></app-top-bar>
+                <div>
+                    <app-login></app-login>
                 </div>
             </div>
         </div>

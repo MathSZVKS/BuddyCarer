@@ -10,4 +10,8 @@ export class AppComponent {
   
   userType = 'client';
   inLogin = false;
+
+  openLoginInterface(){
+    this.inLogin = true;
+  }
 }

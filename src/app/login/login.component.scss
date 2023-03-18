@@ -1,0 +1,54 @@
+.user {
+  background: #353340;
+  border-radius: 12px;
+  border: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  border: none;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(134, 140, 160, 0.02);
+  transition: 400ms linear;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  width: 15em;
+  height: 2em;
+
+  &:focus{
+    transform: scale(1.1);
+    transition: 200ms linear;
+  }
+}
+
+.password {
+  margin-top: 15px;
+  background: #353340;
+  border-radius: 12px;
+  border: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(134, 140, 160, 0.02);
+  transition: 400ms linear;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  width: 15em;
+  height: 2em;
+
+  &:focus{
+    transform: scale(1.1);
+    transition: 200ms linear;
+  }
+}
+
+
+
+
+
