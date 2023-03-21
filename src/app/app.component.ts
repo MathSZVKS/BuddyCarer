@@ -9,9 +9,17 @@ export class AppComponent {
   title = 'buddyCarer';
   
   userType = 'client';
-  inLogin = false;
+  inLogin = true;
 
   openLoginInterface(){
     this.inLogin = true;
+  }
+
+  acessGaranted(evento: any){
+    if(evento){
+      this.inLogin = false;
+    }else{
+      alert('acesso negado');
+    }
   }
 }

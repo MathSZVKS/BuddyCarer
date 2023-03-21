@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class TopBarComponent {
   @Output() loginEvent = new EventEmitter<boolean>();
+  
   logged = false;
 
   verifyLogin(){

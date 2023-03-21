@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -8,8 +8,11 @@ import { LoginService } from '../services/login.service';
   providers: [LoginService]
 })
 export class LoginComponent {
+  @Output() loginStatus = new EventEmitter<boolean>();
+
   user = '';
   password = '';
+  accessPermited: any;
 
   constructor(
     public loginService: LoginService,
@@ -24,7 +27,7 @@ export class LoginComponent {
   }
 
   access(){
-    this.loginService.login(this.user, this.password)
+    this.loginStatus.emit(this.loginService.login(this.user, this.password));
   }
 
 }

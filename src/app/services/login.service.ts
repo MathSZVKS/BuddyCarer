@@ -8,10 +8,13 @@ export class LoginService {
   constructor() { }
 
   login(user: string, password: string){
+    let logged;
+
     if(user == 'admin' && password == 'admin'){
-      return alert('logado');
+      logged = true;
     }else{
-      return alert('nao logado');
+      logged = false;
     }
+    return logged;
   }
 }
