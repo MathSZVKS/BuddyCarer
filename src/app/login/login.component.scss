@@ -3,10 +3,8 @@
   border-radius: 12px;
   border: none;
   text-align: center;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20%;
   outline: 0;
   box-shadow: 0 0 2px 2px rgb(76 76 76 / 19%);
   transition: 400ms linear;
@@ -15,6 +13,8 @@
   font-weight: 500;
   width: 16em;
   height: 2em;
+  display: block;
+  margin-bottom: 1em;
 
   &:focus{
     transform: scale(1.1);
@@ -23,12 +23,10 @@
 }
 
 .password {
-  margin-top: 15px;
   background: #353340;
   border-radius: 12px;
   border: none;
   text-align: center;
-  display: block;
   margin-left: auto;
   margin-right: auto;
   outline: 0;
@@ -39,6 +37,8 @@
   font-weight: 500;
   width: 16em;
   height: 2em;
+  display: block;
+  margin-bottom: 1em;
 
   &:focus{
     transform: scale(1.1);
@@ -47,13 +47,18 @@
 }
 
 .login {
-  margin-top: 15px;
   border-radius: 15px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1em;
 }
 
+.loginText{
+  color: #c3c3c3;
+  font-weight: bold;
+  text-align: center;
+}
 
 
 
