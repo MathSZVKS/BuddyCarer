@@ -7,7 +7,11 @@
             <div class="main-wrapper">
                 <div class="topbar">
                     <app-search></app-search>
-                    <app-top-bar (loginEvent)="openLoginInterface()"></app-top-bar>
+                    <app-top-bar 
+                        (loginEvent)="openLoginInterface()"
+                        [userLogged]="userLogged"
+                        (logOffUser)="updateUserLogged($event)"
+                    ></app-top-bar>
                 </div>
                 <app-content style="overflow: auto;"></app-content> 
             </div>

@@ -36,6 +36,28 @@
     }
   }
 
+  &__closeSession {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: 200ms linear;
+    text-align: center;
+    padding-top: 8px;
+
+    &:hover {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      object-fit: cover;
+      transform: scale(1.1);
+      transition: 200ms linear;
+      color: rgb(235, 101, 39);
+    }
+  }
+
   &__notif {
     position: relative;
     cursor: pointer;

@@ -8,7 +8,7 @@ import { LoginService } from '../services/login.service';
   providers: [LoginService]
 })
 export class LoginComponent {
-  @Output() loginStatus = new EventEmitter<boolean>();
+  @Output() loginStatus = new EventEmitter<object>();
   @Output() return = new EventEmitter<boolean>();
 
   user = '';

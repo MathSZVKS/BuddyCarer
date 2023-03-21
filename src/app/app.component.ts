@@ -10,25 +10,30 @@ export class AppComponent {
   constructor(private toastr: ToastrService) {}
 
   title = 'buddyCarer';
-  
   userType = 'client';
   inLogin = false;
+  userLogged = '';
 
   openLoginInterface(){
     this.inLogin = true;
   }
 
-  acessGaranted(evento: any){
-    if(evento){
+  acessGaranted(event: any){
+    if(event.permissionAccess){
       this.inLogin = false;
+      this.userLogged = event.user;
     }else{
-      this.toastr.error('Acesso Negado');
+      this.toastr.error('Usuário ou senha incorretos');
     }
   }
 
-  return(evento: any){
-    if(evento){
+  return(event: any){
+    if(event){
       this.inLogin = false;
     }
+  }
+
+  updateUserLogged(event: any){
+    this.userLogged = event;
   }
 }

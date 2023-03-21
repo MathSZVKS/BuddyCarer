@@ -8,12 +8,12 @@ export class LoginService {
   constructor() { }
 
   login(user: string, password: string){
-    let logged;
+    let logged = {};
 
-    if(user == 'admin' && password == 'admin'){
-      logged = true;
+    if(user == 'admin' && password == 'admin' || user == 'client' && password == 'client'){
+      logged = { "permissionAccess": true, "user": user };
     }else{
-      logged = false;
+      logged = { "permissionAccess": false, "user": '' }
     }
     return logged;
   }
