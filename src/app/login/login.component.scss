@@ -16,7 +16,7 @@
   display: block;
   margin-bottom: 1em;
 
-  &:focus{
+  &:focus {
     transform: scale(1.1);
     transition: 200ms linear;
   }
@@ -40,7 +40,7 @@
   display: block;
   margin-bottom: 1em;
 
-  &:focus{
+  &:focus {
     transform: scale(1.1);
     transition: 200ms linear;
   }
@@ -54,12 +54,8 @@
   margin-bottom: 1em;
 }
 
-.loginText{
+.loginText {
   color: #c3c3c3;
   font-weight: bold;
   text-align: center;
 }
-
-
-
-

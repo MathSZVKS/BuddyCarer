@@ -1,28 +1,32 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-top-bar',
-  templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.scss']
+  selector: "app-top-bar",
+  templateUrl: "./top-bar.component.html",
+  styleUrls: ["./top-bar.component.scss"],
 })
 export class TopBarComponent {
   @Output() loginEvent = new EventEmitter<boolean>();
   @Output() logOffUser = new EventEmitter<string>();
-  @Input() userLogged = '';
-  
+  @Output() openUserPage = new EventEmitter<boolean>();
+  @Input() userLogged = "";
+
   logged = false;
   faPowerOff = faPowerOff;
 
-  verifyLogin(){
-    this.logged = true;
-    this.loginEvent.emit(this.logged);
+  verifyLogin() {
+    if (this.userLogged == "") {
+      this.logged = true;
+      this.loginEvent.emit(this.logged);
+    } else {
+      this.openUserPage.emit(true);
+    }
   }
 
-  logOff(){
+  logOff() {
     this.logged = false;
-    this.userLogged = '';
-    this.logOffUser.emit('');
+    this.userLogged = "";
+    this.logOffUser.emit("");
   }
-
 }

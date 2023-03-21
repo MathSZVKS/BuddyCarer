@@ -83,7 +83,6 @@
   }
 
   &__item {
-
     &:hover,
     .is-active {
       .sidebar__item-text {
@@ -134,7 +133,8 @@
       display: none;
     }
 
-    @media screen and (max-width: 930px) {}
+    @media screen and (max-width: 930px) {
+    }
   }
 
   &__svg-icon {

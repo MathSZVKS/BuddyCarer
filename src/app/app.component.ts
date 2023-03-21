@@ -1,39 +1,47 @@
-import { Component, Input } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, Input } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   constructor(private toastr: ToastrService) {}
 
-  title = 'buddyCarer';
-  userType = 'client';
+  title = "buddyCarer";
+  userType = "client";
   inLogin = false;
-  userLogged = '';
+  userLogged = "";
+  page = "initial";
 
-  openLoginInterface(){
+  openLoginInterface() {
     this.inLogin = true;
   }
 
-  acessGaranted(event: any){
-    if(event.permissionAccess){
+  acessGaranted(event: any) {
+    if (event.permissionAccess) {
       this.inLogin = false;
       this.userLogged = event.user;
-    }else{
-      this.toastr.error('Usuário ou senha incorretos');
+      this.userType = event.type;
+    } else {
+      this.toastr.error("Usuário ou senha incorretos");
     }
   }
 
-  return(event: any){
-    if(event){
+  return(event: any) {
+    if (event) {
       this.inLogin = false;
     }
   }
 
-  updateUserLogged(event: any){
+  logOffUser(event: any) {
     this.userLogged = event;
+    this.userType = "client";
+    this.page = "initial";
+  }
+
+  openUserPage(event: any) {
+    this.page = "user";
   }
 }

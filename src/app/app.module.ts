@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ContentComponent } from './content/content.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { SearchComponent } from './search/search.component';
-import { LoginComponent } from './login/login.component';
-import { ToastrModule } from 'ngx-toastr';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { SideBarComponent } from "./side-bar/side-bar.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AngularMaterialModule } from "./angular-material/angular-material.module";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { ContentComponent } from "./content/content.component";
+import { TopBarComponent } from "./top-bar/top-bar.component";
+import { SearchComponent } from "./search/search.component";
+import { LoginComponent } from "./login/login.component";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
     ContentComponent,
     TopBarComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,12 +29,11 @@ import { ToastrModule } from 'ngx-toastr';
     AngularMaterialModule,
     FontAwesomeModule,
     ToastrModule.forRoot({
-      preventDuplicates: true
-    })
+      preventDuplicates: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {
- }
+export class AppModule {}

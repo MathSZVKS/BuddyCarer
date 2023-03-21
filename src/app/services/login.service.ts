@@ -1,19 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LoginService {
+  constructor() {}
 
-  constructor() { }
-
-  login(user: string, password: string){
+  login(user: string, password: string) {
     let logged = {};
 
-    if(user == 'admin' && password == 'admin' || user == 'client' && password == 'client'){
-      logged = { "permissionAccess": true, "user": user };
-    }else{
-      logged = { "permissionAccess": false, "user": '' }
+    if (user == "admin" && password == "admin") {
+      logged = { permissionAccess: true, user: user, type: "admin" };
+    } else if (user == "client" && password == "client") {
+      logged = { permissionAccess: true, user: user, type: "client" };
+    } else {
+      logged = { permissionAccess: false, user: "" };
     }
     return logged;
   }

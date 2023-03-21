@@ -1,35 +1,34 @@
 <ng-container *ngIf="!inLogin">
-    <div class="outer-container">
-        <div class="container">
-            <app-side-bar
-                [userType]="userType"
-            ></app-side-bar>
-            <div class="main-wrapper">
-                <div class="topbar">
-                    <app-search></app-search>
-                    <app-top-bar 
-                        (loginEvent)="openLoginInterface()"
-                        [userLogged]="userLogged"
-                        (logOffUser)="updateUserLogged($event)"
-                    ></app-top-bar>
-                </div>
-                <app-content style="overflow: auto;"></app-content> 
-            </div>
+  <div class="outer-container">
+    <div class="container">
+      <app-side-bar [userType]="userType"></app-side-bar>
+      <div class="main-wrapper">
+        <div class="topbar">
+          <app-search></app-search>
+          <app-top-bar
+            (loginEvent)="openLoginInterface()"
+            [userLogged]="userLogged"
+            (logOffUser)="logOffUser($event)"
+            (openUserPage)="openUserPage($event)"
+          ></app-top-bar>
         </div>
+        <app-content style="overflow: auto" [page]="page"></app-content>
+      </div>
     </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="inLogin">
-    <div class="outer-container">
-        <div class="container">
-            <div class="main-wrapper-login">
-                <div class="login">
-                    <app-login 
-                        (loginStatus)="acessGaranted($event)"
-                        (return)="return($event)"
-                    ></app-login>
-                </div>
-            </div>
+  <div class="outer-container">
+    <div class="container">
+      <div class="main-wrapper-login">
+        <div class="login">
+          <app-login
+            (loginStatus)="acessGaranted($event)"
+            (return)="return($event)"
+          ></app-login>
         </div>
+      </div>
     </div>
+  </div>
 </ng-container>

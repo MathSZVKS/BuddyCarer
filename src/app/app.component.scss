@@ -1,71 +1,76 @@
 .outer-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 27px;
-    font-family: "Inter", sans-serif;
-    background: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(72,72,119,1) 61%, rgba(62,77,84,1) 100%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: exclusion;
-  }
-  
-  .container {
-    position: relative;
-    display: flex;
-    width: 100%;
-    max-width: 1240px;
-    height: 95vh;
-    max-height: 900px;
-    overflow: hidden;
-    font-size: 15px;
-    font-weight: 500;
-    color: #808191;
-    background-color: #1f1d2b;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
-  }
-  
-  .main-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 27px;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 32, 32, 1) 0%,
+    rgba(72, 72, 119, 1) 61%,
+    rgba(62, 77, 84, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: exclusion;
+}
 
-  .main-wrapper-login {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-  }
-    
-  ::-webkit-scrollbar {
-    width: 6px;
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #353340;
-    border-radius: 10px;
-  }
-  
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px;
-    gap: 16px;
-      
-      @media screen and (max-width: 600px) {
-        padding: 32px 32px 16px;
-      }
-  }
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1240px;
+  height: 95vh;
+  max-height: 900px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  color: #808191;
+  background-color: #1f1d2b;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+}
 
-  .login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.main-wrapper-login {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #353340;
+  border-radius: 10px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  gap: 16px;
+
+  @media screen and (max-width: 600px) {
+    padding: 32px 32px 16px;
   }
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
