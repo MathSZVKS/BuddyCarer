@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private toastr: ToastrService) {}
+
   title = 'buddyCarer';
   
   userType = 'client';
-  inLogin = true;
+  inLogin = false;
 
   openLoginInterface(){
     this.inLogin = true;
@@ -19,7 +22,7 @@ export class AppComponent {
     if(evento){
       this.inLogin = false;
     }else{
-      alert('acesso negado');
+      this.toastr.error('Acesso Negado');
     }
   }
 
