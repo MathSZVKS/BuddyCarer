@@ -2,4 +2,5 @@
     <input #user (change)="registerValue(user.value, 'user')" class="user" type="text" placeholder="user">
     <input #password (change)="registerValue(password.value, 'password')" class="password" type="password" placeholder="password">
     <button (click)="access()" class="login" mat-raised-button color="primary">Acessar</button>
+    <button (click)="returnPage()" class="login" mat-button color="danger">Voltar</button>
 </div>

@@ -22,4 +22,10 @@ export class AppComponent {
       alert('acesso negado');
     }
   }
+
+  return(evento: any){
+    if(evento){
+      this.inLogin = false;
+    }
+  }
 }

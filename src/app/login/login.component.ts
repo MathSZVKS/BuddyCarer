@@ -9,6 +9,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent {
   @Output() loginStatus = new EventEmitter<boolean>();
+  @Output() return = new EventEmitter<boolean>();
 
   user = '';
   password = '';
@@ -28,6 +29,10 @@ export class LoginComponent {
 
   access(){
     this.loginStatus.emit(this.loginService.login(this.user, this.password));
+  }
+
+  returnPage(){
+    this.return.emit(true);
   }
 
 }

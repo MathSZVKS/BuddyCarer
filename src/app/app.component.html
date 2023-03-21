@@ -20,7 +20,10 @@
         <div class="container">
             <div class="main-wrapper">
                 <div>
-                    <app-login (loginStatus)="acessGaranted($event)"></app-login>
+                    <app-login 
+                        (loginStatus)="acessGaranted($event)"
+                        (return)="return($event)"
+                    ></app-login>
                 </div>
             </div>
         </div>
