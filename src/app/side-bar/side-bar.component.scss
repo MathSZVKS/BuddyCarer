@@ -92,26 +92,32 @@
       .sidebar__svg-icon {
         color: #fff;
         background-color: #ff7551;
+        cursor: pointer;
       }
 
       &:nth-child(1) .sidebar__svg-icon {
         background-color: #ff7551;
+        cursor: pointer;
       }
 
       &:nth-child(2) .sidebar__svg-icon {
         background-color: #32a7e2;
+        cursor: pointer;
       }
 
       &:nth-child(3) .sidebar__svg-icon {
         background-color: #6c5ecf;
+        cursor: pointer;
       }
 
       &:nth-child(4) .sidebar__svg-icon {
         background-color: #22b07d;
+        cursor: pointer;
       }
 
       &:nth-child(5) .sidebar__svg-icon {
         background-color: #32a7e2;
+        cursor: pointer;
       }
     }
   }

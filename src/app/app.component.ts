@@ -41,7 +41,7 @@ export class AppComponent {
     this.page = "initial";
   }
 
-  openUserPage(event: any) {
-    this.page = "user";
+  alterPage(event: any) {
+    this.page = event;
   }
 }

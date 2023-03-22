@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "app-side-bar",
@@ -7,4 +7,10 @@ import { Component, Input } from "@angular/core";
 })
 export class SideBarComponent {
   @Input() userType = "";
+
+  @Output() choosePage = new EventEmitter<string>();
+
+  alterPage(page = ''){
+    this.choosePage.emit(page);
+  }
 }

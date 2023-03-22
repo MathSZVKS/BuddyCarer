@@ -9,7 +9,7 @@ import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 export class TopBarComponent {
   @Output() loginEvent = new EventEmitter<boolean>();
   @Output() logOffUser = new EventEmitter<string>();
-  @Output() openUserPage = new EventEmitter<boolean>();
+  @Output() openUserPage = new EventEmitter<string>();
   @Input() userLogged = "";
 
   logged = false;
@@ -20,7 +20,7 @@ export class TopBarComponent {
       this.logged = true;
       this.loginEvent.emit(this.logged);
     } else {
-      this.openUserPage.emit(true);
+      this.openUserPage.emit('user');
     }
   }
 
