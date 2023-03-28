@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { LoginService } from "../services/login.service";
+import { LoginService } from "../services/login/login.service";
 
 @Component({
   selector: "app-login",
