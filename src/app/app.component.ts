@@ -29,19 +29,23 @@ export class AppComponent {
     }
   }
 
-  return(event: any) {
+  return(event: boolean) {
     if (event) {
       this.inLogin = false;
     }
   }
 
-  logOffUser(event: any) {
-    this.userLogged = event;
+  logOffUser() {
+    this.userLogged = '';
     this.userType = "client";
     this.page = "initial";
   }
 
-  alterPage(event: any) {
-    this.page = event;
+  alterPage(page: string) {
+    this.page = page;
+  }
+
+  sendUserLogged(userLogged: string){
+    userLogged = this.userLogged;
   }
 }

@@ -13,7 +13,6 @@ export class LoginComponent {
 
   user = "";
   password = "";
-  accessPermited: any;
 
   constructor(public loginService: LoginService) {}
 
