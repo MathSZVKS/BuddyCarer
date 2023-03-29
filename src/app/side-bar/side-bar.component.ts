@@ -19,7 +19,7 @@ export class SideBarComponent {
   alterPage(page = ''){
     this.checkUserLogged.emit();
 
-    if(this.userLogged != ''){
+    if(this.userLogged != '' || page == 'initial'){
       this.choosePage.emit(page);
     }else{
       this.toastr.warning("Necessário efetuar o login para acessar a página");
