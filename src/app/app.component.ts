@@ -25,12 +25,12 @@ export class AppComponent {
       this.userLogged = event.user;
       this.userType = event.type;
     } else {
-      this.toastr.error("Usuário ou senha incorretos");
+      this.toastr.error("Usuário ou senha inválidos");
     }
   }
 
-  return(event: boolean) {
-    if (event) {
+  return(event: string) {
+    if (event = 'initial') {
       this.inLogin = false;
     }
   }

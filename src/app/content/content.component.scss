@@ -1,44 +1,44 @@
 .content {
   @keyframes fadeIn {
     from {
-      opacity: 0; /* começa com opacidade zero */
+      opacity: 0;
     }
     to {
-      opacity: 1; /* termina com opacidade total */
+      opacity: 1;
     }
   }
   
   @keyframes bounce-in {
     0% {
-      transform: translateY(500px); /* começa fora da tela */
+      transform: translateY(500px);
       animation-timing-function: ease-in;
     }
     38% {
-      transform: translateY(-30px); /* pula para cima */
+      transform: translateY(-30px);
       animation-timing-function: ease-out;
     }
     55% {
-      transform: translateY(15px); /* cai um pouco */
+      transform: translateY(15px);
       animation-timing-function: ease-in;
     }
     72% {
-      transform: translateY(-8px); /* volta a subir um pouco */
+      transform: translateY(-8px);
       animation-timing-function: ease-out;
     }
     81% {
-      transform: translateY(0px); /* volta à posição original */
+      transform: translateY(0px);
       animation-timing-function: ease-in;
     }
     89% {
-      transform: translateY(-3px); /* sutil movimento para cima */
+      transform: translateY(-3px);
       animation-timing-function: ease-out;
     }
     95% {
-      transform: translateY(0px); /* volta à posição original */
+      transform: translateY(0px);
       animation-timing-function: ease-in;
     }
     100% {
-      transform: translateY(0px); /* termina na posição original */
+      transform: translateY(0px);
     }
   }
 

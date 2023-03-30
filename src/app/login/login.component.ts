@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 import { LoginService } from "../services/login/login.service";
+import { RegisterService } from "../services/register/register.service";
 
 @Component({
   selector: "app-login",
@@ -9,26 +11,83 @@ import { LoginService } from "../services/login/login.service";
 })
 export class LoginComponent {
   @Output() loginStatus = new EventEmitter<object>();
-  @Output() return = new EventEmitter<boolean>();
+  @Output() return = new EventEmitter<string>();
 
-  user = "";
-  password = "";
+  inLogin = true;
 
-  constructor(public loginService: LoginService) {}
+  userToLogin = "";
+  passwordToLogin = "";
+  
+  userToRegister = "";
+  passwordToRegister = "";
+  nameToRegister = "";
+  emailToRegister = "";
 
-  registerValue(value: string, type: string) {
+  constructor(
+    public loginService: LoginService,
+    public registerService: RegisterService,
+    private toastr: ToastrService
+    ) {}
+
+  registerValueToLogin(value: string, type: string) {
     if (type == "user") {
-      this.user = value;
+      this.userToLogin = value;
     } else if ((type = "password")) {
-      this.password = value;
+      this.passwordToLogin = value;
+    }
+  }
+
+  registerValueToRegister(value: string, type: string){
+    switch(type){
+      case 'user':
+        this.userToRegister = value;
+      break;
+      case 'password':
+        this.passwordToRegister = value;
+      break;
+      case 'name':
+        this.nameToRegister = value;
+      break;
+      case 'email':
+        this.emailToRegister = value;
+      break;
+    }
+  }
+  
+  registerNewUser(){
+    if(this.userToRegister == '' || this.passwordToRegister == '' || this.nameToRegister == '' || this.emailToRegister == ''){
+      this.toastr.warning('Informe todos os dados para o cadastro')
+      return ;
+    }
+
+    let userToRegister = {
+      user: this.userToRegister,
+      password: this.passwordToRegister,
+      name: this.nameToRegister,
+      email: this.emailToRegister
+    }
+
+    if(this.registerService.register(userToRegister) == 'registered'){
+      this.toastr.success('Usuário cadastrado com sucesso :D');
+      this.inLogin = true;
+    }else if(this.registerService.register(userToRegister) == 'notRegistered'){
+      this.toastr.error('Houve um erro no cadastro :(');
     }
   }
 
   access() {
-    this.loginStatus.emit(this.loginService.login(this.user, this.password));
+    this.loginStatus.emit(this.loginService.login(this.userToLogin, this.passwordToLogin));
   }
 
-  returnPage() {
-    this.return.emit(true);
+  returnPage(page: string) {
+    if(page == 'initial'){
+      this.return.emit(page);
+    }else if(page == 'login'){
+      this.inLogin = true;
+    }
+  }
+
+  openRegisterPage(){
+    this.inLogin = false;
   }
 }
