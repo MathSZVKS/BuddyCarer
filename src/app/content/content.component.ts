@@ -13,6 +13,7 @@ export class ContentComponent {
   @Output() choosePage = new EventEmitter<string>();
 
   myPets: any;
+  petSelected: any;
 
   constructor(public myPetsService: MyPetsService){}
 
@@ -56,7 +57,8 @@ export class ContentComponent {
     }
   }
 
-  switchPage(page: string){
+  switchPageAndRegisterPetSelected(page: string, pet: any){
     this.choosePage.emit('aboutPet');
+    this.petSelected = pet;
   }
 }

@@ -76,13 +76,16 @@
 <ng-container *ngIf="page == 'user'"> USER PAGE </ng-container>
 
 <ng-container *ngIf="page == 'myPets'">
-  <div (click)="switchPage('aboutPet')" class="content">
+  <div class="content">
     <h2 class="content__video-heading">Meus Pets</h2>
     <div class="content__video-card-wrapper-pet">
       <ng-container *ngFor="let pet of myPets">
         <div
+          (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
           class="content__video-card-pet"
-          style="background-image: url({{ pet.imagem }}); background-color: {{pet.cardColor}}"
+          style="background-image: url({{ pet.imagem }}); background-color: {{
+            pet.cardColor
+          }}"
         >
           <h3 class="content__video-card-title">
             {{ pet.nome }}
@@ -95,8 +98,35 @@
 
 <ng-container *ngIf="page == 'aboutPet'">
   <div class="content">
-    <h2 class="content__video-heading">Meus Pets</h2>
-    <div class="content__video-card-about-pet">Aqui vai ficar a descrição do PET e foto</div>
+    <h2 class="content__video-heading">Meu Pet</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1 style="font-size: 2rem; color: {{ petSelected.cardColor }}; font-weight: bold; margin-bottom: 3rem;">
+        {{ petSelected.nome }}
+      </h1>
+      <div style="display: flex">
+        <div
+          class="content__video-card-pet"
+          style="background-image: url({{
+            petSelected.imagem
+          }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
+        ></div>
+        <div style="width: 65%; text-align: left; margin-left: 2em;">
+          <strong style="color: white; font-size: 1em;">Raça: </strong>{{petSelected.raca}}<br>
+          <strong style="color: white; font-size: 1em;">Cor: </strong>{{petSelected.cor}}<br>
+          <strong style="color: white; font-size: 1em;">Idade: </strong>{{petSelected.idade}}<br>
+          <strong style="color: white; font-size: 1em;">Peso: </strong>{{petSelected.peso}}<br>
+          <strong style="color: white; font-size: 1em;">Porte: </strong>{{petSelected.porte}}<br>
+          <strong style="color: white; font-size: 1em;">Comportamento: </strong>{{petSelected.comportamento}}<br>
+          <strong style="color: white; font-size: 1em;">Adestramento: </strong>{{petSelected.adestrado}}<br>
+          <strong style="color: white; font-size: 1em;">Origem da Raça: </strong>{{petSelected.origemRaca}}<br>
+          <strong style="color: white; font-size: 1em;">Condições Especiais: </strong>{{petSelected.condicaoEspecial}}<br>
+          <strong style="color: white; font-size: 1em;">Expectativa de Vida: </strong>{{petSelected.expectativaVida}}<br>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-container>
 
