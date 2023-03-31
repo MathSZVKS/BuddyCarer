@@ -1,4 +1,4 @@
-import { Component, Input, ɵɵNgOnChangesFeature } from "@angular/core";
+import { Component, EventEmitter, Input, Output, ɵɵNgOnChangesFeature } from "@angular/core";
 import { MyPetsService } from "../services/myPets/my-pets.service";
 
 @Component({
@@ -10,13 +10,14 @@ import { MyPetsService } from "../services/myPets/my-pets.service";
 export class ContentComponent {
   @Input() page = "initial";
 
+  @Output() choosePage = new EventEmitter<string>();
+
   myPets: any;
 
   constructor(public myPetsService: MyPetsService){}
 
   ngOnChanges(){
     //Carregando os elementos das páginas de forma dinamica para melhorar a performance
-
     switch(this.page){
       case 'myPets':
         this.myPets = this.myPetsService.getMyPets();
@@ -48,10 +49,15 @@ export class ContentComponent {
     
       case 'mockery':
       break;
+
+      case 'aboutPet':
+        this.page = 'aboutPet';
+      break;
     }
   }
 
   switchPage(page: string){
-    this.page = page;
+    
+    this.choosePage.emit('aboutPet');
   }
 }

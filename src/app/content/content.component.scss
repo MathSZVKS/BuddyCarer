@@ -7,7 +7,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes bounce-in {
     0% {
       transform: translateY(500px);
@@ -92,6 +92,22 @@
     gap: 20px;
     transform: translateY(500px); /* começa fora da tela */
     animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  &__video-card-about-pet {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+
+    @media only screen and (max-width: 300px) {
+      .__video-card-about-pet {
+        margin: 10px;
+        padding: 10px;
+      }
+    }
   }
 
   &__video-card-title {
@@ -300,21 +316,5 @@
         display: none;
       }
     }
-  }
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 20px;
-  text-align: center;
-}
-
-@media only screen and (max-width: 300px) {
-  .card {
-    margin: 10px;
-    padding: 10px;
   }
 }

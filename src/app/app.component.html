@@ -12,7 +12,7 @@
             (openUserPage)="alterPage($event)"
           ></app-top-bar>
         </div>
-        <app-content style="overflow: auto" [page]="page"></app-content>
+        <app-content style="overflow: auto" [page]="page" (choosePage)="alterPage($event)"></app-content>
       </div>
     </div>
   </div>
