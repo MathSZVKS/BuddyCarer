@@ -50,4 +50,8 @@ export class ContentComponent {
       break;
     }
   }
+
+  switchPage(page: string){
+    this.page = page;
+  }
 }

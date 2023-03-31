@@ -76,7 +76,7 @@
 <ng-container *ngIf="page == 'user'"> USER PAGE </ng-container>
 
 <ng-container *ngIf="page == 'myPets'">
-  <div class="content">
+  <div (click)="switchPage('aboutPet')" class="content">
     <h2 class="content__video-heading">Meus Pets</h2>
     <div class="content__video-card-wrapper-pet">
       <ng-container *ngFor="let pet of myPets">
@@ -91,6 +91,10 @@
       </ng-container>
     </div>
   </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'aboutPet'">
+  <div class="card">teste</div>
 </ng-container>
 
 <ng-container *ngIf="page == 'Calendar'"> AGENDA </ng-container>
