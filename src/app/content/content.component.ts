@@ -57,7 +57,6 @@ export class ContentComponent {
   }
 
   switchPage(page: string){
-    
     this.choosePage.emit('aboutPet');
   }
 }
