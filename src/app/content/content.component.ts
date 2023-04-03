@@ -57,6 +57,10 @@ export class ContentComponent {
     }
   }
 
+  alterPage(page: string){
+    this.page = page;
+  }
+
   switchPageAndRegisterPetSelected(page: string, pet: any){
     this.choosePage.emit('aboutPet');
     this.petSelected = pet;
