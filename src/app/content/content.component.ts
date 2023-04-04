@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output, ɵɵNgOnChangesFeature } from "@angular/core";
 import { MyPetsService } from "../services/myPets/my-pets.service";
+import { CalendarOptions } from "@fullcalendar/core";
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
   selector: "app-content",
@@ -11,6 +13,16 @@ export class ContentComponent {
   @Input() page = "initial";
 
   @Output() choosePage = new EventEmitter<string>();
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    eventClick: this.handleDateClick.bind(this),
+    plugins: [dayGridPlugin],
+    events: [
+      { title: 'event 1', date: '2023-04-03' },
+      { title: 'event 2', date: '2019-04-02' }
+    ]
+  };
 
   myPets: any;
   petSelected: any;
@@ -64,5 +76,9 @@ export class ContentComponent {
   switchPageAndRegisterPetSelected(page: string, pet: any){
     this.choosePage.emit('aboutPet');
     this.petSelected = pet;
+  }
+
+  handleDateClick(arg: any) {
+    alert('date click! ' + arg.dateStr)
   }
 }

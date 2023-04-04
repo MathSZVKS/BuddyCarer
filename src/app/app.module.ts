@@ -12,6 +12,7 @@ import { TopBarComponent } from "./top-bar/top-bar.component";
 import { SearchComponent } from "./search/search.component";
 import { LoginComponent } from "./login/login.component";
 import { ToastrModule } from "ngx-toastr";
+import { FullCalendarModule } from '@fullcalendar/angular'; 
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ToastrModule } from "ngx-toastr";
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,

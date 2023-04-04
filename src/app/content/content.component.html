@@ -133,7 +133,9 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="page == 'Calendar'"> AGENDA </ng-container>
+<ng-container *ngIf="page == 'Calendar'"> 
+  <full-calendar [options]="calendarOptions"></full-calendar>
+</ng-container>
 
 <ng-container *ngIf="page == 'Care'"> VACINAS </ng-container>
 
