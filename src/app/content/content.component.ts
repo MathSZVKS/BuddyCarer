@@ -21,7 +21,8 @@ export class ContentComponent {
     events: [
       { title: 'event 1', date: '2023-04-03' },
       { title: 'event 2', date: '2019-04-02' }
-    ]
+    ],
+    weekends: true
   };
 
   myPets: any;

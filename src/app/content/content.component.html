@@ -134,7 +134,15 @@
 </ng-container>
 
 <ng-container *ngIf="page == 'Calendar'"> 
-  <full-calendar [options]="calendarOptions"></full-calendar>
+  <div class="content">
+    <h2 class="content__video-heading">Agenda</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+    <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="page == 'Care'"> VACINAS </ng-container>
