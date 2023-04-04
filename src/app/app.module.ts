@@ -13,6 +13,7 @@ import { SearchComponent } from "./search/search.component";
 import { LoginComponent } from "./login/login.component";
 import { ToastrModule } from "ngx-toastr";
 import { FullCalendarModule } from '@fullcalendar/angular'; 
+import {ProgressBarModule} from "angular-progress-bar"
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
   ],
   imports: [
     BrowserModule,
+    ProgressBarModule,
     FullCalendarModule,
     AppRoutingModule,
     BrowserAnimationsModule,

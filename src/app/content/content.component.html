@@ -137,9 +137,12 @@
       <h1 style="font-size: 2rem; color: rgb(182, 180, 180); font-weight: bold; margin-bottom: 3rem;">
         Acompanhamento
       </h1>
-      <div *ngFor="let petCare of petSelectedCare"style="width: 100%; text-align: left; margin-left: 2em;">
+      <div *ngFor="let petCare of petSelectedCare"style="width: 100%; text-align: left; margin-bottom: 1.5em">
         <strong style="color: white; font-size: 1em;">{{petCare.care}}: </strong>{{petCare.careStatus}}<br>
+        <progress-bar [progress]="petCare.carePercentagem" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">
+        </progress-bar>
       </div>
+      <button (click)="alterPage('Calendar')" class="button" mat-raised-button style="background-color: {{ petSelected.cardColor }}; color: white; margin-top: 10px; border-radius: 20px">Agendar Serviço</button>
     </div>
   </div>
 </ng-container>
