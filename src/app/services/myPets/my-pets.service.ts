@@ -148,4 +148,124 @@ export class MyPetsService {
     ]
     return myPets;
   }
+
+  getCare(petName: string){
+    let myPetCare: { care: string; careStatus: string; carePercentagem: string; }[] = [];
+
+    switch(petName){
+      case 'Barnei':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Ted':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Nero':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Katie':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Atom':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Jasmim':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Petunia':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+      case 'Isabel':
+        myPetCare = [
+          {
+            care:'Tosa Higiênica',
+            careStatus: petName +' acabou de chegar ao PetShop =)',
+            carePercentagem: '60'
+          },
+          {
+            care:'Banho Quentinho',
+            careStatus: petName + ' está aguardando finalizar a tosa para começar seu banho',
+            carePercentagem: '10'
+          }
+        ]
+      break;
+    }
+    return myPetCare;
+  }
 }

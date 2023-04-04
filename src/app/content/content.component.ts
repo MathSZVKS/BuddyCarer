@@ -39,6 +39,7 @@ export class ContentComponent {
 
   myPets: any;
   petSelected: any;
+  petSelectedCare: any;
 
   constructor(public myPetsService: MyPetsService, private changeDetector: ChangeDetectorRef){}
 
@@ -89,6 +90,7 @@ export class ContentComponent {
   switchPageAndRegisterPetSelected(page: string, pet: any){
     this.choosePage.emit('aboutPet');
     this.petSelected = pet;
+    this.petSelectedCare = this.myPetsService.getCare(pet.nome);
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
