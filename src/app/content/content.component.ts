@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output, ɵɵNgOnChangesFeature } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ɵɵNgOnChangesFeature } from "@angular/core";
 import { MyPetsService } from "../services/myPets/my-pets.service";
-import { CalendarOptions } from "@fullcalendar/core";
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
+import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
   selector: "app-content",
@@ -15,20 +16,31 @@ export class ContentComponent {
   @Output() choosePage = new EventEmitter<string>();
 
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    eventClick: this.handleDateClick.bind(this),
-    plugins: [dayGridPlugin],
+    plugins: [
+      interactionPlugin,
+      dayGridPlugin
+    ],
     events: [
       { title: 'event 1', date: '2023-04-03' },
       { title: 'event 2', date: '2019-04-02' }
     ],
-    weekends: true
+    initialView: 'dayGridMonth',
+    weekends: true,
+    editable: true,
+    selectable: true,
+    selectMirror: true,
+    dayMaxEvents: true,
+    select: this.handleDateSelect.bind(this),
+    eventClick: this.handleEventClick.bind(this),
+    eventsSet: this.handleEvents.bind(this),
   };
+
+  currentEvents: EventApi[] = [];
 
   myPets: any;
   petSelected: any;
 
-  constructor(public myPetsService: MyPetsService){}
+  constructor(public myPetsService: MyPetsService, private changeDetector: ChangeDetectorRef){}
 
   ngOnChanges(){
     //Carregando os elementos das páginas de forma dinamica para melhorar a performance
@@ -79,7 +91,30 @@ export class ContentComponent {
     this.petSelected = pet;
   }
 
-  handleDateClick(arg: any) {
-    alert('date click! ' + arg.dateStr)
+  handleDateSelect(selectInfo: DateSelectArg) {
+    const title = prompt('Insira o Nome do Pet');
+    const calendarApi = selectInfo.view.calendar;
+
+    calendarApi.unselect(); 
+
+    if (title) {
+      calendarApi.addEvent({
+        title,
+        start: selectInfo.startStr,
+        end: selectInfo.endStr,
+        allDay: selectInfo.allDay
+      });
+    }
+  }
+
+  handleEventClick(clickInfo: EventClickArg) {
+    if (confirm(`Gostaria de desmarcar o agendamento?'${clickInfo.event.title}'`)) {
+      clickInfo.event.remove();
+    }
+  }
+
+  handleEvents(events: EventApi[]) {
+    this.currentEvents = events;
+    this.changeDetector.detectChanges();
   }
 }
