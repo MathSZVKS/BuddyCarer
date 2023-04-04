@@ -79,7 +79,7 @@
   text-align: center;
 }
 
-.box{
+.box {
   background-color: #ffffff29;
   border-radius: 20px;
   padding-top: 1.5em;
@@ -87,12 +87,12 @@
   box-shadow: 0 3px 5px rgb(28 28 28 / 94%);
   transition: 200ms linear;
 
-  &:hover{
+  &:hover {
     box-shadow: 0 0 2px 2px #2f2d3d;
   }
 }
 
-.boxRegister{
+.boxRegister {
   transform: translateY(500px); /* começa fora da tela */
   animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   background-color: #ffffff29;
@@ -102,14 +102,12 @@
   box-shadow: 0 3px 5px rgb(28 28 28 / 94%);
   transition: 200ms linear;
 
-  &:hover{
+  &:hover {
     box-shadow: 0 0 2px 2px #2f2d3d;
   }
 }
 
-.accessPage{
+.accessPage {
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
-
-

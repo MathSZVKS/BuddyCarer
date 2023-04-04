@@ -17,7 +17,7 @@ export class LoginComponent {
 
   userToLogin = "";
   passwordToLogin = "";
-  
+
   userToRegister = "";
   passwordToRegister = "";
   nameToRegister = "";
@@ -27,7 +27,7 @@ export class LoginComponent {
     public loginService: LoginService,
     public registerService: RegisterService,
     private toastr: ToastrService
-    ) {}
+  ) {}
 
   registerValueToLogin(value: string, type: string) {
     if (type == "user") {
@@ -37,57 +37,66 @@ export class LoginComponent {
     }
   }
 
-  registerValueToRegister(value: string, type: string){
-    switch(type){
-      case 'user':
+  registerValueToRegister(value: string, type: string) {
+    switch (type) {
+      case "user":
         this.userToRegister = value;
-      break;
-      case 'password':
+        break;
+      case "password":
         this.passwordToRegister = value;
-      break;
-      case 'name':
+        break;
+      case "name":
         this.nameToRegister = value;
-      break;
-      case 'email':
+        break;
+      case "email":
         this.emailToRegister = value;
-      break;
+        break;
     }
   }
-  
-  registerNewUser(){
-    if(this.userToRegister == '' || this.passwordToRegister == '' || this.nameToRegister == '' || this.emailToRegister == ''){
-      this.toastr.warning('Informe todos os dados para o cadastro')
-      return ;
+
+  registerNewUser() {
+    if (
+      this.userToRegister == "" ||
+      this.passwordToRegister == "" ||
+      this.nameToRegister == "" ||
+      this.emailToRegister == ""
+    ) {
+      this.toastr.warning("Informe todos os dados para o cadastro");
+      return;
     }
 
     let userToRegister = {
       user: this.userToRegister,
       password: this.passwordToRegister,
       name: this.nameToRegister,
-      email: this.emailToRegister
-    }
+      email: this.emailToRegister,
+    };
 
-    if(this.registerService.register(userToRegister) == 'registered'){
-      this.toastr.success('Usuário cadastrado com sucesso :D');
+    if (this.registerService.register(userToRegister) == "registered") {
+      this.toastr.success("Usuário cadastrado com sucesso :D");
       this.inLogin = true;
-    }else if(this.registerService.register(userToRegister) == 'notRegistered'){
-      this.toastr.error('Houve um erro no cadastro :(');
+    } else if (
+      this.registerService.register(userToRegister) == "notRegistered"
+    ) {
+      this.toastr.error("Houve um erro no cadastro :(");
     }
   }
 
   access() {
-    this.loginStatus.emit(this.loginService.login(this.userToLogin, this.passwordToLogin));
+    this.loginStatus.emit(
+      this.loginService.login(this.userToLogin, this.passwordToLogin)
+    );
   }
 
   returnPage(page: string) {
-    if(page == 'initial'){
+    if (page == "initial") {
       this.return.emit(page);
-    }else if(page == 'login'){
+    } else if (page == "login") {
       this.inLogin = true;
     }
   }
 
-  openRegisterPage(){
+  openRegisterPage() {
     this.inLogin = false;
   }
 }

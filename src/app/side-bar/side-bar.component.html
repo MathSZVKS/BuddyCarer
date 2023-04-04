@@ -1,7 +1,9 @@
 <div class="sidebar">
   <a href="#" class="sidebar__logo-wrapper">
     <h1 (click)="alterPage('initial')" class="sidebar__logo">B</h1>
-    <h1 (click)="alterPage('initial')" class="sidebar__logo-text">Buddy Carer</h1>
+    <h1 (click)="alterPage('initial')" class="sidebar__logo-text">
+      Buddy Carer
+    </h1>
   </a>
   <ng-container *ngIf="userType == 'client'">
     <h3 class="sidebar__title">CUIDADOS</h3>

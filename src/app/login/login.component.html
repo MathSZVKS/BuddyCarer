@@ -16,17 +16,33 @@
         type="password"
         placeholder="Senha"
       />
-      <button (click)="access()" class="button" mat-raised-button color="primary">
+      <button
+        (click)="access()"
+        class="button"
+        mat-raised-button
+        color="primary"
+      >
         Acessar
       </button>
-      <button (click)="returnPage('initial')" class="button" mat-button color="danger">
+      <button
+        (click)="returnPage('initial')"
+        class="button"
+        mat-button
+        color="danger"
+      >
         Voltar
       </button>
     </div>
-  
-    <div style="margin-top: 30px;">
-      <span style="font-weight: bold;">Novo por aqui? Faça seu cadastro!</span>
-      <button style="margin-top: 15px;" (click)="openRegisterPage()" class="button" mat-raised-button color="warn">
+
+    <div style="margin-top: 30px">
+      <span style="font-weight: bold">Novo por aqui? Faça seu cadastro!</span>
+      <button
+        style="margin-top: 15px"
+        (click)="openRegisterPage()"
+        class="button"
+        mat-raised-button
+        color="warn"
+      >
         Cadastrar
       </button>
     </div>
@@ -34,7 +50,7 @@
 </ng-container>
 
 <ng-container *ngIf="!inLogin">
-  <div class="boxRegister" style="padding-left: 0.9em; padding-right: 0.9em;">
+  <div class="boxRegister" style="padding-left: 0.9em; padding-right: 0.9em">
     <h1 class="loginText">CADASTRAR</h1>
     <input
       #user
@@ -64,16 +80,21 @@
       type="email"
       placeholder="Email"
     />
-    <button (click)="registerNewUser()" class="button" mat-raised-button color="primary">
+    <button
+      (click)="registerNewUser()"
+      class="button"
+      mat-raised-button
+      color="primary"
+    >
       Cadastrar
     </button>
-    <button (click)="returnPage('login')" class="button" mat-button color="danger">
+    <button
+      (click)="returnPage('login')"
+      class="button"
+      mat-button
+      color="danger"
+    >
       Voltar
     </button>
   </div>
 </ng-container>
-
-
-
-
-

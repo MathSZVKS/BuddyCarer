@@ -1,7 +1,13 @@
 <ng-container *ngIf="!inLogin">
   <div class="outer-container">
     <div class="container">
-      <app-side-bar [userType]="userType" [userLogged]="userLogged" (choosePage)="alterPage($event)" (checkUserLogged)="sendUserLogged(userLogged)" (moveToLoginPageBeforeAccess)="openLoginInterface()"></app-side-bar>
+      <app-side-bar
+        [userType]="userType"
+        [userLogged]="userLogged"
+        (choosePage)="alterPage($event)"
+        (checkUserLogged)="sendUserLogged(userLogged)"
+        (moveToLoginPageBeforeAccess)="openLoginInterface()"
+      ></app-side-bar>
       <div class="main-wrapper">
         <div class="topbar">
           <app-search></app-search>
@@ -12,7 +18,11 @@
             (openUserPage)="alterPage($event)"
           ></app-top-bar>
         </div>
-        <app-content style="overflow: auto" [page]="page" (choosePage)="alterPage($event)"></app-content>
+        <app-content
+          style="overflow: auto"
+          [page]="page"
+          (choosePage)="alterPage($event)"
+        ></app-content>
       </div>
     </div>
   </div>

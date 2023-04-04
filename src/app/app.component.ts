@@ -30,13 +30,13 @@ export class AppComponent {
   }
 
   return(event: string) {
-    if (event = 'initial') {
+    if ((event = "initial")) {
       this.inLogin = false;
     }
   }
 
   logOffUser() {
-    this.userLogged = '';
+    this.userLogged = "";
     this.userType = "client";
     this.page = "initial";
   }
@@ -45,7 +45,7 @@ export class AppComponent {
     this.page = page;
   }
 
-  sendUserLogged(userLogged: string){
+  sendUserLogged(userLogged: string) {
     userLogged = this.userLogged;
   }
 }

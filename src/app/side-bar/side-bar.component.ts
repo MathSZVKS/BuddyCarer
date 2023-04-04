@@ -8,7 +8,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class SideBarComponent {
   constructor(private toastr: ToastrService) {}
-  
+
   @Input() userType = "";
   @Input() userLogged = "";
 
@@ -16,12 +16,12 @@ export class SideBarComponent {
   @Output() checkUserLogged = new EventEmitter<string>();
   @Output() moveToLoginPageBeforeAccess = new EventEmitter<string>();
 
-  alterPage(page = ''){
+  alterPage(page = "") {
     this.checkUserLogged.emit();
 
-    if(this.userLogged != '' || page == 'initial'){
+    if (this.userLogged != "" || page == "initial") {
       this.choosePage.emit(page);
-    }else{
+    } else {
       this.toastr.warning("Necessário efetuar o login para acessar a página");
       this.moveToLoginPageBeforeAccess.emit();
     }

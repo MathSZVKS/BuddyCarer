@@ -103,7 +103,11 @@
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-      <h1 style="font-size: 2rem; color: {{ petSelected.cardColor }}; font-weight: bold; margin-bottom: 3rem;">
+      <h1
+        style="font-size: 2rem; color: {{
+          petSelected.cardColor
+        }}; font-weight: bold; margin-bottom: 3rem;"
+      >
         {{ petSelected.nome }}
       </h1>
       <div style="display: flex">
@@ -113,20 +117,43 @@
             petSelected.imagem
           }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
         ></div>
-        <div style="width: 65%; text-align: left; margin-left: 2em;">
-          <strong style="color: white; font-size: 1em;">Raça: </strong>{{petSelected.raca}}<br>
-          <strong style="color: white; font-size: 1em;">Cor: </strong>{{petSelected.cor}}<br>
-          <strong style="color: white; font-size: 1em;">Idade: </strong>{{petSelected.idade}}<br>
-          <strong style="color: white; font-size: 1em;">Sexo: </strong>{{petSelected.sexo}}<br>
-          <strong style="color: white; font-size: 1em;">Peso: </strong>{{petSelected.peso}}<br>
-          <strong style="color: white; font-size: 1em;">Porte: </strong>{{petSelected.porte}}<br>
-          <strong style="color: white; font-size: 1em;">Comportamento: </strong>{{petSelected.comportamento}}<br>
-          <strong style="color: white; font-size: 1em;">Adestramento: </strong>{{petSelected.adestrado}}<br>
-          <strong style="color: white; font-size: 1em;">Castrado: </strong>{{petSelected.castrado}}<br>
-          <strong style="color: white; font-size: 1em;">Origem da Raça: </strong>{{petSelected.origemRaca}}<br>
-          <strong style="color: white; font-size: 1em;">Condições Especiais: </strong>{{petSelected.condicaoEspecial}}<br>
-          <strong style="color: white; font-size: 1em;">Expectativa de Vida: </strong>{{petSelected.expectativaVida}}<br>
-          <button (click)="alterPage('Care')" class="button" mat-raised-button style="background-color: {{ petSelected.cardColor }}; color: white; margin-top: 10px; border-radius: 20px">Checar Vacinas</button>
+        <div style="width: 65%; text-align: left; margin-left: 2em">
+          <strong style="color: white; font-size: 1em">Raça: </strong
+          >{{ petSelected.raca }}<br />
+          <strong style="color: white; font-size: 1em">Cor: </strong
+          >{{ petSelected.cor }}<br />
+          <strong style="color: white; font-size: 1em">Idade: </strong
+          >{{ petSelected.idade }}<br />
+          <strong style="color: white; font-size: 1em">Sexo: </strong
+          >{{ petSelected.sexo }}<br />
+          <strong style="color: white; font-size: 1em">Peso: </strong
+          >{{ petSelected.peso }}<br />
+          <strong style="color: white; font-size: 1em">Porte: </strong
+          >{{ petSelected.porte }}<br />
+          <strong style="color: white; font-size: 1em">Comportamento: </strong
+          >{{ petSelected.comportamento }}<br />
+          <strong style="color: white; font-size: 1em">Adestramento: </strong
+          >{{ petSelected.adestrado }}<br />
+          <strong style="color: white; font-size: 1em">Castrado: </strong
+          >{{ petSelected.castrado }}<br />
+          <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+          >{{ petSelected.origemRaca }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Condições Especiais: </strong
+          >{{ petSelected.condicaoEspecial }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Expectativa de Vida: </strong
+          >{{ petSelected.expectativaVida }}<br />
+          <button
+            (click)="alterPage('Care')"
+            class="button"
+            mat-raised-button
+            style="background-color: {{
+              petSelected.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px"
+          >
+            Checar Vacinas
+          </button>
         </div>
       </div>
     </div>
@@ -134,27 +161,55 @@
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-      <h1 style="font-size: 2rem; color: rgb(182, 180, 180); font-weight: bold; margin-bottom: 3rem;">
+      <h1
+        style="
+          font-size: 2rem;
+          color: rgb(182, 180, 180);
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
         Acompanhamento
       </h1>
-      <div *ngFor="let petCare of petSelectedCare"style="width: 100%; text-align: left; margin-bottom: 1.5em">
-        <strong style="color: white; font-size: 1em;">{{petCare.care}}: </strong>{{petCare.careStatus}}<br>
-        <progress-bar [progress]="petCare.carePercentagem" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">
+      <div
+        *ngFor="let petCare of petSelectedCare"
+        style="width: 100%; text-align: left; margin-bottom: 1.5em"
+      >
+        <strong style="color: white; font-size: 1em"
+          >{{ petCare.care }}: </strong
+        >{{ petCare.careStatus }}<br />
+        <progress-bar
+          [progress]="petCare.carePercentagem"
+          [color-degraded]="{
+            '0': '#00cbcb',
+            '15': '#f9c3d3',
+            '25': '#fd8c8e'
+          }"
+        >
         </progress-bar>
       </div>
-      <button (click)="alterPage('Calendar')" class="button" mat-raised-button style="background-color: {{ petSelected.cardColor }}; color: white; margin-top: 10px; border-radius: 20px">Agendar Serviço</button>
+      <button
+        (click)="alterPage('Calendar')"
+        class="button"
+        mat-raised-button
+        style="background-color: {{
+          petSelected.cardColor
+        }}; color: white; margin-top: 10px; border-radius: 20px"
+      >
+        Agendar Serviço
+      </button>
     </div>
   </div>
 </ng-container>
 
-<ng-container *ngIf="page == 'Calendar'"> 
+<ng-container *ngIf="page == 'Calendar'">
   <div class="content">
     <h2 class="content__video-heading">Agenda</h2>
     <div
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-    <full-calendar [options]="calendarOptions"></full-calendar>
+      <full-calendar [options]="calendarOptions"></full-calendar>
     </div>
   </div>
 </ng-container>

@@ -20,7 +20,7 @@ export class TopBarComponent {
       this.logged = true;
       this.loginEvent.emit(this.logged);
     } else {
-      this.openUserPage.emit('user');
+      this.openUserPage.emit("user");
     }
   }
 
