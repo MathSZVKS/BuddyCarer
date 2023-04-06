@@ -145,14 +145,14 @@
             >Expectativa de Vida: </strong
           >{{ petSelected.expectativaVida }}<br />
           <button
-            (click)="alterPage('Care')"
+            (click)="alterPage('myPets')"
             class="button"
             mat-raised-button
             style="background-color: {{
               petSelected.cardColor
             }}; color: white; margin-top: 10px; border-radius: 20px"
           >
-            Checar Vacinas
+            Alterar Pet
           </button>
         </div>
       </div>
@@ -199,6 +199,100 @@
         Agendar Serviço
       </button>
     </div>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="
+          font-size: 2rem;
+          color: rgb(182, 180, 180);
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
+        Vacinas
+      </h1>
+      <div style="display: flex">
+        <div style="flex-basis: 30%; text-align: left; margin-bottom: 0.5em">
+          <div
+            class="content__video-card-about-pet"
+            style="background-color: #353340"
+          >
+            Vacinas no Prazo
+            <ng-container *ngFor="let vaccine of petSelectedVaccines">
+              <ng-container *ngIf="vaccine.term == 'longTime'">
+                <button
+                  class="button"
+                  mat-raised-button
+                  style="padding-top: 20px; padding-bottom: 20px; background-color: {{
+                    petSelected.cardColor
+                  }}; background-color: {{
+                    vaccine.cardColor
+                  }}; color: white; margin-top: 10px; border-radius: 10px"
+                >
+                  {{ vaccine.vaccine }} {{ vaccine.dateToFinish }}
+                </button>
+              </ng-container>
+            </ng-container>
+
+            <br /><br />
+            Vacinas perto do prazo
+            <ng-container *ngFor="let vaccine of petSelectedVaccines">
+              <ng-container *ngIf="vaccine.term == 'shortTime'">
+                <button
+                  class="button"
+                  mat-raised-button
+                  style="padding-top: 20px; padding-bottom: 20px; background-color: {{
+                    petSelected.cardColor
+                  }}; background-color: {{
+                    vaccine.cardColor
+                  }}; color: white; margin-top: 10px; border-radius: 10px"
+                >
+                  {{ vaccine.vaccine }} {{ vaccine.dateToFinish }}
+                </button>
+              </ng-container>
+            </ng-container>
+
+            <br /><br />
+            Vacinas fora do prazo
+            <ng-container *ngFor="let vaccine of petSelectedVaccines">
+              <ng-container *ngIf="vaccine.term == 'late'">
+                <button
+                  class="button"
+                  mat-raised-button
+                  style="padding-top: 20px; padding-bottom: 20px; background-color: {{
+                    petSelected.cardColor
+                  }}; background-color: {{
+                    vaccine.cardColor
+                  }}; color: white; margin-top: 10px; border-radius: 10px"
+                >
+                  {{ vaccine.vaccine }} {{ vaccine.dateToFinish }}
+                </button>
+              </ng-container>
+            </ng-container>
+          </div>
+          <button
+            (click)="alterPage('Calendar')"
+            class="button"
+            mat-raised-button
+            style="margin-left: auto; margin-right: auto; display: flex; background-color: {{
+              petSelected.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px"
+          >
+            Agendar Vacina
+          </button>
+        </div>
+        <div style="flex-basis: 70%; text-align: left; margin-bottom: 0.5em">
+          <div
+            class="content__video-card-about-pet"
+            style="background-color: #353340"
+          >
+            <full-calendar [options]="calendarOptionsVaccines"></full-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-container>
 
@@ -213,8 +307,6 @@
     </div>
   </div>
 </ng-container>
-
-<ng-container *ngIf="page == 'Care'"> VACINAS </ng-container>
 
 <ng-container *ngIf="page == 'Money'"> FINANCEIRO </ng-container>
 

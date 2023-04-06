@@ -42,11 +42,24 @@ export class ContentComponent {
     eventsSet: this.handleEvents.bind(this),
   };
 
+  calendarOptionsVaccines: CalendarOptions = {
+    plugins: [interactionPlugin, dayGridPlugin],
+    events: [{ title: "Antirábica", date: "2023-04-03" }],
+    locales: [{ code: "pt-br" }],
+    initialView: "dayGridMonth",
+    weekends: true,
+    dayMaxEvents: true,
+    select: this.handleDateSelect.bind(this),
+    eventClick: this.handleEventClick.bind(this),
+    eventsSet: this.handleEvents.bind(this),
+  };
+
   currentEvents: EventApi[] = [];
 
   myPets: any;
   petSelected: any;
   petSelectedCare: any;
+  petSelectedVaccines: any;
 
   constructor(
     public myPetsService: MyPetsService,
@@ -61,9 +74,6 @@ export class ContentComponent {
         break;
 
       case "Calendar":
-        break;
-
-      case "Care":
         break;
 
       case "Money":
@@ -95,12 +105,14 @@ export class ContentComponent {
 
   alterPage(page: string) {
     this.page = page;
+    this.choosePage.emit(page);
   }
 
   switchPageAndRegisterPetSelected(page: string, pet: any) {
     this.choosePage.emit("aboutPet");
     this.petSelected = pet;
     this.petSelectedCare = this.myPetsService.getCare(pet.nome);
+    this.petSelectedVaccines = this.myPetsService.getVaccines(pet.nome);
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {

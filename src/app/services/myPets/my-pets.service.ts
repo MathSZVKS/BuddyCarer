@@ -293,4 +293,278 @@ export class MyPetsService {
     }
     return myPetCare;
   }
+
+  getVaccines(petName: string){
+    let longTime = "rgb(116 175 114)";
+    let shortTime = "rgb(232 205 107)";
+    let late = "rgb(217 107 109)";
+
+    let myPetCare: {
+      vaccine: string;
+      completed: boolean;
+      cardColor: string,
+      dateToFinish: string,
+      term: string
+    }[] = [];
+
+    switch (petName) {
+      case "Barnei":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Ted":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Nero":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Katie":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Atom":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Jasmim":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Petunia":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+      case "Isabel":
+        myPetCare = [
+          {
+            vaccine: "Tetragenica",
+            completed: true,
+            cardColor: late,
+            dateToFinish: "05/04/2023",
+            term: 'late'
+          },
+          {
+            vaccine: "Anti Rábica",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "20/04/2023",
+            term: 'longTime'
+          },
+          {
+            vaccine: "Cinomose",
+            completed: false,
+            cardColor: shortTime,
+            dateToFinish: "10/04/2023",
+            term: 'shortTime'
+          },
+          {
+            vaccine: "hepatite",
+            completed: false,
+            cardColor: longTime,
+            dateToFinish: "30/04/2023",
+            term: 'longTime'
+          },
+        ];
+        break;
+    }
+    return myPetCare;
+  }
 }
