@@ -295,9 +295,9 @@ export class MyPetsService {
   }
 
   getVaccines(petName: string){
-    let longTime = "rgb(116 175 114)";
-    let shortTime = "rgb(232 205 107)";
-    let late = "rgb(217 107 109)";
+    let longTime = "rgb(253, 140, 142)";
+    let shortTime = "rgb(92 164 183)";
+    let late = "rgb(128 91 145)";
 
     let myPetCare: {
       vaccine: string;
