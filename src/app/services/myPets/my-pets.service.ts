@@ -332,7 +332,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -364,7 +364,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -396,7 +396,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -428,7 +428,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -460,7 +460,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -492,7 +492,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -524,7 +524,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",
@@ -556,7 +556,7 @@ export class MyPetsService {
             term: 'shortTime'
           },
           {
-            vaccine: "hepatite",
+            vaccine: "Hepatite",
             completed: false,
             cardColor: longTime,
             dateToFinish: "30/04/2023",

@@ -223,6 +223,12 @@
             <ng-container *ngFor="let vaccine of petSelectedVaccines">
               <ng-container *ngIf="vaccine.term == 'longTime'">
                 <button
+                  (click)="
+                    switchPageAndRegisterVaccineSelected(
+                      'AboutVaccines',
+                      vaccine
+                    )
+                  "
                   class="button"
                   mat-raised-button
                   style="padding-top: 20px; padding-bottom: 20px; background-color: {{
@@ -241,6 +247,12 @@
             <ng-container *ngFor="let vaccine of petSelectedVaccines">
               <ng-container *ngIf="vaccine.term == 'shortTime'">
                 <button
+                  (click)="
+                    switchPageAndRegisterVaccineSelected(
+                      'AboutVaccines',
+                      vaccine
+                    )
+                  "
                   class="button"
                   mat-raised-button
                   style="padding-top: 20px; padding-bottom: 20px; background-color: {{
@@ -259,6 +271,12 @@
             <ng-container *ngFor="let vaccine of petSelectedVaccines">
               <ng-container *ngIf="vaccine.term == 'late'">
                 <button
+                  (click)="
+                    switchPageAndRegisterVaccineSelected(
+                      'AboutVaccines',
+                      vaccine
+                    )
+                  "
                   class="button"
                   mat-raised-button
                   style="padding-top: 20px; padding-bottom: 20px; background-color: {{
@@ -304,6 +322,38 @@
       style="background-color: #353340"
     >
       <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'AboutVaccines'">
+  <div class="content">
+    <h2 class="content__video-heading">Sobre a Vacina</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="
+          font-size: 2rem;
+          color: {{ petSelected.cardColor }};
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
+        {{ vaccineSelected.vaccineName }}
+      </h1>
+      <h3>{{ vaccineSelected.about }}</h3>
+      <button
+        (click)="alterPage('aboutPet')"
+        class="button"
+        mat-raised-button
+        style="background-color: {{
+          petSelected.cardColor
+        }}; color: white; margin-top: 10px; border-radius: 20px"
+      >
+        Voltar
+      </button>
     </div>
   </div>
 </ng-container>

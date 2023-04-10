@@ -15,6 +15,7 @@ import {
   EventApi,
 } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
+import { VaccinesService } from "../services/vaccines/vaccines.service";
 
 @Component({
   selector: "app-content",
@@ -60,10 +61,12 @@ export class ContentComponent {
   petSelected: any;
   petSelectedCare: any;
   petSelectedVaccines: any;
+  vaccineSelected: any;
 
   constructor(
     public myPetsService: MyPetsService,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private vaccinesService: VaccinesService
   ) {}
 
   ngOnChanges() {
@@ -106,6 +109,12 @@ export class ContentComponent {
   alterPage(page: string) {
     this.page = page;
     this.choosePage.emit(page);
+  }
+
+  switchPageAndRegisterVaccineSelected(page: string , vaccine: any){
+    this.page = page;
+    this.choosePage.emit(page);
+    this.vaccineSelected = this.vaccinesService.getAboutVaccine(vaccine.vaccine);
   }
 
   switchPageAndRegisterPetSelected(page: string, pet: any) {
