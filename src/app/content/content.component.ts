@@ -45,14 +45,11 @@ export class ContentComponent {
 
   calendarOptionsVaccines: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],
-    events: [{ title: "Antirábica", date: "2023-04-03" }],
+    events: [this.vaccinesService.getScheduledVaccines()],
     locales: [{ code: "pt-br" }],
     initialView: "dayGridMonth",
     weekends: true,
     dayMaxEvents: true,
-    select: this.handleDateSelect.bind(this),
-    eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this),
   };
 
   currentEvents: EventApi[] = [];

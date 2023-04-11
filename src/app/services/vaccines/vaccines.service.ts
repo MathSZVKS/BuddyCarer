@@ -10,10 +10,10 @@ export class VaccinesService {
     let aboutVaccine: {
       vaccineName: string;
       about: string;
-      cardColor: string
+      cardColor: string;
     }[] = [];
 
-    let color =  'rgb(63 97 133)';
+    let color = "rgb(63 97 133)";
 
     switch (vaccineName) {
       case "Tetragenica":
@@ -41,7 +41,8 @@ export class VaccinesService {
           {
             vaccineName: "Cinomose",
             cardColor: color,
-            about: "A vacina contra cinomose animal é uma vacina composta por um vírus vivo atenuado ou inativado que fornece proteção contra o vírus da cinomose canina. A cinomose é uma doença viral altamente contagiosa que afeta principalmente cães, mas também pode afetar outras espécies de animais. A vacina contra a cinomose animal é administrada em cães para prevenir a infecção pelo vírus da cinomose e reduzir o risco de transmissão da doença para outros animais. A vacina estimula o sistema imunológico do cão a produzir anticorpos contra o vírus da cinomose, para que o animal esteja protegido caso seja exposto ao vírus no futuro. A vacina contra a cinomose animal é geralmente administrada como parte do protocolo de vacinação básico para cães filhotes, e deve ser repetida anualmente ou a cada três anos, dependendo do tipo de vacina utilizada e das recomendações do médico veterinário. A vacina contra a cinomose animal é uma ferramenta importante para prevenir a disseminação da doença entre os cães e reduzir o impacto da cinomose na saúde animal. Além da vacinação, outras medidas de prevenção, como a higiene adequada e o isolamento de animais doentes, também são importantes para controlar a disseminação da doença."
+            about:
+              "A vacina contra cinomose animal é uma vacina composta por um vírus vivo atenuado ou inativado que fornece proteção contra o vírus da cinomose canina. A cinomose é uma doença viral altamente contagiosa que afeta principalmente cães, mas também pode afetar outras espécies de animais. A vacina contra a cinomose animal é administrada em cães para prevenir a infecção pelo vírus da cinomose e reduzir o risco de transmissão da doença para outros animais. A vacina estimula o sistema imunológico do cão a produzir anticorpos contra o vírus da cinomose, para que o animal esteja protegido caso seja exposto ao vírus no futuro. A vacina contra a cinomose animal é geralmente administrada como parte do protocolo de vacinação básico para cães filhotes, e deve ser repetida anualmente ou a cada três anos, dependendo do tipo de vacina utilizada e das recomendações do médico veterinário. A vacina contra a cinomose animal é uma ferramenta importante para prevenir a disseminação da doença entre os cães e reduzir o impacto da cinomose na saúde animal. Além da vacinação, outras medidas de prevenção, como a higiene adequada e o isolamento de animais doentes, também são importantes para controlar a disseminação da doença.",
           },
         ];
         break;
@@ -50,11 +51,20 @@ export class VaccinesService {
           {
             vaccineName: "Hepatite",
             cardColor: color,
-            about: "A vacina contra a hepatite animal, também conhecida como vacina contra a hepatite infecciosa canina, é uma vacina composta por um vírus inativado que fornece proteção contra o vírus da hepatite canina. A hepatite canina é uma doença viral que afeta principalmente cães e pode causar danos ao fígado, além de outros sintomas, como febre, vômitos e diarreia. A vacina contra a hepatite animal é administrada em cães para prevenir a infecção pelo vírus da hepatite canina e reduzir o risco de complicações relacionadas à doença. A vacina estimula o sistema imunológico do cão a produzir anticorpos contra o vírus da hepatite canina, para que o animal esteja protegido caso seja exposto ao vírus no futuro. A vacina contra a hepatite animal é geralmente administrada como parte do protocolo de vacinação básico para cães filhotes, e deve ser repetida anualmente ou a cada três anos, dependendo do tipo de vacina utilizada e das recomendações do médico veterinário. A vacina contra a hepatite animal é uma ferramenta importante para prevenir a disseminação da doença entre os cães e reduzir o impacto da hepatite canina na saúde animal. Além da vacinação, outras medidas de prevenção, como a higiene adequada e o controle de populações de cães vadios, também são importantes para controlar a disseminação da doença."
+            about:
+              "A vacina contra a hepatite animal, também conhecida como vacina contra a hepatite infecciosa canina, é uma vacina composta por um vírus inativado que fornece proteção contra o vírus da hepatite canina. A hepatite canina é uma doença viral que afeta principalmente cães e pode causar danos ao fígado, além de outros sintomas, como febre, vômitos e diarreia. A vacina contra a hepatite animal é administrada em cães para prevenir a infecção pelo vírus da hepatite canina e reduzir o risco de complicações relacionadas à doença. A vacina estimula o sistema imunológico do cão a produzir anticorpos contra o vírus da hepatite canina, para que o animal esteja protegido caso seja exposto ao vírus no futuro. A vacina contra a hepatite animal é geralmente administrada como parte do protocolo de vacinação básico para cães filhotes, e deve ser repetida anualmente ou a cada três anos, dependendo do tipo de vacina utilizada e das recomendações do médico veterinário. A vacina contra a hepatite animal é uma ferramenta importante para prevenir a disseminação da doença entre os cães e reduzir o impacto da hepatite canina na saúde animal. Além da vacinação, outras medidas de prevenção, como a higiene adequada e o controle de populações de cães vadios, também são importantes para controlar a disseminação da doença.",
           },
         ];
         break;
     }
     return aboutVaccine["0"];
+  }
+
+  getScheduledVaccines() {
+    let scheduledVaccines: any;
+
+    scheduledVaccines = { title: "Antirábica", date: "2023-04-03" };
+
+    return scheduledVaccines;
   }
 }
