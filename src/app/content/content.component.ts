@@ -16,6 +16,7 @@ import {
 } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import { VaccinesService } from "../services/vaccines/vaccines.service";
+import { SchedulesService } from "../services/schedules/schedules.service";
 
 @Component({
   selector: "app-content",
@@ -25,12 +26,13 @@ import { VaccinesService } from "../services/vaccines/vaccines.service";
 })
 export class ContentComponent {
   @Input() page = "initial";
+  @Input() userLogged = "";
 
   @Output() choosePage = new EventEmitter<string>();
 
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],
-    events: [{ title: "Tosa do Barnei", date: "2023-04-03" }],
+    events: [this.schedulesService.getScheduleds()],
     locales: [{ code: "pt-br" }],
     initialView: "dayGridMonth",
     weekends: true,
@@ -63,7 +65,8 @@ export class ContentComponent {
   constructor(
     public myPetsService: MyPetsService,
     private changeDetector: ChangeDetectorRef,
-    private vaccinesService: VaccinesService
+    private vaccinesService: VaccinesService,
+    private schedulesService: SchedulesService
   ) {}
 
   ngOnChanges() {

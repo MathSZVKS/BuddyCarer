@@ -13,6 +13,8 @@ export class LoginService {
       logged = { permissionAccess: true, user: user, type: "admin" };
     } else if (user == "client" && password == "client") {
       logged = { permissionAccess: true, user: user, type: "client" };
+    } else if (user == "matheus" && password == "matheus") {
+      logged = { permissionAccess: true, user: user, type: "client" };
     } else {
       logged = { permissionAccess: false, user: "" };
     }

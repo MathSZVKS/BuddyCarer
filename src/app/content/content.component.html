@@ -73,7 +73,35 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="page == 'user'"> USER PAGE </ng-container>
+<ng-container *ngIf="page == 'user'">
+  <div class="content">
+    <h2 class="content__video-heading">Perfil</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      <div class="profileImage"></div>
+      <h2
+        style="
+          font-size: 2rem;
+          color: rgb(182, 180, 180);
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
+        {{ userLogged }}
+      </h2>
+      <button
+        (click)="alterPage('initial')"
+        class="button"
+        mat-raised-button
+        style="background-color: #bd4c31; color: white; margin-top: 10px; border-radius: 20px"
+      >
+        Voltar
+      </button>
+    </div>
+  </div>
+</ng-container>
 
 <ng-container *ngIf="page == 'myPets'">
   <div class="content">

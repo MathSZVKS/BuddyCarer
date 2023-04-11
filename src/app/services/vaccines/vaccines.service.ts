@@ -61,9 +61,7 @@ export class VaccinesService {
   }
 
   getScheduledVaccines() {
-    let scheduledVaccines: any;
-
-    scheduledVaccines = { title: "Antirábica", date: "2023-04-03" };
+    let scheduledVaccines = { title: "Antirábica", date: "2023-04-03" };
 
     return scheduledVaccines;
   }
