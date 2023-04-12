@@ -3,7 +3,7 @@
     <div class="container">
       <app-side-bar
         [userType]="userType"
-        [userLogged]="userLogged"
+        [userLogged]="userLogged.user"
         (choosePage)="alterPage($event)"
         (checkUserLogged)="sendUserLogged(userLogged)"
         (moveToLoginPageBeforeAccess)="openLoginInterface()"
@@ -13,7 +13,7 @@
           <app-search></app-search>
           <app-top-bar
             (loginEvent)="openLoginInterface()"
-            [userLogged]="userLogged"
+            [userLogged]="userLogged.user"
             (logOffUser)="logOffUser()"
             (openUserPage)="alterPage($event)"
           ></app-top-bar>

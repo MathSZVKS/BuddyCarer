@@ -12,7 +12,7 @@ export class AppComponent {
   title = "buddyCarer";
   userType = "client";
   inLogin = false;
-  userLogged = "";
+  userLogged = {permissionAccess: false, type: '', user: ''}
   page = "initial";
 
   openLoginInterface() {
@@ -22,7 +22,7 @@ export class AppComponent {
   acessGaranted(event: any) {
     if (event.permissionAccess) {
       this.inLogin = false;
-      this.userLogged = event.user;
+      this.userLogged = event;
       this.userType = event.type;
     } else {
       this.toastr.error("Usuário ou senha inválidos");
@@ -36,7 +36,7 @@ export class AppComponent {
   }
 
   logOffUser() {
-    this.userLogged = "";
+    this.userLogged.user = "";
     this.userType = "client";
     this.page = "initial";
   }
@@ -45,7 +45,7 @@ export class AppComponent {
     this.page = page;
   }
 
-  sendUserLogged(userLogged: string) {
+  sendUserLogged(userLogged: object) {
     userLogged = this.userLogged;
   }
 }
