@@ -89,15 +89,67 @@
           margin-bottom: 3rem;
         "
       >
-        {{ userLogged.user }}
+        {{ userLogged.name }}
       </h2>
+      <div style="width: 100%">
+        <div style="display: inline-block; width: 50%; box-sizing: border-box">
+          <span>Usuário</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.user }}"
+            readonly
+          /><br />
+          <span>Perfil de Acesso</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.type }}"
+            readonly
+          />
+        </div>
+        <div style="display: inline-block; width: 50%; box-sizing: border-box">
+          <span>Endereço de Email</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.email }}"
+            readonly
+          /><br />
+          <span>Recebe novidades por Email?</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.receiveNews }}"
+            readonly
+          />
+        </div>
+      </div>
       <button
         (click)="alterPage('initial')"
         class="button"
         mat-raised-button
-        style="background-color: #bd4c31; color: white; margin-top: 10px; border-radius: 20px"
+        style="
+          background-color: #bd4c31;
+          color: white;
+          margin-top: 20px;
+          border-radius: 20px;
+        "
       >
         Voltar
+      </button>
+      <button
+        class="button"
+        mat-raised-button
+        style="
+          background-color: #3152bd;
+          color: white;
+          margin-top: 20px;
+          border-radius: 20px;
+          margin-left: 10px;
+        "
+      >
+        Alterar Senha
       </button>
     </div>
   </div>

@@ -12,7 +12,7 @@ export class AppComponent {
   title = "buddyCarer";
   userType = "client";
   inLogin = false;
-  userLogged = {permissionAccess: false, type: '', user: ''}
+  userLogged = {permissionAccess: false, type: '', user: '', name: '', email: '', receiveNews: ''}
   page = "initial";
 
   openLoginInterface() {

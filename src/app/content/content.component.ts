@@ -26,7 +26,7 @@ import { SchedulesService } from "../services/schedules/schedules.service";
 })
 export class ContentComponent {
   @Input() page = "initial";
-  @Input() userLogged = {permissionAccess: false, type: '', user: ''}
+  @Input() userLogged = {permissionAccess: false, type: '', user: '', name: '', email: '', receiveNews: ''}
 
   @Output() choosePage = new EventEmitter<string>();
 
