@@ -338,6 +338,7 @@
   .inputDataUser{
     border: none;
     outline: none;
+    margin-right: 5px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     background-color: #474756;
@@ -347,5 +348,31 @@
     height: 2em;
     margin-bottom: 20px;
     margin-top: 5px;
+  }
+
+  .inputDataUserNotEditable{
+    border: none;
+    outline: none;
+    margin-right: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #474756;
+    text-align: center;
+    color: rgb(182, 180, 180);
+    width: 70%;
+    height: 2em;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+
+  .pencil{
+    cursor: pointer;
+    transition: 200ms linear;
+    margin-bottom: 1.5rem;
+
+    &:hover{
+      transition: 200ms linear;
+      color:#3152bd;
+    }
   }
 }

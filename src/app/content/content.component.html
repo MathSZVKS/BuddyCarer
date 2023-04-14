@@ -86,16 +86,17 @@
           font-size: 2rem;
           color: rgb(182, 180, 180);
           font-weight: bold;
-          margin-bottom: 3rem;
+          margin-bottom: 1.5rem;
         "
       >
         {{ userLogged.name }}
-      </h2>
+      </h2><fa-icon class="pencil" [icon]="faPencil" (click)="editUserData('user')"></fa-icon>
       <div style="width: 100%">
         <div style="display: inline-block; width: 50%; box-sizing: border-box">
           <span>Usuário</span><br />
           <input
-            class="inputDataUser"
+            id="user"
+            class="inputDataUserNotEditable"
             type="text"
             value="{{ userLogged.user }}"
             readonly
@@ -106,7 +107,21 @@
             type="text"
             value="{{ userLogged.type }}"
             readonly
-          />
+            /><br />
+          <span>Data de Nascimento</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.birthDay }}"
+            readonly
+            /><br />
+          <span>Tipo de Pessoa</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.typePerson }}"
+            readonly
+            />
         </div>
         <div style="display: inline-block; width: 50%; box-sizing: border-box">
           <span>Endereço de Email</span><br />
@@ -115,15 +130,29 @@
             type="text"
             value="{{ userLogged.email }}"
             readonly
-          /><br />
+            /><br />
           <span>Recebe novidades por Email?</span><br />
           <input
             class="inputDataUser"
             type="text"
             value="{{ userLogged.receiveNews }}"
             readonly
-          />
-        </div>
+            /><br />
+          <span>CPF</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.cpf }}"
+            readonly
+            /><br />
+          <span>Telefone</span><br />
+          <input
+            class="inputDataUser"
+            type="text"
+            value="{{ userLogged.phone }}"
+            readonly
+            />
+        </div> 
       </div>
       <button
         (click)="alterPage('initial')"

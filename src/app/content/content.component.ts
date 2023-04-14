@@ -17,6 +17,8 @@ import {
 import interactionPlugin from "@fullcalendar/interaction";
 import { VaccinesService } from "../services/vaccines/vaccines.service";
 import { SchedulesService } from "../services/schedules/schedules.service";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-content",
@@ -26,7 +28,18 @@ import { SchedulesService } from "../services/schedules/schedules.service";
 })
 export class ContentComponent {
   @Input() page = "initial";
-  @Input() userLogged = {permissionAccess: false, type: '', user: '', name: '', email: '', receiveNews: ''}
+  @Input() userLogged = {
+    permissionAccess: false,
+    type: "",
+    user: "",
+    name: "",
+    email: "",
+    receiveNews: "",
+    birthDay: "",
+    cpf: "",
+    phone: "",
+    typePerson: "",
+  };
 
   @Output() choosePage = new EventEmitter<string>();
 
@@ -62,7 +75,10 @@ export class ContentComponent {
   petSelectedVaccines: any;
   vaccineSelected: any;
 
+  faPencil = faPencil;
+
   constructor(
+    private toastr: ToastrService,
     public myPetsService: MyPetsService,
     private changeDetector: ChangeDetectorRef,
     private vaccinesService: VaccinesService,
@@ -111,10 +127,12 @@ export class ContentComponent {
     this.choosePage.emit(page);
   }
 
-  switchPageAndRegisterVaccineSelected(page: string , vaccine: any){
+  switchPageAndRegisterVaccineSelected(page: string, vaccine: any) {
     this.page = page;
     this.choosePage.emit(page);
-    this.vaccineSelected = this.vaccinesService.getAboutVaccine(vaccine.vaccine);
+    this.vaccineSelected = this.vaccinesService.getAboutVaccine(
+      vaccine.vaccine
+    );
   }
 
   switchPageAndRegisterPetSelected(page: string, pet: any) {
@@ -151,5 +169,30 @@ export class ContentComponent {
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
     this.changeDetector.detectChanges();
+  }
+
+  editUserData(idInput: string) {
+    const inputs = document.getElementsByClassName("inputDataUser");
+
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i] as HTMLInputElement;
+
+      input.readOnly = !input.readOnly;
+
+      if (input.style.backgroundColor == "") {
+        input.style.backgroundColor = "#474756";
+      }
+
+      if (input.style.backgroundColor == "rgb(99, 99, 113)") {
+        input.style.backgroundColor = "#474756";
+      } else if (input.style.backgroundColor == "rgb(71, 71, 86)") {
+        input.style.backgroundColor = "#636371";
+      }
+
+      if (input.readOnly) {
+        this.toastr.success("Usuário Editado com Sucesso");
+      }
+    }
+
   }
 }
