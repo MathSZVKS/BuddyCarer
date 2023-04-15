@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { LoginService } from "../services/login/login.service";
+import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
-  providers: [LoginService],
+  providers: [UserService],
 })
 export class LoginComponent {
   @Output() loginStatus = new EventEmitter<object>();
@@ -24,7 +24,7 @@ export class LoginComponent {
   emailToRegister = "";
 
   constructor(
-    public loginService: LoginService,
+    public userService: UserService,
     public registerService: RegisterService,
     private toastr: ToastrService
   ) {}
@@ -84,7 +84,7 @@ export class LoginComponent {
 
   access() {
     this.loginStatus.emit(
-      this.loginService.login(this.userToLogin, this.passwordToLogin)
+      this.userService.login(this.userToLogin, this.passwordToLogin)
     );
   }
 

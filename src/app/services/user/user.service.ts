@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class LoginService {
+export class UserService {
   constructor() {}
 
   login(user: string, password: string) {
@@ -19,5 +19,10 @@ export class LoginService {
       logged = { permissionAccess: false, user: "" };
     }
     return logged;
+  }
+
+  saveUserData() {
+    //Aqui preciso enviar o Json com o Objeto de usuário atualizado pro back e pegar o retorno após salvar
+    return true
   }
 }

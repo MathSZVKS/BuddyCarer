@@ -19,6 +19,7 @@ import { VaccinesService } from "../services/vaccines/vaccines.service";
 import { SchedulesService } from "../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
+import { UserService } from "../services/user/user.service";
 
 @Component({
   selector: "app-content",
@@ -82,7 +83,8 @@ export class ContentComponent {
     public myPetsService: MyPetsService,
     private changeDetector: ChangeDetectorRef,
     private vaccinesService: VaccinesService,
-    private schedulesService: SchedulesService
+    private schedulesService: SchedulesService,
+    private userService: UserService
   ) {}
 
   ngOnChanges() {
@@ -190,9 +192,10 @@ export class ContentComponent {
       }
 
       if (input.readOnly) {
-        this.toastr.success("Usuário Editado com Sucesso");
+        if(this.userService.saveUserData()){
+          this.toastr.success("Usuário editado com Sucesso");
+        }
       }
     }
-
   }
 }
