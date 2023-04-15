@@ -375,4 +375,9 @@
       color:#3152bd;
     }
   }
+
+  .userData{
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
 }

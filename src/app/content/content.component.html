@@ -90,71 +90,125 @@
         "
       >
         {{ userLogged.name }}
-      </h2><fa-icon class="pencil" [icon]="faPencil" (click)="editUserData('user')"></fa-icon>
+      </h2>
+      <fa-icon
+        *ngIf="!alterPassword"
+        class="pencil"
+        [icon]="faPencil"
+        (click)="editUserData('user')"
+      ></fa-icon>
       <div style="width: 100%">
-        <div style="display: inline-block; width: 50%; box-sizing: border-box">
-          <span>Usuário</span><br />
-          <input
-            id="user"
-            class="inputDataUserNotEditable"
-            type="text"
-            value="{{ userLogged.user }}"
-            readonly
-          /><br />
-          <span>Perfil de Acesso</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.type }}"
-            readonly
-            /><br />
-          <span>Data de Nascimento</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.birthDay }}"
-            readonly
-            /><br />
-          <span>Tipo de Pessoa</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.typePerson }}"
-            readonly
-            />
-        </div>
-        <div style="display: inline-block; width: 50%; box-sizing: border-box">
-          <span>Endereço de Email</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.email }}"
-            readonly
-            /><br />
-          <span>Recebe novidades por Email?</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.receiveNews }}"
-            readonly
-            /><br />
-          <span>CPF</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.cpf }}"
-            readonly
-            /><br />
-          <span>Telefone</span><br />
-          <input
-            class="inputDataUser"
-            type="text"
-            value="{{ userLogged.phone }}"
-            readonly
-            />
-        </div> 
+        <ng-container *ngIf="!alterPassword">
+          <div class="userData">
+            <div
+              style="display: inline-block; width: 50%; box-sizing: border-box"
+            >
+              <span>Usuário</span><br />
+              <input
+                id="user"
+                class="inputDataUserNotEditable"
+                type="text"
+                value="{{ userLogged.user }}"
+                readonly
+              /><br />
+              <span>Perfil de Acesso</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.type }}"
+                readonly
+              /><br />
+              <span>Data de Nascimento</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.birthDay }}"
+                readonly
+              /><br />
+              <span>Tipo de Pessoa</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.typePerson }}"
+                readonly
+              />
+            </div>
+            <div
+              style="display: inline-block; width: 50%; box-sizing: border-box"
+            >
+              <span>Endereço de Email</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.email }}"
+                readonly
+              /><br />
+              <span>Recebe novidades por Email?</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.receiveNews }}"
+                readonly
+              /><br />
+              <span>CPF</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.cpf }}"
+                readonly
+              /><br />
+              <span>Telefone</span><br />
+              <input
+                class="inputDataUser"
+                type="text"
+                value="{{ userLogged.phone }}"
+                readonly
+              />
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="alterPassword">
+          <div class="userData">
+            <div style="display: inline-block; width: 40%">
+              <span>Senha atual</span><br />
+              <input
+                #currentPassword
+                class="inputDataUserNotEditable"
+                type="password"
+                (change)="
+                  registerValueOldPassword(
+                    currentPassword.value,
+                    'currentPassword'
+                  )
+                "
+              /><br />
+              <span>Nova senha</span><br />
+              <input
+                #newPassword
+                class="inputDataUser"
+                type="password"
+                (change)="
+                  registerValueOldPassword(newPassword.value, 'newPassword')
+                "
+              /><br />
+              <span>Confirmar nova senha</span><br />
+              <input
+                #confirmNewPassword
+                class="inputDataUser"
+                type="password"
+                (change)="
+                  registerValueOldPassword(
+                    confirmNewPassword.value,
+                    'confirmNewPassword'
+                  )
+                "
+              /><br />
+            </div>
+          </div>
+        </ng-container>
       </div>
       <button
+        *ngIf="!alterPassword"
         (click)="alterPage('initial')"
         class="button"
         mat-raised-button
@@ -168,7 +222,23 @@
         Voltar
       </button>
       <button
+        *ngIf="alterPassword"
+        (click)="openClosePasswordPage()"
         class="button"
+        mat-raised-button
+        style="
+          background-color: #bd4c31;
+          color: white;
+          margin-top: 20px;
+          border-radius: 20px;
+        "
+      >
+        Voltar
+      </button>
+      <button
+        *ngIf="!alterPassword"
+        class="button"
+        (click)="openClosePasswordPage()"
         mat-raised-button
         style="
           background-color: #3152bd;
@@ -179,6 +249,21 @@
         "
       >
         Alterar Senha
+      </button>
+      <button
+        *ngIf="alterPassword"
+        class="button"
+        (click)="confirmChangePassword()"
+        mat-raised-button
+        style="
+          background-color: #79b449;
+          color: white;
+          margin-top: 20px;
+          border-radius: 20px;
+          margin-left: 10px;
+        "
+      >
+        Confirmar
       </button>
     </div>
   </div>

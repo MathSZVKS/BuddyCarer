@@ -40,6 +40,7 @@ export class ContentComponent {
     cpf: "",
     phone: "",
     typePerson: "",
+    password: ""
   };
 
   @Output() choosePage = new EventEmitter<string>();
@@ -75,6 +76,11 @@ export class ContentComponent {
   petSelectedCare: any;
   petSelectedVaccines: any;
   vaccineSelected: any;
+
+  alterPassword = false;
+  currentPassword = '';
+  newPassword = '';
+  confirmNewPassword = '';
 
   faPencil = faPencil;
 
@@ -196,6 +202,47 @@ export class ContentComponent {
           this.toastr.success("Usuário editado com Sucesso");
         }
       }
+    }
+  }
+
+  openClosePasswordPage(){
+    this.alterPassword = !this.alterPassword ;
+  }
+
+  confirmChangePassword(){
+    if(this.currentPassword == '' || this.newPassword == '' || this.confirmNewPassword == ''){
+      this.toastr.warning('Informe todos os campos para a troca de senha');
+      return
+    }
+
+    if(this.currentPassword != this.userLogged.password){
+      this.toastr.warning('Senha antiga incorreta');
+      return
+    }
+
+    if(this.newPassword != this.confirmNewPassword){
+      this.toastr.warning('Novas senhas não se coincidem');
+      return
+    }
+
+    this.toastr.success('Senha alterada com sucesso');
+    this.newPassword = '';
+    this.confirmNewPassword = '';
+    this.currentPassword = '';
+    this.alterPassword = false;
+  }
+
+  registerValueOldPassword(passwordTyping: string, type: string){
+    switch (type){
+      case 'currentPassword':
+        this.currentPassword = passwordTyping;
+        break;
+      case 'newPassword':
+        this.newPassword = passwordTyping;
+        break;
+      case 'confirmNewPassword':
+        this.confirmNewPassword = passwordTyping;
+        break;
     }
   }
 }
