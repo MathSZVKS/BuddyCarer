@@ -555,20 +555,30 @@
 <ng-container *ngIf="page == 'Money'">
   <div class="content">
     <h2 class="content__video-heading">Financeiro</h2>
-    <ng-container *ngFor="let pet of myPets">
-      <div class="petMoney">
-        <div
-          class="petMoneyPicture"
-          style=" background-image: url({{ pet.imagem }});  background-color: {{
-            pet.cardColor
-          }}; "
-        ></div>
-        <div
-          class="petMoneyDesc"
-          style="background-color: {{ pet.cardColor }};"
-        ></div>
-      </div>
-    </ng-container>
+    <div class="content__video-card-wrapper-money">
+      <ng-container *ngFor="let pet of myPets">
+        <div class="petMoney">
+          <div
+            class="petMoneyPicture"
+            style=" background-image: url({{
+              pet.imagem
+            }});  background-color: {{ pet.cardColor }}; "
+          ></div>
+          <div
+            class="petMoneyDesc"
+            style="background-color: {{ pet.cardColor }};"
+          >
+            <div style="width: 100%; text-align: center">
+              <h1
+                style="font-size: 1.4rem; color: white; font-weight: bold; margin-bottom: 2rem; margin-top: 0.5rem;"
+              >
+                {{pet.nome}}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </ng-container>
 

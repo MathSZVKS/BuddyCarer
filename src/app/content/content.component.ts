@@ -104,6 +104,7 @@ export class ContentComponent {
         break;
 
       case "Money":
+        this.myPets = this.myPetsService.getMyPets();
         break;
 
       case "Shop":
