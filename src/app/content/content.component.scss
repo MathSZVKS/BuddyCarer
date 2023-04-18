@@ -380,4 +380,30 @@
     opacity: 0;
     animation: fadeIn 1s forwards;
   }
+
+  .petMoney{
+    border-radius: 20px; 
+    width: 100%; 
+    margin-bottom: 20px;
+
+    .petMoneyPicture{
+      margin-bottom: 2%; 
+      float: left; 
+      width: 10%; 
+      height: 80px;
+      border-radius: 20px;
+      margin-right: 2%; 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat;
+    }
+  
+    .petMoneyDesc{
+      margin-bottom: 2%; 
+      float: right; 
+      width: 88%; 
+      height: 80px; 
+      border-radius: 20px; 
+    }
+  }
 }
