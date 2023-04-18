@@ -412,6 +412,13 @@
       background-position: center; 
       background-repeat: no-repeat;
       box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+      transition: 200ms linear;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 200ms linear;
+        cursor: pointer;
+      }
     }
   
     .petMoneyDesc{
