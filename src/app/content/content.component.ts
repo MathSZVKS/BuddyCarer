@@ -40,7 +40,7 @@ export class ContentComponent {
     cpf: "",
     phone: "",
     typePerson: "",
-    password: ""
+    password: "",
   };
 
   @Output() choosePage = new EventEmitter<string>();
@@ -78,9 +78,9 @@ export class ContentComponent {
   vaccineSelected: any;
 
   alterPassword = false;
-  currentPassword = '';
-  newPassword = '';
-  confirmNewPassword = '';
+  currentPassword = "";
+  newPassword = "";
+  confirmNewPassword = "";
 
   faPencil = faPencil;
 
@@ -199,49 +199,53 @@ export class ContentComponent {
       }
 
       if (input.readOnly) {
-        if(this.userService.saveUserData()){
+        if (this.userService.saveUserData()) {
           this.toastr.success("Usuário editado com Sucesso");
         }
       }
     }
   }
 
-  openClosePasswordPage(){
-    this.alterPassword = !this.alterPassword ;
+  openClosePasswordPage() {
+    this.alterPassword = !this.alterPassword;
   }
 
-  confirmChangePassword(){
-    if(this.currentPassword == '' || this.newPassword == '' || this.confirmNewPassword == ''){
-      this.toastr.warning('Informe todos os campos para a troca de senha');
-      return
+  confirmChangePassword() {
+    if (
+      this.currentPassword == "" ||
+      this.newPassword == "" ||
+      this.confirmNewPassword == ""
+    ) {
+      this.toastr.warning("Informe todos os campos para a troca de senha");
+      return;
     }
 
-    if(this.currentPassword != this.userLogged.password){
-      this.toastr.warning('Senha antiga incorreta');
-      return
+    if (this.currentPassword != this.userLogged.password) {
+      this.toastr.warning("Senha antiga incorreta");
+      return;
     }
 
-    if(this.newPassword != this.confirmNewPassword){
-      this.toastr.warning('Novas senhas não se coincidem');
-      return
+    if (this.newPassword != this.confirmNewPassword) {
+      this.toastr.warning("Novas senhas não se coincidem");
+      return;
     }
 
-    this.toastr.success('Senha alterada com sucesso');
-    this.newPassword = '';
-    this.confirmNewPassword = '';
-    this.currentPassword = '';
+    this.toastr.success("Senha alterada com sucesso");
+    this.newPassword = "";
+    this.confirmNewPassword = "";
+    this.currentPassword = "";
     this.alterPassword = false;
   }
 
-  registerValueOldPassword(passwordTyping: string, type: string){
-    switch (type){
-      case 'currentPassword':
+  registerValueOldPassword(passwordTyping: string, type: string) {
+    switch (type) {
+      case "currentPassword":
         this.currentPassword = passwordTyping;
         break;
-      case 'newPassword':
+      case "newPassword":
         this.newPassword = passwordTyping;
         break;
-      case 'confirmNewPassword':
+      case "confirmNewPassword":
         this.confirmNewPassword = passwordTyping;
         break;
     }

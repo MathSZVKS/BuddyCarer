@@ -335,7 +335,7 @@
     }
   }
 
-  .profileImage{
+  .profileImage {
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -344,13 +344,13 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 1em;
     margin-top: 1em;
-    background-image: url('https://avatars.githubusercontent.com/u/81537258?v=4');
+    background-image: url("https://avatars.githubusercontent.com/u/81537258?v=4");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
 
-  .inputDataUser{
+  .inputDataUser {
     border: none;
     outline: none;
     margin-right: 5px;
@@ -365,7 +365,7 @@
     margin-top: 5px;
   }
 
-  .inputDataUserNotEditable{
+  .inputDataUserNotEditable {
     border: none;
     outline: none;
     margin-right: 5px;
@@ -380,36 +380,36 @@
     margin-top: 5px;
   }
 
-  .pencil{
+  .pencil {
     cursor: pointer;
     transition: 200ms linear;
     margin-bottom: 1.5rem;
 
-    &:hover{
+    &:hover {
       transition: 200ms linear;
-      color:#3152bd;
+      color: #3152bd;
     }
   }
 
-  .userData{
+  .userData {
     opacity: 0;
     animation: fadeIn 1s forwards;
   }
 
-  .petMoney{
-    border-radius: 20px; 
-    width: 100%; 
+  .petMoney {
+    border-radius: 20px;
+    width: 100%;
     animation-name: slide-in;
     animation-duration: 1s;
 
-    .petMoneyPicture{
-      float: left; 
-      width: 10%; 
-      height: 9rem;
+    .petMoneyPicture {
+      float: left;
+      width: 10%;
+      height: 10rem;
       border-radius: 20px;
-      margin-right: 2%; 
-      background-size: cover; 
-      background-position: center; 
+      margin-right: 2%;
+      background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
       box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
       transition: 200ms linear;
@@ -420,13 +420,37 @@
         cursor: pointer;
       }
     }
-  
-    .petMoneyDesc{
-      float: right; 
-      width: 88%; 
-      height: 9rem; 
-      border-radius: 20px; 
+
+    .petMoneyDesc {
+      float: right;
+      width: 85.7%;
+      height: 9rem;
+      border-radius: 20px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      padding: 1% 1% 1% 1%;
+
+      .cardAboutMoney {
+        height: auto;
+        background-color: #353340;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        margin: auto;
+        width: 48.5%;
+        border-radius: 15px;
+      }
+
+      .serviceTitle {
+        font-size: 0.9rem;
+        color: rgb(182, 180, 180);
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .namePet {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+      }
     }
   }
 }
