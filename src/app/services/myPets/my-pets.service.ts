@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Expensives } from "src/app/interfaces/expensives";
+import { Procedimento } from "src/app/interfaces/procedimento";
 
 @Injectable({
   providedIn: "root",
@@ -569,35 +571,35 @@ export class MyPetsService {
   }
 
   getExpensives(){
-    let expensives = [
+    let expensives: Expensives[] =  [
       {
         nome: 'Barnei',
-        procedimento: {
-          0: {
+        procedimentos: [
+          {
             descricao: 'Tosa Higinenica',
             valor:'R$ 100,00 ',
           },
-          1: {
+          {
             descricao: 'Banho',
             valor:'R$ 120,00 ',
           }
-        }
+        ]
       },
       {
         nome: 'Nero',
-        procedimento: {
-          0: {
+        procedimentos: [
+          {
             descricao: 'Tosa Higinenica',
             valor:'R$ 100,00 ',
           },
-          1: {
+          {
             descricao: 'Banho',
             valor:'R$ 120,00 ',
           }
-        }
+        ]
       },
     ]
-
+    
     return expensives
   }
 }

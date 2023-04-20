@@ -578,17 +578,18 @@
             </div>
             <div class="cardAboutMoney" style="float: left">
               <h3 class="serviceTitle">Serviços tomados</h3>
-              <ng-container *ngFor="let expensive of expensives, let i = index">
+              <ng-container *ngFor="let expensive of expensives; let i = index">
                 <ng-container *ngIf="pet.nome == expensive.nome">
-                  <ng-container *ngFor="let expensivex of expensives[i].procedimento | keyvalue">
+                  <ng-container
+                    *ngFor="
+                      let expensivex of expensive.procedimentos
+                    "
+                  >
                     <div
                       class="expenses"
                       style="background-color: {{ pet.cardColor }};"
                     >
-                    <ng-container *ngIf="expensivex.value">
-                      {{expensivex.value}}
-                    </ng-container>
-                    
+                      {{ expensivex.descricao}}
                     </div>
                   </ng-container>
                 </ng-container>
