@@ -578,6 +578,21 @@
             </div>
             <div class="cardAboutMoney" style="float: left">
               <h3 class="serviceTitle">Serviços tomados</h3>
+              <ng-container *ngFor="let expensive of expensives, let i = index">
+                <ng-container *ngIf="pet.nome == expensive.nome">
+                  <ng-container *ngFor="let expensivex of expensives[i].procedimento | keyvalue">
+                    <div
+                      class="expenses"
+                      style="background-color: {{ pet.cardColor }};"
+                    >
+                    <ng-container *ngIf="expensivex.value">
+                      {{expensivex.value}}
+                    </ng-container>
+                    
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
             </div>
             <div class="cardAboutMoney" style="float: right">
               <h3 class="serviceTitle">Aguardando pagamento</h3>

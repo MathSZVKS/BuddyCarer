@@ -20,6 +20,7 @@ import { SchedulesService } from "../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
+import { Procedimento } from "../interfaces/procedimento";
 
 @Component({
   selector: "app-content",
@@ -76,6 +77,7 @@ export class ContentComponent {
   petSelectedCare: any;
   petSelectedVaccines: any;
   vaccineSelected: any;
+  expensives: any
 
   alterPassword = false;
   currentPassword = "";
@@ -105,6 +107,7 @@ export class ContentComponent {
 
       case "Money":
         this.myPets = this.myPetsService.getMyPets();
+        this.expensives = this.myPetsService.getExpensives();
         break;
 
       case "Shop":
