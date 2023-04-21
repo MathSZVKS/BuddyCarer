@@ -405,7 +405,7 @@
     .petMoneyPicture {
       float: left;
       width: 10%;
-      height: 10rem;
+      height: 15.7rem;
       border-radius: 20px;
       margin-right: 2%;
       background-size: cover;
@@ -452,15 +452,18 @@
         margin-top: 0.5rem;
       }
 
-      .expenses {
-        border-radius: 10px;
-        height: auto;
-        width: 80%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-        color: white;
+      .expensives {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .expenses {
+          border-radius: 10px;
+          height: auto;
+          margin-bottom: 10px;
+          color: white;
+          text-align: center;
+        }
       }
     }
   }

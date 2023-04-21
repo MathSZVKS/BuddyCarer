@@ -580,7 +580,15 @@ export class MyPetsService {
             valor:'R$ 100,00 ',
           },
           {
-            descricao: 'Banho',
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
             valor:'R$ 120,00 ',
           }
         ]
@@ -593,7 +601,141 @@ export class MyPetsService {
             valor:'R$ 100,00 ',
           },
           {
-            descricao: 'Banho',
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Katie',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Atom',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Isabel',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Jasmim',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Petunia',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
+            valor:'R$ 120,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Ted',
+        procedimentos: [
+          {
+            descricao: 'Tosa Higinenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Banho Quentim',
+            valor:'R$ 120,00 ',
+          },
+          {
+            descricao: 'Vacina Tetragenica',
+            valor:'R$ 100,00 ',
+          },
+          {
+            descricao: 'Tosa Completa',
             valor:'R$ 120,00 ',
           }
         ]
@@ -601,5 +743,116 @@ export class MyPetsService {
     ]
     
     return expensives
+  }
+
+  getExpensivesToPay(){
+    let expensivesToPay: Expensives[] =  [
+      {
+        nome: 'Barnei',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Nero',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Katie',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Atom',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Isabel',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Jasmim',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Petunia',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+      {
+        nome: 'Ted',
+        procedimentos: [
+          {
+            descricao: 'Castração',
+            valor:'R$ 500,00 ',
+          },
+          {
+            descricao: 'Limpeza Corporal',
+            valor:'R$ 220,00 ',
+          }
+        ]
+      },
+    ]
+    
+    return expensivesToPay
   }
 }

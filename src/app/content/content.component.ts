@@ -78,6 +78,7 @@ export class ContentComponent {
   petSelectedVaccines: any;
   vaccineSelected: any;
   expensives: any
+  expensivesToPay: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -108,6 +109,7 @@ export class ContentComponent {
       case "Money":
         this.myPets = this.myPetsService.getMyPets();
         this.expensives = this.myPetsService.getExpensives();
+        this.expensivesToPay = this.myPetsService.getExpensivesToPay();
         break;
 
       case "Shop":

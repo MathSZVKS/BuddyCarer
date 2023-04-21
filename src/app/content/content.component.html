@@ -581,15 +581,25 @@
               <ng-container *ngFor="let expensive of expensives; let i = index">
                 <ng-container *ngIf="pet.nome == expensive.nome">
                   <ng-container
-                    *ngFor="
-                      let expensivex of expensive.procedimentos
-                    "
+                    *ngFor="let expensivex of expensive.procedimentos"
                   >
-                    <div
-                      class="expenses"
-                      style="background-color: {{ pet.cardColor }};"
-                    >
-                      {{ expensivex.descricao}}
+                    <div class="expensives">
+                      <div
+                        class="expenses"
+                        style="background-color: {{
+                          pet.cardColor
+                        }}; width: 62%; margin-right: 10px"
+                      >
+                        {{ expensivex.descricao }}
+                      </div>
+                      <div
+                        class="expenses"
+                        style="background-color: {{
+                          pet.cardColor
+                        }}; width: 28%"
+                      >
+                        {{ expensivex.valor }}
+                      </div>
                     </div>
                   </ng-container>
                 </ng-container>
@@ -597,6 +607,28 @@
             </div>
             <div class="cardAboutMoney" style="float: right">
               <h3 class="serviceTitle">Aguardando pagamento</h3>
+              <ng-container *ngFor="let expensiveToPay of expensivesToPay; let i = index">
+                <ng-container *ngIf="pet.nome == expensiveToPay.nome">
+                  <ng-container
+                    *ngFor="let expensivex of expensiveToPay.procedimentos"
+                  >
+                    <div class="expensives">
+                      <div
+                        class="expenses"
+                        style="background-color: rgb(92 82 82); width: 62%; margin-right: 10px"
+                      >
+                        {{ expensivex.descricao }}
+                      </div>
+                      <div
+                        class="expenses"
+                        style="background-color: rgb(92 82 82);"
+                      >
+                        {{ expensivex.valor }}
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
             </div>
             <!-- <div class="cardAboutMoney" style="width: 98%; background-color: rgb(255 255 255 / 14%);"></div> -->
           </div>
