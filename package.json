@@ -33,6 +33,8 @@
     "@fullcalendar/list": "^6.1.5",
     "@fullcalendar/timegrid": "^6.1.5",
     "angular-progress-bar": "^1.0.11",
+    "angular-star-rating": "^6.0.0",
+    "css-star-rating": "^1.3.1",
     "event-utils": "^2.1.0",
     "ngx-toastr": "^16.1.0",
     "rxjs": "~7.8.0",

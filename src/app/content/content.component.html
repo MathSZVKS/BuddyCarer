@@ -694,6 +694,15 @@
         <span style="color: #909090">{{ expensiveSelected.descricao }}</span>
       </div>
 
+      <div style="margin-bottom: 4.5%">
+        <star-rating
+          speed="slow"
+          [starType]="'svg'"
+          [rating]="expensiveSelected.avaliacao"
+          (starClickChange)="rateService($event)"
+        ></star-rating>
+      </div>
+
       <div style="display: flex">
         <div
           class="content__video-card-pet"
@@ -701,12 +710,20 @@
             expensiveSelected.imagemServico
           }}); background-color: {{ expensiveSelected.cardColor }}; width: 35%;"
         ></div>
+
         <div style="width: 65%; text-align: left; margin-left: 2em">
           <strong style="color: white; font-size: 1em">Status: </strong
-          ><ng-container>{{ expensiveSelected.status }}</ng-container
-          ><br />
+          ><span *ngIf="expensiveSelected.status == 'Pago'" style="color: rgb(101 216 86)">{{ expensiveSelected.status }}</span><span *ngIf="expensiveSelected.status != 'Pago'" style="color: rgb(222 188 90)">{{ expensiveSelected.status }}</span><br />
           <strong style="color: white; font-size: 1em">Valor: </strong
           >{{ expensiveSelected.valor }}<br />
+          <strong style="color: white; font-size: 1em">Parcelas: </strong
+          >{{ expensiveSelected.parcelas }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Tipo de Pagamento: </strong
+          >{{ expensiveSelected.tipoPagamento }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Data do Pagamento: </strong
+          >{{ expensiveSelected.dataPagamento }}<br />
           <button
             (click)="alterPage('Money')"
             class="button"

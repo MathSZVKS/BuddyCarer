@@ -4,5 +4,9 @@ export interface Procedimento {
     cardColor: string,
     imagemServico: string,
     descricao: string,
-    status: string
+    status: string,
+    avaliacao: number,
+    parcelas: string,
+    tipoPagamento: string, 
+    dataPagamento: string,
 };

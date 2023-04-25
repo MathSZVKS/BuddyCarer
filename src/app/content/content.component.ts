@@ -262,4 +262,9 @@ export class ContentComponent {
         break;
     }
   }
+
+  rateService(event: any){
+    // aqui recebo a avaliação e preciso atualizar na tela de serviços prestados do pet
+    this.toastr.success('Serviço avaliado com sucesso :D')
+  }
 }

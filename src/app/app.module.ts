@@ -14,6 +14,7 @@ import { LoginComponent } from "./login/login.component";
 import { ToastrModule } from "ngx-toastr";
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { ProgressBarModule } from "angular-progress-bar";
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProgressBarModule } from "angular-progress-bar";
   imports: [
     BrowserModule,
     ProgressBarModule,
+    StarRatingModule.forRoot(),
     FullCalendarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
