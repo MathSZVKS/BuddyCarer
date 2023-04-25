@@ -1,4 +1,8 @@
 export interface Procedimento {
-    descricao: string;
-    valor: string
+    nome: string,
+    valor: string,
+    cardColor: string,
+    imagemServico: string,
+    descricao: string,
+    status: string
 };

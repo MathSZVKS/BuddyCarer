@@ -79,6 +79,7 @@ export class ContentComponent {
   vaccineSelected: any;
   expensives: any
   expensivesToPay: any;
+  expensiveSelected: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -139,6 +140,12 @@ export class ContentComponent {
   alterPage(page: string) {
     this.page = page;
     this.choosePage.emit(page);
+  }
+
+  alterPageAndRegisterExpensiveSelected(page: string, expensive: any){
+    this.page = page;
+    this.choosePage.emit(page);
+    this.expensiveSelected = expensive;
   }
 
   switchPageAndRegisterVaccineSelected(page: string, vaccine: any) {

@@ -454,6 +454,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 200ms linear;
 
         .expenses {
           border-radius: 10px;
@@ -461,8 +462,24 @@
           margin-bottom: 10px;
           color: white;
           text-align: center;
+          transition: 200ms linear;
+        }
+
+        &:hover {
+          transform: scale(1.03);
+          transition: 200ms linear;
+          cursor: pointer;
         }
       }
     }
+  }
+
+  .description {
+    background-color: #ffffff1f;
+    border-radius: 7px;
+    margin-bottom: 4%;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 }

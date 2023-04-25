@@ -2,7 +2,13 @@
   <div class="content">
     <h2 class="content__video-heading">Bem-vindo</h2>
     <div class="content__video-card-wrapper">
-      <div style="background-image: url(https://images.vexels.com/media/users/3/210964/isolated/preview/9b8f69a5180ae3b60f65d65612db7bda-cachorro-sorrindo-feliz-ilustracao.png); background-color: #31abbd;" class="content__video-card-l">
+      <div
+        style="
+          background-image: url(https://images.vexels.com/media/users/3/210964/isolated/preview/9b8f69a5180ae3b60f65d65612db7bda-cachorro-sorrindo-feliz-ilustracao.png);
+          background-color: #31abbd;
+        "
+        class="content__video-card-l"
+      >
         <h3 class="content__video-card-title">
           Cuidados básicos com seu dog no verão =)
         </h3>
@@ -37,7 +43,13 @@
     </div>
     <h2 class="content__video-title">Cuidados sempre em dia!</h2>
     <div class="content__video-card-wrapper">
-      <div style="background-image: url(https://images.vexels.com/media/users/3/310365/isolated/preview/a1c41242cb08bb9b27cfba1f835e6789-animal-de-cachorro-golden-retriever.png); background-color: #dc984d;" class="content__video-card-l">
+      <div
+        style="
+          background-image: url(https://images.vexels.com/media/users/3/310365/isolated/preview/a1c41242cb08bb9b27cfba1f835e6789-animal-de-cachorro-golden-retriever.png);
+          background-color: #dc984d;
+        "
+        class="content__video-card-l"
+      >
         <h3 class="content__video-card-title">
           Cuidados básicos com seu dog no verão =)
         </h3>
@@ -583,14 +595,22 @@
                   <ng-container
                     *ngFor="let expensivex of expensive.procedimentos"
                   >
-                    <div class="expensives">
+                    <div
+                      class="expensives"
+                      (click)="
+                        alterPageAndRegisterExpensiveSelected(
+                          'Expensive',
+                          expensivex
+                        )
+                      "
+                    >
                       <div
                         class="expenses"
                         style="background-color: {{
                           pet.cardColor
                         }}; width: 62%; margin-right: 10px"
                       >
-                        {{ expensivex.descricao }}
+                        {{ expensivex.nome }}
                       </div>
                       <div
                         class="expenses"
@@ -607,17 +627,31 @@
             </div>
             <div class="cardAboutMoney" style="float: right">
               <h3 class="serviceTitle">Aguardando pagamento</h3>
-              <ng-container *ngFor="let expensiveToPay of expensivesToPay; let i = index">
+              <ng-container
+                *ngFor="let expensiveToPay of expensivesToPay; let i = index"
+              >
                 <ng-container *ngIf="pet.nome == expensiveToPay.nome">
                   <ng-container
                     *ngFor="let expensivex of expensiveToPay.procedimentos"
                   >
-                    <div class="expensives">
+                    <div
+                      class="expensives"
+                      (click)="
+                        alterPageAndRegisterExpensiveSelected(
+                          'Expensive',
+                          expensivex
+                        )
+                      "
+                    >
                       <div
                         class="expenses"
-                        style="background-color: rgb(92 82 82); width: 62%; margin-right: 10px"
+                        style="
+                          background-color: rgb(92 82 82);
+                          width: 62%;
+                          margin-right: 10px;
+                        "
                       >
-                        {{ expensivex.descricao }}
+                        {{ expensivex.nome }}
                       </div>
                       <div
                         class="expenses"
@@ -630,10 +664,61 @@
                 </ng-container>
               </ng-container>
             </div>
-            <!-- <div class="cardAboutMoney" style="width: 98%; background-color: rgb(255 255 255 / 14%);"></div> -->
           </div>
         </div>
       </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'Expensive'">
+  <div class="content">
+    <h2 class="content__video-heading">Detalhes do serviço</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="
+          font-size: 2rem;
+          color: {{ expensiveSelected.cardColor }};
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
+        {{ expensiveSelected.nome }}
+      </h1>
+
+      <div class="description">
+        <h2 style="color: #a8a3a3">Descrição</h2>
+        <span style="color: #909090">{{ expensiveSelected.descricao }}</span>
+      </div>
+
+      <div style="display: flex">
+        <div
+          class="content__video-card-pet"
+          style="background-image: url({{
+            expensiveSelected.imagemServico
+          }}); background-color: {{ expensiveSelected.cardColor }}; width: 35%;"
+        ></div>
+        <div style="width: 65%; text-align: left; margin-left: 2em">
+          <strong style="color: white; font-size: 1em">Status: </strong
+          ><ng-container>{{ expensiveSelected.status }}</ng-container
+          ><br />
+          <strong style="color: white; font-size: 1em">Valor: </strong
+          >{{ expensiveSelected.valor }}<br />
+          <button
+            (click)="alterPage('Money')"
+            class="button"
+            mat-raised-button
+            style="background-color: {{
+              expensiveSelected.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px"
+          >
+            Voltar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>
