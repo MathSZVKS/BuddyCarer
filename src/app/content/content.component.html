@@ -309,14 +309,46 @@
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-    <h1
+      <h1
         style="font-size: 2rem; color: {{
           petSelected.cardColor
         }}; font-weight: bold; margin-bottom: 3rem;"
       >
         {{ petSelected.raca }}
       </h1>
-      <span>{{raceSelected.descricao}}</span><br>
+      <span>{{ raceSelected.descricao }}</span
+      ><br />
+
+      <div style="display: flex; height: auto; margin-top: 20px">
+        <div class="cardAboutFacilitiesPet">
+          <span>Facilidade de adestramento</span>
+          <star-rating
+            speed="slow"
+            [starType]="'svg'"
+            [readOnly]="true"
+            [rating]="raceSelected.facilidadeAdestramento"
+          ></star-rating>
+        </div>
+        <div class="cardAboutFacilitiesPet">
+          <span>Facilidade de cuidado</span>
+          <star-rating
+            speed="slow"
+            [starType]="'svg'"
+            [readOnly]="true"
+            [rating]="raceSelected.facilidadeCuidado"
+          ></star-rating>
+        </div>
+        <div class="cardAboutFacilitiesPet">
+          <span>Nível de obediência</span>
+          <star-rating
+            speed="slow"
+            [starType]="'svg'"
+            [readOnly]="true"
+            [rating]="raceSelected.nivelObediencia"
+          ></star-rating>
+        </div>
+      </div>
+
       <button
         (click)="alterPage('aboutPet')"
         class="button"
@@ -327,7 +359,7 @@
       >
         Voltar
       </button>
-  </div>
+    </div>
   </div>
 </ng-container>
 
