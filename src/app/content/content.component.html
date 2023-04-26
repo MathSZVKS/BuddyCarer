@@ -302,6 +302,35 @@
   </div>
 </ng-container>
 
+<ng-container *ngIf="page == 'aboutTheRace'">
+  <div class="content">
+    <h2 class="content__video-heading">Sobre a raça</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+    <h1
+        style="font-size: 2rem; color: {{
+          petSelected.cardColor
+        }}; font-weight: bold; margin-bottom: 3rem;"
+      >
+        {{ petSelected.raca }}
+      </h1>
+      <span>{{raceSelected.descricao}}</span><br>
+      <button
+        (click)="alterPage('aboutPet')"
+        class="button"
+        mat-raised-button
+        style="background-color: {{
+          petSelected.cardColor
+        }}; color: white; margin-top: 20px; border-radius: 20px"
+      >
+        Voltar
+      </button>
+  </div>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="page == 'aboutPet'">
   <div class="content">
     <h2 class="content__video-heading">Meu Pet</h2>
@@ -356,9 +385,22 @@
             mat-raised-button
             style="background-color: {{
               petSelected.cardColor
-            }}; color: white; margin-top: 10px; border-radius: 20px"
+            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
           >
             Alterar Pet
+          </button>
+          <button
+            (click)="alterPageAndRegisterRace('aboutTheRace', petSelected.raca)"
+            class="button"
+            mat-raised-button
+            style="
+              background-color: rgb(148 128 128);
+              color: white;
+              margin-top: 10px;
+              border-radius: 20px;
+            "
+          >
+            Sobre a raça {{ petSelected.raca }}
           </button>
         </div>
       </div>
@@ -713,7 +755,15 @@
 
         <div style="width: 65%; text-align: left; margin-left: 2em">
           <strong style="color: white; font-size: 1em">Status: </strong
-          ><span *ngIf="expensiveSelected.status == 'Pago'" style="color: rgb(101 216 86)">{{ expensiveSelected.status }}</span><span *ngIf="expensiveSelected.status != 'Pago'" style="color: rgb(222 188 90)">{{ expensiveSelected.status }}</span><br />
+          ><span
+            *ngIf="expensiveSelected.status == 'Pago'"
+            style="color: rgb(101 216 86)"
+            >{{ expensiveSelected.status }}</span
+          ><span
+            *ngIf="expensiveSelected.status != 'Pago'"
+            style="color: rgb(222 188 90)"
+            >{{ expensiveSelected.status }}</span
+          ><br />
           <strong style="color: white; font-size: 1em">Valor: </strong
           >{{ expensiveSelected.valor }}<br />
           <strong style="color: white; font-size: 1em">Parcelas: </strong

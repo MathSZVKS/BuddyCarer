@@ -21,6 +21,7 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
 import { Procedimento } from "../interfaces/procedimento";
+import { RaceService } from "../services/race/race.service";
 
 @Component({
   selector: "app-content",
@@ -80,6 +81,7 @@ export class ContentComponent {
   expensives: any
   expensivesToPay: any;
   expensiveSelected: any;
+  raceSelected: any
 
   alterPassword = false;
   currentPassword = "";
@@ -94,7 +96,8 @@ export class ContentComponent {
     private changeDetector: ChangeDetectorRef,
     private vaccinesService: VaccinesService,
     private schedulesService: SchedulesService,
-    private userService: UserService
+    private userService: UserService,
+    private raceService: RaceService
   ) {}
 
   ngOnChanges() {
@@ -146,6 +149,12 @@ export class ContentComponent {
     this.page = page;
     this.choosePage.emit(page);
     this.expensiveSelected = expensive;
+  }
+
+  alterPageAndRegisterRace(page: string, race: any){
+    this.page = page;
+    this.choosePage.emit(page);
+    this.raceSelected = this.raceService.getRace(race);
   }
 
   switchPageAndRegisterVaccineSelected(page: string, vaccine: any) {
