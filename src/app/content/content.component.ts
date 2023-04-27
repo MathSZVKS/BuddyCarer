@@ -217,6 +217,10 @@ export class ContentComponent {
         input.style.backgroundColor = "#474756";
       } else if (input.style.backgroundColor == "rgb(71, 71, 86)") {
         input.style.backgroundColor = "#636371";
+      } else if (input.style.backgroundColor == "rgb(94, 91, 113)"){
+        input.style.backgroundColor = "rgb(119 119 130)";
+      } else if (input.style.backgroundColor == "rgb(119, 119, 130)"){
+        input.style.backgroundColor = "#5e5b71";
       }
 
       if (input.readOnly) {
