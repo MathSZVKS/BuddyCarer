@@ -12,7 +12,31 @@ export class AppComponent {
   title = "buddyCarer";
   userType = "client";
   inLogin = false;
-  userLogged = {permissionAccess: false, type: '', user: '', name: '', email: '', receiveNews: '', birthDay: '', cpf: '', phone: '', typePerson: '', password: ''}
+  userLogged = {
+    permissionAccess: false,
+    type: "",
+    user: "",
+    name: "",
+    email: "",
+    receiveNews: "",
+    birthDay: "",
+    cpf: "",
+    phone: "",
+    typePerson: "",
+    password: "",
+    cardNumber: "",
+    cardName: "",
+    flag: "",
+    securityCode: "",
+    rua: "",
+    cep: "",
+    numeroRua: "",
+    complemento: "",
+    referencia: "",
+    cidade: "",
+    estado: "",
+    telefoneResidencial: "",
+  };
   page = "initial";
 
   openLoginInterface() {

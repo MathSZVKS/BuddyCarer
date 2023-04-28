@@ -360,6 +360,7 @@
     height: 2em;
     margin-bottom: 20px;
     margin-top: 5px;
+    cursor: pointer;
   }
 
   .inputDataUserNotEditable {
@@ -375,6 +376,7 @@
     height: 2em;
     margin-bottom: 20px;
     margin-top: 5px;
+    cursor: pointer;
   }
 
   .pencil {
@@ -394,7 +396,7 @@
   }
 
   .cardMoneyData{
-    background-color: #474756;
+    background-color: #47475687;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -406,6 +408,8 @@
     margin-right: auto;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     padding-top: 0.1px;
+    transform: translateY(500px); /* começa fora da tela */
+    animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 
   .petMoney {

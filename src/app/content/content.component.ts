@@ -43,6 +43,18 @@ export class ContentComponent {
     phone: "",
     typePerson: "",
     password: "",
+    cardNumber: "", 
+    cardName: "", 
+    flag: "", 
+    securityCode: "",
+    rua: "",
+    cep: "",
+    numeroRua: "",
+    complemento: "",
+    referencia: "",
+    cidade: "",
+    estado: "",
+    telefoneResidencial: "",
   };
 
   @Output() choosePage = new EventEmitter<string>();
@@ -225,7 +237,7 @@ export class ContentComponent {
 
       if (input.readOnly) {
         if (this.userService.saveUserData()) {
-          this.toastr.success("Usuário editado com Sucesso");
+          this.toastr.success("Usuário editado com sucesso");
         }
       }
     }
