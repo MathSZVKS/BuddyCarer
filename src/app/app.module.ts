@@ -15,6 +15,7 @@ import { ToastrModule } from "ngx-toastr";
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { ProgressBarModule } from "angular-progress-bar";
 import { StarRatingModule } from 'angular-star-rating';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,14 @@ import { StarRatingModule } from 'angular-star-rating';
     ToastrModule.forRoot({
       preventDuplicates: true,
     }),
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
