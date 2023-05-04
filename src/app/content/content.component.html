@@ -996,7 +996,29 @@
           Resumo do dia
         </h1>
         <div style="display: flex">
-          <div style="flex: 1; padding: 10px">
+          <div
+            style="
+              width: 30%;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+            "
+          >
+            <span>Total de clientes atendidos</span>
+          </div>
+          <div style="width: 70%">
+            <progress-bar
+              [progress]="'60'"
+              [color-degraded]="{
+                '0': '#00cbcb',
+                '15': '#f9c3d3',
+                '25': '#fd8c8e'
+              }"
+            >
+            </progress-bar>
+          </div>
+
+          <!-- <div style="flex: 1; padding: 10px">
             <circle-progress
               [percent]="75"
               [radius]="100"
@@ -1066,7 +1088,7 @@
               [outerStrokeGradient]="true"
               [showInnerStroke]="false"
               [showZeroOuterStroke]="false"
-              [title]="'UI'"
+              [title]="'Pedidos entregues'"
               titleColor="#b4b4b4"
               [outerStrokeGradientStopColor]="'#cd8231'"
               [animateTitle]="false"
@@ -1074,6 +1096,156 @@
               [animation]="true"
               [showSubtitle]="false"
               [showUnits]="false"
+              [showBackground]="false"
+              [clockwise]="false"
+              [lazy]="false"
+              [responsive]="true"
+            ></circle-progress>
+          </div> -->
+        </div>
+        <div style="display: flex">
+          <div
+            style="
+              width: 30%;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+            "
+          >
+            <span>Total de pedidos entregues</span>
+          </div>
+          <div style="width: 70%">
+            <progress-bar
+              [progress]="'90'"
+              [color-degraded]="{
+                '0': 'rgb(140 187 253)',
+                '15': 'rgb(140 187 253)',
+                '25': 'rgb(140 187 253)'
+              }"
+            >
+            </progress-bar>
+          </div>
+        </div>
+        <div style="display: flex">
+          <div
+            style="
+              width: 30%;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+            "
+          >
+            <span>Total de pets doados</span>
+          </div>
+          <div style="width: 70%">
+            <progress-bar
+              [progress]="'30'"
+              [color-degraded]="{
+                '0': 'rgb(253 185 140)',
+                '15': 'rgb(253 185 140)',
+                '25': 'rgb(253 185 140)'
+              }"
+            >
+            </progress-bar>
+          </div>
+        </div>
+        <div style="display: flex; margin-top: 5%;">
+          <div style="flex: 1; padding: 10px">
+            <circle-progress
+              [percent]="75"
+              [radius]="100"
+              [space]="-10"
+              [maxPercent]="100"
+              [outerStrokeGradient]="true"
+              [outerStrokeWidth]="16"
+              [backgroundStroke]="'transparent'"
+              [outerStrokeColor]="'#4882c2'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [outerStrokeGradient]="true"
+              [titleFontSize]="'15'"
+              [showTitle]="true"
+              [units]="'%'"
+              [showInnerStroke]="false"
+              [showSubtitle]="true"
+              [showZeroOuterStroke]="false"
+              [titleColor]="'#b4b4b4'"
+              [subtitle]="'Sucesso na adoção'"
+              [outerStrokeGradientStopColor]="'#1eb07e'"
+              [animateTitle]="false"
+              [animationDuration]="1000"
+              [animation]="true"
+              [unitsColor]="'rgb(169, 169, 169)'"
+              [unitsFontSize]="'14'"
+              [subtitleFontSize]="'13'"
+              [showUnits]="true"
+              [showBackground]="false"
+              [clockwise]="false"
+              [lazy]="false"
+              [responsive]="true"
+            ></circle-progress>
+          </div>
+          <div style="flex: 1; padding: 10px">
+            <circle-progress
+              [percent]="80"
+              [radius]="100"
+              [space]="-10"
+              [maxPercent]="100"
+              [outerStrokeGradient]="true"
+              [outerStrokeWidth]="16"
+              [backgroundStroke]="'transparent'"
+              [outerStrokeColor]="'rgb(253, 140, 142)'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [outerStrokeGradient]="true"
+              [titleFontSize]="'15'"
+              [showTitle]="true"
+              [units]="'%'"
+              [showInnerStroke]="false"
+              [showSubtitle]="true"
+              [showZeroOuterStroke]="false"
+              [titleColor]="'#b4b4b4'"
+              [subtitle]="'Aprovação de seviços'"
+              [outerStrokeGradientStopColor]="'rgb(253, 185, 140)'"
+              [animateTitle]="false"
+              [animationDuration]="1000"
+              [animation]="true"
+              [unitsColor]="'rgb(169, 169, 169)'"
+              [unitsFontSize]="'14'"
+              [subtitleFontSize]="'13'"
+              [showUnits]="true"
+              [showBackground]="false"
+              [clockwise]="false"
+              [lazy]="false"
+              [responsive]="true"
+            ></circle-progress>
+          </div>
+          <div style="flex: 1; padding: 10px">
+            <circle-progress
+              [percent]="75"
+              [radius]="100"
+              [space]="-10"
+              [maxPercent]="100"
+              [outerStrokeGradient]="true"
+              [outerStrokeWidth]="16"
+              [backgroundStroke]="'transparent'"
+              [outerStrokeColor]="'rgb(187 130 180)'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [outerStrokeGradient]="true"
+              [titleFontSize]="'15'"
+              [showTitle]="true"
+              [units]="'%'"
+              [showInnerStroke]="false"
+              [showSubtitle]="true"
+              [showZeroOuterStroke]="false"
+              [titleColor]="'#b4b4b4'"
+              [subtitle]="'Seviços avaliados'"
+              [outerStrokeGradientStopColor]="'rgb(201 169 197)'"
+              [animateTitle]="false"
+              [animationDuration]="1000"
+              [animation]="true"
+              [unitsColor]="'rgb(169, 169, 169)'"
+              [unitsFontSize]="'14'"
+              [subtitleFontSize]="'13'"
+              [showUnits]="true"
               [showBackground]="false"
               [clockwise]="false"
               [lazy]="false"
