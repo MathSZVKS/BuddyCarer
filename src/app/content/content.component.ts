@@ -61,7 +61,7 @@ export class ContentComponent {
 
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],
-    events: [this.schedulesService.getScheduleds()],
+    events: this.schedulesService.getScheduleds(),
     locales: [{ code: "pt-br" }],
     initialView: "dayGridMonth",
     weekends: true,
