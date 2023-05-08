@@ -103,7 +103,7 @@
     animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 
-  &__video-card-wrapper-money {
+  &__video-card-wrapper-money-client {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -395,7 +395,7 @@
     animation: fadeIn 1s forwards;
   }
 
-  .cardMoneyData{
+  .cardMoneyData {
     background-color: #47475687;
     border-radius: 20px;
     margin-top: 20px;
@@ -410,6 +410,43 @@
     padding-top: 0.1px;
     transform: translateY(500px); /* começa fora da tela */
     animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .client {
+    border-radius: 20px;
+    width: 100%;
+    animation-name: slide-in;
+    animation-duration: 1s;
+
+    .clientPicture {
+      float: left;
+      width: 10%;
+      height: 15.7rem;
+      border-radius: 20px;
+      margin-right: 2%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+      transition: 200ms linear;
+      background-color: #353340;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 200ms linear;
+        cursor: pointer;
+      }
+    }
+
+    .clientDescr {
+      float: right;
+      width: 85.7%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      padding: 1% 1% 1% 1%;
+      background-color: #353340;
+    }
   }
 
   .petMoney {
@@ -501,8 +538,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
-  .cardAboutFacilitiesPet{
-    flex: 1; 
+  .cardAboutFacilitiesPet {
+    flex: 1;
     background-color: rgba(255, 255, 255, 0.1607843137);
     height: auto;
     border-radius: 10px;
