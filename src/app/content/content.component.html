@@ -431,6 +431,31 @@
   </div>
 </ng-container>
 
+<ng-container *ngIf="page == 'newPet'">
+  <div class="content">
+    <h2 class="content__video-heading">Cadastrar novo pet</h2>
+    <div
+      class="content__video-card-about-pet"
+      style="background-color: #353340"
+    >
+      
+
+      <button
+        class="button"
+        mat-raised-button
+        style="
+          background-color: rgb(102, 185, 6);
+          color: white;
+          margin-top: 10px;
+          border-radius: 20px;
+        "
+      >
+        Cadastrar
+      </button>
+    </div>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="page == 'myPets'">
   <div class="content">
     <h2 class="content__video-heading">Meus Pets</h2>
@@ -448,6 +473,18 @@
           </h3>
         </div>
       </ng-container>
+      <div
+        (click)="alterPage('newPet')"
+        class="content__video-card-pet"
+        style="
+          background-color: rgb(134 134 134 / 29%);
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        "
+      >
+        <span style="color: #ffffffb3; font-size: 150px">+</span>
+      </div>
     </div>
   </div>
 </ng-container>
