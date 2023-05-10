@@ -22,6 +22,7 @@ import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
 import { Procedimento } from "../interfaces/procedimento";
 import { RaceService } from "../services/race/race.service";
+import { ClientsService } from "../services/clients/clients.service";
 
 @Component({
   selector: "app-content",
@@ -94,6 +95,7 @@ export class ContentComponent {
   expensivesToPay: any;
   expensiveSelected: any;
   raceSelected: any
+  clients: any
 
   alterPassword = false;
   currentPassword = "";
@@ -109,7 +111,8 @@ export class ContentComponent {
     private vaccinesService: VaccinesService,
     private schedulesService: SchedulesService,
     private userService: UserService,
-    private raceService: RaceService
+    private raceService: RaceService,
+    private clientsService: ClientsService
   ) {}
 
   ngOnChanges() {
@@ -135,6 +138,7 @@ export class ContentComponent {
         break;
 
       case "Clients":
+        this.clients = this.clientsService.getClients();
         break;
 
       case "Package":

@@ -807,7 +807,7 @@
                 style="
                   color: {{ pet.cardColor }};
                 "
-                class="namePet"
+                class="namePetClient"
               >
                 {{ pet.nome }}
               </h1>
@@ -1017,91 +1017,6 @@
             >
             </progress-bar>
           </div>
-
-          <!-- <div style="flex: 1; padding: 10px">
-            <circle-progress
-              [percent]="75"
-              [radius]="100"
-              [space]="-10"
-              [maxPercent]="100"
-              [outerStrokeGradient]="true"
-              [outerStrokeWidth]="16"
-              [backgroundStroke]="'transparent'"
-              [outerStrokeColor]="'#4882c2'"
-              [innerStrokeColor]="'#e7e8ea'"
-              [outerStrokeGradient]="true"
-              [showInnerStroke]="false"
-              [showSubtitle]="false"
-              [showZeroOuterStroke]="false"
-              [title]="'Pets atendidos'"
-              [titleColor]="'#b4b4b4'"
-              [outerStrokeGradientStopColor]="'#1eb07e'"
-              [animateTitle]="false"
-              [animationDuration]="1000"
-              [animation]="true"
-              [showUnits]="false"
-              [showBackground]="false"
-              [clockwise]="false"
-              [lazy]="false"
-              [responsive]="true"
-            ></circle-progress>
-          </div>
-          <div style="flex: 1; padding: 10px">
-            <circle-progress
-              [percent]="75"
-              [radius]="100"
-              [space]="-10"
-              [maxPercent]="100"
-              [outerStrokeGradient]="true"
-              [outerStrokeWidth]="16"
-              [backgroundStroke]="'transparent'"
-              [outerStrokeColor]="'#7664ac'"
-              [innerStrokeColor]="'#7664ac'"
-              [outerStrokeGradient]="true"
-              [showInnerStroke]="false"
-              [showSubtitle]="false"
-              [showZeroOuterStroke]="false"
-              [title]="'Clientes atendidos'"
-              [titleColor]="'#b4b4b4'"
-              [outerStrokeGradientStopColor]="'#4c26c0'"
-              [animateTitle]="false"
-              [animationDuration]="1000"
-              [animation]="true"
-              [showUnits]="false"
-              [showBackground]="false"
-              [clockwise]="false"
-              [lazy]="false"
-              [responsive]="true"
-            ></circle-progress>
-          </div>
-          <div style="flex: 1; padding: 10px">
-            <circle-progress
-              [percent]="90"
-              [radius]="100"
-              [space]="-10"
-              [maxPercent]="100"
-              [outerStrokeGradient]="true"
-              [outerStrokeWidth]="16"
-              [backgroundStroke]="'transparent'"
-              [outerStrokeColor]="'#d22b59'"
-              [innerStrokeColor]="'#d5577a'"
-              [outerStrokeGradient]="true"
-              [showInnerStroke]="false"
-              [showZeroOuterStroke]="false"
-              [title]="'Pedidos entregues'"
-              titleColor="#b4b4b4"
-              [outerStrokeGradientStopColor]="'#cd8231'"
-              [animateTitle]="false"
-              [animationDuration]="1000"
-              [animation]="true"
-              [showSubtitle]="false"
-              [showUnits]="false"
-              [showBackground]="false"
-              [clockwise]="false"
-              [lazy]="false"
-              [responsive]="true"
-            ></circle-progress>
-          </div> -->
         </div>
         <div style="display: flex">
           <div
@@ -1262,18 +1177,142 @@
   <div class="content">
     <h2 class="content__video-heading">Clientes</h2>
     <div class="content__video-card-wrapper-money-client">
-      <div class="client">
-        <div
-          class="clientPicture"
-        >
-          teste
+      <ng-container *ngFor="let client of clients">
+        <div class="client">
+          <div
+            class="clientPicture"
+            style="background-image: url({{ client.foto }});"
+          ></div>
+          <div class="clientDescr">
+            <div style="width: 100%; text-align: center">
+              <h1
+                style="
+                  color: rgb(182, 180, 180);
+                  font-size: 1.4rem;
+                  font-weight: bold;
+                  margin-bottom: 2rem;
+                  margin-top: 0.5rem;
+                "
+              >
+                {{ client.nome }}
+              </h1>
+            </div>
+            <div style="display: flex; width: 100%">
+              <div
+                style="float: left; height: auto; margin: auto; width: 48.5%"
+              >
+                <div
+                  class="clientCard"
+                  style="
+                    text-align: left;
+                    padding: 15px;
+                    width: 90%;
+                    margin-bottom: 10px;
+                  "
+                >
+                  <h3 class="title">Dados pessoais</h3>
+                  <strong style="color: white; font-size: 1em">Idade: </strong
+                  >{{ client.idade }}<br />
+                  <strong style="color: white; font-size: 1em"
+                    >Nascimento: </strong
+                  >{{ client.nascimento }}<br />
+                  <strong style="color: white; font-size: 1em">CPF: </strong
+                  >{{ client.cpf }}<br />
+                </div>
+                <div
+                  class="clientCard"
+                  style="
+                    text-align: left;
+                    padding: 15px;
+                    width: 90%;
+                    margin-bottom: 10px;
+                  "
+                >
+                  <h3 class="title">Contato</h3>
+                  <strong style="color: white; font-size: 1em">Email: </strong
+                  >{{ client.email }}<br />
+                  <strong style="color: white; font-size: 1em"
+                    >Telefone: </strong
+                  >{{ client.telefone }}<br />
+                </div>
+                <div
+                  class="clientCard"
+                  style="
+                    text-align: left;
+                    padding: 15px;
+                    width: 90%;
+                    margin-bottom: 10px;
+                  "
+                >
+                  <h3 class="title">Endereço</h3>
+                  <strong style="color: white; font-size: 1em">Rua: </strong
+                  >{{ client.enderecoRua }}<br />
+                  <strong style="color: white; font-size: 1em">Numero: </strong
+                  >{{ client.enderecoNumero }}<br />
+                  <strong style="color: white; font-size: 1em">Estado: </strong
+                  >{{ client.estado }}<br />
+                  <strong style="color: white; font-size: 1em"
+                    >Municipo: </strong
+                  >{{ client.municipio }}<br />
+                  <strong style="color: white; font-size: 1em">CEP: </strong
+                  >{{ client.cep }}<br />
+                </div>
+              </div>
+              <div
+                style="float: right; padding: 10px 10px 10px 10px; width: 40%"
+                class="clientCard"
+              >
+                <circle-progress
+                  [percent]="75"
+                  [radius]="100"
+                  [space]="-10"
+                  [maxPercent]="100"
+                  [outerStrokeGradient]="true"
+                  [outerStrokeWidth]="12"
+                  [backgroundStroke]="'transparent'"
+                  [outerStrokeColor]="'#cd1f47'"
+                  [innerStrokeColor]="'#d95f18'"
+                  [outerStrokeGradient]="true"
+                  [titleFontSize]="'15'"
+                  [showTitle]="true"
+                  [units]="'%'"
+                  [showInnerStroke]="false"
+                  [showSubtitle]="true"
+                  [showZeroOuterStroke]="false"
+                  [titleColor]="'#b4b4b4'"
+                  [subtitle]="'Aprovação dos serviços'"
+                  [outerStrokeGradientStopColor]="'#ac60db'"
+                  [animateTitle]="false"
+                  [animationDuration]="1000"
+                  [animation]="true"
+                  [unitsColor]="'rgb(169, 169, 169)'"
+                  [unitsFontSize]="'14'"
+                  [subtitleFontSize]="'13'"
+                  [showUnits]="true"
+                  [showBackground]="false"
+                  [clockwise]="false"
+                  [lazy]="false"
+                  [responsive]="true"
+                ></circle-progress>
+              </div>
+            </div>
+            <div style="text-align: center">
+              <button
+                class="button"
+                mat-raised-button
+                style="
+                  background-color: rgb(94, 94, 182);
+                  color: white;
+                  margin-top: 10px;
+                  border-radius: 20px;
+                "
+              >
+                Acompanhar pets
+              </button>
+            </div>
+          </div>
         </div>
-        <div
-          class="clientDescr"
-        >
-          teste
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </ng-container>
