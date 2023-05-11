@@ -16,6 +16,7 @@ import {
 } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import { VaccinesService } from "../services/vaccines/vaccines.service";
+import { Uploader, UploadWidgetConfig, UploadWidgetResult } from 'uploader';
 import { SchedulesService } from "../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
@@ -59,6 +60,15 @@ export class ContentComponent {
   };
 
   @Output() choosePage = new EventEmitter<string>();
+
+  petPictureUrl: any;
+  uploader = Uploader({
+    apiKey: 'free',
+  });
+  
+  options: UploadWidgetConfig = {
+    multi: false,
+  };
 
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],
@@ -296,4 +306,8 @@ export class ContentComponent {
     // aqui recebo a avaliação e preciso atualizar na tela de serviços prestados do pet
     this.toastr.success('Serviço avaliado com sucesso :D')
   }
+
+  onComplete = (files: UploadWidgetResult[]) => {
+    this.petPictureUrl = files[0]?.fileUrl;
+  };
 }

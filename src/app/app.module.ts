@@ -16,6 +16,7 @@ import { FullCalendarModule } from "@fullcalendar/angular";
 import { ProgressBarModule } from "angular-progress-bar";
 import { StarRatingModule } from 'angular-star-rating';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { UploaderModule } from "angular-uploader";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FullCalendarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    UploaderModule,
     AngularMaterialModule,
     FontAwesomeModule,
     ToastrModule.forRoot({
