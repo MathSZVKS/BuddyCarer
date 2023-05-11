@@ -171,6 +171,12 @@ export class ContentComponent {
     this.choosePage.emit(page);
   }
 
+  alterPageAndRemoveImage(page: string){
+    this.page = page;
+    this.choosePage.emit(page);
+    this.petPictureUrl = undefined;
+  }
+
   alterPageAndRegisterExpensiveSelected(page: string, expensive: any){
     this.page = page;
     this.choosePage.emit(page);
