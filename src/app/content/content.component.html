@@ -438,8 +438,8 @@
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-      <div style="display: flex; flex-direction: column;">
-        <div style="width: 100%; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+        <div style="width: 100%; flex-wrap: wrap">
           <button
             class="button"
             mat-raised-button
@@ -459,22 +459,38 @@
             [uploadOptions]="options"
             [uploader]="uploader"
           >
-            <ng-container *ngIf="petPictureUrl == undefined">Selecione uma foto</ng-container> 
+            <ng-container *ngIf="petPictureUrl == undefined"
+              >Selecione uma foto</ng-container
+            >
           </button>
         </div>
-        <div style="width: 100%; flex-wrap: wrap;"></div>
+        <div style="width: 100%; flex-wrap: wrap"></div>
       </div>
       <button
         class="button"
         mat-raised-button
         style="
-          background-color: rgb(102, 185, 6);
+          background-color: rgb(6 98 185);
           color: white;
           margin-top: 10px;
           border-radius: 20px;
         "
       >
         Cadastrar
+      </button>
+      <button
+        (click)="alterPage('myPets')"
+        class="button"
+        mat-raised-button
+        style="
+          background-color: rgb(185 35 6 / 92%);
+          color: white;
+          margin-top: 10px;
+          margin-left: 10px;
+          border-radius: 20px;
+        "
+      >
+        Voltar
       </button>
     </div>
   </div>
