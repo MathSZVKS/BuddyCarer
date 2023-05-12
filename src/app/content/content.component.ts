@@ -382,6 +382,82 @@ export class ContentComponent {
 
   registerNewPet(){
     //Aqui devo chamar o serviço do back pra salvar o novo pet
+
+    if(this.newPet.nome == "" || this.newPet.nome == undefined){
+      this.toastr.warning("Informe o nome do Pet");
+      return;
+    }
+
+    if(this.newPet.imagem == "" || this.newPet.imagem == undefined){
+      this.toastr.warning("Insira uma imagem");
+      return;
+    }
+
+    if(this.newPet.cardColor == "" || this.newPet.cardColor == undefined){
+      this.toastr.warning("Seleciona sua cor favorita =)");
+      return;
+    }
+
+    if(this.newPet.raca == "" || this.newPet.raca == undefined){
+      this.toastr.warning("Informe a raça do pet");
+      return;
+    }
+
+    if(this.newPet.cor == "" || this.newPet.cor == undefined){
+      this.toastr.warning("Informe a cor do pet");
+      return;
+    }
+
+    if(this.newPet.idade == "" || this.newPet.idade == undefined){
+      this.toastr.warning("Informe a idade do pet");
+      return;
+    }
+
+    if(this.newPet.sexo == "" || this.newPet.sexo == undefined){
+      this.toastr.warning("Informe o sexo do pet");
+      return;
+    }
+
+    if(this.newPet.comportamento == "" || this.newPet.comportamento == undefined){
+      this.toastr.warning("Informe o comportamento do pet");
+      return;
+    }
+
+    if(this.newPet.adestrado == "" || this.newPet.adestrado == undefined){
+      this.toastr.warning("Informe o adestramento do pet");
+      return;
+    }
+
+    if(this.newPet.castrado == "" || this.newPet.castrado == undefined){
+      this.toastr.warning("Informe se o Pet é castrado");
+      return;
+    }
+
+    if(this.newPet.condicaoEspecial == "" || this.newPet.condicaoEspecial == undefined){
+      this.toastr.warning("Informe se o Pet tem alguma condição especial");
+      return;
+    }
+
+    if(this.newPet.peso == "" || this.newPet.peso == undefined){
+      this.toastr.warning("Informe o peso do Pet");
+      return;
+    }
+
+    if(this.newPet.porte == "" || this.newPet.porte == undefined){
+      this.toastr.warning("Informe o porte do Pet");
+      return;
+    }
+
+    if(this.newPet.expectativaVida == "" || this.newPet.expectativaVida == undefined){
+      this.toastr.warning("Informe a expectativa de Vida do Pet");
+      return;
+    }
+
+    if(this.newPet.origemRaca == "" || this.newPet.origemRaca == undefined){
+      this.toastr.warning("Informe a origem da raça do Pet");
+      return;
+    }
+
     this.myPets.push(this.newPet);
     this.toastr.success("Pet cadastrado com sucesso :D");
     this.alterPage('myPets');
