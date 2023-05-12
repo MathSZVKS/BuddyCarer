@@ -64,7 +64,7 @@ export class ContentComponent {
   newPet = {
     nome: "",
     imagem: "",
-    cardColor: "",
+    cardColor: "#b4b4ba",
     raca: "",
     cor: "",
     idade: "",

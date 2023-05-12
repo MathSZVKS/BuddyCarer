@@ -17,6 +17,7 @@ import { ProgressBarModule } from "angular-progress-bar";
 import { StarRatingModule } from 'angular-star-rating';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UploaderModule } from "angular-uploader";
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UploaderModule } from "angular-uploader";
     BrowserAnimationsModule,
     UploaderModule,
     AngularMaterialModule,
+    ColorPickerModule,
     FontAwesomeModule,
     ToastrModule.forRoot({
       preventDuplicates: true,

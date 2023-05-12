@@ -488,11 +488,10 @@
                   /><br />
                   <span>CardColor</span><br />
                   <input
-                    #cardColor
                     class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.cardColor }}"
-                    (change)="registerPetValue(cardColor.value, 'cardColor')"
+                    [style.background]="newPet.cardColor"
+                    [colorPicker]="newPet.cardColor"
+                    (colorPickerChange)="registerPetValue($event, 'cardColor')"
                   /><br />
                   <span>Raça</span><br />
                   <input
@@ -516,7 +515,12 @@
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.condicaoEspecial }}"
-                    (change)="registerPetValue(condicaoEspecial.value, 'condicaoEspecial')"
+                    (change)="
+                      registerPetValue(
+                        condicaoEspecial.value,
+                        'condicaoEspecial'
+                      )
+                    "
                   /><br />
                   <span>Peso</span><br />
                   <input
@@ -564,7 +568,9 @@
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.comportamento }}"
-                    (change)="registerPetValue(comportamento.value, 'comportamento')"
+                    (change)="
+                      registerPetValue(comportamento.value, 'comportamento')
+                    "
                   /><br />
                   <span>Adestrado</span><br />
                   <input
@@ -596,7 +602,9 @@
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.expectativaVida }}"
-                    (change)="registerPetValue(expectativaVida.value, 'expectativaVida')"
+                    (change)="
+                      registerPetValue(expectativaVida.value, 'expectativaVida')
+                    "
                   />
                 </div>
               </div>
