@@ -16,7 +16,7 @@ import {
 } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import { VaccinesService } from "../services/vaccines/vaccines.service";
-import { Uploader, UploadWidgetConfig, UploadWidgetResult } from 'uploader';
+import { Uploader, UploadWidgetConfig, UploadWidgetResult } from "uploader";
 import { SchedulesService } from "../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
@@ -45,9 +45,9 @@ export class ContentComponent {
     phone: "",
     typePerson: "",
     password: "",
-    cardNumber: "", 
-    cardName: "", 
-    flag: "", 
+    cardNumber: "",
+    cardName: "",
+    flag: "",
     securityCode: "",
     rua: "",
     cep: "",
@@ -61,11 +61,29 @@ export class ContentComponent {
 
   @Output() choosePage = new EventEmitter<string>();
 
+  newPet = {
+    nome: "",
+    imagem: "",
+    cardColor: "",
+    raca: "",
+    cor: "",
+    idade: "",
+    sexo: "",
+    comportamento: "",
+    adestrado: "",
+    castrado: "",
+    condicaoEspecial: "",
+    peso: "",
+    porte: "",
+    expectativaVida: "",
+    origemRaca: "",
+  };
+
   petPictureUrl: any;
   uploader = Uploader({
-    apiKey: 'free',
+    apiKey: "free",
   });
-  
+
   options: UploadWidgetConfig = {
     multi: false,
   };
@@ -101,11 +119,11 @@ export class ContentComponent {
   petSelectedCare: any;
   petSelectedVaccines: any;
   vaccineSelected: any;
-  expensives: any
+  expensives: any;
   expensivesToPay: any;
   expensiveSelected: any;
-  raceSelected: any
-  clients: any
+  raceSelected: any;
+  clients: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -125,41 +143,35 @@ export class ContentComponent {
     private clientsService: ClientsService
   ) {}
 
+  ngOnInit(){
+    this.myPets = this.myPetsService.getMyPets();
+  }
+
   ngOnChanges() {
     //Carregando os elementos das páginas de forma dinamica para melhorar a performance
     switch (this.page) {
       case "myPets":
-        this.myPets = this.myPetsService.getMyPets();
         break;
-
       case "Calendar":
         break;
-
       case "Money":
         this.myPets = this.myPetsService.getMyPets();
         this.expensives = this.myPetsService.getExpensives();
         this.expensivesToPay = this.myPetsService.getExpensivesToPay();
         break;
-
       case "Shop":
         break;
-
       case "Dashboard":
         break;
-
       case "Clients":
         this.clients = this.clientsService.getClients();
         break;
-
       case "Package":
         break;
-
       case "CalendarAdmin":
         break;
-
       case "mockery":
         break;
-
       case "aboutPet":
         this.page = "aboutPet";
         break;
@@ -171,19 +183,19 @@ export class ContentComponent {
     this.choosePage.emit(page);
   }
 
-  alterPageAndRemoveImage(page: string){
+  alterPageAndRemoveImage(page: string) {
     this.page = page;
     this.choosePage.emit(page);
     this.petPictureUrl = undefined;
   }
 
-  alterPageAndRegisterExpensiveSelected(page: string, expensive: any){
+  alterPageAndRegisterExpensiveSelected(page: string, expensive: any) {
     this.page = page;
     this.choosePage.emit(page);
     this.expensiveSelected = expensive;
   }
 
-  alterPageAndRegisterRace(page: string, race: any){
+  alterPageAndRegisterRace(page: string, race: any) {
     this.page = page;
     this.choosePage.emit(page);
     this.raceSelected = this.raceService.getRace(race);
@@ -249,9 +261,9 @@ export class ContentComponent {
         input.style.backgroundColor = "#474756";
       } else if (input.style.backgroundColor == "rgb(71, 71, 86)") {
         input.style.backgroundColor = "#636371";
-      } else if (input.style.backgroundColor == "rgb(94, 91, 113)"){
+      } else if (input.style.backgroundColor == "rgb(94, 91, 113)") {
         input.style.backgroundColor = "rgb(119 119 130)";
-      } else if (input.style.backgroundColor == "rgb(119, 119, 130)"){
+      } else if (input.style.backgroundColor == "rgb(119, 119, 130)") {
         input.style.backgroundColor = "#5e5b71";
       }
 
@@ -308,12 +320,70 @@ export class ContentComponent {
     }
   }
 
-  rateService(event: any){
+  rateService(event: any) {
     // aqui recebo a avaliação e preciso atualizar na tela de serviços prestados do pet
-    this.toastr.success('Serviço avaliado com sucesso :D')
+    this.toastr.success("Serviço avaliado com sucesso :D");
   }
 
   onComplete = (files: UploadWidgetResult[]) => {
     this.petPictureUrl = files[0]?.fileUrl;
+    this.newPet.imagem = this.petPictureUrl ;
   };
+
+  registerPetValue(evento: any, tipo: string) {
+    switch (tipo) {
+      case "nome":
+        this.newPet.nome = evento;
+        break;
+      case "imagem":
+        this.newPet.imagem = evento;
+        break;
+      case "cardColor":
+        this.newPet.cardColor = evento;
+        break;
+      case "raca":
+        this.newPet.raca = evento;
+        break;
+      case "cor":
+        this.newPet.cor = evento;
+        break;
+      case "idade":
+        this.newPet.idade = evento;
+        break;
+      case "sexo":
+        this.newPet.sexo = evento;
+        break;
+      case "comportamento":
+        this.newPet.comportamento = evento;
+        break;
+      case "adestrado":
+        this.newPet.adestrado = evento;
+        break;
+      case "castrado":
+        this.newPet.castrado = evento;
+        break;
+      case "condicaoEspecial":
+        this.newPet.condicaoEspecial = evento;
+        break;
+      case "peso":
+        this.newPet.peso = evento;
+        break;
+      case "porte":
+        this.newPet.porte = evento;
+        break;
+      case "expectativaVida":
+        this.newPet.expectativaVida = evento;
+        break;
+      case "origemRaca":
+        this.newPet.origemRaca = evento;
+        break;
+    }
+  }
+
+  registerNewPet(){
+    //Aqui devo chamar o serviço do back pra salvar o novo pet
+    this.myPets.push(this.newPet);
+    this.toastr.success("Pet cadastrado com sucesso :D");
+    this.alterPage('myPets');
+  }
 }

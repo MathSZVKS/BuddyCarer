@@ -438,7 +438,7 @@
       class="content__video-card-about-pet"
       style="background-color: #353340"
     >
-      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px">
         <div style="width: 100%; flex-wrap: wrap">
           <button
             class="button"
@@ -464,10 +464,149 @@
             >
           </button>
         </div>
-        <div style="width: 100%; flex-wrap: wrap"></div>
+        <div style="width: 100%; flex-wrap: wrap">
+          <div
+            class="content__video-card-about-pet"
+            style="background-color: #353340"
+          >
+            <div style="width: 100%">
+              <div class="userData">
+                <div
+                  style="
+                    display: inline-block;
+                    width: 50%;
+                    box-sizing: border-box;
+                  "
+                >
+                  <span>Nome</span><br />
+                  <input
+                    #nome
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.nome }}"
+                    (change)="registerPetValue(nome.value, 'nome')"
+                  /><br />
+                  <span>CardColor</span><br />
+                  <input
+                    #cardColor
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.cardColor }}"
+                    (change)="registerPetValue(cardColor.value, 'cardColor')"
+                  /><br />
+                  <span>Raça</span><br />
+                  <input
+                    #raca
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.raca }}"
+                    (change)="registerPetValue(raca.value, 'raca')"
+                  /><br />
+                  <span>Cor</span><br />
+                  <input
+                    #cor
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.cor }}"
+                    (change)="registerPetValue(cor.value, 'cor')"
+                  /><br />
+                  <span>Condição Especial?</span><br />
+                  <input
+                    #condicaoEspecial
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.condicaoEspecial }}"
+                    (change)="registerPetValue(condicaoEspecial.value, 'condicaoEspecial')"
+                  /><br />
+                  <span>Peso</span><br />
+                  <input
+                    #peso
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.peso }}"
+                    (change)="registerPetValue(peso.value, 'peso')"
+                  /><br />
+                  <span>Origem da Raça</span><br />
+                  <input
+                    #origemRaca
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.origemRaca }}"
+                    (change)="registerPetValue(origemRaca.value, 'origemRaca')"
+                  />
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    width: 50%;
+                    box-sizing: border-box;
+                  "
+                >
+                  <span>Idade</span><br />
+                  <input
+                    #idade
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.idade }}"
+                    (change)="registerPetValue(idade.value, 'idade')"
+                  /><br />
+                  <span>Sexo</span><br />
+                  <input
+                    #sexo
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.sexo }}"
+                    (change)="registerPetValue(sexo.value, 'sexo')"
+                  /><br />
+                  <span>Comportamento</span><br />
+                  <input
+                    #comportamento
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.comportamento }}"
+                    (change)="registerPetValue(comportamento.value, 'comportamento')"
+                  /><br />
+                  <span>Adestrado</span><br />
+                  <input
+                    #adestrado
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.adestrado }}"
+                    (change)="registerPetValue(adestrado.value, 'adestrado')"
+                  /><br />
+                  <span>Castrado</span><br />
+                  <input
+                    #castrado
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.castrado }}"
+                    (change)="registerPetValue(castrado.value, 'castrado')"
+                  /><br />
+                  <span>Porte</span><br />
+                  <input
+                    #porte
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.porte }}"
+                    (change)="registerPetValue(porte.value, 'porte')"
+                  /><br />
+                  <span>Expectativa de vida</span><br />
+                  <input
+                    #expectativaVida
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.expectativaVida }}"
+                    (change)="registerPetValue(expectativaVida.value, 'expectativaVida')"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <button
         class="button"
+        (click)="registerNewPet()"
         mat-raised-button
         style="
           background-color: rgb(6 98 185);
