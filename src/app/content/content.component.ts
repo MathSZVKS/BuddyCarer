@@ -32,6 +32,7 @@ import { ClientsService } from "../services/clients/clients.service";
   providers: [MyPetsService],
 })
 export class ContentComponent {
+  @Output() choosePage = new EventEmitter<string>();
   @Input() page = "initial";
   @Input() userLogged = {
     permissionAccess: false,
@@ -59,7 +60,13 @@ export class ContentComponent {
     telefoneResidencial: "",
   };
 
-  @Output() choosePage = new EventEmitter<string>();
+  selectedRaca: any;
+  racas = [
+    { id: 1, name: "Shih tzu" },
+    { id: 2, name: "Poodle" },
+    { id: 3, name: "Vira-Lata" },
+    { id: 4, name: "Angorá" }
+  ];
 
   newPet = {
     nome: "",
@@ -143,7 +150,7 @@ export class ContentComponent {
     private clientsService: ClientsService
   ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.myPets = this.myPetsService.getMyPets();
   }
 
@@ -327,7 +334,7 @@ export class ContentComponent {
 
   onComplete = (files: UploadWidgetResult[]) => {
     this.petPictureUrl = files[0]?.fileUrl;
-    this.newPet.imagem = this.petPictureUrl ;
+    this.newPet.imagem = this.petPictureUrl;
   };
 
   registerPetValue(evento: any, tipo: string) {
@@ -378,88 +385,102 @@ export class ContentComponent {
         this.newPet.origemRaca = evento;
         break;
     }
+
+    console.log(this.newPet);
   }
 
-  registerNewPet(){
+  registerNewPet() {
     //Aqui devo chamar o serviço do back pra salvar o novo pet
 
-    if(this.newPet.nome == "" || this.newPet.nome == undefined){
+    if (this.newPet.nome == "" || this.newPet.nome == undefined || this.newPet.nome == null) {
       this.toastr.warning("Informe o nome do Pet");
       return;
     }
 
-    if(this.newPet.imagem == "" || this.newPet.imagem == undefined){
+    if (this.newPet.imagem == "" || this.newPet.imagem == undefined || this.newPet.imagem == null) {
       this.toastr.warning("Insira uma imagem");
       return;
     }
 
-    if(this.newPet.cardColor == "" || this.newPet.cardColor == undefined){
+    if (this.newPet.cardColor == "" || this.newPet.cardColor == undefined || this.newPet.cardColor == null) {
       this.toastr.warning("Seleciona sua cor favorita =)");
       return;
     }
 
-    if(this.newPet.raca == "" || this.newPet.raca == undefined){
+    if (this.newPet.raca == "" || this.newPet.raca == undefined || this.newPet.raca == null) {
       this.toastr.warning("Informe a raça do pet");
       return;
     }
 
-    if(this.newPet.cor == "" || this.newPet.cor == undefined){
+    if (this.newPet.cor == "" || this.newPet.cor == undefined || this.newPet.cor == null) {
       this.toastr.warning("Informe a cor do pet");
       return;
     }
 
-    if(this.newPet.idade == "" || this.newPet.idade == undefined){
+    if (this.newPet.idade == "" || this.newPet.idade == undefined || this.newPet.idade == null) {
       this.toastr.warning("Informe a idade do pet");
       return;
     }
 
-    if(this.newPet.sexo == "" || this.newPet.sexo == undefined){
+    if (this.newPet.sexo == "" || this.newPet.sexo == undefined || this.newPet.sexo == null) {
       this.toastr.warning("Informe o sexo do pet");
       return;
     }
 
-    if(this.newPet.comportamento == "" || this.newPet.comportamento == undefined){
+    if (
+      this.newPet.comportamento == "" ||
+      this.newPet.comportamento == undefined ||
+      this.newPet.comportamento == null
+    ) {
       this.toastr.warning("Informe o comportamento do pet");
       return;
     }
 
-    if(this.newPet.adestrado == "" || this.newPet.adestrado == undefined){
+    if (this.newPet.adestrado == "" || this.newPet.adestrado == undefined || this.newPet.adestrado == null) {
       this.toastr.warning("Informe o adestramento do pet");
       return;
     }
 
-    if(this.newPet.castrado == "" || this.newPet.castrado == undefined){
+    if (this.newPet.castrado == "" || this.newPet.castrado == undefined || this.newPet.castrado == null) {
       this.toastr.warning("Informe se o Pet é castrado");
       return;
     }
 
-    if(this.newPet.condicaoEspecial == "" || this.newPet.condicaoEspecial == undefined){
+    if (
+      this.newPet.condicaoEspecial == "" ||
+      this.newPet.condicaoEspecial == undefined ||
+      this.newPet.condicaoEspecial == null
+    ) {
       this.toastr.warning("Informe se o Pet tem alguma condição especial");
       return;
     }
 
-    if(this.newPet.peso == "" || this.newPet.peso == undefined){
+    if (this.newPet.peso == "" || this.newPet.peso == undefined || this.newPet.peso == null) {
       this.toastr.warning("Informe o peso do Pet");
       return;
     }
 
-    if(this.newPet.porte == "" || this.newPet.porte == undefined){
+    if (this.newPet.porte == "" || this.newPet.porte == undefined || this.newPet.porte == null) {
       this.toastr.warning("Informe o porte do Pet");
       return;
     }
 
-    if(this.newPet.expectativaVida == "" || this.newPet.expectativaVida == undefined){
+    if (
+      this.newPet.expectativaVida == "" ||
+      this.newPet.expectativaVida == undefined ||
+      this.newPet.expectativaVida == null
+    ) {
       this.toastr.warning("Informe a expectativa de Vida do Pet");
       return;
     }
 
-    if(this.newPet.origemRaca == "" || this.newPet.origemRaca == undefined){
+    if (this.newPet.origemRaca == "" || this.newPet.origemRaca == undefined || this.newPet.origemRaca == null) {
       this.toastr.warning("Informe a origem da raça do Pet");
       return;
     }
 
     this.myPets.push(this.newPet);
     this.toastr.success("Pet cadastrado com sucesso :D");
-    this.alterPage('myPets');
+    this.alterPage("myPets");
   }
 }

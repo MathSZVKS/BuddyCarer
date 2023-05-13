@@ -476,6 +476,7 @@
                     display: inline-block;
                     width: 50%;
                     box-sizing: border-box;
+                    padding: 10px;
                   "
                 >
                   <span>Nome</span><br />
@@ -494,13 +495,22 @@
                     (colorPickerChange)="registerPetValue($event, 'cardColor')"
                   /><br />
                   <span>Raça</span><br />
-                  <input
+                  <!-- <input
                     #raca
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.raca }}"
                     (change)="registerPetValue(raca.value, 'raca')"
-                  /><br />
+                  /><br /> -->
+                  <ng-select
+                    class="custom"
+                    [items]="racas"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedRaca"
+                    (change)="registerPetValue($event?.name, 'raca')"
+                  >
+                  </ng-select><br />
                   <span>Cor</span><br />
                   <input
                     #cor
@@ -544,6 +554,7 @@
                     display: inline-block;
                     width: 50%;
                     box-sizing: border-box;
+                    padding: 10px;
                   "
                 >
                   <span>Idade</span><br />

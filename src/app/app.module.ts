@@ -18,6 +18,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UploaderModule } from "angular-uploader";
 import { ColorPickerModule } from 'ngx-color-picker';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
   imports: [
     BrowserModule,
     ProgressBarModule,
+    NgSelectModule,
     StarRatingModule.forRoot(),
     FullCalendarModule,
     AppRoutingModule,
