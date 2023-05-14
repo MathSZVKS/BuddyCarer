@@ -68,6 +68,20 @@ export class ContentComponent {
     { id: 4, name: "Angorá" }
   ];
 
+  selectedSexo: any;
+  sexos = [
+    { id: 1, name: "Feminino" },
+    { id: 2, name: "Masculino" }
+  ];
+
+  selectedAdestrado: any;
+  selectedCastrado: any;
+  selectedCondicao: any;
+  simNao = [
+    { id: 1, name: "Sim" },
+    { id: 2, name: "Não" }
+  ];
+
   newPet = {
     nome: "",
     imagem: "",

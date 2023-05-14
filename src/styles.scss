@@ -25,7 +25,14 @@ body {
   transition: 200ms linear;
 }
 
-.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+.ng-value-container {
+  align-items: center;
+  justify-content: center;
+  padding-left: 13% !important;
+  text-align: center;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
   background-color: #474756;
   color: #c0c0c0;
 }
