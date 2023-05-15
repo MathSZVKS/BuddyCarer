@@ -150,7 +150,7 @@ export class ContentComponent {
 
   calendarOptionsVaccines: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],
-    events: [this.vaccinesService.getScheduledVaccines()],
+    events: this.vaccinesService.getScheduledVaccines(),
     locales: [{ code: "pt-br" }],
     initialView: "dayGridMonth",
     weekends: true,

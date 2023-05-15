@@ -61,8 +61,19 @@ export class VaccinesService {
   }
 
   getScheduledVaccines() {
-    let scheduledVaccines = { title: "Antirábica", date: "2023-04-03" };
-
+    let scheduledVaccines = [
+      { title: "Antirábica", date: "2023-05-15" },
+      { title: "Antirábica", date: "2023-06-18" },
+      { title: "Antirábica", date: "2023-07-11" },
+      { title: "Antirábica", date: "2023-06-11" },
+      { title: "Antirábica", date: "2023-06-11" },
+      { title: "Antirábica", date: "2023-06-12" },
+      { title: "Antirábica", date: "2023-07-19" },
+      { title: "Antirábica", date: "2023-07-20" },
+      { title: "Antirábica", date: "2023-07-21" },
+      { title: "Antirábica", date: "2023-07-23" },
+      { title: "Antirábica", date: "2023-07-25" },
+    ];
     return scheduledVaccines;
   }
 }
