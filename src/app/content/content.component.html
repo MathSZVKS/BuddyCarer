@@ -482,10 +482,29 @@
                   <span>Nome</span><br />
                   <input
                     #nome
+                    placeholder="Informe o nome do Pet"
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.nome }}"
                     (change)="registerPetValue(nome.value, 'nome')"
+                  /><br />
+                  <span>Cor</span><br />
+                  <input
+                    placeholder="Informe a cor do Pet"
+                    #cor
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.cor }}"
+                    (change)="registerPetValue(cor.value, 'cor')"
+                  /><br />
+                  <span>Peso</span><br />
+                  <input
+                    placeholder="Infomr o peso do Pet"
+                    #peso
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.peso }}"
+                    (change)="registerPetValue(peso.value, 'peso')"
                   /><br />
                   <span>CardColor</span><br />
                   <input
@@ -494,25 +513,16 @@
                     [colorPicker]="newPet.cardColor"
                     (colorPickerChange)="registerPetValue($event, 'cardColor')"
                   /><br />
-                  <span>Raça</span><br />
+                  <span>Origem da Raça</span><br />
                   <ng-select
                     class="custom"
-                    [items]="racas"
+                    [items]="origemRaca"
                     bindLabel="name"
                     bindValue="id"
-                    [(ngModel)]="selectedRaca"
-                    (change)="registerPetValue($event?.name, 'raca')"
-                  >
-                  </ng-select
+                    [(ngModel)]="selectedOrigemRaca"
+                    (change)="registerPetValue($event?.name, 'origemRaca')"
+                  ></ng-select
                   ><br />
-                  <span>Cor</span><br />
-                  <input
-                    #cor
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.cor }}"
-                    (change)="registerPetValue(cor.value, 'cor')"
-                  /><br />
                   <span>Condição Especial?</span><br />
                   <ng-select
                     class="custom"
@@ -525,22 +535,15 @@
                     "
                   ></ng-select
                   ><br />
-                  <span>Peso</span><br />
-                  <input
-                    #peso
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.peso }}"
-                    (change)="registerPetValue(peso.value, 'peso')"
-                  /><br />
-                  <span>Origem da Raça</span><br />
-                  <input
-                    #origemRaca
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.origemRaca }}"
-                    (change)="registerPetValue(origemRaca.value, 'origemRaca')"
-                  />
+                  <span>Adestrado?</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="simNao"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedAdestrado"
+                    (change)="registerPetValue($event?.name, 'adestrado')"
+                  ></ng-select>
                 </div>
                 <div
                   style="
@@ -552,12 +555,46 @@
                 >
                   <span>Idade</span><br />
                   <input
+                    placeholder="Informe a idade do Pet"
                     #idade
                     class="inputDataPet"
                     type="text"
                     value="{{ newPet.idade }}"
                     (change)="registerPetValue(idade.value, 'idade')"
                   /><br />
+                  <span>Expectativa de vida</span><br />
+                  <input
+                    placeholder="Informe a expectativa de vida"
+                    #expectativaVida
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.expectativaVida }}"
+                    (change)="
+                      registerPetValue(expectativaVida.value, 'expectativaVida')
+                    "
+                  /><br />
+                  <span>Comportamento</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="comportamentos"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedComportamento"
+                    (change)="registerPetValue($event?.name, 'comportamento')"
+                  >
+                  </ng-select
+                  ><br />
+                  <span>Porte</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="porte"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedPorte"
+                    (change)="registerPetValue($event?.name, 'porte')"
+                  >
+                  </ng-select
+                  ><br />
                   <span>Sexo</span><br />
                   <ng-select
                     class="custom"
@@ -569,27 +606,18 @@
                   >
                   </ng-select
                   ><br />
-                  <span>Comportamento</span><br />
-                  <input
-                    #comportamento
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.comportamento }}"
-                    (change)="
-                      registerPetValue(comportamento.value, 'comportamento')
-                    "
-                  /><br />
-                  <span>Adestrado?</span><br />
+                  <span>Raça</span><br />
                   <ng-select
                     class="custom"
-                    [items]="simNao"
+                    [items]="racas"
                     bindLabel="name"
                     bindValue="id"
-                    [(ngModel)]="selectedAdestrado"
-                    (change)="registerPetValue($event?.name, 'adestrado')"
-                  ></ng-select
+                    [(ngModel)]="selectedRaca"
+                    (change)="registerPetValue($event?.name, 'raca')"
+                  >
+                  </ng-select
                   ><br />
-                  <span>Castrado</span><br />
+                  <span>Castrado?</span><br />
                   <ng-select
                     class="custom"
                     [items]="simNao"
@@ -597,26 +625,7 @@
                     bindValue="id"
                     [(ngModel)]="selectedCastrado"
                     (change)="registerPetValue($event?.name, 'castrado')"
-                  ></ng-select
-                  ><br />
-                  <span>Porte</span><br />
-                  <input
-                    #porte
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.porte }}"
-                    (change)="registerPetValue(porte.value, 'porte')"
-                  /><br />
-                  <span>Expectativa de vida</span><br />
-                  <input
-                    #expectativaVida
-                    class="inputDataPet"
-                    type="text"
-                    value="{{ newPet.expectativaVida }}"
-                    (change)="
-                      registerPetValue(expectativaVida.value, 'expectativaVida')
-                    "
-                  />
+                  ></ng-select>
                 </div>
               </div>
             </div>

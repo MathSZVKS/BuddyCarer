@@ -65,13 +65,37 @@ export class ContentComponent {
     { id: 1, name: "Shih tzu" },
     { id: 2, name: "Poodle" },
     { id: 3, name: "Vira-Lata" },
-    { id: 4, name: "Angorá" }
+    { id: 4, name: "Angorá" },
   ];
 
   selectedSexo: any;
   sexos = [
     { id: 1, name: "Feminino" },
-    { id: 2, name: "Masculino" }
+    { id: 2, name: "Masculino" },
+  ];
+
+  selectedPorte: any;
+  porte = [
+    { id: 1, name: "Pequeno" },
+    { id: 2, name: "Médio" },
+    { id: 2, name: "Grande" },
+  ];
+
+  selectedOrigemRaca: any;
+  origemRaca = [
+    { id: 1, name: "China" },
+    { id: 2, name: "Latinhas" },
+    { id: 2, name: "Alemanha" },
+    { id: 2, name: "Russia" },
+    { id: 2, name: "Polonia" },
+  ];
+
+  selectedComportamento: any;
+  comportamentos = [
+    { id: 1, name: "Dócil" },
+    { id: 2, name: "Arisco" },
+    { id: 2, name: "Amigável" },
+    { id: 2, name: "Alerta" },
   ];
 
   selectedAdestrado: any;
@@ -79,7 +103,7 @@ export class ContentComponent {
   selectedCondicao: any;
   simNao = [
     { id: 1, name: "Sim" },
-    { id: 2, name: "Não" }
+    { id: 2, name: "Não" },
   ];
 
   newPet = {
@@ -406,37 +430,65 @@ export class ContentComponent {
   registerNewPet() {
     //Aqui devo chamar o serviço do back pra salvar o novo pet
 
-    if (this.newPet.nome == "" || this.newPet.nome == undefined || this.newPet.nome == null) {
+    if (
+      this.newPet.nome == "" ||
+      this.newPet.nome == undefined ||
+      this.newPet.nome == null
+    ) {
       this.toastr.warning("Informe o nome do Pet");
       return;
     }
 
-    if (this.newPet.imagem == "" || this.newPet.imagem == undefined || this.newPet.imagem == null) {
+    if (
+      this.newPet.imagem == "" ||
+      this.newPet.imagem == undefined ||
+      this.newPet.imagem == null
+    ) {
       this.toastr.warning("Insira uma imagem");
       return;
     }
 
-    if (this.newPet.cardColor == "" || this.newPet.cardColor == undefined || this.newPet.cardColor == null) {
+    if (
+      this.newPet.cardColor == "" ||
+      this.newPet.cardColor == undefined ||
+      this.newPet.cardColor == null
+    ) {
       this.toastr.warning("Seleciona sua cor favorita =)");
       return;
     }
 
-    if (this.newPet.raca == "" || this.newPet.raca == undefined || this.newPet.raca == null) {
+    if (
+      this.newPet.raca == "" ||
+      this.newPet.raca == undefined ||
+      this.newPet.raca == null
+    ) {
       this.toastr.warning("Informe a raça do pet");
       return;
     }
 
-    if (this.newPet.cor == "" || this.newPet.cor == undefined || this.newPet.cor == null) {
+    if (
+      this.newPet.cor == "" ||
+      this.newPet.cor == undefined ||
+      this.newPet.cor == null
+    ) {
       this.toastr.warning("Informe a cor do pet");
       return;
     }
 
-    if (this.newPet.idade == "" || this.newPet.idade == undefined || this.newPet.idade == null) {
+    if (
+      this.newPet.idade == "" ||
+      this.newPet.idade == undefined ||
+      this.newPet.idade == null
+    ) {
       this.toastr.warning("Informe a idade do pet");
       return;
     }
 
-    if (this.newPet.sexo == "" || this.newPet.sexo == undefined || this.newPet.sexo == null) {
+    if (
+      this.newPet.sexo == "" ||
+      this.newPet.sexo == undefined ||
+      this.newPet.sexo == null
+    ) {
       this.toastr.warning("Informe o sexo do pet");
       return;
     }
@@ -450,12 +502,20 @@ export class ContentComponent {
       return;
     }
 
-    if (this.newPet.adestrado == "" || this.newPet.adestrado == undefined || this.newPet.adestrado == null) {
+    if (
+      this.newPet.adestrado == "" ||
+      this.newPet.adestrado == undefined ||
+      this.newPet.adestrado == null
+    ) {
       this.toastr.warning("Informe o adestramento do pet");
       return;
     }
 
-    if (this.newPet.castrado == "" || this.newPet.castrado == undefined || this.newPet.castrado == null) {
+    if (
+      this.newPet.castrado == "" ||
+      this.newPet.castrado == undefined ||
+      this.newPet.castrado == null
+    ) {
       this.toastr.warning("Informe se o Pet é castrado");
       return;
     }
@@ -469,12 +529,20 @@ export class ContentComponent {
       return;
     }
 
-    if (this.newPet.peso == "" || this.newPet.peso == undefined || this.newPet.peso == null) {
+    if (
+      this.newPet.peso == "" ||
+      this.newPet.peso == undefined ||
+      this.newPet.peso == null
+    ) {
       this.toastr.warning("Informe o peso do Pet");
       return;
     }
 
-    if (this.newPet.porte == "" || this.newPet.porte == undefined || this.newPet.porte == null) {
+    if (
+      this.newPet.porte == "" ||
+      this.newPet.porte == undefined ||
+      this.newPet.porte == null
+    ) {
       this.toastr.warning("Informe o porte do Pet");
       return;
     }
@@ -488,7 +556,11 @@ export class ContentComponent {
       return;
     }
 
-    if (this.newPet.origemRaca == "" || this.newPet.origemRaca == undefined || this.newPet.origemRaca == null) {
+    if (
+      this.newPet.origemRaca == "" ||
+      this.newPet.origemRaca == undefined ||
+      this.newPet.origemRaca == null
+    ) {
       this.toastr.warning("Informe a origem da raça do Pet");
       return;
     }
