@@ -1218,6 +1218,80 @@
 
 <ng-container *ngIf="page == 'Shop'"> SHOP </ng-container>
 
+<ng-container *ngIf="page == 'Donation'">
+  <div class="content">
+    <h2 class="content__video-heading">Adoção</h2>
+    <div class="content__video-card-wrapper-money-client">
+      <ng-container *ngFor="let pet of donations">
+        <div class="petDonation">
+          <div
+            (click)="openPetGalery()"
+            class="petDonationPicture"
+            style=" background-image: url({{
+              pet.imagem
+            }});  background-color: {{ pet.cardColor }}; "
+          ></div>
+          <div class="petDonationDesc" style="background-color: #353340">
+            <div style="width: 100%; text-align: center">
+              <h1
+                style="
+                  color: {{ pet.cardColor }};
+                "
+                class="namePet"
+              >
+                {{ pet.nome }}
+              </h1>
+            </div>
+            <div style="width: 100%">
+              <div style="display: flex; height: auto; margin-top: 20px">
+                <div class="cardDonationFacilitiesPet">
+                  <div style="width: 100%; text-align: center;">
+                    <span>Nível de adestramento</span><br />
+                  </div>
+                  <div style="width: 100%">
+                    <star-rating
+                      speed="slow"
+                      [starType]="'svg'"
+                      [readOnly]="true"
+                      [rating]="pet.nivelAdestramento"
+                    ></star-rating>
+                  </div>
+                </div>
+                <div class="cardDonationFacilitiesPet">
+                  <div style="width: 100%; text-align: center;">
+                    <span>Facilidade de cuidado</span><br />
+                  </div>
+                  <div style="width: 100%">
+                    <star-rating
+                      speed="slow"
+                      [starType]="'svg'"
+                      [readOnly]="true"
+                      [rating]="pet.facilidadeCuidado"
+                    ></star-rating>
+                  </div>
+                </div>
+                <div class="cardDonationFacilitiesPet">
+                  <div style="width: 100%; text-align: center;">
+                    <span>Nível de obediência</span><br />
+                  </div>
+                  <div style="width: 100%">
+                    <star-rating
+                      speed="slow"
+                      [starType]="'svg'"
+                      [readOnly]="true"
+                      [rating]="pet.nivelObediencia"
+                    ></star-rating>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="page == 'Dashboard'">
   <div class="content">
     <h2 class="content__video-heading">Dashboard</h2>

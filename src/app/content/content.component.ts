@@ -24,6 +24,7 @@ import { UserService } from "../services/user/user.service";
 import { Procedimento } from "../interfaces/procedimento";
 import { RaceService } from "../services/race/race.service";
 import { ClientsService } from "../services/clients/clients.service";
+import { DonationsService } from "../services/donations/donations.service";
 
 @Component({
   selector: "app-content",
@@ -169,6 +170,7 @@ export class ContentComponent {
   expensiveSelected: any;
   raceSelected: any;
   clients: any;
+  donations: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -185,7 +187,8 @@ export class ContentComponent {
     private schedulesService: SchedulesService,
     private userService: UserService,
     private raceService: RaceService,
-    private clientsService: ClientsService
+    private clientsService: ClientsService,
+    private donationsService: DonationsService
   ) {}
 
   ngOnInit() {
@@ -219,6 +222,9 @@ export class ContentComponent {
         break;
       case "aboutPet":
         this.page = "aboutPet";
+        break;
+      case "Donation":
+        this.donations = this.donationsService.getAllDonations();
         break;
     }
   }
@@ -568,5 +574,9 @@ export class ContentComponent {
     this.myPets.push(this.newPet);
     this.toastr.success("Pet cadastrado com sucesso :D");
     this.alterPage("myPets");
+  }
+
+  openPetGalery(){
+    
   }
 }

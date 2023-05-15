@@ -567,6 +567,48 @@
     }
   }
 
+  .petDonation {
+    border-radius: 20px;
+    width: 100%;
+    animation-name: slide-in;
+    animation-duration: 1s;
+
+    .petDonationPicture {
+      float: left;
+      width: 26%;
+      height: 15.7rem;
+      border-radius: 20px;
+      margin-right: 2%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+      transition: 200ms linear;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 200ms linear;
+        cursor: pointer;
+      }
+    }
+
+    .petDonationDesc {
+      float: right;
+      width: 70%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      padding: 1% 1% 1% 1%;
+
+      .namePet {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
   .description {
     background-color: #ffffff1f;
     border-radius: 7px;
@@ -584,6 +626,19 @@
     margin-left: 7px;
     align-items: center;
     display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 3px 5px rgba(28, 28, 28, 0.94);
+    color: #c8c8c8;
+  }
+
+  .cardDonationFacilitiesPet {
+    background-color: rgba(255, 255, 255, 0.1607843137);
+    height: auto;
+    border-radius: 10px;
+    margin-left: 7px;
+    flex: 1;
+    align-items: center;
     justify-content: center;
     padding: 10px;
     box-shadow: 0 3px 5px rgba(28, 28, 28, 0.94);
