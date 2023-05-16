@@ -577,6 +577,6 @@ export class ContentComponent {
   }
 
   openPetGalery(){
-    
+
   }
 }
