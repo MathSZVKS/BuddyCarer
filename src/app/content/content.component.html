@@ -1242,47 +1242,53 @@
                 {{ pet.nome }}
               </h1>
             </div>
-            <div style="width: 100%">
-              <div style="display: flex; height: auto; margin-top: 20px">
-                <div class="cardDonationFacilitiesPet">
-                  <div style="width: 100%; text-align: center;">
-                    <span>Nível de adestramento</span><br />
-                  </div>
-                  <div style="width: 100%">
-                    <star-rating
-                      speed="slow"
-                      [starType]="'svg'"
-                      [readOnly]="true"
-                      [rating]="pet.nivelAdestramento"
-                    ></star-rating>
-                  </div>
+            <div
+              style="width: 100%; display: flex; height: auto; margin-top: 20px"
+            >
+              <div class="cardDonationFacilitiesPet">
+                <div style="width: 100%; text-align: center">
+                  <span>Nível de adestramento</span><br />
                 </div>
-                <div class="cardDonationFacilitiesPet">
-                  <div style="width: 100%; text-align: center;">
-                    <span>Facilidade de cuidado</span><br />
-                  </div>
-                  <div style="width: 100%">
-                    <star-rating
-                      speed="slow"
-                      [starType]="'svg'"
-                      [readOnly]="true"
-                      [rating]="pet.facilidadeCuidado"
-                    ></star-rating>
-                  </div>
+                <div style="width: 100%">
+                  <star-rating
+                    speed="slow"
+                    [starType]="'svg'"
+                    [readOnly]="true"
+                    [rating]="pet.nivelAdestramento"
+                  ></star-rating>
                 </div>
-                <div class="cardDonationFacilitiesPet">
-                  <div style="width: 100%; text-align: center;">
-                    <span>Nível de obediência</span><br />
-                  </div>
-                  <div style="width: 100%">
-                    <star-rating
-                      speed="slow"
-                      [starType]="'svg'"
-                      [readOnly]="true"
-                      [rating]="pet.nivelObediencia"
-                    ></star-rating>
-                  </div>
+              </div>
+              <div class="cardDonationFacilitiesPet" style="margin-left: 7px">
+                <div style="width: 100%; text-align: center">
+                  <span>Facilidade de cuidado</span><br />
                 </div>
+                <div style="width: 100%">
+                  <star-rating
+                    speed="slow"
+                    [starType]="'svg'"
+                    [readOnly]="true"
+                    [rating]="pet.facilidadeCuidado"
+                  ></star-rating>
+                </div>
+              </div>
+              <div class="cardDonationFacilitiesPet" style="margin-left: 7px">
+                <div style="width: 100%; text-align: center">
+                  <span>Nível de obediência</span><br />
+                </div>
+                <div style="width: 100%">
+                  <star-rating
+                    speed="slow"
+                    [starType]="'svg'"
+                    [readOnly]="true"
+                    [rating]="pet.nivelObediencia"
+                  ></star-rating>
+                </div>
+              </div>
+            </div>
+            <div style="width: 100%; margin-top: 1%">
+              <div class="aboutPetDonation">
+                <h1 class="donationPetName">História do(a) {{ pet.nome }}</h1>
+                <span>{{ pet.historia }}</span>
               </div>
             </div>
           </div>
