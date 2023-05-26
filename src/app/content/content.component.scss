@@ -664,4 +664,15 @@
       font-weight: bold;
     }
   }
+
+  .cardPetGalery {
+    background-color: rgba(255, 255, 255, 0.1607843137);
+    margin: 5px;
+    box-shadow: 0 3px 5px rgba(28, 28, 28, 0.94);
+    color: #c8c8c8;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
 }

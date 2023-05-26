@@ -164,6 +164,7 @@ export class ContentComponent {
   petSelected: any;
   petSelectedCare: any;
   petSelectedVaccines: any;
+  petSelectedGalerry: any;
   vaccineSelected: any;
   expensives: any;
   expensivesToPay: any;
@@ -244,6 +245,12 @@ export class ContentComponent {
     this.page = page;
     this.choosePage.emit(page);
     this.expensiveSelected = expensive;
+  }
+
+  alterPageAndRegisterPetForGalerry(page: string, pet: any){
+    this.page = page;
+    this.choosePage.emit(page);
+    this.petSelectedGalerry = pet;
   }
 
   alterPageAndRegisterRace(page: string, race: any) {
