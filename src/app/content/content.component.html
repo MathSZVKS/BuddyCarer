@@ -1245,7 +1245,7 @@
           }});"
         ></div>
         <div
-        *ngIf="petSelectedGalerry.imagem2 != ''"
+          *ngIf="petSelectedGalerry.imagem2 != ''"
           class="cardPetGalery"
           style="width: 68%; height: 20em; background-image: url({{
             petSelectedGalerry.imagem2
@@ -1254,21 +1254,21 @@
       </div>
       <div style="width: 100%; display: flex; height: auto">
         <div
-        *ngIf="petSelectedGalerry.imagem3 != ''"
+          *ngIf="petSelectedGalerry.imagem3 != ''"
           class="cardPetGalery"
           style="width: 32%; margin: 5px; height: 12em; background-image: url({{
             petSelectedGalerry.imagem3
           }});"
         ></div>
         <div
-        *ngIf="petSelectedGalerry.imagem4 != ''"
+          *ngIf="petSelectedGalerry.imagem4 != ''"
           class="cardPetGalery"
           style="width: 32%; margin: 5px; height: 12em; background-image: url({{
             petSelectedGalerry.imagem4
           }});"
         ></div>
         <div
-        *ngIf="petSelectedGalerry.imagem5 != ''"
+          *ngIf="petSelectedGalerry.imagem5 != ''"
           class="cardPetGalery"
           style="width: 33%; margin: 5px; height: 12em; background-image: url({{
             petSelectedGalerry.imagem5
@@ -1277,14 +1277,14 @@
       </div>
       <div style="width: 100%; display: flex; height: auto">
         <div
-        *ngIf="petSelectedGalerry.imagem6 != ''"
+          *ngIf="petSelectedGalerry.imagem6 != ''"
           class="cardPetGalery"
           style="width: 50%; margin: 5px; height: 30em; background-image: url({{
             petSelectedGalerry.imagem6
           }});"
         ></div>
         <div
-        *ngIf="petSelectedGalerry.imagem7 != ''"
+          *ngIf="petSelectedGalerry.imagem7 != ''"
           class="cardPetGalery"
           style="width: 50%; margin: 5px; height: 30em; background-image: url({{
             petSelectedGalerry.imagem7
@@ -1321,7 +1321,6 @@
       <ng-container *ngFor="let pet of donations">
         <div class="petDonation">
           <div
-            (click)="openPetGalery()"
             class="petDonationPicture"
             style=" background-image: url({{
               pet.imagem
@@ -1388,6 +1387,44 @@
               </div>
             </div>
             <div
+              *ngIf="inDonationProcess && donationProcessPetName == pet.nome"
+              style="width: 100%; margin-top: 3%; margin-bottom: 10px"
+            >
+              <div
+                style="background-color: rgb(94 65 65 / 16%)"
+                class="aboutPetDonation"
+              >
+                <h1 class="donationPetName">
+                  Termo de consentimento para adoção
+                </h1>
+                <span>{{ termsDonation }}</span>
+                <div
+                  style="
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <button
+                    (click)="acceptTerms()"
+                    class="button"
+                    mat-raised-button
+                    style="
+                    background-color: {{ pet.cardColor }};
+                    color: white;
+                    margin-top: 10px;
+                    border-radius: 20px;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                  "
+                  >
+                    Aceito os termos
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
               style="
                 display: flex;
                 text-align: center;
@@ -1396,7 +1433,10 @@
               "
             >
               <button
+                *ngIf="!termsAccepted"
+                (click)="startDonationProcess(pet.nome)"
                 class="button"
+                [disabled]="lockButtonPetDonation"
                 mat-raised-button
                 style="
                   background-color: {{ pet.cardColor }};
@@ -1408,6 +1448,23 @@
                 "
               >
                 Adotar Pet
+              </button>
+              <button
+                *ngIf="termsAccepted && donationProcessPetName == pet.nome"
+                (click)="finishDonation(pet.nome)"
+                class="button"
+                [disabled]="lockButtonPetDonation"
+                mat-raised-button
+                style="
+                  background-color: {{ pet.cardColor }};
+                  color: white;
+                  margin-top: 10px;
+                  border-radius: 20px;
+                  margin-right: 10px;
+                  margin-bottom: 10px;
+                "
+              >
+                Finalizar adoção
               </button>
               <button
                 (click)="alterPageAndRegisterPetForGalerry('PetGalerry', pet)"

@@ -172,6 +172,11 @@ export class ContentComponent {
   raceSelected: any;
   clients: any;
   donations: any;
+  inDonationProcess = false;
+  donationProcessPetName = '';
+  termsDonation = '';
+  lockButtonPetDonation = false;
+  termsAccepted = false;
 
   alterPassword = false;
   currentPassword = "";
@@ -583,7 +588,23 @@ export class ContentComponent {
     this.alterPage("myPets");
   }
 
-  openPetGalery(){
+  startDonationProcess(petName: string){
+    this.termsDonation = this.donationsService.getTermsDonation();
+    this.inDonationProcess = true;
+    this.donationProcessPetName = petName;
+    this.lockButtonPetDonation = true;
+  }
 
+  acceptTerms(){
+    this.lockButtonPetDonation = false;
+    this.inDonationProcess = false;
+    this.termsAccepted = true;
+  }
+
+  finishDonation(petName: string){
+    this.toastr.success("Pedido de adoção enviado para análise com sucesso :D");
+    this.donations = this.donations.filter((obj: { nome: string; }) => obj.nome !== petName);
+    this.inDonationProcess = false;
+    this.termsAccepted = false;
   }
 }
