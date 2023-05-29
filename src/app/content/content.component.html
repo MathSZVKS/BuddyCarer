@@ -1,39 +1,39 @@
 <ng-container *ngIf="page == 'initial'">
   <div class="content">
-    <h2 class="content__video-heading">Bem-vindo</h2>
-    <div class="content__video-card-wrapper">
+    <h2 class="content__buddy-heading">Bem-vindo</h2>
+    <div class="content__buddy-card-wrapper">
       <div
         style="
           background-image: url(https://images.vexels.com/media/users/3/210964/isolated/preview/9b8f69a5180ae3b60f65d65612db7bda-cachorro-sorrindo-feliz-ilustracao.png);
           background-color: #31abbd;
         "
-        class="content__video-card-l"
+        class="content__buddy-card-l"
       >
-        <h3 class="content__video-card-title">
+        <h3 class="content__buddy-card-title">
           Cuidados básicos com seu dog no verão =)
         </h3>
-        <div class="content__video-card-view">
-          <div class="content__video-card-detail">
-            <span class="content__video-card-author-name"
+        <div class="content__buddy-card-view">
+          <div class="content__buddy-card-detail">
+            <span class="content__buddy-card-author-name"
               >Dicas e sugestões</span
             >
-            <span class="content__video-card-author-info">
+            <span class="content__buddy-card-author-info">
               Publicado dia
               <span class="">09/03/2023</span>
             </span>
           </div>
         </div>
       </div>
-      <div class="content__video-card-s">
-        <h3 class="content__video-card-title">
+      <div class="content__buddy-card-s">
+        <h3 class="content__buddy-card-title">
           Como adestrar e cuidar do seu melhor amigo
         </h3>
-        <div class="content__video-card-view">
-          <div class="content__video-card-detail">
-            <span class="content__video-card-author-name"
+        <div class="content__buddy-card-view">
+          <div class="content__buddy-card-detail">
+            <span class="content__buddy-card-author-name"
               >Dicas e sugestões</span
             >
-            <span class="content__video-card-author-info">
+            <span class="content__buddy-card-author-info">
               Publicado dia
               <span class="">09/03/2023</span>
             </span>
@@ -41,40 +41,40 @@
         </div>
       </div>
     </div>
-    <h2 class="content__video-title">Cuidados sempre em dia!</h2>
-    <div class="content__video-card-wrapper">
+    <h2 class="content__buddy-title">Cuidados sempre em dia!</h2>
+    <div class="content__buddy-card-wrapper">
       <div
         style="
           background-image: url(https://images.vexels.com/media/users/3/310365/isolated/preview/a1c41242cb08bb9b27cfba1f835e6789-animal-de-cachorro-golden-retriever.png);
           background-color: #dc984d;
         "
-        class="content__video-card-l"
+        class="content__buddy-card-l"
       >
-        <h3 class="content__video-card-title">
+        <h3 class="content__buddy-card-title">
           Cuidados básicos com seu dog no verão =)
         </h3>
-        <div class="content__video-card-view">
-          <div class="content__video-card-detail">
-            <span class="content__video-card-author-name"
+        <div class="content__buddy-card-view">
+          <div class="content__buddy-card-detail">
+            <span class="content__buddy-card-author-name"
               >Dicas e sugestões</span
             >
-            <span class="content__video-card-author-info">
+            <span class="content__buddy-card-author-info">
               Publicado dia
               <span class="">09/03/2023</span>
             </span>
           </div>
         </div>
       </div>
-      <div class="content__video-card-s">
-        <h3 class="content__video-card-title">
+      <div class="content__buddy-card-s">
+        <h3 class="content__buddy-card-title">
           Como adestrar e cuidar do seu melhor amigo
         </h3>
-        <div class="content__video-card-view">
-          <div class="content__video-card-detail">
-            <span class="content__video-card-author-name"
+        <div class="content__buddy-card-view">
+          <div class="content__buddy-card-detail">
+            <span class="content__buddy-card-author-name"
               >Dicas e sugestões</span
             >
-            <span class="content__video-card-author-info">
+            <span class="content__buddy-card-author-info">
               Publicado dia
               <span class="">09/03/2023</span>
             </span>
@@ -87,9 +87,9 @@
 
 <ng-container *ngIf="page == 'user'">
   <div class="content">
-    <h2 class="content__video-heading">Perfil</h2>
+    <h2 class="content__buddy-heading">Perfil</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <div class="profileImage"></div>
@@ -433,9 +433,9 @@
 
 <ng-container *ngIf="page == 'newPet'">
   <div class="content">
-    <h2 class="content__video-heading">Cadastrar novo pet</h2>
+    <h2 class="content__buddy-heading">Cadastrar novo pet</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <div style="display: flex; flex-direction: column; margin-bottom: 20px">
@@ -466,7 +466,7 @@
         </div>
         <div style="width: 100%; flex-wrap: wrap">
           <div
-            class="content__video-card-about-pet"
+            class="content__buddy-card-about-pet"
             style="background-color: #353340"
           >
             <div style="width: 100%">
@@ -665,24 +665,24 @@
 
 <ng-container *ngIf="page == 'myPets'">
   <div class="content">
-    <h2 class="content__video-heading">Meus Pets</h2>
-    <div class="content__video-card-wrapper-pet">
+    <h2 class="content__buddy-heading">Meus Pets</h2>
+    <div class="content__buddy-card-wrapper-pet">
       <ng-container *ngFor="let pet of myPets">
         <div
           (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
-          class="content__video-card-pet"
+          class="content__buddy-card-pet"
           style="background-image: url({{ pet.imagem }}); background-color: {{
             pet.cardColor
           }}"
         >
-          <h3 class="content__video-card-title">
+          <h3 class="content__buddy-card-title">
             {{ pet.nome }}
           </h3>
         </div>
       </ng-container>
       <div
         (click)="alterPage('newPet')"
-        class="content__video-card-pet"
+        class="content__buddy-card-pet"
         style="
           background-color: rgb(134 134 134 / 29%);
           justify-content: center;
@@ -698,9 +698,9 @@
 
 <ng-container *ngIf="page == 'aboutTheRace'">
   <div class="content">
-    <h2 class="content__video-heading">Sobre a raça</h2>
+    <h2 class="content__buddy-heading">Sobre a raça</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -759,9 +759,9 @@
 
 <ng-container *ngIf="page == 'aboutPet'">
   <div class="content">
-    <h2 class="content__video-heading">Meu Pet</h2>
+    <h2 class="content__buddy-heading">Meu Pet</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -773,7 +773,7 @@
       </h1>
       <div style="display: flex">
         <div
-          class="content__video-card-pet"
+          class="content__buddy-card-pet"
           style="background-image: url({{
             petSelected.imagem
           }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
@@ -832,7 +832,7 @@
       </div>
     </div>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -874,7 +874,7 @@
       </button>
     </div>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -890,7 +890,7 @@
       <div style="display: flex">
         <div style="flex-basis: 30%; text-align: left; margin-bottom: 0.5em">
           <div
-            class="content__video-card-about-pet"
+            class="content__buddy-card-about-pet"
             style="background-color: #353340"
           >
             Vacinas no Prazo
@@ -977,7 +977,7 @@
         </div>
         <div style="flex-basis: 70%; text-align: left; margin-bottom: 0.5em">
           <div
-            class="content__video-card-about-pet"
+            class="content__buddy-card-about-pet"
             style="background-color: #353340"
           >
             <full-calendar [options]="calendarOptionsVaccines"></full-calendar>
@@ -990,9 +990,9 @@
 
 <ng-container *ngIf="page == 'Calendar'">
   <div class="content">
-    <h2 class="content__video-heading">Agenda</h2>
+    <h2 class="content__buddy-heading">Agenda</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <full-calendar [options]="calendarOptions"></full-calendar>
@@ -1002,9 +1002,9 @@
 
 <ng-container *ngIf="page == 'AboutVaccines'">
   <div class="content">
-    <h2 class="content__video-heading">Sobre a Vacina</h2>
+    <h2 class="content__buddy-heading">Sobre a Vacina</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -1034,8 +1034,8 @@
 
 <ng-container *ngIf="page == 'Money'">
   <div class="content">
-    <h2 class="content__video-heading">Financeiro</h2>
-    <div class="content__video-card-wrapper-money-client">
+    <h2 class="content__buddy-heading">Financeiro</h2>
+    <div class="content__buddy-card-wrapper-money-client">
       <ng-container *ngFor="let pet of myPets">
         <div class="petMoney">
           <div
@@ -1141,9 +1141,9 @@
 
 <ng-container *ngIf="page == 'Expensive'">
   <div class="content">
-    <h2 class="content__video-heading">Detalhes do serviço</h2>
+    <h2 class="content__buddy-heading">Detalhes do serviço</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h1
@@ -1173,7 +1173,7 @@
 
       <div style="display: flex">
         <div
-          class="content__video-card-pet"
+          class="content__buddy-card-pet"
           style="background-image: url({{
             expensiveSelected.imagemServico
           }}); background-color: {{ expensiveSelected.cardColor }}; width: 35%;"
@@ -1220,9 +1220,9 @@
 
 <ng-container *ngIf="page == 'PetGalerry'">
   <div class="content">
-    <h2 class="content__video-heading">Galeria de fotos</h2>
+    <h2 class="content__buddy-heading">Galeria de fotos</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <h2
@@ -1316,8 +1316,8 @@
 
 <ng-container *ngIf="page == 'Donation'">
   <div class="content">
-    <h2 class="content__video-heading">Adoção</h2>
-    <div class="content__video-card-wrapper-money-client">
+    <h2 class="content__buddy-heading">Adoção</h2>
+    <div class="content__buddy-card-wrapper-money-client">
       <ng-container *ngFor="let pet of donations">
         <div class="petDonation">
           <div
@@ -1490,13 +1490,13 @@
 
 <ng-container *ngIf="page == 'Dashboard'">
   <div class="content">
-    <h2 class="content__video-heading">Dashboard</h2>
+    <h2 class="content__buddy-heading">Dashboard</h2>
     <div
-      class="content__video-card-about-pet"
+      class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
       <div
-        class="content__video-card-about-pet"
+        class="content__buddy-card-about-pet"
         style="background-color: #403e48"
       >
         <h1
@@ -1689,8 +1689,8 @@
 
 <ng-container *ngIf="page == 'Clients'">
   <div class="content">
-    <h2 class="content__video-heading">Clientes</h2>
-    <div class="content__video-card-wrapper-money-client">
+    <h2 class="content__buddy-heading">Clientes</h2>
+    <div class="content__buddy-card-wrapper-money-client">
       <ng-container *ngFor="let client of clients">
         <div class="client">
           <div

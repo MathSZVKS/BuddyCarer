@@ -441,8 +441,6 @@ export class ContentComponent {
         this.newPet.origemRaca = evento;
         break;
     }
-
-    console.log(this.newPet);
   }
 
   registerNewPet() {

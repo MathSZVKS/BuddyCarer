@@ -54,7 +54,7 @@
   padding: 0 32px;
   margin-bottom: 24px;
 
-  &__video-heading {
+  &__buddy-heading {
     position: sticky;
     top: 0;
     left: 0;
@@ -76,14 +76,14 @@
     }
   }
 
-  &__video-title {
+  &__buddy-title {
     margin-top: 16px;
     font-size: 20px;
     font-weight: 400;
     color: #fff;
   }
 
-  &__video-card-wrapper {
+  &__buddy-card-wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
@@ -95,7 +95,7 @@
     }
   }
 
-  &__video-card-wrapper-pet {
+  &__buddy-card-wrapper-pet {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -103,13 +103,13 @@
     animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 
-  &__video-card-wrapper-money-client {
+  &__buddy-card-wrapper-money-client {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
 
-  &__video-card-about-pet {
+  &__buddy-card-about-pet {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -120,14 +120,14 @@
     animation: fadeIn 1s forwards;
 
     @media only screen and (max-width: 300px) {
-      .__video-card-about-pet {
+      .__buddy-card-about-pet {
         margin: 10px;
         padding: 10px;
       }
     }
   }
 
-  &__video-card-title {
+  &__buddy-card-title {
     max-width: 7.2em;
     margin: 4px 0 16px;
     font-size: 25px;
@@ -135,13 +135,13 @@
     color: #fff;
   }
 
-  &__video-card-view {
+  &__buddy-card-view {
     display: flex;
     align-items: flex-end;
     gap: 12px;
   }
 
-  &__video-card-author {
+  &__buddy-card-author {
     position: relative;
     transition: 0.3s all ease-in-out;
 
@@ -150,26 +150,26 @@
     }
   }
 
-  &__video-card-detail {
+  &__buddy-card-detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 8px;
   }
 
-  &__video-card-author-name {
+  &__buddy-card-author-name {
     display: block;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
   }
 
-  &__video-card-author-info {
+  &__buddy-card-author-info {
     font-size: 12px;
     color: #fff;
   }
 
-  &__video-card-l {
+  &__buddy-card-l {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -209,7 +209,7 @@
     }
   }
 
-  &__video-card-s {
+  &__buddy-card-s {
     position: relative;
     padding: 30px;
     background-color: #696969;
@@ -225,7 +225,7 @@
       background-size: 100%;
     }
 
-    .content__video-card-view {
+    .content__buddy-card-view {
       flex-direction: column;
       align-items: flex-start;
     }
@@ -248,14 +248,14 @@
         background-size: 100%;
       }
 
-      .content__video-card-view {
+      .content__buddy-card-view {
         flex-direction: column;
         align-items: flex-start;
       }
     }
   }
 
-  &__video-card-pet {
+  &__buddy-card-pet {
     position: relative;
     padding: 30px;
     filter: saturate(1.4);
@@ -272,7 +272,7 @@
       background-size: 100%;
     }
 
-    .content__video-card-view {
+    .content__buddy-card-view {
       flex-direction: column;
       align-items: flex-start;
     }
@@ -294,7 +294,7 @@
         background-size: 100%;
       }
 
-      .content__video-card-view {
+      .content__buddy-card-view {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -305,18 +305,18 @@
     display: none;
   }
 
-  &__video-wrapper {
+  &__buddy-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
 
-    .content__video-card-author {
+    .content__buddy-card-author {
       position: absolute;
       right: 4px;
       bottom: -28px;
     }
 
-    .content__video-time {
+    .content__buddy-time {
       top: 10px;
       right: 10px;
       bottom: initial;
