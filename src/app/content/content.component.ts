@@ -66,7 +66,7 @@ export class ContentComponent {
 
   // Opções do Bar-Chart
   public barChartData: ChartData<'bar'> = {
-    labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
+    labels: [ '2017', '2018', '2019', '2020', '2021', '2022', '2023' ],
     datasets: [
       { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Avaliações acima de três estrelas' },
       { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Avaliações abaixo de três estrelas' }
