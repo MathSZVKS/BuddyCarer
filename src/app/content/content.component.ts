@@ -25,6 +25,9 @@ import { Procedimento } from "../interfaces/procedimento";
 import { RaceService } from "../services/race/race.service";
 import { ClientsService } from "../services/clients/clients.service";
 import { DonationsService } from "../services/donations/donations.service";
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: "app-content",
@@ -60,6 +63,39 @@ export class ContentComponent {
     estado: "",
     telefoneResidencial: "",
   };
+
+  // Opções do Bar-Chart
+  public barChartData: ChartData<'bar'> = {
+    labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
+    datasets: [
+      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Avaliações acima de três estrelas' },
+      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Avaliações abaixo de três estrelas' }
+    ]
+  };
+
+  public barChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    scales: {
+      x: {},
+      y: {
+        min: 10
+      }
+    },
+    plugins: {
+      legend: {
+        display: true,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end'
+      }
+    }
+  };
+
+  public barChartPlugins = [
+    DataLabelsPlugin
+  ];
+  // --
 
   selectedRaca: any;
   racas = [

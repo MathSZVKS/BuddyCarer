@@ -1507,7 +1507,7 @@
             margin-bottom: 3rem;
           "
         >
-          Resumo do dia
+          Resumo diário
         </h1>
         <div style="display: flex">
           <div
@@ -1682,6 +1682,26 @@
             ></circle-progress>
           </div>
         </div>
+      </div>
+      <div
+        class="content__buddy-card-about-pet"
+        style="background-color: #403e48"
+      >
+        <h1
+          style="
+            font-size: 2rem;
+            color: rgb(182, 180, 180);
+            font-weight: bold;
+            margin-bottom: 3rem;
+          "
+        >
+          Histórico de evolução anual
+        </h1>
+        <app-bar-chart
+          [barChartData]="barChartData"
+          [barChartOptions]="barChartOptions"
+          [barChartPlugins]="barChartPlugins"
+        ></app-bar-chart>
       </div>
     </div>
   </div>

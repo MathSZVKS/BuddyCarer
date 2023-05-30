@@ -19,6 +19,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UploaderModule } from "angular-uploader";
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { BarChartComponent } from './externalComponents/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TopBarComponent,
     SearchComponent,
     LoginComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,
     ProgressBarModule,
     NgSelectModule,
+    NgChartsModule,
     StarRatingModule.forRoot(),
     FullCalendarModule,
     AppRoutingModule,
