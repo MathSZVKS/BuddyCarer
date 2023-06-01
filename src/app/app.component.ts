@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
@@ -7,7 +7,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, private elementRef: ElementRef) {}
 
   title = "buddyCarer";
   userType = "client";
@@ -71,5 +71,16 @@ export class AppComponent {
 
   sendUserLogged(userLogged: object) {
     userLogged = this.userLogged;
+  }
+
+  adjustScreen() {
+    const containerElement =
+      this.elementRef.nativeElement.querySelector(".container");
+
+      if(containerElement.style.maxWidth == "100%"){
+        containerElement.style.maxWidth = "1240px";
+      }else{
+        containerElement.style.maxWidth = "100%";
+      }
   }
 }

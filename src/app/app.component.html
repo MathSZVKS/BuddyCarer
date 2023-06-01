@@ -12,6 +12,7 @@
         <div class="topbar">
           <app-search></app-search>
           <app-top-bar
+            (adjustScreen)="adjustScreen()"
             (loginEvent)="openLoginInterface()"
             [userLogged]="userLogged.user"
             (logOffUser)="logOffUser()"

@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-top-bar",
@@ -9,11 +10,13 @@ import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 export class TopBarComponent {
   @Output() loginEvent = new EventEmitter<boolean>();
   @Output() openUserPage = new EventEmitter<string>();
+  @Output() adjustScreen = new EventEmitter<string>();
   @Output() logOffUser = new EventEmitter();
   @Input() userLogged = "";
 
   logged = false;
   faPowerOff = faPowerOff;
+  faExpand = faExpand;
 
   verifyLogin() {
     if (this.userLogged == "") {
@@ -28,5 +31,9 @@ export class TopBarComponent {
     this.logged = false;
     this.userLogged = "";
     this.logOffUser.emit();
+  }
+
+  maximizeScreen(){
+    this.adjustScreen.emit();
   }
 }
