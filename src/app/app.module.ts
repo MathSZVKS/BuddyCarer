@@ -21,6 +21,9 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { BarChartComponent } from './externalComponents/bar-chart/bar-chart.component';
+import { RadarChartComponent } from './externalComponents/radar-chart/radar-chart.component';
+import { PieChartComponent } from './externalComponents/pie-chart/pie-chart.component';
+import { PolarAreaChartComponent } from './externalComponents/polar-area-chart/polar-area-chart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { BarChartComponent } from './externalComponents/bar-chart/bar-chart.comp
     SearchComponent,
     LoginComponent,
     BarChartComponent,
+    RadarChartComponent,
+    PieChartComponent,
+    PolarAreaChartComponent,
   ],
   imports: [
     BrowserModule,

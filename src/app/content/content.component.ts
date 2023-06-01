@@ -25,9 +25,9 @@ import { Procedimento } from "../interfaces/procedimento";
 import { RaceService } from "../services/race/race.service";
 import { ClientsService } from "../services/clients/clients.service";
 import { DonationsService } from "../services/donations/donations.service";
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
-import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
+import { BaseChartDirective } from "ng2-charts";
+import DataLabelsPlugin from "chartjs-plugin-datalabels";
 
 @Component({
   selector: "app-content",
@@ -64,37 +64,41 @@ export class ContentComponent {
     telefoneResidencial: "",
   };
 
-  // Opções do Bar-Chart
-  public barChartData: ChartData<'bar'> = {
-    labels: [ '2017', '2018', '2019', '2020', '2021', '2022', '2023' ],
+  // Opções Bar-Chart
+  public barChartData: ChartData<"bar"> = {
+    labels: ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
     datasets: [
-      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Avaliações acima de três estrelas' },
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Avaliações abaixo de três estrelas' }
-    ]
+      {
+        data: [60, 70, 80, 81, 86, 90, 100],
+        label: "Avaliações acima de três estrelas",
+      },
+      {
+        data: [50, 48, 40, 19, 23, 30, 20],
+        label: "Avaliações abaixo de três estrelas",
+      },
+    ],
   };
 
-  public barChartOptions: ChartConfiguration['options'] = {
+  public barChartOptions: ChartConfiguration["options"] = {
     responsive: true,
     scales: {
       x: {},
       y: {
-        min: 10
-      }
+        min: 10,
+      },
     },
     plugins: {
       legend: {
         display: true,
       },
       datalabels: {
-        anchor: 'end',
-        align: 'end'
-      }
-    }
+        anchor: "end",
+        align: "end",
+      },
+    },
   };
 
-  public barChartPlugins = [
-    DataLabelsPlugin
-  ];
+  public barChartPlugins = [DataLabelsPlugin];
   // --
 
   selectedRaca: any;
@@ -209,8 +213,8 @@ export class ContentComponent {
   clients: any;
   donations: any;
   inDonationProcess = false;
-  donationProcessPetName = '';
-  termsDonation = '';
+  donationProcessPetName = "";
+  termsDonation = "";
   lockButtonPetDonation = false;
   termsAccepted = false;
 
@@ -288,7 +292,7 @@ export class ContentComponent {
     this.expensiveSelected = expensive;
   }
 
-  alterPageAndRegisterPetForGalerry(page: string, pet: any){
+  alterPageAndRegisterPetForGalerry(page: string, pet: any) {
     this.page = page;
     this.choosePage.emit(page);
     this.petSelectedGalerry = pet;
@@ -622,22 +626,24 @@ export class ContentComponent {
     this.alterPage("myPets");
   }
 
-  startDonationProcess(petName: string){
+  startDonationProcess(petName: string) {
     this.termsDonation = this.donationsService.getTermsDonation();
     this.inDonationProcess = true;
     this.donationProcessPetName = petName;
     this.lockButtonPetDonation = true;
   }
 
-  acceptTerms(){
+  acceptTerms() {
     this.lockButtonPetDonation = false;
     this.inDonationProcess = false;
     this.termsAccepted = true;
   }
 
-  finishDonation(petName: string){
+  finishDonation(petName: string) {
     this.toastr.success("Pedido de adoção enviado para análise com sucesso :D");
-    this.donations = this.donations.filter((obj: { nome: string; }) => obj.nome !== petName);
+    this.donations = this.donations.filter(
+      (obj: { nome: string }) => obj.nome !== petName
+    );
     this.inDonationProcess = false;
     this.termsAccepted = false;
   }
