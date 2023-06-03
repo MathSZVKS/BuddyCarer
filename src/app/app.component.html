@@ -11,7 +11,7 @@
       ></app-side-bar>
       <div class="main-wrapper">
         <div class="topbar">
-          <app-search (adjustScreen)="adjustScreen()"></app-search>
+          <app-search (adjustScreen)="adjustScreen()" (alterTheme)="alterTheme()"></app-search>
           <app-top-bar
             (loginEvent)="openLoginInterface()"
             [userLogged]="userLogged.user"

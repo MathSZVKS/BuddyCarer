@@ -12,6 +12,7 @@ export class AppComponent {
   title = "buddyCarer";
   userType = "client";
   inLogin = false;
+  theme = "default";
   backgroundTitleColor = "#1f1d2b";
   userLogged = {
     permissionAccess: false,
@@ -91,5 +92,21 @@ export class AppComponent {
     containerElement.style.backgroundColor = backgroundColor;
 
     this.backgroundTitleColor = backgroundColor;
+  }
+
+  alterTheme() {
+    if (this.theme == "default") {
+      this.theme = "white";
+
+      const containerElement =
+        this.elementRef.nativeElement.querySelector(".container");
+      containerElement.style.backgroundColor = "white";
+    } else {
+      this.theme = "default";
+
+      const containerElement =
+        this.elementRef.nativeElement.querySelector(".container");
+      containerElement.style.backgroundColor = "#1f1d2b";
+    }
   }
 }
