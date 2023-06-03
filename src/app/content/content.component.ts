@@ -37,6 +37,7 @@ import DataLabelsPlugin from "chartjs-plugin-datalabels";
 })
 export class ContentComponent {
   @Output() choosePage = new EventEmitter<string>();
+  @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
   @Input() userLogged = {
     permissionAccess: false,

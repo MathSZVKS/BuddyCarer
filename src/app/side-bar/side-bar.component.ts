@@ -15,15 +15,25 @@ export class SideBarComponent {
   @Output() choosePage = new EventEmitter<string>();
   @Output() checkUserLogged = new EventEmitter<string>();
   @Output() moveToLoginPageBeforeAccess = new EventEmitter<string>();
+  @Output() inMemorial = new EventEmitter<string>();
 
-  alterPage(page = "") {
+  alterPage(page = "", backgroundColor = "") {
     this.checkUserLogged.emit();
+
+    if (backgroundColor == "") {
+      backgroundColor = "#1f1d2b";
+    }
 
     if (this.userLogged != "" || page == "initial") {
       this.choosePage.emit(page);
     } else {
       this.toastr.warning("Necessário efetuar o login para acessar a página");
+      backgroundColor = "#1f1d2b";
       this.moveToLoginPageBeforeAccess.emit();
+    }
+    
+    if ((page = "Memorial")) {
+      this.inMemorial.emit(backgroundColor);
     }
   }
 }

@@ -10,8 +10,8 @@ import { faExpand } from "@fortawesome/free-solid-svg-icons";
 export class TopBarComponent {
   @Output() loginEvent = new EventEmitter<boolean>();
   @Output() openUserPage = new EventEmitter<string>();
-  @Output() adjustScreen = new EventEmitter<string>();
   @Output() logOffUser = new EventEmitter();
+  @Output() alterBackgroundColor = new EventEmitter<string>();
   @Input() userLogged = "";
 
   logged = false;
@@ -19,6 +19,7 @@ export class TopBarComponent {
   faExpand = faExpand;
 
   verifyLogin() {
+    this.alterBackgroundColor.emit("#1f1d2b");
     if (this.userLogged == "") {
       this.logged = true;
       this.loginEvent.emit(this.logged);
@@ -28,12 +29,9 @@ export class TopBarComponent {
   }
 
   logOff() {
+    this.alterBackgroundColor.emit("#1f1d2b");
     this.logged = false;
     this.userLogged = "";
     this.logOffUser.emit();
-  }
-
-  maximizeScreen(){
-    this.adjustScreen.emit();
   }
 }

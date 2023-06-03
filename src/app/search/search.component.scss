@@ -53,3 +53,14 @@
     transition: 400ms linear;
   }
 }
+
+.appOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #302e38;
+  border-radius: 10px;
+  padding: 0px 20px 0px 20px;
+  margin-left: 6%;
+}

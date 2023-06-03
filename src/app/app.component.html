@@ -7,16 +7,17 @@
         (choosePage)="alterPage($event)"
         (checkUserLogged)="sendUserLogged(userLogged)"
         (moveToLoginPageBeforeAccess)="openLoginInterface()"
+        (inMemorial)="alterBackgroundColor($event)"
       ></app-side-bar>
       <div class="main-wrapper">
         <div class="topbar">
-          <app-search></app-search>
+          <app-search (adjustScreen)="adjustScreen()"></app-search>
           <app-top-bar
-            (adjustScreen)="adjustScreen()"
             (loginEvent)="openLoginInterface()"
             [userLogged]="userLogged.user"
             (logOffUser)="logOffUser()"
             (openUserPage)="alterPage($event)"
+            (alterBackgroundColor)="alterBackgroundColor($event)"
           ></app-top-bar>
         </div>
         <app-content
@@ -24,6 +25,7 @@
           [page]="page"
           [userLogged]="userLogged"
           (choosePage)="alterPage($event)"
+          [backgroundTitleColor]="backgroundTitleColor"
         ></app-content>
       </div>
     </div>

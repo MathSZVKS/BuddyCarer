@@ -63,12 +63,8 @@
     margin: 0;
     font-size: 32px;
     color: #fff;
-    background: linear-gradient(
-      to bottom,
-      #1f1d2b 0%,
-      #1f1d2b 78%,
-      rgb(31 29 43 / 0%) 100%
-    );
+    transition: 200ms linear;
+    animation: fadeIn 2s forwards;
 
     @media screen and (max-width: 600px) {
       padding: 0 0 12px;
