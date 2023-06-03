@@ -100,7 +100,7 @@ export class AppComponent {
 
       const containerElement =
         this.elementRef.nativeElement.querySelector(".container");
-      containerElement.style.backgroundColor = "white";
+      containerElement.style.backgroundColor = "#ffffffbf";
     } else {
       this.theme = "default";
 
