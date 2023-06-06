@@ -26,6 +26,7 @@ import { RaceService } from "../services/race/race.service";
 import { ClientsService } from "../services/clients/clients.service";
 import { DonationsService } from "../services/donations/donations.service";
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
+import { PetShopServicesService } from "../services/pet-shop-services/pet-shop-services.service";
 import { BaseChartDirective } from "ng2-charts";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
 
@@ -220,7 +221,14 @@ export class ContentComponent {
   termsAccepted = false;
   startNewService = false;
   petSelectedForService: any;
+  serviceSelected: any;
   olderPetSelectedId = "Barnei";
+  olderServiceSelectedId = "Banho e tosa";
+  startDate: any;
+  endDate: any;
+  allDay: any;
+  selectInfo: any;
+  petShopServices: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -238,7 +246,8 @@ export class ContentComponent {
     private userService: UserService,
     private raceService: RaceService,
     private clientsService: ClientsService,
-    private donationsService: DonationsService
+    private donationsService: DonationsService,
+    private PetShopServicesService: PetShopServicesService
   ) {}
 
   ngOnInit() {
@@ -251,6 +260,7 @@ export class ContentComponent {
       case "myPets":
         break;
       case "Calendar":
+        this.petShopServices = this.PetShopServicesService.getServices();
         break;
       case "Money":
         this.myPets = this.myPetsService.getMyPets();
@@ -343,28 +353,49 @@ export class ContentComponent {
     }
   }
 
+  registerServiceSelected(service: any) {
+    this.serviceSelected = service;
+
+    const olderService = document.getElementById(this.olderServiceSelectedId);
+    if (olderService != null) {
+      olderService.style.border = "none";
+    }
+
+    const serviceId = document.getElementById(service.nome);
+    if (serviceId != null) {
+      serviceId.style.border = "3px solid #d35f2b";
+      this.olderServiceSelectedId = service.nome;
+    }
+  }
+
   registerEventInCalendar(pet: any) {
+    if (this.petSelectedForService == undefined) {
+      this.toastr.warning("Selecione um pet para o serviço");
+      return;
+    }
+
+    if(this.serviceSelected == undefined){
+      this.toastr.warning("Selecione um serviço");
+      return;
+    }
+
     const calendarApi = this.selectInfo.view.calendar;
-
     calendarApi.unselect();
-
-    const title = pet.nome;
+    const title = pet.nome + " - " + this.serviceSelected.nome;
 
     calendarApi.addEvent({
       title,
       start: this.startDate,
       end: this.endDate,
       allDay: this.allDay,
+      color: pet.cardColor
     });
 
     this.startNewService = false;
-    this.toastr.success("Agendamento criado com sucesso :D")
+    this.petSelectedForService = undefined;
+    this.toastr.success("Agendamento criado com sucesso :D");
   }
 
-  startDate: any;
-  endDate: any;
-  allDay: any;
-  selectInfo: any
   handleDateSelect(selectInfo: DateSelectArg) {
     this.startNewService = true;
     this.startDate = selectInfo.startStr;

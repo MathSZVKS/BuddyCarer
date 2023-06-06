@@ -1096,6 +1096,27 @@
         >
           Qual serviço deseja realizar hoje?
         </h3>
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <ng-container *ngFor="let service of petShopServices">
+            <div
+              id="{{service.nome}}"
+              class="petshopServices"
+              (click)="registerServiceSelected(service)"
+              style="background: {{
+                service.cardColor
+              }};"
+            >
+              <span style="color: white">{{ service.nome }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
       <button
         (click)="registerEventInCalendar(petSelectedForService)"
