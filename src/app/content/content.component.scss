@@ -671,4 +671,18 @@
     background-size: cover;
     background-position: center center;
   }
+
+  .petPictureService {
+    height: 7.7rem;
+    border-radius: 20px;
+    margin-right: 2%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+    transition: 50ms linear;
+    transform: translateY(500px); /* começa fora da tela */
+    animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    width: 14.5%;
+  }
 }

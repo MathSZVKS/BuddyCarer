@@ -218,6 +218,9 @@ export class ContentComponent {
   termsDonation = "";
   lockButtonPetDonation = false;
   termsAccepted = false;
+  startNewService = false;
+  petSelectedForService: any;
+  olderPetSelectedId = "Barnei";
 
   alterPassword = false;
   currentPassword = "";
@@ -320,20 +323,55 @@ export class ContentComponent {
     this.petSelectedVaccines = this.myPetsService.getVaccines(pet.nome);
   }
 
-  handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt("Insira o Nome do Pet");
-    const calendarApi = selectInfo.view.calendar;
+  registerPetSelectedForService(pet: any) {
+    this.petSelectedForService = pet;
+    console.log(this.petSelectedForService);
+
+    const olderPet = document.getElementById(this.olderPetSelectedId);
+    if (olderPet != null) {
+      olderPet.style.border = "none";
+      olderPet.style.width = "14.5%";
+      olderPet.style.height = "7.7rem";
+    }
+
+    const petId = document.getElementById(pet.nome);
+    if (petId != null) {
+      petId.style.border = "3px solid #d35f2b";
+      petId.style.width = "14.3%";
+      petId.style.height = "7.3rem";
+      this.olderPetSelectedId = pet.nome;
+    }
+  }
+
+  registerEventInCalendar(pet: any) {
+    const calendarApi = this.selectInfo.view.calendar;
 
     calendarApi.unselect();
 
-    if (title) {
-      calendarApi.addEvent({
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay,
-      });
-    }
+    const title = pet.nome;
+
+    calendarApi.addEvent({
+      title,
+      start: this.startDate,
+      end: this.endDate,
+      allDay: this.allDay,
+    });
+
+    this.startNewService = false;
+    this.toastr.success("Agendamento criado com sucesso :D")
+  }
+
+  startDate: any;
+  endDate: any;
+  allDay: any;
+  selectInfo: any
+  handleDateSelect(selectInfo: DateSelectArg) {
+    this.startNewService = true;
+    this.startDate = selectInfo.startStr;
+    this.endDate = selectInfo.endStr;
+    this.allDay = selectInfo.allDay;
+    this.selectInfo = selectInfo.view.calendar;
+    console.log(this.myPets);
   }
 
   handleEventClick(clickInfo: EventClickArg) {

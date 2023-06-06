@@ -1042,6 +1042,76 @@
       Agenda
     </h2>
     <div
+      *ngIf="startNewService"
+      class="content__buddy-card-about-pet"
+      style="background-color: #323138; animation-duration: 2s"
+    >
+      <div
+        *ngIf="startNewService"
+        class="content__buddy-card-about-pet"
+        style="background-color: #39383c; animation-duration: 2s"
+      >
+        <h3
+          style="
+            font-size: 1.3rem;
+            color: rgb(141 134 134);
+            font-weight: light;
+            margin-bottom: 1rem;
+          "
+        >
+          Selecione um pet para o serviço
+        </h3>
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <ng-container *ngFor="let pet of myPets">
+            <div
+              id="{{ pet.nome }}"
+              class="petPictureService"
+              (click)="registerPetSelectedForService(pet)"
+              style="background-image: url({{
+                pet.imagem
+              }});  background-color: {{ pet.cardColor }}; margin: 1%"
+            ></div>
+          </ng-container>
+        </div>
+      </div>
+      <div
+        *ngIf="startNewService && petSelectedForService != undefined"
+        class="content__buddy-card-about-pet"
+        style="background-color: #39383c; animation-duration: 2s"
+      >
+        <h3
+          style="
+            font-size: 1.3rem;
+            color: rgb(141 134 134);
+            font-weight: light;
+            margin-bottom: 1rem;
+          "
+        >
+          Qual serviço deseja realizar hoje?
+        </h3>
+      </div>
+      <button
+        (click)="registerEventInCalendar(petSelectedForService)"
+        class="button"
+        mat-raised-button
+        style="
+          background-color: #c95739;
+          color: white;
+          margin-top: 10px;
+          border-radius: 20px;
+        "
+      >
+        Salvar agendamento
+      </button>
+    </div>
+    <div
       class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
