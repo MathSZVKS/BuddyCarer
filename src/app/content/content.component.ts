@@ -229,6 +229,8 @@ export class ContentComponent {
   allDay: any;
   selectInfo: any;
   petShopServices: any;
+  inServiceScreen = false;
+  clickInfo: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -406,11 +408,19 @@ export class ContentComponent {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (
-      confirm(`Gostaria de desmarcar o agendamento?'${clickInfo.event.title}'`)
-    ) {
-      clickInfo.event.remove();
-    }
+    this.inServiceScreen = true;
+    this.clickInfo = clickInfo;
+    console.log(this.clickInfo);
+  }
+
+  deleteService(){
+    this.clickInfo.event.remove();
+    this.toastr.success("Agendamento " + this.clickInfo.event.title + " cancelado com sucesso");
+    this.inServiceScreen = false;
+  }
+
+  cancelService(){
+    this.startNewService = false;
   }
 
   handleEvents(events: EventApi[]) {

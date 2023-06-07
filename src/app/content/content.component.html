@@ -1042,7 +1042,60 @@
       Agenda
     </h2>
     <div
-      *ngIf="startNewService"
+      class="content__buddy-card-about-pet"
+      style="background-color: #323138; animation-duration: 2s"
+      *ngIf="inServiceScreen"
+    >
+      <h3
+        style="
+          font-size: 1.4rem;
+          color: rgb(181 174 174);
+          font-weight: light;
+          margin-bottom: 1rem;
+        "
+      >
+        Informações do serviço
+      </h3>
+      <div
+        class="content__buddy-card-about-pet"
+        style="background-color: #323138; animation-duration: 2s"
+        *ngIf="inServiceScreen"
+      >
+        <h3
+          style="
+            font-size: 1.2rem;
+            color: rgb(141 134 134);
+            font-weight: light;
+            margin-bottom: 1rem;
+          "
+        >
+          {{ clickInfo.event._def.title }}
+        </h3>
+      </div>
+      <div style="margin-bottom: 2.5%">
+        <star-rating
+          speed="slow"
+          [starType]="'svg'"
+          [rating]="0"
+          (starClickChange)="rateService($event)"
+        ></star-rating>
+      </div>
+      <button
+        (click)="deleteService()"
+        class="button"
+        mat-raised-button
+        style="
+          background-color: #df2f2f;
+          color: white;
+          margin-top: 10px;
+          border-radius: 20px;
+        "
+      >
+        Cancelar agendamento
+      </button>
+    </div>
+    <div
+      *ngIf="startNewService && inServiceScreen == false"
       class="content__buddy-card-about-pet"
       style="background-color: #323138; animation-duration: 2s"
     >
@@ -1106,12 +1159,10 @@
         >
           <ng-container *ngFor="let service of petShopServices">
             <div
-              id="{{service.nome}}"
+              id="{{ service.nome }}"
               class="petshopServices"
               (click)="registerServiceSelected(service)"
-              style="background: {{
-                service.cardColor
-              }};"
+              style="background: {{ service.cardColor }};"
             >
               <span style="color: white">{{ service.nome }}</span>
             </div>
@@ -1130,6 +1181,20 @@
         "
       >
         Salvar agendamento
+      </button>
+      <button
+        (click)="cancelService()"
+        class="button"
+        mat-raised-button
+        style="
+          background-color: #c93939;
+          color: white;
+          margin-top: 10px;
+          border-radius: 20px;
+          margin-left: 10px
+        "
+      >
+        Cancelar
       </button>
     </div>
     <div
@@ -1248,7 +1313,7 @@
                 </ng-container>
               </ng-container>
             </div>
-            <div class="cardAboutMoney" style="float: right">
+            <div class="cardAboutMoney" style="float: right;">
               <h3 class="serviceTitle">Aguardando pagamento</h3>
               <ng-container
                 *ngFor="let expensiveToPay of expensivesToPay; let i = index"
