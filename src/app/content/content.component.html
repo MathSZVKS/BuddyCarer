@@ -1114,6 +1114,17 @@
         >
           Selecione um pet para o serviço
         </h3>
+        <h3
+          *ngIf="petSelectedForService != undefined"
+          style="
+            font-size: 1.3rem;
+            color: {{petSelectedForService.cardColor}};
+            font-weight: light;
+            margin-bottom: 1rem;
+          "
+        >
+          {{ petSelectedForService.nome }}
+        </h3>
         <div
           style="
             display: flex;
@@ -1147,7 +1158,7 @@
             margin-bottom: 1rem;
           "
         >
-          Qual serviço deseja realizar hoje?
+          Qual serviço deseja realizar para {{ petSelectedForService.nome }}?
         </h3>
         <div
           style="
@@ -1191,7 +1202,7 @@
           color: white;
           margin-top: 10px;
           border-radius: 20px;
-          margin-left: 10px
+          margin-left: 10px;
         "
       >
         Cancelar
@@ -1313,7 +1324,7 @@
                 </ng-container>
               </ng-container>
             </div>
-            <div class="cardAboutMoney" style="float: right;">
+            <div class="cardAboutMoney" style="float: right">
               <h3 class="serviceTitle">Aguardando pagamento</h3>
               <ng-container
                 *ngFor="let expensiveToPay of expensivesToPay; let i = index"
@@ -1441,7 +1452,13 @@
             (click)="alterPage('Calendar')"
             class="button"
             mat-raised-button
-            style="background-color: rgb(255, 94, 0); color: white; margin-top: 10px; border-radius: 20px; margin-left: 10px"
+            style="
+              background-color: rgb(255, 94, 0);
+              color: white;
+              margin-top: 10px;
+              border-radius: 20px;
+              margin-left: 10px;
+            "
           >
             Agendar novo serviço
           </button>
