@@ -113,8 +113,8 @@ export class ContentComponent {
 
   selectedSexo: any;
   sexos = [
-    { id: 1, name: "Feminino" },
-    { id: 2, name: "Masculino" },
+    { id: 1, name: "Fêmea" },
+    { id: 2, name: "Macho" },
   ];
 
   selectedPorte: any;
@@ -263,6 +263,8 @@ export class ContentComponent {
         break;
       case "Calendar":
         this.petShopServices = this.PetShopServicesService.getServices();
+        this.startNewService = false;
+        this.inServiceScreen = false;
         break;
       case "Money":
         this.myPets = this.myPetsService.getMyPets();
