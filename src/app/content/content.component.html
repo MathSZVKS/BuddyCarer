@@ -933,7 +933,7 @@
         <div style="flex-basis: 30%; text-align: left; margin-bottom: 0.5em">
           <div
             class="content__buddy-card-about-pet"
-            style="background-color: #353340"
+            style="background-color: #3d3b49"
           >
             Vacinas no Prazo
             <br />
@@ -1021,7 +1021,7 @@
         <div style="flex-basis: 70%; text-align: left; margin-bottom: 0.5em">
           <div
             class="content__buddy-card-about-pet"
-            style="background-color: #353340"
+            style="background-color: #3d3b49"
           >
             <full-calendar [options]="calendarOptionsVaccines"></full-calendar>
           </div>
@@ -1097,17 +1097,17 @@
     <div
       *ngIf="startNewService && inServiceScreen == false"
       class="content__buddy-card-about-pet"
-      style="background-color: #323138; animation-duration: 2s"
+      style="background-color: #353340; animation-duration: 2s"
     >
       <div
         *ngIf="startNewService"
         class="content__buddy-card-about-pet"
-        style="background-color: #39383c; animation-duration: 2s"
+        style="background-color: #3f3d4b; animation-duration: 2s"
       >
         <h3
           style="
             font-size: 1.3rem;
-            color: rgb(141 134 134);
+            color: rgb(191 186 182);
             font-weight: light;
             margin-bottom: 1rem;
           "
@@ -1118,7 +1118,7 @@
           *ngIf="petSelectedForService != undefined"
           style="
             font-size: 1.3rem;
-            color: {{petSelectedForService.cardColor}};
+            color: {{ petSelectedForService.cardColor }};
             font-weight: light;
             margin-bottom: 1rem;
           "
@@ -1148,12 +1148,12 @@
       <div
         *ngIf="startNewService && petSelectedForService != undefined"
         class="content__buddy-card-about-pet"
-        style="background-color: #39383c; animation-duration: 2s"
+        style="background-color: #3f3d4b; animation-duration: 2s"
       >
         <h3
           style="
             font-size: 1.3rem;
-            color: rgb(141 134 134);
+            color: rgb(191 186 182);
             font-weight: light;
             margin-bottom: 1rem;
           "
@@ -1161,14 +1161,63 @@
           Qual serviço deseja realizar para {{ petSelectedForService.nome }}?
         </h3>
         <div
+          class="content__buddy-card-about-pet"
           style="
+            background-color: #545261;
+            animation-duration: 2s;
             display: flex;
-            width: 100%;
             flex-wrap: wrap;
             justify-content: center;
           "
         >
-          <ng-container *ngFor="let service of petShopServices">
+          <div style="width: 100%">
+            <h3
+              style="
+                font-size: 1.1rem;
+                color: rgb(183 176 176);
+                font-weight: light;
+                margin-bottom: 1rem;
+              "
+            >
+              Vacinas
+            </h3>
+          </div>
+
+          <ng-container *ngFor="let service of petShopServicesVaccines">
+            <div
+              id="{{ service.nome }}"
+              class="petshopServices"
+              (click)="registerServiceSelected(service)"
+              style="background: {{ service.cardColor }};"
+            >
+              <span style="color: white">{{ service.nome }}</span>
+            </div>
+          </ng-container>
+        </div>
+        <div
+          class="content__buddy-card-about-pet"
+          style="
+            background-color: #545261;
+            animation-duration: 2s;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <div style="width: 100%">
+            <h3
+              style="
+                font-size: 1.1rem;
+                color: rgb(183 176 176);
+                font-weight: light;
+                margin-bottom: 1rem;
+              "
+            >
+              Cuidados
+            </h3>
+          </div>
+
+          <ng-container *ngFor="let service of petShopServicesCare">
             <div
               id="{{ service.nome }}"
               class="petshopServices"

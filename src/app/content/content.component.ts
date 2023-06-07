@@ -228,7 +228,8 @@ export class ContentComponent {
   endDate: any;
   allDay: any;
   selectInfo: any;
-  petShopServices: any;
+  petShopServicesVaccines: any;
+  petShopServicesCare: any;
   inServiceScreen = false;
   clickInfo: any;
 
@@ -262,7 +263,8 @@ export class ContentComponent {
       case "myPets":
         break;
       case "Calendar":
-        this.petShopServices = this.PetShopServicesService.getServices();
+        this.petShopServicesVaccines = this.PetShopServicesService.getServicesVaccines();
+        this.petShopServicesCare = this.PetShopServicesService.getServicesCare();
         this.startNewService = false;
         this.inServiceScreen = false;
         break;
@@ -423,6 +425,8 @@ export class ContentComponent {
 
   cancelService(){
     this.startNewService = false;
+    this.inServiceScreen = false;
+    this.petSelectedForService = undefined;
   }
 
   handleEvents(events: EventApi[]) {
