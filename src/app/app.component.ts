@@ -1,4 +1,4 @@
-import { Component, ElementRef } from "@angular/core";
+import { Component, ElementRef, Renderer2 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
@@ -7,7 +7,11 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  constructor(private toastr: ToastrService, private elementRef: ElementRef) {}
+  constructor(
+    private toastr: ToastrService,
+    private elementRef: ElementRef,
+    private renderer: Renderer2
+  ) {}
 
   title = "buddyCarer";
   userType = "client";
@@ -90,8 +94,25 @@ export class AppComponent {
     const containerElement =
       this.elementRef.nativeElement.querySelector(".container");
     containerElement.style.backgroundColor = backgroundColor;
-
     this.backgroundTitleColor = backgroundColor;
+
+    if (backgroundColor == "rgb(18 18 18)") {
+      const containerbackElement =
+        this.elementRef.nativeElement.querySelector(".outer-container");
+      containerbackElement.style.background = backgroundColor;
+
+      const bodyElement = this.elementRef.nativeElement.querySelector(".body");
+      bodyElement.style.background = backgroundColor;
+    } else {
+      const containerbackElement =
+        this.elementRef.nativeElement.querySelector(".outer-container");
+      containerbackElement.style =
+        "background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(72, 72, 119, 1) 61%, rgba(62, 77, 84, 1) 100%);";
+
+      const bodyElement = this.elementRef.nativeElement.querySelector(".body");
+      bodyElement.style =
+        "background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(72, 72, 119, 1) 61%, rgba(62, 77, 84, 1) 100%);";
+    }
   }
 
   alterTheme() {
