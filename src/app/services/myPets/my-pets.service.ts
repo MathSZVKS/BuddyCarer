@@ -156,6 +156,30 @@ export class MyPetsService {
     return myPets;
   }
 
+  getMemorialPets() {
+    let myPets = [
+      {
+        nome: "Luty",
+        imagem:
+          "https://images.squarespace-cdn.com/content/v1/5fcf5c11d267866a51a23546/1630427773509-06OY7G6D4ZSMJZ10K9MC/Lecker+bites+newsletter+March.png",
+        cardColor: "rgb(55 55 55)",
+        raca: "Shih tzu",
+        cor: "Branco",
+        idade: "4 Anos",
+        sexo: "Macho",
+        comportamento: "Dócil",
+        adestrado: "Não Adestrado",
+        castrado: "Não Castrado",
+        condicaoEspecial: "Nenhuma",
+        peso: "5,00 Kg",
+        porte: "Pequeno",
+        expectativaVida: "Infinito",
+        origemRaca: "China",
+      }
+    ];
+    return myPets;
+  }
+
   getCare(petName: string) {
     let myPetCare: {
       care: string;

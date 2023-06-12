@@ -232,6 +232,7 @@ export class ContentComponent {
   petShopServicesCare: any;
   inServiceScreen = false;
   clickInfo: any;
+  petsMemorial: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -291,6 +292,9 @@ export class ContentComponent {
         break;
       case "Donation":
         this.donations = this.donationsService.getAllDonations();
+        break;
+      case "Memorial":
+        this.petsMemorial = this.myPetsService.getMemorialPets();
         break;
     }
   }

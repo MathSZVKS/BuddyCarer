@@ -1054,24 +1054,8 @@
           margin-bottom: 1rem;
         "
       >
-        Informações do serviço
+        Serviço: {{ clickInfo.event._def.title }}
       </h3>
-      <div
-        class="content__buddy-card-about-pet"
-        style="background-color: #323138; animation-duration: 2s"
-        *ngIf="inServiceScreen"
-      >
-        <h3
-          style="
-            font-size: 1.2rem;
-            color: rgb(141 134 134);
-            font-weight: light;
-            margin-bottom: 1rem;
-          "
-        >
-          {{ clickInfo.event._def.title }}
-        </h3>
-      </div>
       <div style="margin-bottom: 2.5%">
         <star-rating
           speed="slow"
@@ -2224,10 +2208,33 @@
     >
       Memorial
     </h2>
-    <div
-      class="content__buddy-card-about-pet"
-      style="background-color: #201f22"
-    ></div>
+    <div class="content__buddy-card-wrapper-pet">
+      <ng-container *ngFor="let pet of petsMemorial">
+        <div
+          class="content__buddy-card-about-pet"
+          style="
+            background-color: #212123;
+            animation-duration: 2s;
+            width: 100%;
+            background-image: url(https://2.bp.blogspot.com/-Z_Zd0CS8UyE/WMQp4or9fFI/AAAAAAABhXY/d6h4kMhpDSI5xm33XGp5COdIfMFi-8NAACEw/s1600/Lovely_Transparent_Red_Rose_Clipart.png);
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-size: 300px;
+            background-position-y: bottom;
+          "
+        >
+          <div
+            (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
+            class="content__buddy-card-pet"
+            style="text-align: left; background-image: url({{
+              pet.imagem
+            }}); background-color: {{ pet.cardColor }}"
+          >
+            <h3 class="content__buddy-card-title">✟ {{ pet.nome }}</h3>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </ng-container>
 
