@@ -162,11 +162,11 @@ export class MyPetsService {
         nome: "Luty",
         imagem:
           "https://images.squarespace-cdn.com/content/v1/5fcf5c11d267866a51a23546/1630427773509-06OY7G6D4ZSMJZ10K9MC/Lecker+bites+newsletter+March.png",
-        cardColor: "rgb(55 55 55)",
-        raca: "Shih tzu",
+        cardColor: "rgb(141 54 54)",
+        raca: "Vira-Lata",
         cor: "Branco",
-        idade: "4 Anos",
-        sexo: "Macho",
+        idade: "8 Anos",
+        sexo: "Fêmea",
         comportamento: "Dócil",
         adestrado: "Não Adestrado",
         castrado: "Não Castrado",
@@ -174,7 +174,29 @@ export class MyPetsService {
         peso: "5,00 Kg",
         porte: "Pequeno",
         expectativaVida: "Infinito",
-        origemRaca: "China",
+        origemRaca: "Latinhas",
+        nascimento: "★ 01/01/2012",
+        morte: "✟ 12/12/2020"
+      },
+      {
+        nome: "Marry",
+        imagem:
+          "https://protecaoanimal.curitiba.pr.gov.br/images/gatos-castrados.png",
+        cardColor: "rgb(99 54 141)",
+        raca: "Vira-Lata",
+        cor: "Rajadinha",
+        idade: "17 Anos",
+        sexo: "Fêmea",
+        comportamento: "Dócil",
+        adestrado: "Adestrado",
+        castrado: "Castrado",
+        condicaoEspecial: "Nenhuma",
+        peso: "2,00 Kg",
+        porte: "Pequeno",
+        expectativaVida: "Infinito",
+        origemRaca: "Latinhas",
+        nascimento: "★ 14/10/2006",
+        morte: "✟ 06/08/2013"
       }
     ];
     return myPets;

@@ -2219,18 +2219,72 @@
             background-image: url(https://2.bp.blogspot.com/-Z_Zd0CS8UyE/WMQp4or9fFI/AAAAAAABhXY/d6h4kMhpDSI5xm33XGp5COdIfMFi-8NAACEw/s1600/Lovely_Transparent_Red_Rose_Clipart.png);
             background-repeat: no-repeat;
             background-position-x: right;
-            background-size: 300px;
+            background-size: 250px;
             background-position-y: bottom;
+            margin: 1px;
           "
         >
           <div
-            (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
-            class="content__buddy-card-pet"
-            style="text-align: left; background-image: url({{
-              pet.imagem
-            }}); background-color: {{ pet.cardColor }}"
+            style="
+              display: flex;
+              width: 100%;
+              align-items: center;
+              text-align: center;
+              justify-content: center;
+              margin-bottom: 28px;
+            "
           >
-            <h3 class="content__buddy-card-title">✟ {{ pet.nome }}</h3>
+            <div
+              style="
+                font-size: 20px;
+                font-weight: bold;
+                margin: 10px;
+              "
+            >
+              <div style="margin-bottom: 7px">
+                <span>{{ pet.nascimento }}</span
+                ><br />
+              </div>
+              <div>
+                <span> {{ pet.morte }}</span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex">
+            <div
+              class="content__buddy-card-pet"
+              style="background-image: url({{
+                pet.imagem
+              }}); background-color: {{ pet.cardColor }}; width: 35%;"
+            ></div>
+            <div style="width: 65%; text-align: left; margin-left: 2em">
+              <strong style="color: white; font-size: 1em">Raça: </strong
+              >{{ pet.raca }}<br />
+              <strong style="color: white; font-size: 1em">Cor: </strong
+              >{{ pet.cor }}<br />
+              <strong style="color: white; font-size: 1em">Idade: </strong
+              >{{ pet.idade }}<br />
+              <strong style="color: white; font-size: 1em">Sexo: </strong
+              >{{ pet.sexo }}<br />
+              <strong style="color: white; font-size: 1em">Peso: </strong
+              >{{ pet.peso }}<br />
+              <strong style="color: white; font-size: 1em">Porte: </strong
+              >{{ pet.porte }}<br />
+              <strong style="color: white; font-size: 1em">Comportamento: </strong
+              >{{ pet.comportamento }}<br />
+              <strong style="color: white; font-size: 1em">Adestramento: </strong
+              >{{ pet.adestrado }}<br />
+              <strong style="color: white; font-size: 1em">Castrado: </strong
+              >{{ pet.castrado }}<br />
+              <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+              >{{ pet.origemRaca }}<br />
+              <strong style="color: white; font-size: 1em"
+                >Condições Especiais: </strong
+              >{{ pet.condicaoEspecial }}<br />
+              <strong style="color: white; font-size: 1em"
+                >Expectativa de Vida: </strong
+              >{{ pet.expectativaVida }}<br />
+            </div>
           </div>
         </div>
       </ng-container>
