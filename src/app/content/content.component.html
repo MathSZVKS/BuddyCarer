@@ -1028,6 +1028,26 @@
         </div>
       </div>
     </div>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <button
+        (click)="goodBye(petSelected)"
+        class="button"
+        mat-raised-button
+        style="
+          margin-left: auto;
+          margin-right: auto;
+          display: flex;
+          background-color: #cb2727;
+          color: white;
+          border-radius: 20px;
+        "
+      >
+        Despedir-se de {{ petSelected.nome }}
+      </button>
+    </div>
   </div>
 </ng-container>
 
@@ -2234,13 +2254,7 @@
               margin-bottom: 28px;
             "
           >
-            <div
-              style="
-                font-size: 20px;
-                font-weight: bold;
-                margin: 10px;
-              "
-            >
+            <div style="font-size: 20px; font-weight: bold; margin: 10px">
               <div style="margin-bottom: 7px">
                 <span>{{ pet.nascimento }}</span
                 ><br />
@@ -2248,6 +2262,27 @@
               <div>
                 <span> {{ pet.morte }}</span>
               </div>
+            </div>
+          </div>
+          <div
+            class="content__buddy-card-about-pet"
+            style="
+              background-color: #303033;
+              animation-duration: 2s;
+              margin: 0px;
+              margin-bottom: 20px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+            "
+          >
+            <div style="width: 100%; flex-wrap: wrap">
+              <h2>{{ pet.nome }}</h2>
+            </div>
+            <div style="width: 100%; flex-wrap: wrap">
+              <span>{{ pet.historia }}</span>
             </div>
           </div>
           <div style="display: flex">
@@ -2270,13 +2305,16 @@
               >{{ pet.peso }}<br />
               <strong style="color: white; font-size: 1em">Porte: </strong
               >{{ pet.porte }}<br />
-              <strong style="color: white; font-size: 1em">Comportamento: </strong
+              <strong style="color: white; font-size: 1em"
+                >Comportamento: </strong
               >{{ pet.comportamento }}<br />
-              <strong style="color: white; font-size: 1em">Adestramento: </strong
+              <strong style="color: white; font-size: 1em"
+                >Adestramento: </strong
               >{{ pet.adestrado }}<br />
               <strong style="color: white; font-size: 1em">Castrado: </strong
               >{{ pet.castrado }}<br />
-              <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+              <strong style="color: white; font-size: 1em"
+                >Origem da Raça: </strong
               >{{ pet.origemRaca }}<br />
               <strong style="color: white; font-size: 1em"
                 >Condições Especiais: </strong

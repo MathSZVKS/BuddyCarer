@@ -256,6 +256,7 @@ export class ContentComponent {
 
   ngOnInit() {
     this.myPets = this.myPetsService.getMyPets();
+    this.petsMemorial = this.myPetsService.getMemorialPets();
   }
 
   ngOnChanges() {
@@ -294,7 +295,6 @@ export class ContentComponent {
         this.donations = this.donationsService.getAllDonations();
         break;
       case "Memorial":
-        this.petsMemorial = this.myPetsService.getMemorialPets();
         break;
     }
   }
@@ -736,5 +736,15 @@ export class ContentComponent {
     );
     this.inDonationProcess = false;
     this.termsAccepted = false;
+  }
+
+  goodBye(pet: any){
+    this.toastr.warning("A equipe BuddyCarer sente muito por sua perda :(");
+    this.toastr.success("O perfil de " + pet.nome + " foi criado no memorial");
+    this.myPets = this.myPets.filter(
+      (obj: { nome: string }) => obj.nome !== pet.nome
+    );
+    this.petsMemorial.push(pet);
+    this.alterPage('myPets');
   }
 }
