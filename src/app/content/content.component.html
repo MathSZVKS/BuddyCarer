@@ -2344,10 +2344,31 @@
     >
       Atendimento
     </h2>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+      "
+    >
+      <h1
+        style="
+          color: rgb(182, 180, 180);
+          font-size: 1.4rem;
+          font-weight: bold;
+          margin-bottom: 0.4rem;
+          margin-top: 0.2rem;
+        "
+      >
+        {{ returnAtualDate() }}
+      </h1>
+    </div>
     <div style="display: flex; width: 100%; margin-top: 20px">
       <div
         class="buddyServiceCard"
-        style="margin-right: 10px; background-color: #633939; height: auto;"
+        style="margin-right: 10px; background-color: #633939; height: auto"
       >
         <div class="title">
           <div class="insideTitle">
@@ -2358,24 +2379,50 @@
           <div class="pet">
             <div
               class="petCardImage"
-              style="width: 30%; margin-right: 10px; background-color: {{pet.cardColor}}; background-image: url({{
-                pet.imagem
-              }});"
+              style="width: 30%; margin-right: 10px; background-color: {{
+                pet.cardColor
+              }}; background-image: url({{ pet.imagem }});"
             ></div>
             <div
               class="petCard"
-              style="width: 70%; background-color: #473333d6; display: flex"
+              style="
+                width: 70%;
+                background-color: #473333d6;
+                display: flex;
+                flex-wrap: wrap;
+              "
             >
-              <div style="width: 100%; margin-top: 8px; font-weight: bold; color: #c5c1c1">
-                <span>{{pet.nome}}</span>
+              <div
+                style="
+                  width: 100%;
+                  margin-top: 8px;
+                  font-weight: bold;
+                  color: #c5c1c1;
+                "
+              >
+                <span>{{ pet.nome }}</span>
               </div>
-          </div>
+              <div style="width: 100%; padding: 10px">
+                <button
+                  (click)="visualizarAtendimento(pet)"
+                  class="button"
+                  mat-raised-button
+                  style="
+                    background-color: #bd4c31;
+                    color: white;
+                    border-radius: 20px;
+                  "
+                >
+                  Vis. Atendimento
+                </button>
+              </div>
+            </div>
           </div>
         </ng-container>
       </div>
       <div
         class="buddyServiceCard"
-        style="margin-right: 10px; background-color: #a082b7; height: auto;"
+        style="margin-right: 10px; background-color: #a082b7; height: auto"
       >
         <div class="title">
           <div class="insideTitle">
@@ -2386,24 +2433,200 @@
           <div class="pet">
             <div
               class="petCardImage"
-              style="width: 30%; margin-right: 10px; background-color: {{pet.cardColor}}; background-image: url({{
-                pet.imagem
-              }});"
+              style="width: 30%; margin-right: 10px; background-color: {{
+                pet.cardColor
+              }}; background-image: url({{ pet.imagem }});"
             ></div>
             <div
               class="petCard"
-              style="width: 70%; background-color: #343851d6"
-            ></div>
+              style="
+                width: 70%;
+                background-color: #483451d6;
+                display: flex;
+                flex-wrap: wrap;
+              "
+            >
+              <div
+                style="
+                  width: 100%;
+                  margin-top: 8px;
+                  font-weight: bold;
+                  color: #c5c1c1;
+                "
+              >
+                <span>{{ pet.nome }}</span>
+              </div>
+              <div style="width: 100%; padding: 10px">
+                <button
+                  (click)="iniciarAtendimento(pet)"
+                  class="button"
+                  mat-raised-button
+                  style="
+                    background-color: #955ac3;
+                    color: white;
+                    border-radius: 20px;
+                  "
+                >
+                  Inic. Atendimento
+                </button>
+              </div>
+            </div>
           </div>
         </ng-container>
       </div>
-      <div class="buddyServiceCard" style="background-color: #85b152; height: auto;">
+      <div
+        class="buddyServiceCard"
+        style="background-color: #85b152; height: auto"
+      >
         <div class="title">
           <div class="insideTitle">
             <span class="titleFont">Atendidos</span>
           </div>
         </div>
+        <ng-container *ngFor="let pet of attendedPets">
+          <div class="pet">
+            <div
+              class="petCardImage"
+              style="width: 30%; margin-right: 10px; background-color: {{
+                pet.cardColor
+              }}; background-image: url({{ pet.imagem }});"
+            ></div>
+            <div
+              class="petCard"
+              style="
+                width: 70%;
+                background-color: #345135d6;
+                display: flex;
+                flex-wrap: wrap;
+              "
+            >
+              <div
+                style="
+                  width: 100%;
+                  margin-top: 8px;
+                  font-weight: bold;
+                  color: #c5c1c1;
+                "
+              >
+                <span>{{ pet.nome }}</span>
+              </div>
+              <div style="width: 100%; padding: 10px">
+                <button
+                  class="button"
+                  mat-raised-button
+                  style="
+                    background-color: #3d8d3b;
+                    color: white;
+                    border-radius: 20px;
+                  "
+                >
+                  Vis. Atendimento
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
       </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'initialService'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Serviços
+    </h2>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="font-size: 2rem; color: {{
+          selectedPetForDoService.cardColor
+        }}; font-weight: bold; margin-bottom: 3rem;"
+      >
+        {{ selectedPetForDoService.nome }}
+      </h1>
+      <div style="display: flex">
+        <div
+          class="content__buddy-card-pet"
+          style="background-image: url({{
+            selectedPetForDoService.imagem
+          }}); background-color: {{ selectedPetForDoService.cardColor }}; width: 35%;"
+        ></div>
+        <div style="width: 65%; text-align: left; margin-left: 2em">
+          <strong style="color: white; font-size: 1em">Raça: </strong
+          >{{ selectedPetForDoService.raca }}<br />
+          <strong style="color: white; font-size: 1em">Cor: </strong
+          >{{ selectedPetForDoService.cor }}<br />
+          <strong style="color: white; font-size: 1em">Idade: </strong
+          >{{ selectedPetForDoService.idade }}<br />
+          <strong style="color: white; font-size: 1em">Sexo: </strong
+          >{{ selectedPetForDoService.sexo }}<br />
+          <strong style="color: white; font-size: 1em">Peso: </strong
+          >{{ selectedPetForDoService.peso }}<br />
+          <strong style="color: white; font-size: 1em">Porte: </strong
+          >{{ selectedPetForDoService.porte }}<br />
+          <strong style="color: white; font-size: 1em">Comportamento: </strong
+          >{{ selectedPetForDoService.comportamento }}<br />
+          <strong style="color: white; font-size: 1em">Adestramento: </strong
+          >{{ selectedPetForDoService.adestrado }}<br />
+          <strong style="color: white; font-size: 1em">Castrado: </strong
+          >{{ selectedPetForDoService.castrado }}<br />
+          <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+          >{{ selectedPetForDoService.origemRaca }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Condições Especiais: </strong
+          >{{ selectedPetForDoService.condicaoEspecial }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Expectativa de Vida: </strong
+          >{{ selectedPetForDoService.expectativaVida }}<br />
+          <button
+            (click)="alterPage('myPets')"
+            class="button"
+            mat-raised-button
+            style="background-color: {{
+              selectedPetForDoService.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+          >
+            Alterar Pet
+          </button>
+          <button
+            (click)="alterPageAndRegisterRace('aboutTheRace', selectedPetForDoService.raca)"
+            class="button"
+            mat-raised-button
+            style="
+              background-color: rgb(148 128 128);
+              color: white;
+              margin-top: 10px;
+              border-radius: 20px;
+            "
+          >
+            Sobre a raça {{ selectedPetForDoService.raca }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="
+          font-size: 2rem;
+          color: rgb(182, 180, 180);
+          font-weight: bold;
+          margin-bottom: 3rem;
+        "
+      >
+        Teste
+      </h1>
+      
     </div>
   </div>
 </ng-container>

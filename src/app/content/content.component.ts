@@ -236,6 +236,8 @@ export class ContentComponent {
   petsMemorial: any;
   inServicePets: any;
   awaitingPets: any;
+  attendedPets: any;
+  selectedPetForDoService: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -261,6 +263,9 @@ export class ContentComponent {
   ngOnInit() {
     this.myPets = this.myPetsService.getMyPets();
     this.petsMemorial = this.myPetsService.getMemorialPets();
+    this.inServicePets = this.inServicePetsService.getInServicePets();
+    this.awaitingPets = this.inServicePetsService.getAwaitingPets();
+    this.attendedPets = this.inServicePetsService.getAttendedPets();
   }
 
   ngOnChanges() {
@@ -303,8 +308,6 @@ export class ContentComponent {
       case "Memorial":
         break;
       case "Service":
-        this.inServicePets = this.inServicePetsService.getInServicePets();
-        this.awaitingPets = this.inServicePetsService.getAwaitingPets();
         break;
     }
   }
@@ -758,5 +761,36 @@ export class ContentComponent {
     );
     this.petsMemorial.push(pet);
     this.alterPage("myPets");
+  }
+
+  returnAtualDate(){
+    var dataAtual = new Date();
+    var dia = String(dataAtual.getDate()).padStart(2, '0');
+    var mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+    var ano = dataAtual.getFullYear();
+    var dataFormatada = dia + '/' + mes + '/' + ano;
+    return dataFormatada;
+  }
+
+  iniciarAtendimento(pet: any){
+    this.awaitingPets = this.awaitingPets.filter(
+      (obj: { nome: string }) => obj.nome !== pet.nome
+    );
+    this.inServicePets.push(pet);
+    this.selectedPetForDoService = pet;
+    this.toastr.success('Serviço para o pet ' + pet.nome + ' iniciado com sucesso!')
+
+    setTimeout(() => {
+      this.alterPage('initialService');
+    }, 2000);
+  }
+
+  visualizarAtendimento(pet: any){
+    this.selectedPetForDoService = pet;
+    this.alterPage('initialService');
+  }
+
+  finalizarAtendimento(){
+
   }
 }
