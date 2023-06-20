@@ -696,11 +696,68 @@
     transform: translateY(500px); /* começa fora da tela */
     animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     width: 14.5%;
-    margin: 1%; justify-content: center;
+    margin: 1%;
+    justify-content: center;
     text-align: center;
     display: flex;
     align-items: center;
     padding: 8px;
     cursor: pointer;
+  }
+
+  .buddyServiceCard {
+    flex: 1;
+    display: flex;
+    background-color: #353340;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+    flex-direction: column;
+
+    .title {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      display: flex;
+      .insideTitle {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .titleFont {
+          color: #ffffff;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .pet {
+      display: flex;
+      height: 80px;
+      margin-bottom: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: 200ms linear;
+
+      &:hover {
+        transform: scale(1.03);
+        transition: 200ms linear;
+        cursor: pointer;
+      }
+
+      .petCard {
+        background-color: grey;
+        border-radius: 10px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      .petCardImage {
+        background-color: grey;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        justify-content: center;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
   }
 }

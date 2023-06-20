@@ -29,6 +29,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
 import { PetShopServicesService } from "../services/pet-shop-services/pet-shop-services.service";
 import { BaseChartDirective } from "ng2-charts";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
+import { InServicePetsService } from "../services/admin-services/in-service-pets.service";
 
 @Component({
   selector: "app-content",
@@ -233,6 +234,8 @@ export class ContentComponent {
   inServiceScreen = false;
   clickInfo: any;
   petsMemorial: any;
+  inServicePets: any;
+  awaitingPets: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -251,12 +254,14 @@ export class ContentComponent {
     private raceService: RaceService,
     private clientsService: ClientsService,
     private donationsService: DonationsService,
-    private PetShopServicesService: PetShopServicesService
+    private PetShopServicesService: PetShopServicesService,
+    private inServicePetsService: InServicePetsService
   ) {}
 
   ngOnInit() {
     this.myPets = this.myPetsService.getMyPets();
     this.petsMemorial = this.myPetsService.getMemorialPets();
+    this.inServicePets = this.inServicePetsService.getInServicePets();
   }
 
   ngOnChanges() {
@@ -295,6 +300,8 @@ export class ContentComponent {
         this.donations = this.donationsService.getAllDonations();
         break;
       case "Memorial":
+        break;
+      case "Service":
         break;
     }
   }

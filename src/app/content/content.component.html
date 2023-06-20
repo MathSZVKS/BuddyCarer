@@ -2333,3 +2333,59 @@
 <ng-container *ngIf="page == 'CalendarAdmin'"> AGENDA </ng-container>
 
 <ng-container *ngIf="page == 'mockery'"> DOAÇÕES </ng-container>
+
+<ng-container *ngIf="page == 'Service'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Atendimento
+    </h2>
+    <div style="display: flex; width: 100%; margin-top: 20px">
+      <div
+        class="buddyServiceCard"
+        style="margin-right: 10px; background-color: #5e568b; height: auto;"
+      >
+        <div class="title">
+          <div class="insideTitle">
+            <span class="titleFont">Em Atendimento</span>
+          </div>
+        </div>
+        <ng-container *ngFor="let pet of inServicePets">
+          <div class="pet">
+            <div
+              class="petCardImage"
+              style="width: 30%; margin-right: 10px; background-color: {{pet.cardColor}}; background-image: url({{
+                pet.imagem
+              }});"
+            ></div>
+            <div
+              class="petCard"
+              style="width: 70%; background-color: #343851d6"
+            ></div>
+          </div>
+        </ng-container>
+      </div>
+      <div
+        class="buddyServiceCard"
+        style="margin-right: 10px; background-color: #a082b7; height: auto;"
+      >
+        <div class="title">
+          <div class="insideTitle">
+            <span class="titleFont">Sala de Espera</span>
+          </div>
+        </div>
+      </div>
+      <div class="buddyServiceCard" style="background-color: #85b152; height: auto;">
+        <div class="title">
+          <div class="insideTitle">
+            <span class="titleFont">Atendidos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
