@@ -69,6 +69,12 @@ export class InServicePetsService {
         nascimento: "★ 03/01/2012",
         historia: "Nero, um cachorro carinhoso, trouxe felicidade para sua família. Com seu temperamento afetuoso e leal, ele se tornou um companheiro inseparável. Nero era amigável e seu amor incondicional deixava uma marca duradoura nos corações de todos. Sua presença trazia alegria e amor, destacando o poder dos animais de estimação em nossas vidas."
       },
+    ];
+    return myPets;
+  }
+
+  getAwaitingPets() {
+    let myPets = [
       {
         nome: "Katie",
         imagem:

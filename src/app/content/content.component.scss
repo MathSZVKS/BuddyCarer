@@ -706,6 +706,8 @@
   }
 
   .buddyServiceCard {
+    transform: translateY(500px); /* começa fora da tela */
+    animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     flex: 1;
     display: flex;
     background-color: #353340;
@@ -720,6 +722,7 @@
       height: auto;
       justify-content: center;
       display: flex;
+      margin-bottom: 15px;
       .insideTitle {
         margin-top: 10px;
         margin-bottom: 10px;
@@ -735,8 +738,8 @@
       height: 80px;
       margin-bottom: 10px;
       width: 100%;
-      cursor: pointer;
       transition: 200ms linear;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.03);

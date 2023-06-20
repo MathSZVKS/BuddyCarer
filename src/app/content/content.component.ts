@@ -261,7 +261,6 @@ export class ContentComponent {
   ngOnInit() {
     this.myPets = this.myPetsService.getMyPets();
     this.petsMemorial = this.myPetsService.getMemorialPets();
-    this.inServicePets = this.inServicePetsService.getInServicePets();
   }
 
   ngOnChanges() {
@@ -270,8 +269,10 @@ export class ContentComponent {
       case "myPets":
         break;
       case "Calendar":
-        this.petShopServicesVaccines = this.PetShopServicesService.getServicesVaccines();
-        this.petShopServicesCare = this.PetShopServicesService.getServicesCare();
+        this.petShopServicesVaccines =
+          this.PetShopServicesService.getServicesVaccines();
+        this.petShopServicesCare =
+          this.PetShopServicesService.getServicesCare();
         this.startNewService = false;
         this.inServiceScreen = false;
         break;
@@ -302,6 +303,8 @@ export class ContentComponent {
       case "Memorial":
         break;
       case "Service":
+        this.inServicePets = this.inServicePetsService.getInServicePets();
+        this.awaitingPets = this.inServicePetsService.getAwaitingPets();
         break;
     }
   }
@@ -391,7 +394,7 @@ export class ContentComponent {
       return;
     }
 
-    if(this.serviceSelected == undefined){
+    if (this.serviceSelected == undefined) {
       this.toastr.warning("Selecione um serviço");
       return;
     }
@@ -405,7 +408,7 @@ export class ContentComponent {
       start: this.startDate,
       end: this.endDate,
       allDay: this.allDay,
-      color: pet.cardColor
+      color: pet.cardColor,
     });
 
     this.startNewService = false;
@@ -428,13 +431,15 @@ export class ContentComponent {
     console.log(this.clickInfo);
   }
 
-  deleteService(){
+  deleteService() {
     this.clickInfo.event.remove();
-    this.toastr.success("Agendamento " + this.clickInfo.event.title + " cancelado com sucesso");
+    this.toastr.success(
+      "Agendamento " + this.clickInfo.event.title + " cancelado com sucesso"
+    );
     this.inServiceScreen = false;
   }
 
-  cancelService(){
+  cancelService() {
     this.startNewService = false;
     this.inServiceScreen = false;
     this.petSelectedForService = undefined;
@@ -745,13 +750,13 @@ export class ContentComponent {
     this.termsAccepted = false;
   }
 
-  goodBye(pet: any){
+  goodBye(pet: any) {
     this.toastr.warning("A equipe BuddyCarer sente muito por sua perda :(");
     this.toastr.success("O perfil de " + pet.nome + " foi criado no memorial");
     this.myPets = this.myPets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
     this.petsMemorial.push(pet);
-    this.alterPage('myPets');
+    this.alterPage("myPets");
   }
 }

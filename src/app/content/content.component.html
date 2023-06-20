@@ -2347,7 +2347,7 @@
     <div style="display: flex; width: 100%; margin-top: 20px">
       <div
         class="buddyServiceCard"
-        style="margin-right: 10px; background-color: #5e568b; height: auto;"
+        style="margin-right: 10px; background-color: #633939; height: auto;"
       >
         <div class="title">
           <div class="insideTitle">
@@ -2364,8 +2364,12 @@
             ></div>
             <div
               class="petCard"
-              style="width: 70%; background-color: #343851d6"
-            ></div>
+              style="width: 70%; background-color: #473333d6; display: flex"
+            >
+              <div style="width: 100%; margin-top: 8px; font-weight: bold; color: #c5c1c1">
+                <span>{{pet.nome}}</span>
+              </div>
+          </div>
           </div>
         </ng-container>
       </div>
@@ -2378,6 +2382,20 @@
             <span class="titleFont">Sala de Espera</span>
           </div>
         </div>
+        <ng-container *ngFor="let pet of awaitingPets">
+          <div class="pet">
+            <div
+              class="petCardImage"
+              style="width: 30%; margin-right: 10px; background-color: {{pet.cardColor}}; background-image: url({{
+                pet.imagem
+              }});"
+            ></div>
+            <div
+              class="petCard"
+              style="width: 70%; background-color: #343851d6"
+            ></div>
+          </div>
+        </ng-container>
       </div>
       <div class="buddyServiceCard" style="background-color: #85b152; height: auto;">
         <div class="title">
