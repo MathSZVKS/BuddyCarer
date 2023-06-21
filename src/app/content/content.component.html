@@ -2603,6 +2603,20 @@
             Cancelar atendimento
           </button>
           <button
+            (click)="finalizarAtendimento(selectedPetForDoService)"
+            class="button"
+            mat-raised-button
+            style="
+              background-color: rgb(85, 184, 85);
+              color: white;
+              margin-top: 10px;
+              border-radius: 20px;
+              margin-right: 10px;
+            "
+          >
+            Finalizar atendimento
+          </button>
+          <button
             (click)="alterPage('Service')"
             class="button"
             mat-raised-button
@@ -2644,11 +2658,12 @@
           >
             <div
               style="
-                width: 25%;
+                width: 20%;
                 background-color: #53505f;
                 border-radius: 10px;
                 margin-right: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
               "
             >
               <div style="display: flex; flex-wrap: wrap">
@@ -2664,6 +2679,7 @@
                 background-color: #53505f;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
               "
             >
               <div style="display: flex; flex-wrap: wrap">
@@ -2721,7 +2737,7 @@
     </div>
     <div
       class="content__buddy-card-about-pet"
-      style="background-color: #353340"
+      style="background-color: #3b3a3d"
     >
       <h1
         style="
@@ -2736,7 +2752,7 @@
       <ng-container *ngFor="let service of realizedServices">
         <div
           class="content__buddy-card-about-pet"
-          style="background-color: #403e4b; display: flex"
+          style="background-color: #37363b; display: flex"
         >
           <div
             style="
@@ -2748,11 +2764,12 @@
           >
             <div
               style="
-                width: 25%;
-                background-color: #53505f;
+                width: 20%;
+                background-color: #3f3e43;
                 border-radius: 10px;
                 margin-right: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
               "
             >
               <div style="display: flex; flex-wrap: wrap">
@@ -2765,9 +2782,10 @@
             <div
               style="
                 width: 70%;
-                background-color: #53505f;
+                background-color: #3f3e43;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
               "
             >
               <div style="display: flex; flex-wrap: wrap">
@@ -2787,6 +2805,14 @@
                 }"
               >
               </progress-bar>
+            </div>
+            <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
+              <star-rating
+              speed="slow"
+              [starType]="'svg'"
+              [readOnly]="true"
+              [rating]="service.avaliacao"
+            ></star-rating>
             </div>
           </div>
         </div>

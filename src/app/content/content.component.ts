@@ -796,8 +796,12 @@ export class ContentComponent {
     this.alterPage('initialService');
   }
 
-  finalizarAtendimento(){
-
+  finalizarAtendimento(pet: any){
+    this.inServicePets = this.inServicePets.filter(
+      (obj: { nome: string }) => obj.nome !== pet.nome
+    );
+    this.toastr.success('Atendimento finalizado com sucesso!');
+    this.alterPage('Service');
   }
 
   cancelarAtendimento(pet: any){

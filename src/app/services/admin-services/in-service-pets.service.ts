@@ -278,12 +278,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -292,12 +292,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -306,12 +306,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -320,12 +320,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -334,12 +334,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -348,12 +348,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
             servico: "Banho Quentinho",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -362,12 +362,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -376,12 +376,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -390,12 +390,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -404,12 +404,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -418,12 +418,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -432,12 +432,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -446,12 +446,12 @@ export class InServicePetsService {
         services = [
           {
             servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            observacao: petName + "Necessário cuidado com a barriguinha, escove o pelo para remover emaranhados, corte as unhas com cuidado, Apare pelos em excesso ao redor da região anal, se necessário",
             carePercentagem: "0",
           },
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
+            servico: "Banho Quentinho",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
             carePercentagem: "0",
           },
         ];
@@ -465,188 +465,137 @@ export class InServicePetsService {
       servico: string;
       observacao: string;
       carePercentagem: string;
+      avaliacao: number
     }[] = [];
 
     switch (petName) {
       case "Lucy":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Duda":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Marry":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Luty":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Victor":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Barnei":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Banho Quentinho",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Ted":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Nero":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Katie":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Atom":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Jasmim":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Petunia":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
       case "Isabel":
         services = [
           {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
-          },
-          {
-            servico: "Tosa Higiênica",
-            observacao: petName + " acabou de chegar ao PetShop =)",
-            carePercentagem: "0",
+            servico: "Banho para apresentação",
+            observacao: petName + "Molhe o cão com água morna, evitando os olhos e ouvidos, aplique o shampoo específico para cães e massageie suavemente, enxágue bem o pelo com água morna",
+            carePercentagem: "100",
+            avaliacao: 5
           },
         ];
         break;
