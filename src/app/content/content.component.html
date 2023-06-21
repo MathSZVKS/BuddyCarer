@@ -2617,14 +2617,14 @@
     </div>
     <div
       class="content__buddy-card-about-pet"
-      style="background-color: #353340" 
+      style="background-color: #353340"
     >
       <h1
         style="
           font-size: 1.5rem;
           color: rgb(182, 180, 180);
           font-weight: bold;
-          margin-bottom: 3rem;
+          margin-bottom: 1.5rem;
         "
       >
         Serviços a serem realizados
@@ -2633,30 +2633,55 @@
         class="content__buddy-card-about-pet"
         style="background-color: #403e4b; display: flex"
       >
-        <div style="display: flex; flex-wrap: wrap; width: 100%; justify-content: center;">
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+          "
+        >
           <div
-            style="width: 25%; background-color: #53505f; border-radius: 10px; margin-right: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);"
+            style="
+              width: 25%;
+              background-color: #53505f;
+              border-radius: 10px;
+              margin-right: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            "
           >
-            <div style="display: flex; flex-wrap: wrap;">
+            <div style="display: flex; flex-wrap: wrap">
               <div style="width: 100%; color: #c5c5c5">
                 <h2>Serviço</h2>
               </div>
-              <div style="width: 100%;">
-                teste
-              </div>
+              <div style="width: 100%">teste</div>
             </div>
           </div>
           <div
-            style="width: 70%; background-color: #53505f; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);"
+            style="
+              width: 70%;
+              background-color: #53505f;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            "
           >
-          <div style="display: flex; flex-wrap: wrap;">
-            <div style="width: 100%; color: #c5c5c5">
-              <h2>Observações do dono</h2>
-            </div>
-            <div style="width: 100%;">
-              teste
+            <div style="display: flex; flex-wrap: wrap">
+              <div style="width: 100%; color: #c5c5c5">
+                <h2>Observações do dono</h2>
+              </div>
+              <div style="width: 100%">teste</div>
             </div>
           </div>
+          <div style=" width: 100%; margin-top: 10px; margin-bottom: 10px;">
+            <progress-bar
+              [progress]="'60'"
+              [color-degraded]="{
+                '0': '#00cbcb',
+                '15': '#f9c3d3',
+                '25': '#fd8c8e'
+              }"
+            >
+            </progress-bar>
           </div>
           <button
             class="button"
