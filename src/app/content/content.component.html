@@ -2629,71 +2629,168 @@
       >
         Serviços a serem realizados
       </h1>
-      <div
-        class="content__buddy-card-about-pet"
-        style="background-color: #403e4b; display: flex"
-      >
+      <ng-container *ngFor="let service of toDoServices">
         <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            justify-content: center;
-          "
+          class="content__buddy-card-about-pet"
+          style="background-color: #403e4b; display: flex"
         >
           <div
             style="
-              width: 25%;
-              background-color: #53505f;
-              border-radius: 10px;
-              margin-right: 10px;
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              justify-content: center;
             "
           >
-            <div style="display: flex; flex-wrap: wrap">
-              <div style="width: 100%; color: #c5c5c5">
-                <h2>Serviço</h2>
+            <div
+              style="
+                width: 25%;
+                background-color: #53505f;
+                border-radius: 10px;
+                margin-right: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <div style="display: flex; flex-wrap: wrap">
+                <div style="width: 100%; color: #c5c5c5">
+                  <h2>Serviço</h2>
+                </div>
+                <div style="width: 100%">{{service.servico}}</div>
               </div>
-              <div style="width: 100%">teste</div>
             </div>
+            <div
+              style="
+                width: 70%;
+                background-color: #53505f;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <div style="display: flex; flex-wrap: wrap">
+                <div style="width: 100%; color: #c5c5c5">
+                  <h2>Observações do dono</h2>
+                </div>
+                <div style="width: 100%">{{service.observacao}}</div>
+              </div>
+            </div>
+            <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
+              <progress-bar
+                [progress]="service.carePercentagem"
+                [color-degraded]="{
+                  '0': '#00cbcb',
+                  '15': '#f9c3d3',
+                  '25': '#fd8c8e'
+                }"
+              >
+              </progress-bar>
+            </div>
+            <button
+              *ngIf="service.carePercentagem == '0'"
+              (click)="iniciarServico(service)"
+              class="button"
+              mat-raised-button
+              style="background-color: {{
+                selectedPetForDoService.cardColor
+              }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            >
+              Iniciar serviço
+            </button>
+            <button
+              *ngIf="service.carePercentagem == '40'"
+              (click)="avancarEtapaServico(service)"
+              class="button"
+              mat-raised-button
+              style="background-color: {{
+                selectedPetForDoService.cardColor
+              }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            >
+              Avançar etapa
+            </button>
+            <button
+              *ngIf="service.carePercentagem == '70'"
+              (click)="finalizarServico(service)"
+              class="button"
+              mat-raised-button
+              style="background-color: rgb(92 147 92); color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            >
+              Concluir Serviço
+            </button>
           </div>
+        </div>
+      </ng-container>
+    </div>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="
+          font-size: 1.5rem;
+          color: rgb(182, 180, 180);
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+        "
+      >
+        Serviços realizados
+      </h1>
+      <ng-container *ngFor="let service of realizedServices">
+        <div
+          class="content__buddy-card-about-pet"
+          style="background-color: #403e4b; display: flex"
+        >
           <div
             style="
-              width: 70%;
-              background-color: #53505f;
-              border-radius: 10px;
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              justify-content: center;
             "
           >
-            <div style="display: flex; flex-wrap: wrap">
-              <div style="width: 100%; color: #c5c5c5">
-                <h2>Observações do dono</h2>
+            <div
+              style="
+                width: 25%;
+                background-color: #53505f;
+                border-radius: 10px;
+                margin-right: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <div style="display: flex; flex-wrap: wrap">
+                <div style="width: 100%; color: #c5c5c5">
+                  <h2>Serviço</h2>
+                </div>
+                <div style="width: 100%">{{service.servico}}</div>
               </div>
-              <div style="width: 100%">teste</div>
+            </div>
+            <div
+              style="
+                width: 70%;
+                background-color: #53505f;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+              "
+            >
+              <div style="display: flex; flex-wrap: wrap">
+                <div style="width: 100%; color: #c5c5c5">
+                  <h2>Observações do dono</h2>
+                </div>
+                <div style="width: 100%">{{service.observacao}}</div>
+              </div>
+            </div>
+            <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
+              <progress-bar
+                [progress]="service.carePercentagem"
+                [color-degraded]="{
+                  '0': '#00cbcb',
+                  '15': '#f9c3d3',
+                  '25': '#fd8c8e'
+                }"
+              >
+              </progress-bar>
             </div>
           </div>
-          <div style=" width: 100%; margin-top: 10px; margin-bottom: 10px;">
-            <progress-bar
-              [progress]="'60'"
-              [color-degraded]="{
-                '0': '#00cbcb',
-                '15': '#f9c3d3',
-                '25': '#fd8c8e'
-              }"
-            >
-            </progress-bar>
-          </div>
-          <button
-            class="button"
-            mat-raised-button
-            style="background-color: {{
-              selectedPetForDoService.cardColor
-            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
-          >
-            Iniciar serviço
-          </button>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </ng-container>

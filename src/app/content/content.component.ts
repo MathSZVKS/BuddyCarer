@@ -238,6 +238,8 @@ export class ContentComponent {
   awaitingPets: any;
   attendedPets: any;
   selectedPetForDoService: any;
+  toDoServices: any;
+  realizedServices: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -779,6 +781,8 @@ export class ContentComponent {
     this.inServicePets.push(pet);
     this.selectedPetForDoService = pet;
     this.toastr.success('Serviço para o pet ' + pet.nome + ' iniciado com sucesso!')
+    this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
+    this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
 
     setTimeout(() => {
       this.alterPage('initialService');
@@ -786,6 +790,8 @@ export class ContentComponent {
   }
 
   visualizarAtendimento(pet: any){
+    this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
+    this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
     this.selectedPetForDoService = pet;
     this.alterPage('initialService');
   }
@@ -800,5 +806,38 @@ export class ContentComponent {
     );
     this.toastr.success('Serviço cancelado com sucesso!');
     this.alterPage('Service');
+  }
+
+  iniciarServico(servico: any){
+    this.toastr.success('Serviço iniciado com sucesso!');
+    for(let i = 0; i < this.toDoServices.length; i++){
+      if(servico.servico == this.toDoServices[i].servico){
+        this.toDoServices[i].carePercentagem = "40";
+      }
+    }
+  }
+
+  avancarEtapaServico(servico: any){
+    this.toastr.success('Andamento atualizado com sucesso!');
+    for(let i = 0; i < this.toDoServices.length; i++){
+      if(servico.servico == this.toDoServices[i].servico){
+        this.toDoServices[i].carePercentagem = "70";
+      }
+    }
+  }
+
+  finalizarServico(servico: any){
+    this.toastr.success('Serviço concluido com sucesso!');
+    for(let i = 0; i < this.toDoServices.length; i++){
+      if(servico.servico == this.toDoServices[i].servico){
+        this.toDoServices[i].carePercentagem = "100";
+      }
+    }
+
+    this.toDoServices = this.toDoServices.filter(
+      (obj: { servico: string }) => obj.servico !== servico.servico
+    );
+
+    this.realizedServices.push(servico);
   }
 }
