@@ -782,7 +782,7 @@ export class ContentComponent {
 
     setTimeout(() => {
       this.alterPage('initialService');
-    }, 2000);
+    }, 1300);
   }
 
   visualizarAtendimento(pet: any){
@@ -792,5 +792,13 @@ export class ContentComponent {
 
   finalizarAtendimento(){
 
+  }
+
+  cancelarAtendimento(pet: any){
+    this.inServicePets = this.inServicePets.filter(
+      (obj: { nome: string }) => obj.nome !== pet.nome
+    );
+    this.toastr.success('Serviço cancelado com sucesso!');
+    this.alterPage('Service');
   }
 }

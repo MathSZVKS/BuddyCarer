@@ -2587,27 +2587,20 @@
             >Expectativa de Vida: </strong
           >{{ selectedPetForDoService.expectativaVida }}<br />
           <button
-            (click)="alterPage('myPets')"
+            (click)="cancelarAtendimento(selectedPetForDoService)"
             class="button"
             mat-raised-button
-            style="background-color: {{
-              selectedPetForDoService.cardColor
-            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            style="background-color: rgb(179 75 75); color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
           >
-            Alterar Pet
+            Cancelar atendimento
           </button>
           <button
-            (click)="alterPageAndRegisterRace('aboutTheRace', selectedPetForDoService.raca)"
+            (click)="alterPage('Service')"
             class="button"
             mat-raised-button
-            style="
-              background-color: rgb(148 128 128);
-              color: white;
-              margin-top: 10px;
-              border-radius: 20px;
-            "
+            style="background-color: {{ selectedPetForDoService.cardColor }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
           >
-            Sobre a raça {{ selectedPetForDoService.raca }}
+            Voltar
           </button>
         </div>
       </div>
