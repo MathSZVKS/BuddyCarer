@@ -240,6 +240,7 @@ export class ContentComponent {
   selectedPetForDoService: any;
   toDoServices: any;
   realizedServices: any;
+  servicoFinalizado = false;
 
   alterPassword = false;
   currentPassword = "";
@@ -775,6 +776,7 @@ export class ContentComponent {
   }
 
   iniciarAtendimento(pet: any){
+    this.servicoFinalizado = false;
     this.awaitingPets = this.awaitingPets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
@@ -790,6 +792,7 @@ export class ContentComponent {
   }
 
   visualizarAtendimento(pet: any){
+    this.servicoFinalizado = false;
     this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
     this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
     this.selectedPetForDoService = pet;
@@ -797,6 +800,10 @@ export class ContentComponent {
   }
 
   finalizarAtendimento(pet: any){
+    if(!this.servicoFinalizado){
+      this.toastr.warning('Necessário iniciar um serviço para esse atendimento ou concluir o serviço em progresso');
+      return;
+    }
     this.inServicePets = this.inServicePets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
@@ -813,6 +820,7 @@ export class ContentComponent {
   }
 
   iniciarServico(servico: any){
+    this.servicoFinalizado = false;
     this.toastr.success('Serviço iniciado com sucesso!');
     for(let i = 0; i < this.toDoServices.length; i++){
       if(servico.servico == this.toDoServices[i].servico){
@@ -831,6 +839,7 @@ export class ContentComponent {
   }
 
   finalizarServico(servico: any){
+    this.servicoFinalizado = true;
     this.toastr.success('Serviço concluido com sucesso!');
     for(let i = 0; i < this.toDoServices.length; i++){
       if(servico.servico == this.toDoServices[i].servico){
