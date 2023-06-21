@@ -2557,7 +2557,9 @@
           class="content__buddy-card-pet"
           style="background-image: url({{
             selectedPetForDoService.imagem
-          }}); background-color: {{ selectedPetForDoService.cardColor }}; width: 35%;"
+          }}); background-color: {{
+            selectedPetForDoService.cardColor
+          }}; width: 35%;"
         ></div>
         <div style="width: 65%; text-align: left; margin-left: 2em">
           <strong style="color: white; font-size: 1em">Raça: </strong
@@ -2590,7 +2592,13 @@
             (click)="cancelarAtendimento(selectedPetForDoService)"
             class="button"
             mat-raised-button
-            style="background-color: rgb(179 75 75); color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            style="
+              background-color: rgb(179 75 75);
+              color: white;
+              margin-top: 10px;
+              border-radius: 20px;
+              margin-right: 10px;
+            "
           >
             Cancelar atendimento
           </button>
@@ -2598,7 +2606,9 @@
             (click)="alterPage('Service')"
             class="button"
             mat-raised-button
-            style="background-color: {{ selectedPetForDoService.cardColor }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+            style="background-color: {{
+              selectedPetForDoService.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
           >
             Voltar
           </button>
@@ -2607,19 +2617,58 @@
     </div>
     <div
       class="content__buddy-card-about-pet"
-      style="background-color: #353340"
+      style="background-color: #353340" 
     >
       <h1
         style="
-          font-size: 2rem;
+          font-size: 1.5rem;
           color: rgb(182, 180, 180);
           font-weight: bold;
           margin-bottom: 3rem;
         "
       >
-        Teste
+        Serviços a serem realizados
       </h1>
-      
+      <div
+        class="content__buddy-card-about-pet"
+        style="background-color: #403e4b; display: flex"
+      >
+        <div style="display: flex; flex-wrap: wrap; width: 100%; justify-content: center;">
+          <div
+            style="width: 25%; background-color: #53505f; border-radius: 10px; margin-right: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);"
+          >
+            <div style="display: flex; flex-wrap: wrap;">
+              <div style="width: 100%; color: #c5c5c5">
+                <h2>Serviço</h2>
+              </div>
+              <div style="width: 100%;">
+                teste
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 70%; background-color: #53505f; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);"
+          >
+          <div style="display: flex; flex-wrap: wrap;">
+            <div style="width: 100%; color: #c5c5c5">
+              <h2>Observações do dono</h2>
+            </div>
+            <div style="width: 100%;">
+              teste
+            </div>
+          </div>
+          </div>
+          <button
+            class="button"
+            mat-raised-button
+            style="background-color: {{
+              selectedPetForDoService.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+          >
+            Iniciar serviço
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>
