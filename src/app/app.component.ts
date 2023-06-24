@@ -97,13 +97,22 @@ export class AppComponent {
   }
 
   acessGaranted(event: any) {
-    if (event.permissionAccess) {
+    if (event) {
       this.inLogin = false;
       this.userLogged = event;
-      this.userType = event.type;
+      this.userType = this.getType(event.role);;
     } else {
       this.toastr.error("Usuário ou senha inválidos");
     }
+  }
+
+  getType(event: any){
+    if(event == "USER"){
+      return "client"
+    } else if (event == "ADMIN"){
+      return "admin"
+    }
+    return "client"
   }
 
   return(event: string) {

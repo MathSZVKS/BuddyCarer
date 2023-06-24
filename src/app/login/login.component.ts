@@ -129,8 +129,6 @@ export class LoginComponent {
   access() {
     this.userService.login(this.userToLogin, this.passwordToLogin).subscribe({
       next: (res:any) => {
-        
-
         const userData: UserData = {
           firstname: res.firstname,
           lastname: res.lastname,
@@ -152,21 +150,18 @@ export class LoginComponent {
           tokens: res.tokens,
           role: res.role
         };
-  
         const jsonData = JSON.stringify(userData);
-  
-        // Store the JSON data in localStorage
         localStorage.setItem('userData', jsonData);
         this.loginStatus.emit(userData);
+        this.returnPage('initial');
       },
       error: (error) => {
-        console.error('An error occurred during login:', error);
+        console.error('Erro durante o login:', error);
         // Handle the error as needed
       }
     });
   }
   
-
   returnPage(page: string) {
     if (page == "initial") {
       this.return.emit(page);
