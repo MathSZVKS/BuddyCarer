@@ -660,7 +660,7 @@
       </div>
       <button
         class="button"
-        (click)="registerNewPet()"
+        (click)="registerNewPet('newPet')"
         mat-raised-button
         style="
           background-color: rgb(6 98 185);
@@ -2437,6 +2437,77 @@
 
 <ng-container *ngIf="page == 'CalendarAdmin'"> EM BREVE.. </ng-container>
 
+<ng-container *ngIf="page == 'aboutDonationPet'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Sobre o Pet
+    </h2>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <h1
+        style="font-size: 2rem; color: {{
+          petSelected.cardColor
+        }}; font-weight: bold; margin-bottom: 3rem;"
+      >
+        {{ petSelected.nome }}
+      </h1>
+      <div style="display: flex">
+        <div
+          class="content__buddy-card-pet"
+          style="background-image: url({{
+            petSelected.imagem
+          }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
+        ></div>
+        <div style="width: 65%; text-align: left; margin-left: 2em">
+          <strong style="color: white; font-size: 1em">Raça: </strong
+          >{{ petSelected.raca }}<br />
+          <strong style="color: white; font-size: 1em">Cor: </strong
+          >{{ petSelected.cor }}<br />
+          <strong style="color: white; font-size: 1em">Idade: </strong
+          >{{ petSelected.idade }}<br />
+          <strong style="color: white; font-size: 1em">Sexo: </strong
+          >{{ petSelected.sexo }}<br />
+          <strong style="color: white; font-size: 1em">Peso: </strong
+          >{{ petSelected.peso }}<br />
+          <strong style="color: white; font-size: 1em">Porte: </strong
+          >{{ petSelected.porte }}<br />
+          <strong style="color: white; font-size: 1em">Comportamento: </strong
+          >{{ petSelected.comportamento }}<br />
+          <strong style="color: white; font-size: 1em">Adestramento: </strong
+          >{{ petSelected.adestrado }}<br />
+          <strong style="color: white; font-size: 1em">Castrado: </strong
+          >{{ petSelected.castrado }}<br />
+          <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+          >{{ petSelected.origemRaca }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Condições Especiais: </strong
+          >{{ petSelected.condicaoEspecial }}<br />
+          <strong style="color: white; font-size: 1em"
+            >Expectativa de Vida: </strong
+          >{{ petSelected.expectativaVida }}<br />
+          <button
+            (click)="alterPage('mockery')"
+            class="button"
+            mat-raised-button
+            style="background-color: {{
+              petSelected.cardColor
+            }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+          >
+            Alterar Pet
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="page == 'mockery'">
   <div class="content">
     <h2
@@ -2450,7 +2521,7 @@
     <div class="content__buddy-card-wrapper-pet">
       <ng-container *ngFor="let pet of doantionsPetShop">
         <div
-          (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
+          (click)="switchPageAndRegisterPetSelected('aboutDonationPet', pet)"
           class="content__buddy-card-pet"
           style="background-image: url({{ pet.imagem }}); background-color: {{
             pet.cardColor
@@ -2462,7 +2533,7 @@
         </div>
       </ng-container>
       <div
-        (click)="alterPage('newPet')"
+        (click)="alterPage('newPetForDonation')"
         class="content__buddy-card-pet"
         style="
           background-color: rgb(134 134 134 / 29%);
@@ -2473,6 +2544,245 @@
       >
         <span style="color: #ffffffb3; font-size: 150px">+</span>
       </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'newPetForDonation'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Cadastrar novo pet
+    </h2>
+    <div
+      class="content__buddy-card-about-pet"
+      style="background-color: #353340"
+    >
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px">
+        <div style="width: 100%; flex-wrap: wrap">
+          <button
+            class="button"
+            mat-raised-button
+            style="
+                background-color: rgb(82 82 81 / 38%);
+                background-image: url({{ petPictureUrl }});
+                background-size: cover;
+                background-position: center;
+                color: #8b8989;
+                margin-top: 10px;
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+              "
+            uploadButton
+            [uploadComplete]="onComplete"
+            [uploadOptions]="options"
+            [uploader]="uploader"
+          >
+            <ng-container *ngIf="petPictureUrl == undefined"
+              >Selecione uma foto</ng-container
+            >
+          </button>
+        </div>
+        <div style="width: 100%; flex-wrap: wrap">
+          <div
+            class="content__buddy-card-about-pet"
+            style="background-color: #353340"
+          >
+            <div style="width: 100%">
+              <div class="userData">
+                <div
+                  style="
+                    display: inline-block;
+                    width: 50%;
+                    box-sizing: border-box;
+                    padding: 10px;
+                  "
+                >
+                  <span>Nome</span><br />
+                  <input
+                    #nome
+                    placeholder="Informe o nome do Pet"
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.nome }}"
+                    (change)="registerPetValue(nome.value, 'nome')"
+                  /><br />
+                  <span>Cor</span><br />
+                  <input
+                    placeholder="Informe a cor do Pet"
+                    #cor
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.cor }}"
+                    (change)="registerPetValue(cor.value, 'cor')"
+                  /><br />
+                  <span>Peso</span><br />
+                  <input
+                    placeholder="Infomr o peso do Pet"
+                    #peso
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.peso }}"
+                    (change)="registerPetValue(peso.value, 'peso')"
+                  /><br />
+                  <span>CardColor</span><br />
+                  <input
+                    class="inputDataPet"
+                    [style.background]="newPet.cardColor"
+                    [colorPicker]="newPet.cardColor"
+                    (colorPickerChange)="registerPetValue($event, 'cardColor')"
+                  /><br />
+                  <span>Origem da Raça</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="origemRaca"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedOrigemRaca"
+                    (change)="registerPetValue($event?.name, 'origemRaca')"
+                  ></ng-select
+                  ><br />
+                  <span>Condição Especial?</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="simNao"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedCondicao"
+                    (change)="
+                      registerPetValue($event?.name, 'condicaoEspecial')
+                    "
+                  ></ng-select
+                  ><br />
+                  <span>Adestrado?</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="simNao"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedAdestrado"
+                    (change)="registerPetValue($event?.name, 'adestrado')"
+                  ></ng-select>
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    width: 50%;
+                    box-sizing: border-box;
+                    padding: 10px;
+                  "
+                >
+                  <span>Idade</span><br />
+                  <input
+                    placeholder="Informe a idade do Pet"
+                    #idade
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.idade }}"
+                    (change)="registerPetValue(idade.value, 'idade')"
+                  /><br />
+                  <span>Expectativa de vida</span><br />
+                  <input
+                    placeholder="Informe a expectativa de vida"
+                    #expectativaVida
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.expectativaVida }}"
+                    (change)="
+                      registerPetValue(expectativaVida.value, 'expectativaVida')
+                    "
+                  /><br />
+                  <span>Comportamento</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="comportamentos"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedComportamento"
+                    (change)="registerPetValue($event?.name, 'comportamento')"
+                  >
+                  </ng-select
+                  ><br />
+                  <span>Porte</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="porte"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedPorte"
+                    (change)="registerPetValue($event?.name, 'porte')"
+                  >
+                  </ng-select
+                  ><br />
+                  <span>Sexo</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="sexos"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedSexo"
+                    (change)="registerPetValue($event?.name, 'sexo')"
+                  >
+                  </ng-select
+                  ><br />
+                  <span>Raça</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="racas"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedRaca"
+                    (change)="registerPetValue($event?.name, 'raca')"
+                  >
+                  </ng-select
+                  ><br />
+                  <span>Castrado?</span><br />
+                  <ng-select
+                    class="custom"
+                    [items]="simNao"
+                    bindLabel="name"
+                    bindValue="id"
+                    [(ngModel)]="selectedCastrado"
+                    (change)="registerPetValue($event?.name, 'castrado')"
+                  ></ng-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="button"
+        (click)="registerNewPet('newPetDonation')"
+        mat-raised-button
+        style="
+          background-color: rgb(6 98 185);
+          color: white;
+          margin-top: 10px;
+          border-radius: 20px;
+        "
+      >
+        Cadastrar
+      </button>
+      <button
+        (click)="alterPageAndRemoveImage('myPets')"
+        class="button"
+        mat-raised-button
+        style="
+          background-color: rgb(185 35 6 / 92%);
+          color: white;
+          margin-top: 10px;
+          margin-left: 10px;
+          border-radius: 20px;
+        "
+      >
+        Voltar
+      </button>
     </div>
   </div>
 </ng-container>
