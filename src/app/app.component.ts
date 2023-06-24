@@ -10,7 +10,7 @@ interface UserData {
   email: string;
   receiveNews: boolean | null;
   birthDay: string;
-  phone: string | null;
+  phone: Phone | null;
   cpf: string;
   personType: string | null;
   cardNumber: number;
@@ -23,6 +23,10 @@ interface UserData {
   role: String,
 }
 
+interface Phone {
+  dd: number;
+  number: number;
+}
 
 interface Address {
   street: string;
@@ -78,7 +82,10 @@ export class AppComponent {
     email: "",
     receiveNews: true,
     birthDay: "",
-    phone: "",
+    phone: {
+      dd: 0,
+      number: 0
+    },
     cpf: "",
     personType: "",
     cardNumber: 0,

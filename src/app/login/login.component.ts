@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
+
 interface UserData {
   firstname: string;
   lastname: string;
@@ -44,6 +45,7 @@ interface Address {
   city: string;
   state: string;
 }
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -134,7 +136,7 @@ export class LoginComponent {
           lastname: res.lastname,
           username: res.username,
           password: res.password,
-          address: res.address,
+          address: res.adress,
           email: res.email,
           receiveNews: res.receiveNews,
           birthDay: res.birthDay,

@@ -200,7 +200,7 @@
                 class="inputDataUser"
                 style="background-color: #474756"
                 type="text"
-                value="{{ userLogged.phone }}"
+                value="{{ userLogged?.phone?.dd }} - {{ userLogged?.phone?.number }}"
                 readonly
               />
             </div>
@@ -246,7 +246,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.phone }}"
+                  value="{{ userLogged?.phone?.dd }} - {{ userLogged?.phone?.number }}"
                   readonly
                 /><br />
               </div>
