@@ -667,9 +667,7 @@ export class ContentComponent {
     }
   }
 
-  registerNewPet() {
-    //Aqui devo chamar o serviço do back pra salvar o novo pet
-
+  registerNewPet(type: string) {
     if (
       this.newPet.nome == "" ||
       this.newPet.nome == undefined ||
@@ -805,9 +803,15 @@ export class ContentComponent {
       return;
     }
 
-    this.myPets.push(this.newPet);
-    this.toastr.success("Pet cadastrado com sucesso :D");
-    this.alterPage("myPets");
+    if(type == 'newPetDonation'){
+      this.doantionsPetShop.push(this.newPet);
+      this.toastr.success("Pet cadastrado com sucesso :D");
+      this.alterPage("mockery");
+    }else if(type == 'newPet'){
+      this.myPets.push(this.newPet);
+      this.toastr.success("Pet cadastrado com sucesso :D");
+      this.alterPage("myPets");
+    }
   }
 
   startDonationProcess(petName: string) {

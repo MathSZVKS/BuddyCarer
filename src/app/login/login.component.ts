@@ -158,8 +158,7 @@ export class LoginComponent {
         this.returnPage('initial');
       },
       error: (error) => {
-        console.error('Erro durante o login:', error);
-        // Handle the error as needed
+        this.toastr.error('Usuário ou senha incorretos!');
       }
     });
   }
