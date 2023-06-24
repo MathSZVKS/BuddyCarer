@@ -240,6 +240,7 @@ export class ContentComponent {
   selectedPetForDoService: any;
   toDoServices: any;
   realizedServices: any;
+  recomendedServices: any;
   servicoFinalizado = false;
   petsOfClient: any;
   clientSelected: any;
@@ -775,101 +776,147 @@ export class ContentComponent {
     this.alterPage("myPets");
   }
 
-  returnAtualDate(){
+  returnAtualDate() {
     var dataAtual = new Date();
-    var dia = String(dataAtual.getDate()).padStart(2, '0');
-    var mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+    var dia = String(dataAtual.getDate()).padStart(2, "0");
+    var mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
     var ano = dataAtual.getFullYear();
-    var dataFormatada = dia + '/' + mes + '/' + ano;
+    var dataFormatada = dia + "/" + mes + "/" + ano;
     return dataFormatada;
   }
 
-  iniciarAtendimento(pet: any){
+  iniciarAtendimento(pet: any) {
     this.servicoFinalizado = false;
     this.awaitingPets = this.awaitingPets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
     this.inServicePets.push(pet);
     this.selectedPetForDoService = pet;
-    this.toastr.success('Serviço para o pet ' + pet.nome + ' iniciado com sucesso!')
+    this.toastr.success(
+      "Serviço para o pet " + pet.nome + " iniciado com sucesso!"
+    );
     this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
-    this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
+    this.realizedServices = this.inServicePetsService.GetRealizedServices(
+      pet.nome
+    );
+    this.recomendedServices = this.inServicePetsService.GetRecomendedServices(
+      pet.nome
+    );
 
     setTimeout(() => {
-      this.alterPage('initialService');
+      this.alterPage("initialService");
     }, 1300);
   }
 
-  visualizarAtendimento(pet: any){
+  visualizarAtendimento(pet: any) {
     this.servicoFinalizado = false;
     this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
-    this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
+    this.realizedServices = this.inServicePetsService.GetRealizedServices(
+      pet.nome
+    );
+    this.recomendedServices = this.inServicePetsService.GetRecomendedServices(
+      pet.nome
+    );
     this.selectedPetForDoService = pet;
-    this.alterPage('initialService');
+    this.alterPage("initialService");
   }
 
-  alterPageAndStartService(page: string, pet: any){
+  alterPageAndStartService(page: string, pet: any) {
+    this.toDoServices = this.inServicePetsService.GetToDoServices(pet.nome);
+    this.realizedServices = this.inServicePetsService.GetRealizedServices(
+      pet.nome
+    );
+    this.recomendedServices = this.inServicePetsService.GetRecomendedServices(
+      pet.nome
+    );
+
     this.page = page;
     this.choosePage.emit(page);
     setTimeout(() => {
       this.inServicePets.push(pet);
     }, 1300);
 
+    this.toastr.success(
+      "Serviço para o pet " + pet.nome + " iniciado com sucesso!"
+    );
     this.selectedPetForDoService = pet;
-    this.toastr.success('Serviço para o pet ' + pet.nome + ' iniciado com sucesso!')
 
     setTimeout(() => {
-      this.alterPage('initialService');
+      this.alterPage("initialService");
     }, 3000);
   }
 
-  finalizarAtendimento(pet: any){
-    if(!this.servicoFinalizado){
-      this.toastr.warning('Necessário iniciar um serviço para esse atendimento ou concluir o serviço em progresso');
+  finalizarAtendimento(pet: any) {
+    if (!this.servicoFinalizado) {
+      this.toastr.warning(
+        "Necessário iniciar um serviço para esse atendimento ou concluir o serviço em progresso"
+      );
       return;
     }
     this.inServicePets = this.inServicePets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
-    this.toastr.success('Atendimento finalizado com sucesso!');
-    this.alterPage('Service');
+    this.toastr.success("Atendimento finalizado com sucesso!");
+    this.alterPage("Service");
   }
 
-  cancelarAtendimento(pet: any){
+  cancelarAtendimento(pet: any) {
     this.inServicePets = this.inServicePets.filter(
       (obj: { nome: string }) => obj.nome !== pet.nome
     );
-    this.toastr.success('Serviço cancelado com sucesso!');
-    this.alterPage('Service');
+    this.toastr.success("Serviço cancelado com sucesso!");
+    this.alterPage("Service");
   }
 
-  iniciarServico(servico: any){
+  iniciarServico(servico: any) {
     this.servicoFinalizado = false;
-    this.toastr.success('Serviço iniciado com sucesso!');
-    for(let i = 0; i < this.toDoServices.length; i++){
-      if(servico.servico == this.toDoServices[i].servico){
+    this.toastr.success("Serviço iniciado com sucesso!");
+    for (let i = 0; i < this.toDoServices.length; i++) {
+      if (servico.servico == this.toDoServices[i].servico) {
         this.toDoServices[i].carePercentagem = "40";
       }
     }
+
+    for (let i = 0; i < this.recomendedServices.length; i++) {
+      if (servico.servico == this.recomendedServices[i].servico) {
+        this.recomendedServices[i].carePercentagem = "40";
+      }
+    }
   }
 
-  avancarEtapaServico(servico: any){
-    this.toastr.success('Andamento atualizado com sucesso!');
-    for(let i = 0; i < this.toDoServices.length; i++){
-      if(servico.servico == this.toDoServices[i].servico){
+  avancarEtapaServico(servico: any) {
+    this.toastr.success("Andamento atualizado com sucesso!");
+    for (let i = 0; i < this.toDoServices.length; i++) {
+      if (servico.servico == this.toDoServices[i].servico) {
         this.toDoServices[i].carePercentagem = "70";
       }
     }
+
+    for (let i = 0; i < this.recomendedServices.length; i++) {
+      if (servico.servico == this.recomendedServices[i].servico) {
+        this.recomendedServices[i].carePercentagem = "70";
+      }
+    }
   }
 
-  finalizarServico(servico: any){
+  finalizarServico(servico: any) {
     this.servicoFinalizado = true;
-    this.toastr.success('Serviço concluido com sucesso!');
-    for(let i = 0; i < this.toDoServices.length; i++){
-      if(servico.servico == this.toDoServices[i].servico){
+    this.toastr.success("Serviço concluido com sucesso!");
+    for (let i = 0; i < this.toDoServices.length; i++) {
+      if (servico.servico == this.toDoServices[i].servico) {
         this.toDoServices[i].carePercentagem = "100";
       }
     }
+
+    for (let i = 0; i < this.recomendedServices.length; i++) {
+      if (servico.servico == this.recomendedServices[i].servico) {
+        this.recomendedServices[i].carePercentagem = "100";
+      }
+    }
+
+    this.recomendedServices = this.recomendedServices.filter(
+      (obj: { servico: string }) => obj.servico !== servico.servico
+    );
 
     this.toDoServices = this.toDoServices.filter(
       (obj: { servico: string }) => obj.servico !== servico.servico
