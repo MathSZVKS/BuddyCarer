@@ -7,7 +7,7 @@ interface UserData {
   lastname: string;
   username: string;
   password: string;
-  address: string | null;
+  address: Address | null;
   email: string;
   receiveNews: boolean | null;
   birthDay: string;
@@ -21,6 +21,7 @@ interface UserData {
   age: number;
   authorities: Authority[];
   tokens: Token[];
+  role: string;
 }
 
 interface Authority {
@@ -35,6 +36,14 @@ interface Token {
   expired: boolean;
 }
 
+interface Address {
+  street: string;
+  houseNumber: number;
+  zipCode: string;
+  reference: string;
+  city: string;
+  state: string;
+}
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -102,6 +111,7 @@ export class LoginComponent {
       password: this.passwordToRegister,
       name: this.nameToRegister,
       email: this.emailToRegister,
+      storeName: "StoreTest",
       role: "USER",
     };
 
@@ -139,13 +149,15 @@ export class LoginComponent {
           securityCode: res.securityCode,
           age: res.age,
           authorities: res.authorities,
-          tokens: res.tokens
+          tokens: res.tokens,
+          role: res.role
         };
   
         const jsonData = JSON.stringify(userData);
   
         // Store the JSON data in localStorage
         localStorage.setItem('userData', jsonData);
+        this.loginStatus.emit(userData);
       },
       error: (error) => {
         console.error('An error occurred during login:', error);

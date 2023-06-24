@@ -115,7 +115,7 @@
           margin-bottom: 1.5rem;
         "
       >
-        {{ userLogged.name }}
+        {{ userLogged.firstname + " " + userLogged.lastname }}
       </h2>
       <fa-icon
         *ngIf="!alterPassword"
@@ -135,7 +135,7 @@
                 style="background-color: #474756"
                 class="inputDataUserNotEditable"
                 type="text"
-                value="{{ userLogged.user }}"
+                value="{{ userLogged.username }}"
                 readonly
               /><br />
               <span>Perfil de Acesso</span><br />
@@ -143,7 +143,7 @@
                 class="inputDataUser"
                 style="background-color: #474756"
                 type="text"
-                value="{{ userLogged.type }}"
+                value="{{ getType() }}"
                 readonly
               /><br />
               <span>Data de Nascimento</span><br />
@@ -159,7 +159,7 @@
                 class="inputDataUser"
                 style="background-color: #474756"
                 type="text"
-                value="{{ userLogged.typePerson }}"
+                value="{{ userLogged.personType }}"
                 readonly
               />
             </div>
@@ -217,7 +217,7 @@
                   style="background-color: #5e5b71"
                   class="inputDataUser"
                   type="text"
-                  value="{{ userLogged.rua }}"
+                  [value]="userLogged?.address?.street || ''"
                   readonly
                 /><br />
                 <span>Número</span><br />
@@ -225,7 +225,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.numeroRua }}"
+                  [value]="userLogged?.address?.houseNumber || ''"
                   readonly
                 /><br />
                 <span>Referência</span><br />
@@ -233,7 +233,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.referencia }}"
+                  [value]="userLogged?.address?.reference || ''"
                   readonly
                 /><br />
                 <span>Telefone Residencial</span><br />
@@ -241,7 +241,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.telefoneResidencial }}"
+                  value="{{ userLogged.phone }}"
                   readonly
                 /><br />
               </div>
@@ -257,7 +257,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.cep }}"
+                  [value]="userLogged?.address?.zipCode || ''"
                   readonly
                 /><br />
                 <span>Complemento</span><br />
@@ -265,7 +265,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.complemento }}"
+                  [value]="userLogged?.address?.reference || ''"
                   readonly
                 /><br />
                 <span>Cidade</span><br />
@@ -273,7 +273,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.cidade }}"
+                  [value]="userLogged?.address?.city || ''"
                   readonly
                 /><br />
                 <span>Estado</span><br />
@@ -281,7 +281,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged.estado }}"
+                  [value]="userLogged?.address?.state || ''"
                   readonly
                 /><br />
               </div>
