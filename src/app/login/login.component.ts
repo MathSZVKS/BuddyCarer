@@ -2,7 +2,48 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
+interface UserData {
+  firstname: string;
+  lastname: string;
+  username: string;
+  password: string;
+  address: Address | null;
+  email: string;
+  receiveNews: boolean | null;
+  birthDay: string;
+  phone: string | null;
+  cpf: string;
+  personType: string | null;
+  cardNumber: number;
+  cardName: string;
+  flag: string;
+  securityCode: string | null;
+  age: number;
+  authorities: Authority[];
+  tokens: Token[];
+  role: string;
+}
 
+interface Authority {
+  authority: string;
+}
+
+interface Token {
+  id: number;
+  token: string;
+  tokenType: string;
+  revoked: boolean;
+  expired: boolean;
+}
+
+interface Address {
+  street: string;
+  houseNumber: number;
+  zipCode: string;
+  reference: string;
+  city: string;
+  state: string;
+}
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -66,27 +107,65 @@ export class LoginComponent {
     }
 
     let userToRegister = {
-      user: this.userToRegister,
+      username: this.userToRegister,
       password: this.passwordToRegister,
       name: this.nameToRegister,
       email: this.emailToRegister,
+      storeName: "StoreTest",
+      role: "USER",
     };
 
-    if (this.registerService.register(userToRegister) == "registered") {
-      this.toastr.success("Usuário cadastrado com sucesso :D");
-      this.inLogin = true;
-    } else if (
-      this.registerService.register(userToRegister) == "notRegistered"
-    ) {
-      this.toastr.error("Houve um erro no cadastro :(");
-    }
+    this.registerService.register(userToRegister).subscribe({
+      next: (res:any) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.error('An error occurred during register:', error);
+        // Handle the error as needed
+      }
+    });
   }
 
   access() {
-    this.loginStatus.emit(
-      this.userService.login(this.userToLogin, this.passwordToLogin)
-    );
+    this.userService.login(this.userToLogin, this.passwordToLogin).subscribe({
+      next: (res:any) => {
+        
+
+        const userData: UserData = {
+          firstname: res.firstname,
+          lastname: res.lastname,
+          username: res.username,
+          password: res.password,
+          address: res.address,
+          email: res.email,
+          receiveNews: res.receiveNews,
+          birthDay: res.birthDay,
+          phone: res.phone,
+          cpf: res.cpf,
+          personType: res.personType,
+          cardNumber: res.cardNumber,
+          cardName: res.cardName,
+          flag: res.flag,
+          securityCode: res.securityCode,
+          age: res.age,
+          authorities: res.authorities,
+          tokens: res.tokens,
+          role: res.role
+        };
+  
+        const jsonData = JSON.stringify(userData);
+  
+        // Store the JSON data in localStorage
+        localStorage.setItem('userData', jsonData);
+        this.loginStatus.emit(userData);
+      },
+      error: (error) => {
+        console.error('An error occurred during login:', error);
+        // Handle the error as needed
+      }
+    });
   }
+  
 
   returnPage(page: string) {
     if (page == "initial") {

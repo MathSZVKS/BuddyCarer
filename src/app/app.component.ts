@@ -1,6 +1,50 @@
 import { Component, ElementRef, Renderer2 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
+interface UserData {
+  firstname: string;
+  lastname: string;
+  username: string;
+  password: string;
+  address: Address | null;
+  email: string;
+  receiveNews: boolean | null;
+  birthDay: string;
+  phone: string | null;
+  cpf: string;
+  personType: string | null;
+  cardNumber: number;
+  cardName: string;
+  flag: string;
+  securityCode: string | null;
+  age: number;
+  authorities: Authority[] | null;
+  tokens: Token[] | null;
+  role: String,
+}
+
+
+interface Address {
+  street: string;
+  houseNumber: number;
+  zipCode: string;
+  reference: string;
+  city: string;
+  state: string;
+}
+
+interface Authority {
+  authority: string;
+}
+
+interface Token {
+  id: number;
+  token: string;
+  tokenType: string;
+  revoked: boolean;
+  expired: boolean;
+}
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -18,30 +62,33 @@ export class AppComponent {
   inLogin = false;
   theme = "default";
   backgroundTitleColor = "#1f1d2b";
-  userLogged = {
-    permissionAccess: false,
-    type: "",
-    user: "",
-    name: "",
-    email: "",
-    receiveNews: "",
-    birthDay: "",
-    cpf: "",
-    phone: "",
-    typePerson: "",
+  userLogged : UserData = {
+    firstname: "",
+    lastname: "",
+    username: "",
     password: "",
-    cardNumber: "",
+    address: {
+      street: "",
+      houseNumber: 0,
+      zipCode: "",
+      reference: "",
+      city: "",
+      state: "",
+    },
+    email: "",
+    receiveNews: true,
+    birthDay: "",
+    phone: "",
+    cpf: "",
+    personType: "",
+    cardNumber: 0,
     cardName: "",
     flag: "",
     securityCode: "",
-    rua: "",
-    cep: "",
-    numeroRua: "",
-    complemento: "",
-    referencia: "",
-    cidade: "",
-    estado: "",
-    telefoneResidencial: "",
+    age: 2,
+    authorities: null,
+    tokens: null,
+    role: ""
   };
   page = "initial";
 
@@ -66,7 +113,7 @@ export class AppComponent {
   }
 
   logOffUser() {
-    this.userLogged.user = "";
+    this.userLogged.username = "";
     this.userType = "client";
     this.page = "initial";
   }

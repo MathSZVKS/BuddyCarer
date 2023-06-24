@@ -31,6 +31,50 @@ import { BaseChartDirective } from "ng2-charts";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
 import { InServicePetsService } from "../services/admin-services/in-service-pets.service";
 
+interface UserData {
+  firstname: string;
+  lastname: string;
+  username: string;
+  password: string;
+  address: Address | null;
+  email: string;
+  receiveNews: boolean | null;
+  birthDay: string;
+  phone: string | null;
+  cpf: string;
+  personType: string | null;
+  cardNumber: number;
+  cardName: string;
+  flag: string;
+  securityCode: string | null;
+  age: number;
+  authorities: Authority[] | null;
+  tokens: Token[] | null;
+  role: String,
+}
+
+
+interface Address {
+  street: string;
+  houseNumber: number;
+  zipCode: string;
+  reference: string;
+  city: string;
+  state: string;
+}
+
+interface Authority {
+  authority: string;
+}
+
+interface Token {
+  id: number;
+  token: string;
+  tokenType: string;
+  revoked: boolean;
+  expired: boolean;
+}
+
 @Component({
   selector: "app-content",
   templateUrl: "./content.component.html",
@@ -41,30 +85,33 @@ export class ContentComponent {
   @Output() choosePage = new EventEmitter<string>();
   @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
-  @Input() userLogged = {
-    permissionAccess: false,
-    type: "",
-    user: "",
-    name: "",
-    email: "",
-    receiveNews: "",
-    birthDay: "",
-    cpf: "",
-    phone: "",
-    typePerson: "",
+  @Input() userLogged : UserData = {
+    firstname: "",
+    lastname: "",
+    username: "",
     password: "",
-    cardNumber: "",
+    address: {
+      street: "",
+      houseNumber: 0,
+      zipCode: "",
+      reference: "",
+      city: "",
+      state: "",
+    },
+    email: "",
+    receiveNews: true,
+    birthDay: "",
+    phone: "",
+    cpf: "",
+    personType: "",
+    cardNumber: 0,
     cardName: "",
     flag: "",
     securityCode: "",
-    rua: "",
-    cep: "",
-    numeroRua: "",
-    complemento: "",
-    referencia: "",
-    cidade: "",
-    estado: "",
-    telefoneResidencial: "",
+    age: 2,
+    authorities: null,
+    tokens: null,
+    role: ""
   };
 
   // Opções Bar-Chart
@@ -176,6 +223,16 @@ export class ContentComponent {
   options: UploadWidgetConfig = {
     multi: false,
   };
+
+  getType(){
+    if(this.userLogged.role == "USER"){
+      return "client"
+    } else if (this.userLogged.role == "ADMIN"){
+      return "admin"
+    }
+
+    return "client"
+  }
 
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, dayGridPlugin],

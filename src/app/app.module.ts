@@ -24,6 +24,7 @@ import { BarChartComponent } from './externalComponents/bar-chart/bar-chart.comp
 import { RadarChartComponent } from './externalComponents/radar-chart/radar-chart.component';
 import { PieChartComponent } from './externalComponents/pie-chart/pie-chart.component';
 import { PolarAreaChartComponent } from './externalComponents/polar-area-chart/polar-area-chart.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { PolarAreaChartComponent } from './externalComponents/polar-area-chart/p
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
