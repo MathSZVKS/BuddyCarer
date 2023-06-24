@@ -241,6 +241,8 @@ export class ContentComponent {
   toDoServices: any;
   realizedServices: any;
   servicoFinalizado = false;
+  petsOfClient: any;
+  clientSelected: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -320,6 +322,13 @@ export class ContentComponent {
     this.choosePage.emit(page);
   }
 
+  alterPageAndGetPetsOfClient(page: string, clientName: string) {
+    this.petsOfClient = this.myPetsService.getPetsOfClient(clientName);
+    this.clientSelected = clientName;
+    this.page = page;
+    this.choosePage.emit(page);
+  }
+
   alterPageAndRemoveImage(page: string) {
     this.page = page;
     this.choosePage.emit(page);
@@ -353,7 +362,7 @@ export class ContentComponent {
   }
 
   switchPageAndRegisterPetSelected(page: string, pet: any) {
-    this.choosePage.emit("aboutPet");
+    this.choosePage.emit(page);
     this.petSelected = pet;
     this.petSelectedCare = this.myPetsService.getCare(pet.nome);
     this.petSelectedVaccines = this.myPetsService.getVaccines(pet.nome);
@@ -797,6 +806,21 @@ export class ContentComponent {
     this.realizedServices = this.inServicePetsService.GetRealizedServices(pet.nome);
     this.selectedPetForDoService = pet;
     this.alterPage('initialService');
+  }
+
+  alterPageAndStartService(page: string, pet: any){
+    this.page = page;
+    this.choosePage.emit(page);
+    setTimeout(() => {
+      this.inServicePets.push(pet);
+    }, 1300);
+
+    this.selectedPetForDoService = pet;
+    this.toastr.success('Serviço para o pet ' + pet.nome + ' iniciado com sucesso!')
+
+    setTimeout(() => {
+      this.alterPage('initialService');
+    }, 3000);
   }
 
   finalizarAtendimento(pet: any){
