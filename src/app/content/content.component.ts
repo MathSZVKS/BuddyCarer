@@ -230,7 +230,6 @@ export class ContentComponent {
     } else if (this.userLogged.role == "ADMIN"){
       return "admin"
     }
-
     return "client"
   }
 
@@ -301,6 +300,7 @@ export class ContentComponent {
   servicoFinalizado = false;
   petsOfClient: any;
   clientSelected: any;
+  doantionsPetShop: any;
 
   alterPassword = false;
   currentPassword = "";
@@ -329,6 +329,8 @@ export class ContentComponent {
     this.inServicePets = this.inServicePetsService.getInServicePets();
     this.awaitingPets = this.inServicePetsService.getAwaitingPets();
     this.attendedPets = this.inServicePetsService.getAttendedPets();
+    this.donations = this.donationsService.getAllDonations();
+    this.doantionsPetShop = this.donationsService.getAllDonationsPetShop();
   }
 
   ngOnChanges() {
@@ -366,7 +368,6 @@ export class ContentComponent {
         this.page = "aboutPet";
         break;
       case "Donation":
-        this.donations = this.donationsService.getAllDonations();
         break;
       case "Memorial":
         break;
