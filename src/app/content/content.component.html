@@ -2435,9 +2435,47 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="page == 'CalendarAdmin'"> AGENDA </ng-container>
+<ng-container *ngIf="page == 'CalendarAdmin'"> EM BREVE.. </ng-container>
 
-<ng-container *ngIf="page == 'mockery'"> DOAÇÕES </ng-container>
+<ng-container *ngIf="page == 'mockery'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Pets para adoção
+    </h2>
+    <div class="content__buddy-card-wrapper-pet">
+      <ng-container *ngFor="let pet of doantionsPetShop">
+        <div
+          (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
+          class="content__buddy-card-pet"
+          style="background-image: url({{ pet.imagem }}); background-color: {{
+            pet.cardColor
+          }}"
+        >
+          <h3 class="content__buddy-card-title">
+            {{ pet.nome }}
+          </h3>
+        </div>
+      </ng-container>
+      <div
+        (click)="alterPage('newPet')"
+        class="content__buddy-card-pet"
+        style="
+          background-color: rgb(134 134 134 / 29%);
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        "
+      >
+        <span style="color: #ffffffb3; font-size: 150px">+</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
 
 <ng-container *ngIf="page == 'Service'">
   <div class="content">
