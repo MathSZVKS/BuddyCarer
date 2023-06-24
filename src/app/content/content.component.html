@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="content__buddy-card-s">
+      <div class="content__buddy-card-s" style="background-color: #c9b377;">
         <h3 class="content__buddy-card-title">
           Como adestrar e cuidar do seu melhor amigo
         </h3>
@@ -58,7 +58,7 @@
         class="content__buddy-card-l"
       >
         <h3 class="content__buddy-card-title">
-          Cuidados básicos com seu dog no verão =)
+          Melhor forma de cuidar do seu pet com economia :D
         </h3>
         <div class="content__buddy-card-view">
           <div class="content__buddy-card-detail">
@@ -72,9 +72,9 @@
           </div>
         </div>
       </div>
-      <div class="content__buddy-card-s">
+      <div class="content__buddy-card-s" style="background-color: #82689f; padding-right: 250px;; background-image: url(https://images.vexels.com/media/users/3/289095/isolated/preview/d8005cde4e990cde15819262ed5fa36b-personagem-art-stico-de-gato.png);">
         <h3 class="content__buddy-card-title">
-          Como adestrar e cuidar do seu melhor amigo
+          Melhores cuidados
         </h3>
         <div class="content__buddy-card-view">
           <div class="content__buddy-card-detail">
@@ -2197,6 +2197,9 @@
             </div>
             <div style="text-align: center">
               <button
+                (click)="
+                  alterPageAndGetPetsOfClient('petsOfClient', client.nome)
+                "
                 class="button"
                 mat-raised-button
                 style="
@@ -2213,6 +2216,79 @@
         </div>
       </ng-container>
     </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="page == 'petsOfClient'">
+  <div class="content">
+    <h2
+      style="background: linear-gradient(to bottom, {{
+        backgroundTitleColor
+      }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
+      class="content__buddy-heading"
+    >
+      Pets do(a) {{clientSelected}}
+    </h2>
+    <ng-container *ngFor="let petSelected of petsOfClient">
+      <div
+        class="content__buddy-card-about-pet"
+        style="background-color: #353340"
+      >
+        <h1
+          style="font-size: 2rem; color: {{
+            petSelected.cardColor
+          }}; font-weight: bold; margin-bottom: 3rem;"
+        >
+          {{ petSelected.nome }}
+        </h1>
+        <div style="display: flex">
+          <div
+            class="content__buddy-card-pet"
+            style="background-image: url({{
+              petSelected.imagem
+            }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
+          ></div>
+          <div style="width: 65%; text-align: left; margin-left: 2em">
+            <strong style="color: white; font-size: 1em">Raça: </strong
+            >{{ petSelected.raca }}<br />
+            <strong style="color: white; font-size: 1em">Cor: </strong
+            >{{ petSelected.cor }}<br />
+            <strong style="color: white; font-size: 1em">Idade: </strong
+            >{{ petSelected.idade }}<br />
+            <strong style="color: white; font-size: 1em">Sexo: </strong
+            >{{ petSelected.sexo }}<br />
+            <strong style="color: white; font-size: 1em">Peso: </strong
+            >{{ petSelected.peso }}<br />
+            <strong style="color: white; font-size: 1em">Porte: </strong
+            >{{ petSelected.porte }}<br />
+            <strong style="color: white; font-size: 1em">Comportamento: </strong
+            >{{ petSelected.comportamento }}<br />
+            <strong style="color: white; font-size: 1em">Adestramento: </strong
+            >{{ petSelected.adestrado }}<br />
+            <strong style="color: white; font-size: 1em">Castrado: </strong
+            >{{ petSelected.castrado }}<br />
+            <strong style="color: white; font-size: 1em">Origem da Raça: </strong
+            >{{ petSelected.origemRaca }}<br />
+            <strong style="color: white; font-size: 1em"
+              >Condições Especiais: </strong
+            >{{ petSelected.condicaoEspecial }}<br />
+            <strong style="color: white; font-size: 1em"
+              >Expectativa de Vida: </strong
+            >{{ petSelected.expectativaVida }}<br />
+            <button
+              (click)="alterPageAndStartService('Service', petSelected)"
+              class="button"
+              mat-raised-button
+              style="background-color: {{
+                petSelected.cardColor
+              }}; color: white; margin-top: 10px; border-radius: 20px"
+            >
+              Iniciar Atendimento
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </ng-container>
 
@@ -2670,7 +2746,9 @@
                 <div style="width: 100%; color: #c7c7c7">
                   <h2>Serviço</h2>
                 </div>
-                <div style="width: 100%; color: #c7c7c7">{{service.servico}}</div>
+                <div style="width: 100%; color: #c7c7c7">
+                  {{ service.servico }}
+                </div>
               </div>
             </div>
             <div
@@ -2686,7 +2764,9 @@
                 <div style="width: 100%; color: #c7c7c7">
                   <h2>Observações do dono</h2>
                 </div>
-                <div style="width: 100%; color: #c7c7c7">{{service.observacao}}</div>
+                <div style="width: 100%; color: #c7c7c7">
+                  {{ service.observacao }}
+                </div>
               </div>
             </div>
             <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
@@ -2727,7 +2807,13 @@
               (click)="finalizarServico(service)"
               class="button"
               mat-raised-button
-              style="background-color: rgb(92 147 92); color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
+              style="
+                background-color: rgb(92 147 92);
+                color: white;
+                margin-top: 10px;
+                border-radius: 20px;
+                margin-right: 10px;
+              "
             >
               Concluir Serviço
             </button>
@@ -2776,7 +2862,7 @@
                 <div style="width: 100%; color: #c5c5c5">
                   <h2>Serviço</h2>
                 </div>
-                <div style="width: 100%">{{service.servico}}</div>
+                <div style="width: 100%">{{ service.servico }}</div>
               </div>
             </div>
             <div
@@ -2792,7 +2878,7 @@
                 <div style="width: 100%; color: #c5c5c5">
                   <h2>Observações do dono</h2>
                 </div>
-                <div style="width: 100%">{{service.observacao}}</div>
+                <div style="width: 100%">{{ service.observacao }}</div>
               </div>
             </div>
             <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
@@ -2808,11 +2894,11 @@
             </div>
             <div style="width: 100%; margin-top: 10px; margin-bottom: 10px">
               <star-rating
-              speed="slow"
-              [starType]="'svg'"
-              [readOnly]="true"
-              [rating]="service.avaliacao"
-            ></star-rating>
+                speed="slow"
+                [starType]="'svg'"
+                [readOnly]="true"
+                [rating]="service.avaliacao"
+              ></star-rating>
             </div>
           </div>
         </div>
