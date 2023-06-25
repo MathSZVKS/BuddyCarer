@@ -119,11 +119,11 @@ export class LoginComponent {
 
     this.registerService.register(userToRegister).subscribe({
       next: (res:any) => {
-        console.log(res);
+        this.toastr.success("Usuário cadastrado com sucesso!");
+        this.returnPage('login');
       },
       error: (error) => {
-        console.error('An error occurred during register:', error);
-        // Handle the error as needed
+        console.error('Houve um erro durante o cadastro', error);
       }
     });
   }

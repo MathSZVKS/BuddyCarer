@@ -20,7 +20,7 @@ interface UserData {
   age: number;
   authorities: Authority[] | null;
   tokens: Token[] | null;
-  role: String,
+  role: String;
 }
 
 interface Phone {
@@ -66,7 +66,7 @@ export class AppComponent {
   inLogin = false;
   theme = "default";
   backgroundTitleColor = "#1f1d2b";
-  userLogged : UserData = {
+  userLogged: UserData = {
     firstname: "",
     lastname: "",
     username: "",
@@ -84,7 +84,7 @@ export class AppComponent {
     birthDay: "",
     phone: {
       dd: 0,
-      number: 0
+      number: 0,
     },
     cpf: "",
     personType: "",
@@ -95,7 +95,7 @@ export class AppComponent {
     age: 2,
     authorities: null,
     tokens: null,
-    role: ""
+    role: "",
   };
   page = "initial";
 
@@ -107,19 +107,19 @@ export class AppComponent {
     if (event) {
       this.inLogin = false;
       this.userLogged = event;
-      this.userType = this.getType(event.role);;
+      this.userType = this.getType(event.role);
     } else {
       this.toastr.error("Usuário ou senha inválidos");
     }
   }
 
-  getType(event: any){
-    if(event == "USER"){
-      return "client"
-    } else if (event == "ADMIN"){
-      return "admin"
+  getType(event: any) {
+    if (event == "USER") {
+      return "client";
+    } else if (event == "ADMIN") {
+      return "admin";
     }
-    return "client"
+    return "client";
   }
 
   return(event: string) {
@@ -165,7 +165,10 @@ export class AppComponent {
       containerbackElement.style.background = backgroundColor;
 
       const bodyElement = this.elementRef.nativeElement.querySelector(".body");
-      bodyElement.style.background = backgroundColor;
+
+      if(bodyElement != null){
+        bodyElement.style.background = backgroundColor;
+      }
     } else {
       const containerbackElement =
         this.elementRef.nativeElement.querySelector(".outer-container");
@@ -173,8 +176,10 @@ export class AppComponent {
         "background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(72, 72, 119, 1) 61%, rgba(62, 77, 84, 1) 100%);";
 
       const bodyElement = this.elementRef.nativeElement.querySelector(".body");
-      bodyElement.style =
-        "background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(72, 72, 119, 1) 61%, rgba(62, 77, 84, 1) 100%);";
+      if (bodyElement != null) {
+        bodyElement.style =
+          "background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(72, 72, 119, 1) 61%, rgba(62, 77, 84, 1) 100%);";
+      }
     }
   }
 

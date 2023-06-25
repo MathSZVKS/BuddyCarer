@@ -200,7 +200,9 @@
                 class="inputDataUser"
                 style="background-color: #474756"
                 type="text"
-                value="{{ userLogged?.phone?.dd }} - {{ userLogged?.phone?.number }}"
+                value="{{ userLogged.phone?.dd }} - {{
+                  userLogged.phone?.number
+                }}"
                 readonly
               />
             </div>
@@ -222,7 +224,7 @@
                   style="background-color: #5e5b71"
                   class="inputDataUser"
                   type="text"
-                  [value]="userLogged?.address?.street || ''"
+                  [value]="userLogged.address?.street || ''"
                   readonly
                 /><br />
                 <span>Número</span><br />
@@ -230,7 +232,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.houseNumber || ''"
+                  [value]="userLogged.address?.houseNumber || ''"
                   readonly
                 /><br />
                 <span>Referência</span><br />
@@ -238,7 +240,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.reference || ''"
+                  [value]="userLogged.address?.reference || ''"
                   readonly
                 /><br />
                 <span>Telefone Residencial</span><br />
@@ -246,7 +248,9 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  value="{{ userLogged?.phone?.dd }} - {{ userLogged?.phone?.number }}"
+                  value="{{ userLogged.phone?.dd }} - {{
+                    userLogged.phone?.number
+                  }}"
                   readonly
                 /><br />
               </div>
@@ -262,7 +266,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.zipCode || ''"
+                  [value]="userLogged.address?.zipCode || ''"
                   readonly
                 /><br />
                 <span>Complemento</span><br />
@@ -270,7 +274,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.reference || ''"
+                  [value]="userLogged.address?.reference || ''"
                   readonly
                 /><br />
                 <span>Cidade</span><br />
@@ -278,7 +282,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.city || ''"
+                  [value]="userLogged.address?.city || ''"
                   readonly
                 /><br />
                 <span>Estado</span><br />
@@ -286,7 +290,7 @@
                   class="inputDataUser"
                   style="background-color: #5e5b71"
                   type="text"
-                  [value]="userLogged?.address?.state || ''"
+                  [value]="userLogged.address?.state || ''"
                   readonly
                 /><br />
               </div>
@@ -704,12 +708,12 @@
         <div
           (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
           class="content__buddy-card-pet"
-          style="background-image: url({{ pet.imagem }}); background-color: {{
+          style="background-image: url({{ pet.image }}); background-color: {{
             pet.cardColor
           }}"
         >
           <h3 class="content__buddy-card-title">
-            {{ pet.nome }}
+            {{ pet.name }}
           </h3>
         </div>
       </ng-container>
@@ -748,7 +752,7 @@
           petSelected.cardColor
         }}; font-weight: bold; margin-bottom: 3rem;"
       >
-        {{ petSelected.raca }}
+        {{ petSelected.breed.breedName }}
       </h1>
       <span>{{ raceSelected.descricao }}</span
       ><br />
@@ -816,42 +820,42 @@
           petSelected.cardColor
         }}; font-weight: bold; margin-bottom: 3rem;"
       >
-        {{ petSelected.nome }}
+        {{ petSelected.name }}
       </h1>
       <div style="display: flex">
         <div
           class="content__buddy-card-pet"
           style="background-image: url({{
-            petSelected.imagem
+            petSelected.image
           }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
         ></div>
         <div style="width: 65%; text-align: left; margin-left: 2em">
           <strong style="color: white; font-size: 1em">Raça: </strong
-          >{{ petSelected.raca }}<br />
+          >{{ petSelected.breed.breedName }}<br />
           <strong style="color: white; font-size: 1em">Cor: </strong
-          >{{ petSelected.cor }}<br />
+          >{{ petSelected.color }}<br />
           <strong style="color: white; font-size: 1em">Idade: </strong
-          >{{ petSelected.idade }}<br />
+          >{{ petSelected.birthDay }}<br />
           <strong style="color: white; font-size: 1em">Sexo: </strong
-          >{{ petSelected.sexo }}<br />
+          >{{ petSelected.gender }}<br />
           <strong style="color: white; font-size: 1em">Peso: </strong
-          >{{ petSelected.peso }}<br />
+          >{{ petSelected.weight }}<br />
           <strong style="color: white; font-size: 1em">Porte: </strong
-          >{{ petSelected.porte }}<br />
+          >{{ petSelected.size }}<br />
           <strong style="color: white; font-size: 1em">Comportamento: </strong
-          >{{ petSelected.comportamento }}<br />
+          >{{ petSelected.behavior }}<br />
           <strong style="color: white; font-size: 1em">Adestramento: </strong
-          >{{ petSelected.adestrado }}<br />
+          >{{ petSelected.trained }}<br />
           <strong style="color: white; font-size: 1em">Castrado: </strong
-          >{{ petSelected.castrado }}<br />
+          >{{ petSelected.neutered }}<br />
           <strong style="color: white; font-size: 1em">Origem da Raça: </strong
-          >{{ petSelected.origemRaca }}<br />
+          >{{ petSelected.breed.origin }}<br />
           <strong style="color: white; font-size: 1em"
             >Condições Especiais: </strong
-          >{{ petSelected.condicaoEspecial }}<br />
+          >{{ petSelected.specialCondition }}<br />
           <strong style="color: white; font-size: 1em"
             >Expectativa de Vida: </strong
-          >{{ petSelected.expectativaVida }}<br />
+          >{{ petSelected.lifeExpectancy }}<br />
           <button
             (click)="alterPage('myPets')"
             class="button"
@@ -863,7 +867,7 @@
             Alterar Pet
           </button>
           <button
-            (click)="alterPageAndRegisterRace('aboutTheRace', petSelected.raca)"
+            (click)="alterPageAndRegisterRace('aboutTheRace', petSelected.breed.breedName)"
             class="button"
             mat-raised-button
             style="
@@ -873,7 +877,7 @@
               border-radius: 20px;
             "
           >
-            Sobre a raça {{ petSelected.raca }}
+            Sobre a raça {{ petSelected.breed.breedName}}
           </button>
         </div>
       </div>
@@ -1050,7 +1054,7 @@
           border-radius: 20px;
         "
       >
-        Despedir-se de {{ petSelected.nome }}
+        Despedir-se de {{ petSelected.name }}
       </button>
     </div>
   </div>
@@ -1144,11 +1148,11 @@
         >
           <ng-container *ngFor="let pet of myPets">
             <div
-              id="{{ pet.nome }}"
+              id="{{ pet.name }}"
               class="petPictureService"
               (click)="registerPetSelectedForService(pet)"
               style="background-image: url({{
-                pet.imagem
+                pet.image
               }});  background-color: {{ pet.cardColor }}; margin: 1%"
             ></div>
           </ng-container>
@@ -1331,7 +1335,7 @@
             (click)="switchPageAndRegisterPetSelected('aboutPet', pet)"
             class="petMoneyPicture"
             style=" background-image: url({{
-              pet.imagem
+              pet.image
             }});  background-color: {{ pet.cardColor }}; "
           ></div>
           <div class="petMoneyDesc" style="background-color: #353340">
@@ -1342,13 +1346,13 @@
                 "
                 class="namePetClient"
               >
-                {{ pet.nome }}
+                {{ pet.name }}
               </h1>
             </div>
             <div class="cardAboutMoney" style="float: left">
               <h3 class="serviceTitle">Serviços tomados</h3>
               <ng-container *ngFor="let expensive of expensives; let i = index">
-                <ng-container *ngIf="pet.nome == expensive.nome">
+                <ng-container *ngIf="pet.name == expensive.nome">
                   <ng-container
                     *ngFor="let expensivex of expensive.procedimentos"
                   >
@@ -1387,7 +1391,7 @@
               <ng-container
                 *ngFor="let expensiveToPay of expensivesToPay; let i = index"
               >
-                <ng-container *ngIf="pet.nome == expensiveToPay.nome">
+                <ng-container *ngIf="pet.name == expensiveToPay.nome">
                   <ng-container
                     *ngFor="let expensivex of expensiveToPay.procedimentos"
                   >
@@ -1545,12 +1549,12 @@
       <h2
         style="
           font-size: 2rem;
-          color: {{ petSelectedGalerry.cardColor }};
+          color: {{ petSelectedGalerry.pet.cardColor }};
           font-weight: bold;
           margin-bottom: 1rem;
         "
       >
-        {{ petSelectedGalerry.nome }}
+        {{ petSelectedGalerry.pet.name }}
       </h2>
 
       <div style="width: 100%; display: flex; height: auto">
@@ -1558,14 +1562,14 @@
           *ngIf="petSelectedGalerry.imagem1 != ''"
           class="cardPetGalery"
           style="width: 30%; height: 20em; background-image: url({{
-            petSelectedGalerry.imagem1
+            petSelectedGalerry.pet.photos[0]
           }});"
         ></div>
         <div
           *ngIf="petSelectedGalerry.imagem2 != ''"
           class="cardPetGalery"
           style="width: 68%; height: 20em; background-image: url({{
-            petSelectedGalerry.imagem2
+            petSelectedGalerry.pet.photos[1]
           }});"
         ></div>
       </div>
@@ -1574,21 +1578,21 @@
           *ngIf="petSelectedGalerry.imagem3 != ''"
           class="cardPetGalery"
           style="width: 32%; margin: 5px; height: 12em; background-image: url({{
-            petSelectedGalerry.imagem3
+            petSelectedGalerry.pet.photos[2]
           }});"
         ></div>
         <div
           *ngIf="petSelectedGalerry.imagem4 != ''"
           class="cardPetGalery"
           style="width: 32%; margin: 5px; height: 12em; background-image: url({{
-            petSelectedGalerry.imagem4
+            petSelectedGalerry.pet.photos[3]
           }});"
         ></div>
         <div
           *ngIf="petSelectedGalerry.imagem5 != ''"
           class="cardPetGalery"
           style="width: 33%; margin: 5px; height: 12em; background-image: url({{
-            petSelectedGalerry.imagem5
+            petSelectedGalerry.pet.photos[4]
           }});"
         ></div>
       </div>
@@ -1597,14 +1601,14 @@
           *ngIf="petSelectedGalerry.imagem6 != ''"
           class="cardPetGalery"
           style="width: 50%; margin: 5px; height: 30em; background-image: url({{
-            petSelectedGalerry.imagem6
+            petSelectedGalerry.pet.photos[5]
           }});"
         ></div>
         <div
           *ngIf="petSelectedGalerry.imagem7 != ''"
           class="cardPetGalery"
           style="width: 50%; margin: 5px; height: 30em; background-image: url({{
-            petSelectedGalerry.imagem7
+            petSelectedGalerry.pet.photos[6]
           }});"
         ></div>
       </div>
@@ -1621,7 +1625,7 @@
           class="button"
           mat-raised-button
           style=" background-color: {{
-            petSelectedGalerry.cardColor
+            petSelectedGalerry.pet.cardColor
           }}; color: white; margin-top: 10px; border-radius: 20px;"
         >
           Voltar
@@ -1647,18 +1651,18 @@
           <div
             class="petDonationPicture"
             style=" background-image: url({{
-              pet.imagem
-            }});  background-color: {{ pet.cardColor }}; "
+              pet.pet.image
+            }});  background-color: {{ pet.pet.cardColor }}; "
           ></div>
           <div class="petDonationDesc" style="background-color: #353340">
             <div style="width: 100%; text-align: center">
               <h1
                 style="
-                  color: {{ pet.cardColor }};
+                  color: {{ pet.pet.cardColor }};
                 "
                 class="namePet"
               >
-                {{ pet.nome }}
+                {{ pet.pet.name }}
               </h1>
             </div>
             <div
@@ -1673,7 +1677,7 @@
                     speed="slow"
                     [starType]="'svg'"
                     [readOnly]="true"
-                    [rating]="pet.nivelAdestramento"
+                    [rating]="pet.pet.breed.trainability"
                   ></star-rating>
                 </div>
               </div>
@@ -1686,7 +1690,7 @@
                     speed="slow"
                     [starType]="'svg'"
                     [readOnly]="true"
-                    [rating]="pet.facilidadeCuidado"
+                    [rating]="pet.pet.breed.careEasiness"
                   ></star-rating>
                 </div>
               </div>
@@ -1699,19 +1703,19 @@
                     speed="slow"
                     [starType]="'svg'"
                     [readOnly]="true"
-                    [rating]="pet.nivelObediencia"
+                    [rating]="pet.pet.breed.obedienceLevel"
                   ></star-rating>
                 </div>
               </div>
             </div>
             <div style="width: 100%; margin-top: 3%; margin-bottom: 10px">
               <div class="aboutPetDonation">
-                <h1 class="donationPetName">História do(a) {{ pet.nome }}</h1>
-                <span>{{ pet.historia }}</span>
+                <h1 class="donationPetName">História do(a) {{ pet.pet.name }}</h1>
+                <span>{{ pet.pet.history }}</span>
               </div>
             </div>
             <div
-              *ngIf="inDonationProcess && donationProcessPetName == pet.nome"
+              *ngIf="inDonationProcess && donationProcessPetName == pet.pet.name"
               style="width: 100%; margin-top: 3%; margin-bottom: 10px"
             >
               <div
@@ -1735,7 +1739,7 @@
                     class="button"
                     mat-raised-button
                     style="
-                    background-color: {{ pet.cardColor }};
+                    background-color: {{ pet.pet.cardColor }};
                     color: white;
                     margin-top: 10px;
                     border-radius: 20px;
@@ -1758,12 +1762,12 @@
             >
               <button
                 *ngIf="!termsAccepted"
-                (click)="startDonationProcess(pet.nome)"
+                (click)="startDonationProcess(pet.pet.name)"
                 class="button"
                 [disabled]="lockButtonPetDonation"
                 mat-raised-button
                 style="
-                  background-color: {{ pet.cardColor }};
+                  background-color: {{ pet.pet.cardColor }};
                   color: white;
                   margin-top: 10px;
                   border-radius: 20px;
@@ -1774,13 +1778,13 @@
                 Adotar Pet
               </button>
               <button
-                *ngIf="termsAccepted && donationProcessPetName == pet.nome"
-                (click)="finishDonation(pet.nome)"
+                *ngIf="termsAccepted && donationProcessPetName == pet.pet.name"
+                (click)="finishDonation(pet.pet.name)"
                 class="button"
                 [disabled]="lockButtonPetDonation"
                 mat-raised-button
                 style="
-                  background-color: {{ pet.cardColor }};
+                  background-color: {{ pet.pet.cardColor }};
                   color: white;
                   margin-top: 10px;
                   border-radius: 20px;
@@ -1795,7 +1799,7 @@
                 class="button"
                 mat-raised-button
                 style="
-                  background-color: {{ pet.cardColor }};
+                  background-color: {{ pet.pet.cardColor }};
                   color: white;
                   margin-top: 10px;
                   border-radius: 20px;
@@ -2244,43 +2248,43 @@
             petSelected.cardColor
           }}; font-weight: bold; margin-bottom: 3rem;"
         >
-          {{ petSelected.nome }}
+          {{ petSelected.name }}
         </h1>
         <div style="display: flex">
           <div
             class="content__buddy-card-pet"
             style="background-image: url({{
-              petSelected.imagem
+              petSelected.image
             }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
           ></div>
           <div style="width: 65%; text-align: left; margin-left: 2em">
             <strong style="color: white; font-size: 1em">Raça: </strong
-            >{{ petSelected.raca }}<br />
+            >{{ petSelected.breed.breedName }}<br />
             <strong style="color: white; font-size: 1em">Cor: </strong
-            >{{ petSelected.cor }}<br />
+            >{{ petSelected.color }}<br />
             <strong style="color: white; font-size: 1em">Idade: </strong
-            >{{ petSelected.idade }}<br />
+            >{{ petSelected.birthDay }}<br />
             <strong style="color: white; font-size: 1em">Sexo: </strong
-            >{{ petSelected.sexo }}<br />
+            >{{ petSelected.gender }}<br />
             <strong style="color: white; font-size: 1em">Peso: </strong
-            >{{ petSelected.peso }}<br />
+            >{{ petSelected.weight }}<br />
             <strong style="color: white; font-size: 1em">Porte: </strong
-            >{{ petSelected.porte }}<br />
+            >{{ petSelected.size }}<br />
             <strong style="color: white; font-size: 1em">Comportamento: </strong
-            >{{ petSelected.comportamento }}<br />
+            >{{ petSelected.behavior }}<br />
             <strong style="color: white; font-size: 1em">Adestramento: </strong
-            >{{ petSelected.adestrado }}<br />
+            >{{ petSelected.trained }}<br />
             <strong style="color: white; font-size: 1em">Castrado: </strong
-            >{{ petSelected.castrado }}<br />
+            >{{ petSelected.neutered }}<br />
             <strong style="color: white; font-size: 1em"
               >Origem da Raça: </strong
-            >{{ petSelected.origemRaca }}<br />
+            >{{ petSelected.breed.origin }}<br />
             <strong style="color: white; font-size: 1em"
               >Condições Especiais: </strong
-            >{{ petSelected.condicaoEspecial }}<br />
+            >{{ petSelected.specialCondition }}<br />
             <strong style="color: white; font-size: 1em"
               >Expectativa de Vida: </strong
-            >{{ petSelected.expectativaVida }}<br />
+            >{{ petSelected.lifeExpectancy }}<br />
             <button
               (click)="alterPageAndStartService('Service', petSelected)"
               class="button"
@@ -2453,51 +2457,51 @@
     >
       <h1
         style="font-size: 2rem; color: {{
-          petSelected.cardColor
+          petSelected.pet.cardColor
         }}; font-weight: bold; margin-bottom: 3rem;"
       >
-        {{ petSelected.nome }}
+        {{ petSelected.pet.name }}
       </h1>
       <div style="display: flex">
         <div
           class="content__buddy-card-pet"
           style="background-image: url({{
-            petSelected.imagem
+            petSelected.pet.image
           }}); background-color: {{ petSelected.cardColor }}; width: 35%;"
         ></div>
         <div style="width: 65%; text-align: left; margin-left: 2em">
           <strong style="color: white; font-size: 1em">Raça: </strong
-          >{{ petSelected.raca }}<br />
+          >{{ petSelected.pet.breed.breedName }}<br />
           <strong style="color: white; font-size: 1em">Cor: </strong
-          >{{ petSelected.cor }}<br />
+          >{{ petSelected.pet.color }}<br />
           <strong style="color: white; font-size: 1em">Idade: </strong
-          >{{ petSelected.idade }}<br />
+          >{{ petSelected.pet.birthDay }}<br />
           <strong style="color: white; font-size: 1em">Sexo: </strong
-          >{{ petSelected.sexo }}<br />
+          >{{ petSelected.pet.gender }}<br />
           <strong style="color: white; font-size: 1em">Peso: </strong
-          >{{ petSelected.peso }}<br />
+          >{{ petSelected.pet.weight }}<br />
           <strong style="color: white; font-size: 1em">Porte: </strong
-          >{{ petSelected.porte }}<br />
+          >{{ petSelected.pet.size }}<br />
           <strong style="color: white; font-size: 1em">Comportamento: </strong
-          >{{ petSelected.comportamento }}<br />
+          >{{ petSelected.pet.behavior }}<br />
           <strong style="color: white; font-size: 1em">Adestramento: </strong
-          >{{ petSelected.adestrado }}<br />
+          >{{ petSelected.pet.neutered }}<br />
           <strong style="color: white; font-size: 1em">Castrado: </strong
-          >{{ petSelected.castrado }}<br />
+          >{{ petSelected.pet.trained }}<br />
           <strong style="color: white; font-size: 1em">Origem da Raça: </strong
-          >{{ petSelected.origemRaca }}<br />
+          >{{ petSelected.pet.breed.origin }}<br />
           <strong style="color: white; font-size: 1em"
             >Condições Especiais: </strong
-          >{{ petSelected.condicaoEspecial }}<br />
+          >{{ petSelected.pet.specialCondition }}<br />
           <strong style="color: white; font-size: 1em"
             >Expectativa de Vida: </strong
-          >{{ petSelected.expectativaVida }}<br />
+          >{{ petSelected.pet.lifeExpectancy }}<br />
           <button
             (click)="alterPage('mockery')"
             class="button"
             mat-raised-button
             style="background-color: {{
-              petSelected.cardColor
+              petSelected.pet.cardColor
             }}; color: white; margin-top: 10px; border-radius: 20px; margin-right: 10px"
           >
             Alterar Pet
@@ -2519,16 +2523,16 @@
       Pets para adoção
     </h2>
     <div class="content__buddy-card-wrapper-pet">
-      <ng-container *ngFor="let pet of doantionsPetShop">
+      <ng-container *ngFor="let pet of donations">
         <div
           (click)="switchPageAndRegisterPetSelected('aboutDonationPet', pet)"
           class="content__buddy-card-pet"
-          style="background-image: url({{ pet.imagem }}); background-color: {{
-            pet.cardColor
+          style="background-image: url({{ pet.pet.image }}); background-color: {{
+            pet.pet.cardColor
           }}"
         >
           <h3 class="content__buddy-card-title">
-            {{ pet.nome }}
+            {{ pet.pet.name }}
           </h3>
         </div>
       </ng-container>
@@ -2556,7 +2560,7 @@
       }} 0%, {{ backgroundTitleColor }} 78%, rgb(31 29 43 / 0%) 100%);"
       class="content__buddy-heading"
     >
-      Cadastrar novo pet
+      Cadastrar nova adoção
     </h2>
     <div
       class="content__buddy-card-about-pet"
@@ -2770,7 +2774,7 @@
         Cadastrar
       </button>
       <button
-        (click)="alterPageAndRemoveImage('myPets')"
+        (click)="alterPageAndRemoveImage('mockery')"
         class="button"
         mat-raised-button
         style="

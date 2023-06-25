@@ -30,6 +30,9 @@ import { PetShopServicesService } from "../services/pet-shop-services/pet-shop-s
 import { BaseChartDirective } from "ng2-charts";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
 import { InServicePetsService } from "../services/admin-services/in-service-pets.service";
+import { KeyValuePipe } from "@angular/common";
+import { map } from "rxjs/operators";
+import { RegisterService } from "../services/register/register.service";
 
 interface UserData {
   firstname: string;
@@ -50,9 +53,8 @@ interface UserData {
   age: number;
   authorities: Authority[] | null;
   tokens: Token[] | null;
-  role: String,
+  role: String;
 }
-
 
 interface Address {
   street: string;
@@ -84,13 +86,13 @@ interface Token {
   selector: "app-content",
   templateUrl: "./content.component.html",
   styleUrls: ["./content.component.scss"],
-  providers: [MyPetsService],
+  providers: [MyPetsService, KeyValuePipe],
 })
 export class ContentComponent {
   @Output() choosePage = new EventEmitter<string>();
   @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
-  @Input() userLogged : UserData = {
+  @Input() userLogged: UserData = {
     firstname: "",
     lastname: "",
     username: "",
@@ -108,7 +110,7 @@ export class ContentComponent {
     birthDay: "",
     phone: {
       dd: 0,
-      number: 0
+      number: 0,
     },
     cpf: "",
     personType: "",
@@ -119,7 +121,7 @@ export class ContentComponent {
     age: 2,
     authorities: null,
     tokens: null,
-    role: ""
+    role: "",
   };
 
   // Opções Bar-Chart
@@ -232,13 +234,13 @@ export class ContentComponent {
     multi: false,
   };
 
-  getType(){
-    if(this.userLogged.role == "USER"){
-      return "client"
-    } else if (this.userLogged.role == "ADMIN"){
-      return "admin"
+  getType() {
+    if (this.userLogged.role == "USER") {
+      return "client";
+    } else if (this.userLogged.role == "ADMIN") {
+      return "admin";
     }
-    return "client"
+    return "client";
   }
 
   calendarOptions: CalendarOptions = {
@@ -328,25 +330,24 @@ export class ContentComponent {
     private clientsService: ClientsService,
     private donationsService: DonationsService,
     private PetShopServicesService: PetShopServicesService,
-    private inServicePetsService: InServicePetsService
+    private inServicePetsService: InServicePetsService,
+    public registerService: RegisterService,
   ) {}
 
   ngOnInit() {
-    this.myPets = this.myPetsService.getMyPets();
     this.petsMemorial = this.myPetsService.getMemorialPets();
     this.inServicePets = this.inServicePetsService.getInServicePets();
     this.awaitingPets = this.inServicePetsService.getAwaitingPets();
     this.attendedPets = this.inServicePetsService.getAttendedPets();
-    this.donations = this.donationsService.getAllDonations();
-    this.doantionsPetShop = this.donationsService.getAllDonationsPetShop();
   }
 
   ngOnChanges() {
-    //Carregando os elementos das páginas de forma dinamica para melhorar a performance
     switch (this.page) {
       case "myPets":
+        this.loadPetsOfClient();
         break;
       case "Calendar":
+        this.loadPetsOfClient();
         this.petShopServicesVaccines =
           this.PetShopServicesService.getServicesVaccines();
         this.petShopServicesCare =
@@ -355,7 +356,7 @@ export class ContentComponent {
         this.inServiceScreen = false;
         break;
       case "Money":
-        this.myPets = this.myPetsService.getMyPets();
+        this.loadPetsOfClient();
         this.expensives = this.myPetsService.getExpensives();
         this.expensivesToPay = this.myPetsService.getExpensivesToPay();
         break;
@@ -371,17 +372,47 @@ export class ContentComponent {
       case "CalendarAdmin":
         break;
       case "mockery":
+        this.loadAllDonations();
         break;
       case "aboutPet":
         this.page = "aboutPet";
         break;
       case "Donation":
+        this.loadAllDonations();
         break;
       case "Memorial":
         break;
       case "Service":
         break;
     }
+  }
+
+  loadAllDonations() {
+    this.donationsService.getAllDonations().pipe(
+      map((res: any) => res)
+    ).subscribe({
+      next: (data: any) => {
+        this.donations = data; 
+        console.log(this.donations); 
+      },
+      error: (error) => {
+        this.toastr.error("Erro ao buscar os Pets para doação", error);
+      },
+    });
+  }
+
+  loadPetsOfClient() {
+    this.myPetsService.getMyPets(this.userLogged.username).pipe(
+      map((res: any) => res)
+    ).subscribe({
+      next: (data: any) => {
+        this.myPets = data; 
+        console.log(this.myPets); 
+      },
+      error: (error) => {
+        this.toastr.error("Erro ao buscar os Pets", error);
+      },
+    });
   }
 
   alterPage(page: string) {
@@ -431,8 +462,8 @@ export class ContentComponent {
   switchPageAndRegisterPetSelected(page: string, pet: any) {
     this.choosePage.emit(page);
     this.petSelected = pet;
-    this.petSelectedCare = this.myPetsService.getCare(pet.nome);
-    this.petSelectedVaccines = this.myPetsService.getVaccines(pet.nome);
+    this.petSelectedCare = this.myPetsService.getCare(pet.name);
+    this.petSelectedVaccines = this.myPetsService.getVaccines(pet.name);
   }
 
   registerPetSelectedForService(pet: any) {
@@ -667,6 +698,7 @@ export class ContentComponent {
     }
   }
 
+  petToRegister: any
   registerNewPet(type: string) {
     if (
       this.newPet.nome == "" ||
@@ -803,14 +835,76 @@ export class ContentComponent {
       return;
     }
 
-    if(type == 'newPetDonation'){
-      this.doantionsPetShop.push(this.newPet);
-      this.toastr.success("Pet cadastrado com sucesso :D");
-      this.alterPage("mockery");
-    }else if(type == 'newPet'){
-      this.myPets.push(this.newPet);
-      this.toastr.success("Pet cadastrado com sucesso :D");
-      this.alterPage("myPets");
+    if(type == "newPetDonation"){
+      this.petToRegister = {
+        pet:{
+          name: this.newPet.nome,
+          image: this.newPet.imagem,
+          cardColor: this.newPet.cardColor,
+          color: this.newPet.cor,
+          age: this.newPet.idade,
+          gender: this.newPet.sexo,
+          behavior: this.newPet.comportamento,
+          trained: this.newPet.adestrado == "Sim"? true: false,
+          neutered: this.newPet.castrado == "Sim"? true: false,
+          specialCondition: this.newPet.condicaoEspecial == "Sim"? true: false,
+          weight: this.newPet.peso,
+          size: this.newPet.porte,
+          lifeExpectancy: this.newPet.expectativaVida,
+          birthDay: null,
+          deathDay: null,
+          isAlive: true,
+          isDonation: true
+        },
+          careName: "Tosa Higiênica",
+          breedName: this.newPet.raca,
+          userName: this.userLogged.username
+      }
+    }else{
+      this.petToRegister = {
+        pet:{
+          name: this.newPet.nome,
+          image: this.newPet.imagem,
+          cardColor: this.newPet.cardColor,
+          color: this.newPet.cor,
+          age: this.newPet.idade,
+          gender: this.newPet.sexo,
+          behavior: this.newPet.comportamento,
+          trained: this.newPet.adestrado == "Sim"? true: false,
+          neutered: this.newPet.castrado == "Sim"? true: false,
+          specialCondition: this.newPet.condicaoEspecial == "Sim"? true: false,
+          weight: this.newPet.peso,
+          size: this.newPet.porte,
+          lifeExpectancy: this.newPet.expectativaVida,
+          birthDay: null,
+          deathDay: null,
+          isAlive: true,
+          isDonation: false
+        },
+          careName: "Tosa Higiênica",
+          breedName: this.newPet.raca,
+          userName: this.userLogged.username
+      }
+    }
+
+    this.registerService.registerPet(this.petToRegister).subscribe({
+      next: (res:any) => {
+        this.toastr.success('Pet cadastrado com sucesso! :D');
+      },
+      error: (error) => {
+        this.toastr.error('Erro ao cadastrar o Pet:', error);
+      }
+    });
+
+    if (type == "newPetDonation") {
+      setTimeout(() => {
+        this.alterPage("mockery");
+      }, 1300);
+    } else if (type == "newPet") {
+      this.myPets = this.myPetsService.getMyPets(this.userLogged.username);
+      setTimeout(() => {
+        this.alterPage("myPets");
+      }, 1300);
     }
   }
 

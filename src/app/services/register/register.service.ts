@@ -5,14 +5,16 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class RegisterService {
+  url: string = "http://localhost:8080/api/v1/auth";
+  constructor(private client: HttpClient) {}
 
-  url:string = 'http://localhost:8080/api/v1/auth'
-  constructor(private client:HttpClient) {}
-
-  //Aqui será necessário fazer todas as validações no Back se o usuário já existe ou não
   register(userToRegister: object) {
-  const updateUrl = this.url + '/register';
-    return this.client.post(updateUrl,userToRegister);
+    const updateUrl = this.url + "/register";
+    return this.client.post(updateUrl, userToRegister);
   }
-  
+
+  registerPet(petToRegister: object) {
+    const updateUrl = this.url + "/petRegister";
+    return this.client.post(updateUrl, petToRegister);
+  }
 }
