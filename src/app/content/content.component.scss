@@ -337,7 +337,6 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 1em;
     margin-top: 1em;
-    background-image: url("https://avatars.githubusercontent.com/u/81537258?v=4");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -376,7 +375,7 @@
     &:focus {
       background-color: #696976;
       transition: 200ms linear;
-      transform: scale(1.1);
+      transform: scale(1.04);
     }
   }
 

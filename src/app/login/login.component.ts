@@ -4,6 +4,7 @@ import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
 
 interface UserData {
+  image: string;
   id: number;
   firstname: string;
   lastname: string;
@@ -142,6 +143,7 @@ export class LoginComponent {
           email: res.email,
           receiveNews: res.receiveNews,
           birthDay: res.birthDay,
+          image: res.image,
           phone: res.phone,
           cpf: res.cpf,
           personType: res.personType,

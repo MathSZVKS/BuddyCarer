@@ -1,9 +1,9 @@
 <div class="topbar__user-wrapper">
-  <span style="font-weight: bold; color: #adadad">{{ userLogged }}</span>
+  <span style="font-weight: bold; color: #adadad">{{ userLogged.username }}</span>
   <div class="topbar__user">
     <img
       (click)="verifyLogin()"
-      src="https://avatars.githubusercontent.com/u/81537258?v=4"
+      src="{{userLogged.image}}"
       alt="user"
       class="topbar__user"
     />
@@ -26,7 +26,7 @@
       <path d="M13.73 21a2 2 0 0 1-3.46 0" />
     </svg>
   </div>
-  <div *ngIf="userLogged != ''" class="topbar__closeSession">
+  <div *ngIf="userLogged.username != ''" class="topbar__closeSession">
     <fa-icon (click)="logOff()" [icon]="faPowerOff"></fa-icon>
   </div>
 </div>

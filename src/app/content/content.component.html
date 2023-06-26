@@ -111,7 +111,7 @@
       class="content__buddy-card-about-pet"
       style="background-color: #353340"
     >
-      <div class="profileImage"></div>
+      <div class="profileImage" style="background-image: url({{userLogged.image}})"></div>
       <h2
         style="
           font-size: 2rem;
@@ -657,13 +657,13 @@
                     (change)="registerPetValue($event?.name, 'castrado')"
                   ></ng-select>
                 </div>
-                <div>
+                <div style="margin-top: 15px">
                   <span>História</span><br />
                   <input
                     placeholder="História do Pet"
                     #historia
                     class="inputDataPet"
-                    type="text"
+                    type="textarea"
                     value="{{ newPet.historia }}"
                     (change)="registerPetValue(historia.value, 'historia')"
                   /><br />
@@ -2779,13 +2779,13 @@
                     (change)="registerPetValue($event?.name, 'castrado')"
                   ></ng-select>
                 </div>
-                <div>
+                <div style="margin-top: 15px">
                   <span>História</span><br />
                   <input
                     placeholder="História do Pet"
                     #historia
                     class="inputDataPet"
-                    type="text"
+                    type="textarea"
                     value="{{ newPet.historia }}"
                     (change)="registerPetValue(historia.value, 'historia')"
                   /><br />

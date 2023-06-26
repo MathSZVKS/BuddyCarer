@@ -35,6 +35,7 @@ import { map } from "rxjs/operators";
 import { RegisterService } from "../services/register/register.service";
 
 interface UserData {
+  image: string,
   id: number;
   firstname: string;
   lastname: string;
@@ -94,6 +95,7 @@ export class ContentComponent {
   @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
   @Input() userLogged: UserData = {
+    image: "",
     id: 0,
     firstname: "",
     lastname: "",

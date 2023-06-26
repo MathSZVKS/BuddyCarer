@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
 interface UserData {
+  image: string,
   id: number;
   firstname: string;
   lastname: string;
@@ -68,6 +69,7 @@ export class AppComponent {
   theme = "default";
   backgroundTitleColor = "#1f1d2b";
   userLogged: UserData = {
+    image: "https://friconix.com/png/fi-cnsuxl-user-circle.png",
     id: 0,
     firstname: "",
     lastname: "",
