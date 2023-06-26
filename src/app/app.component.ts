@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 
 interface UserData {
+  id: number;
   firstname: string;
   lastname: string;
   username: string;
@@ -67,6 +68,7 @@ export class AppComponent {
   theme = "default";
   backgroundTitleColor = "#1f1d2b";
   userLogged: UserData = {
+    id: 0,
     firstname: "",
     lastname: "",
     username: "",

@@ -657,6 +657,17 @@
                     (change)="registerPetValue($event?.name, 'castrado')"
                   ></ng-select>
                 </div>
+                <div>
+                  <span>História</span><br />
+                  <input
+                    placeholder="História do Pet"
+                    #historia
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.historia }}"
+                    (change)="registerPetValue(historia.value, 'historia')"
+                  /><br />
+                </div>
               </div>
             </div>
           </div>
@@ -867,7 +878,12 @@
             Alterar Pet
           </button>
           <button
-            (click)="alterPageAndRegisterRace('aboutTheRace', petSelected.breed.breedName)"
+            (click)="
+              alterPageAndRegisterRace(
+                'aboutTheRace',
+                petSelected.breed.breedName
+              )
+            "
             class="button"
             mat-raised-button
             style="
@@ -877,7 +893,7 @@
               border-radius: 20px;
             "
           >
-            Sobre a raça {{ petSelected.breed.breedName}}
+            Sobre a raça {{ petSelected.breed.breedName }}
           </button>
         </div>
       </div>
@@ -1329,6 +1345,13 @@
       Financeiro
     </h2>
     <div class="content__buddy-card-wrapper-money-client">
+      <ng-container *ngIf="myPets.length == 0">
+        <div style="width: 100%; text-align: center">
+          <h3 style="font-size: 1.2rem">
+            Nenhum pet cadastrado para informações de financeiro
+          </h3>
+        </div>
+      </ng-container>
       <ng-container *ngFor="let pet of myPets">
         <div class="petMoney">
           <div
@@ -1351,77 +1374,69 @@
             </div>
             <div class="cardAboutMoney" style="float: left">
               <h3 class="serviceTitle">Serviços tomados</h3>
-              <ng-container *ngFor="let expensive of expensives; let i = index">
-                <ng-container *ngIf="pet.name == expensive.nome">
-                  <ng-container
-                    *ngFor="let expensivex of expensive.procedimentos"
+              <ng-container
+                *ngFor="let expensive of pet.expenses; let i = index"
+              >
+                <ng-container *ngIf="expensive.active == false">
+                  <div
+                    class="expensives"
+                    (click)="
+                      alterPageAndRegisterExpensiveSelected(
+                        'Expensive',
+                        expensive
+                      )
+                    "
                   >
                     <div
-                      class="expensives"
-                      (click)="
-                        alterPageAndRegisterExpensiveSelected(
-                          'Expensive',
-                          expensivex
-                        )
-                      "
+                      class="expenses"
+                      style="background-color: {{
+                        pet.cardColor
+                      }}; width: 62%; margin-right: 10px"
                     >
-                      <div
-                        class="expenses"
-                        style="background-color: {{
-                          pet.cardColor
-                        }}; width: 62%; margin-right: 10px"
-                      >
-                        {{ expensivex.nome }}
-                      </div>
-                      <div
-                        class="expenses"
-                        style="background-color: {{
-                          pet.cardColor
-                        }}; width: 28%"
-                      >
-                        {{ expensivex.valor }}
-                      </div>
+                      {{ expensive.care.name }}
                     </div>
-                  </ng-container>
+                    <div
+                      class="expenses"
+                      style="background-color: {{ pet.cardColor }}; width: 28%"
+                    >
+                      {{ expensive.care.prize }}
+                    </div>
+                  </div>
                 </ng-container>
               </ng-container>
             </div>
             <div class="cardAboutMoney" style="float: right">
               <h3 class="serviceTitle">Aguardando pagamento</h3>
               <ng-container
-                *ngFor="let expensiveToPay of expensivesToPay; let i = index"
+                *ngFor="let expensive of pet.expenses; let i = index"
               >
-                <ng-container *ngIf="pet.name == expensiveToPay.nome">
-                  <ng-container
-                    *ngFor="let expensivex of expensiveToPay.procedimentos"
+                <ng-container *ngIf="expensive.active == true">
+                  <div
+                    class="expensives"
+                    (click)="
+                      alterPageAndRegisterExpensiveSelected(
+                        'Expensive',
+                        expensive
+                      )
+                    "
                   >
                     <div
-                      class="expensives"
-                      (click)="
-                        alterPageAndRegisterExpensiveSelected(
-                          'Expensive',
-                          expensivex
-                        )
+                      class="expenses"
+                      style="
+                        background-color: rgb(92 82 82);
+                        width: 62%;
+                        margin-right: 10px;
                       "
                     >
-                      <div
-                        class="expenses"
-                        style="
-                          background-color: rgb(92 82 82);
-                          width: 62%;
-                          margin-right: 10px;
-                        "
-                      >
-                        {{ expensivex.nome }}
-                      </div>
-                      <div
-                        class="expenses"
-                        style="background-color: rgb(92 82 82); width: 28%"
-                      >
-                        {{ expensivex.valor }}
-                      </div>
+                      {{ expensive.care.name }}
                     </div>
-                  </ng-container>
+                    <div
+                      class="expenses"
+                      style="background-color: rgb(92 82 82); width: 28%"
+                    >
+                      {{ expensive.care.prize }}
+                    </div>
+                  </div>
                 </ng-container>
               </ng-container>
             </div>
@@ -1646,6 +1661,11 @@
       Adoção
     </h2>
     <div class="content__buddy-card-wrapper-money-client">
+      <ng-container *ngIf="donations.length == 0">
+        <div style="width: 100%; text-align: center">
+          <h3 style="font-size: 1.2rem">Nenhum pet disponível para adoção</h3>
+        </div>
+      </ng-container>
       <ng-container *ngFor="let pet of donations">
         <div class="petDonation">
           <div
@@ -1710,12 +1730,16 @@
             </div>
             <div style="width: 100%; margin-top: 3%; margin-bottom: 10px">
               <div class="aboutPetDonation">
-                <h1 class="donationPetName">História do(a) {{ pet.pet.name }}</h1>
+                <h1 class="donationPetName">
+                  História do(a) {{ pet.pet.name }}
+                </h1>
                 <span>{{ pet.pet.history }}</span>
               </div>
             </div>
             <div
-              *ngIf="inDonationProcess && donationProcessPetName == pet.pet.name"
+              *ngIf="
+                inDonationProcess && donationProcessPetName == pet.pet.name
+              "
               style="width: 100%; margin-top: 3%; margin-bottom: 10px"
             >
               <div
@@ -1779,7 +1803,7 @@
               </button>
               <button
                 *ngIf="termsAccepted && donationProcessPetName == pet.pet.name"
-                (click)="finishDonation(pet.pet.name)"
+                (click)="finishDonation(pet)"
                 class="button"
                 [disabled]="lockButtonPetDonation"
                 mat-raised-button
@@ -2365,11 +2389,11 @@
           >
             <div style="font-size: 20px; font-weight: bold; margin: 10px">
               <div style="margin-bottom: 7px">
-                <span>{{ pet.nascimento }}</span
+                <span>{{ pet.birthDay }}</span
                 ><br />
               </div>
               <div>
-                <span> {{ pet.morte }}</span>
+                <span> {{ pet.deathDay }}</span>
               </div>
             </div>
           </div>
@@ -2388,49 +2412,49 @@
             "
           >
             <div style="width: 100%; flex-wrap: wrap">
-              <h2>{{ pet.nome }}</h2>
+              <h2>{{ pet.name }}</h2>
             </div>
             <div style="width: 100%; flex-wrap: wrap">
-              <span>{{ pet.historia }}</span>
+              <span>{{ pet.history }}</span>
             </div>
           </div>
           <div style="display: flex">
             <div
               class="content__buddy-card-pet"
               style="background-image: url({{
-                pet.imagem
+                pet.image
               }}); background-color: {{ pet.cardColor }}; width: 35%;"
             ></div>
             <div style="width: 65%; text-align: left; margin-left: 2em">
               <strong style="color: white; font-size: 1em">Raça: </strong
-              >{{ pet.raca }}<br />
+              >{{ pet.breed.breedName }}<br />
               <strong style="color: white; font-size: 1em">Cor: </strong
-              >{{ pet.cor }}<br />
+              >{{ pet.color }}<br />
               <strong style="color: white; font-size: 1em">Idade: </strong
-              >{{ pet.idade }}<br />
+              >{{ pet.birthDay }}<br />
               <strong style="color: white; font-size: 1em">Sexo: </strong
-              >{{ pet.sexo }}<br />
+              >{{ pet.gender }}<br />
               <strong style="color: white; font-size: 1em">Peso: </strong
-              >{{ pet.peso }}<br />
+              >{{ pet.weight }}<br />
               <strong style="color: white; font-size: 1em">Porte: </strong
-              >{{ pet.porte }}<br />
+              >{{ pet.size }}<br />
               <strong style="color: white; font-size: 1em"
                 >Comportamento: </strong
-              >{{ pet.comportamento }}<br />
+              >{{ pet.behavior }}<br />
               <strong style="color: white; font-size: 1em"
                 >Adestramento: </strong
-              >{{ pet.adestrado }}<br />
+              >{{ pet.trained }}<br />
               <strong style="color: white; font-size: 1em">Castrado: </strong
-              >{{ pet.castrado }}<br />
+              >{{ pet.neutered }}<br />
               <strong style="color: white; font-size: 1em"
                 >Origem da Raça: </strong
-              >{{ pet.origemRaca }}<br />
+              >{{ pet.breed.origin }}<br />
               <strong style="color: white; font-size: 1em"
                 >Condições Especiais: </strong
-              >{{ pet.condicaoEspecial }}<br />
+              >{{ pet.specialCondition }}<br />
               <strong style="color: white; font-size: 1em"
                 >Expectativa de Vida: </strong
-              >{{ pet.expectativaVida }}<br />
+              >{{ pet.lifeExpectancy }}<br />
             </div>
           </div>
         </div>
@@ -2527,9 +2551,9 @@
         <div
           (click)="switchPageAndRegisterPetSelected('aboutDonationPet', pet)"
           class="content__buddy-card-pet"
-          style="background-image: url({{ pet.pet.image }}); background-color: {{
-            pet.pet.cardColor
-          }}"
+          style="background-image: url({{
+            pet.pet.image
+          }}); background-color: {{ pet.pet.cardColor }}"
         >
           <h3 class="content__buddy-card-title">
             {{ pet.pet.name }}
@@ -2754,6 +2778,17 @@
                     [(ngModel)]="selectedCastrado"
                     (change)="registerPetValue($event?.name, 'castrado')"
                   ></ng-select>
+                </div>
+                <div>
+                  <span>História</span><br />
+                  <input
+                    placeholder="História do Pet"
+                    #historia
+                    class="inputDataPet"
+                    type="text"
+                    value="{{ newPet.historia }}"
+                    (change)="registerPetValue(historia.value, 'historia')"
+                  /><br />
                 </div>
               </div>
             </div>

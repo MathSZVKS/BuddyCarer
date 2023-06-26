@@ -35,6 +35,7 @@ import { map } from "rxjs/operators";
 import { RegisterService } from "../services/register/register.service";
 
 interface UserData {
+  id: number;
   firstname: string;
   lastname: string;
   username: string;
@@ -93,6 +94,7 @@ export class ContentComponent {
   @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
   @Input() userLogged: UserData = {
+    id: 0,
     firstname: "",
     lastname: "",
     username: "",
@@ -223,6 +225,7 @@ export class ContentComponent {
     porte: "",
     expectativaVida: "",
     origemRaca: "",
+    historia: ""
   };
 
   petPictureUrl: any;
@@ -335,7 +338,6 @@ export class ContentComponent {
   ) {}
 
   ngOnInit() {
-    this.petsMemorial = this.myPetsService.getMemorialPets();
     this.inServicePets = this.inServicePetsService.getInServicePets();
     this.awaitingPets = this.inServicePetsService.getAwaitingPets();
     this.attendedPets = this.inServicePetsService.getAttendedPets();
@@ -357,7 +359,6 @@ export class ContentComponent {
         break;
       case "Money":
         this.loadPetsOfClient();
-        this.expensives = this.myPetsService.getExpensives();
         this.expensivesToPay = this.myPetsService.getExpensivesToPay();
         break;
       case "Shop":
@@ -381,10 +382,25 @@ export class ContentComponent {
         this.loadAllDonations();
         break;
       case "Memorial":
+        this.loadMemorial();
         break;
       case "Service":
         break;
     }
+  }
+
+  loadMemorial(){
+    this.myPetsService.getMemorial(this.userLogged.username).pipe(
+      map((res: any) => res)
+    ).subscribe({
+      next: (data: any) => {
+        this.petsMemorial = data; 
+        console.log(this.petsMemorial); 
+      },
+      error: (error) => {
+        this.toastr.error("Erro ao buscar os Pets do memorial", error);
+      },
+    });
   }
 
   loadAllDonations() {
@@ -695,6 +711,9 @@ export class ContentComponent {
       case "origemRaca":
         this.newPet.origemRaca = evento;
         break;
+      case "historia":
+        this.newPet.historia = evento;
+        break;
     }
   }
 
@@ -706,6 +725,15 @@ export class ContentComponent {
       this.newPet.nome == null
     ) {
       this.toastr.warning("Informe o nome do Pet");
+      return;
+    }
+
+    if (
+      this.newPet.historia == "" ||
+      this.newPet.historia == undefined ||
+      this.newPet.historia == null
+    ) {
+      this.toastr.warning("Informe a história do Pet");
       return;
     }
 
@@ -854,7 +882,8 @@ export class ContentComponent {
           birthDay: null,
           deathDay: null,
           isAlive: true,
-          isDonation: true
+          isDonation: true,
+          history: this.newPet.historia
         },
           careName: "Tosa Higiênica",
           breedName: this.newPet.raca,
@@ -879,7 +908,8 @@ export class ContentComponent {
           birthDay: null,
           deathDay: null,
           isAlive: true,
-          isDonation: false
+          isDonation: false,
+          history: this.newPet.historia
         },
           careName: "Tosa Higiênica",
           breedName: this.newPet.raca,
@@ -899,12 +929,12 @@ export class ContentComponent {
     if (type == "newPetDonation") {
       setTimeout(() => {
         this.alterPage("mockery");
-      }, 1300);
+      }, 800);
     } else if (type == "newPet") {
       this.myPets = this.myPetsService.getMyPets(this.userLogged.username);
       setTimeout(() => {
         this.alterPage("myPets");
-      }, 1300);
+      }, 800);
     }
   }
 
@@ -921,23 +951,47 @@ export class ContentComponent {
     this.termsAccepted = true;
   }
 
-  finishDonation(petName: string) {
-    this.toastr.success("Pedido de adoção enviado para análise com sucesso :D");
-    this.donations = this.donations.filter(
-      (obj: { nome: string }) => obj.nome !== petName
-    );
-    this.inDonationProcess = false;
-    this.termsAccepted = false;
+  finishDonation(pet: any) {
+    let petForDonation = {
+      id: pet.pet.id,
+      isDonation: false
+    }
+
+    this.myPetsService.updatePet(petForDonation, this.userLogged.id).subscribe({
+      next: (data: any) =>{
+        this.toastr.success("Pet enviado para avaliação de adoção com sucesso!");
+        this.loadAllDonations();
+        this.inDonationProcess = false;
+        this.termsAccepted = false;
+      },
+      error: (error)=>{
+        this.toastr.error("Erro ao enviar pedido de adoção", error);
+      }
+    })  
   }
 
   goodBye(pet: any) {
-    this.toastr.warning("A equipe BuddyCarer sente muito por sua perda :(");
-    this.toastr.success("O perfil de " + pet.nome + " foi criado no memorial");
-    this.myPets = this.myPets.filter(
-      (obj: { nome: string }) => obj.nome !== pet.nome
-    );
-    this.petsMemorial.push(pet);
-    this.alterPage("myPets");
+    let deathPet = {
+      id: pet.id,
+      isAlive: false
+    }
+
+    this.myPetsService.updatePet(deathPet, this.userLogged.id).subscribe({
+      next: (data: any) =>{
+        this.toastr.warning("A equipe BuddyCarer sente muito por sua perda :(");
+        this.toastr.success("O perfil de " + pet.name + " foi criado no memorial");
+        this.loadPetsOfClient();
+
+        setTimeout(() => {
+          this.alterPage("myPets");
+        }, 1000);
+
+        console.log(pet);
+      },
+      error: (error)=>{
+        this.toastr.error("Erro ao enviar seu pet ao cemitério :O", error);
+      }
+    })  
   }
 
   returnAtualDate() {

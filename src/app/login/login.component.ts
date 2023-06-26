@@ -4,6 +4,7 @@ import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
 
 interface UserData {
+  id: number;
   firstname: string;
   lastname: string;
   username: string;
@@ -132,6 +133,7 @@ export class LoginComponent {
     this.userService.login(this.userToLogin, this.passwordToLogin).subscribe({
       next: (res:any) => {
         const userData: UserData = {
+          id: res.id,
           firstname: res.firstname,
           lastname: res.lastname,
           username: res.username,

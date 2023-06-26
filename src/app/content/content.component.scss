@@ -256,7 +256,7 @@
     filter: saturate(1.4);
     background-repeat: no-repeat;
     background-position: top left;
-    background-size: 100%;
+    background-size: cover;
     border-radius: 20px;
     transition: 200ms linear;
     width: 15em;
@@ -279,14 +279,14 @@
       filter: saturate(1.4);
       background-repeat: no-repeat;
       background-position: top left;
-      background-size: 100%;
+      background-size: cover;
       border-radius: 20px;
       box-shadow: 0 0 8px 8px #423e5a;
       transition: 200ms linear;
       cursor: pointer;
 
       @media screen and (max-width: 768px) {
-        background-size: 100%;
+        background-size: cover;
       }
 
       .content__buddy-card-view {
