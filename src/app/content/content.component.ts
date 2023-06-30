@@ -95,7 +95,7 @@ export class ContentComponent {
   @Input() backgroundTitleColor = "#1f1d2b";
   @Input() page = "initial";
   @Input() userLogged: UserData = {
-    image: "",
+    image: "https://friconix.com/png/fi-cnsuxl-user-circle.png",
     id: 0,
     firstname: "",
     lastname: "",
@@ -451,10 +451,14 @@ export class ContentComponent {
     this.petPictureUrl = undefined;
   }
 
-  alterPageAndRegisterExpensiveSelected(page: string, expensive: any) {
+  alterPageAndRegisterExpensiveSelected(page: string, expensive: any, pet: any, status: any) {
     this.page = page;
     this.choosePage.emit(page);
+    this.petSelected = pet;
     this.expensiveSelected = expensive;
+    this.expensiveSelected.cardColor = pet.cardColor;
+    this.expensiveSelected.status = status;
+    console.log(this.expensiveSelected);
   }
 
   alterPageAndRegisterPetForGalerry(page: string, pet: any) {
@@ -532,7 +536,7 @@ export class ContentComponent {
 
     const calendarApi = this.selectInfo.view.calendar;
     calendarApi.unselect();
-    const title = pet.nome + " - " + this.serviceSelected.nome;
+    const title = pet.name + " - " + this.serviceSelected.nome;
 
     calendarApi.addEvent({
       title,

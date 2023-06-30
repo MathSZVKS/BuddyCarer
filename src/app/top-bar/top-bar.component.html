@@ -1,12 +1,22 @@
 <div class="topbar__user-wrapper">
   <span style="font-weight: bold; color: #adadad">{{ userLogged.username }}</span>
   <div class="topbar__user">
-    <img
+    <ng-container *ngIf="userLogged.image">
+      <img
       (click)="verifyLogin()"
       src="{{userLogged.image}}"
       alt="user"
       class="topbar__user"
     />
+    </ng-container>
+    <ng-container *ngIf="userLogged.image == undefined || userLogged.image == null || userLogged.image == ''">
+      <img
+      (click)="verifyLogin()"
+      src="{{'https://friconix.com/png/fi-cnsuxl-user-circle.png'}}"
+      alt="user"
+      class="topbar__user"
+    />
+    </ng-container>
   </div>
   <div class="topbar__notif">
     <svg
