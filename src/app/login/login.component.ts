@@ -2,51 +2,7 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
 import { RegisterService } from "../services/register/register.service";
-
-interface UserData {
-  image: string;
-  id: number;
-  firstname: string;
-  lastname: string;
-  username: string;
-  password: string;
-  address: Address | null;
-  email: string;
-  receiveNews: boolean | null;
-  birthDay: string;
-  phone: string | null;
-  cpf: string;
-  personType: string | null;
-  cardNumber: number;
-  cardName: string;
-  flag: string;
-  securityCode: string | null;
-  age: number;
-  authorities: Authority[];
-  tokens: Token[];
-  role: string;
-}
-
-interface Authority {
-  authority: string;
-}
-
-interface Token {
-  id: number;
-  token: string;
-  tokenType: string;
-  revoked: boolean;
-  expired: boolean;
-}
-
-interface Address {
-  street: string;
-  houseNumber: number;
-  zipCode: string;
-  reference: string;
-  city: string;
-  state: string;
-}
+import { UserData } from "../../app/interfaces/UserData";
 
 @Component({
   selector: "app-login",

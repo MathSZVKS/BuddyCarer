@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Expensives } from "src/app/interfaces/expensives";
+import { Expensives } from "src/app/interfaces/Expensives";
 import { HttpClient } from "@angular/common/http";
-import { Procedimento } from "src/app/interfaces/procedimento";
+import { Procedimento } from "src/app/interfaces/Procedimento";
 
 @Injectable({
   providedIn: "root",

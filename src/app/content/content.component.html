@@ -112,10 +112,24 @@
       style="background-color: #353340"
     >
       <ng-container *ngIf="userLogged.image">
-        <div class="profileImage" style="background-image: url({{userLogged.image}})"></div>
+        <div
+          class="profileImage"
+          style="background-image: url({{ userLogged.image }})"
+        ></div>
       </ng-container>
-      <ng-container *ngIf="userLogged.image == undefined || userLogged.image == null || userLogged.image == ''">
-        <div class="profileImage" style="background-image: url(https://friconix.com/png/fi-cnsuxl-user-circle.png)"></div>
+      <ng-container
+        *ngIf="
+          userLogged.image == undefined ||
+          userLogged.image == null ||
+          userLogged.image == ''
+        "
+      >
+        <div
+          class="profileImage"
+          style="
+            background-image: url(https://friconix.com/png/fi-cnsuxl-user-circle.png);
+          "
+        ></div>
       </ng-container>
 
       <h2
@@ -1389,7 +1403,9 @@
                     (click)="
                       alterPageAndRegisterExpensiveSelected(
                         'Expensive',
-                        expensive, pet, 'Pago'
+                        expensive,
+                        pet,
+                        'Pago'
                       )
                     "
                   >
@@ -1422,7 +1438,9 @@
                     (click)="
                       alterPageAndRegisterExpensiveSelected(
                         'Expensive',
-                        expensive, pet, 'Aguardando Pagamento'
+                        expensive,
+                        pet,
+                        'Aguardando Pagamento'
                       )
                     "
                   >
@@ -1480,7 +1498,9 @@
 
       <div class="description">
         <h2 style="color: #a8a3a3">Descrição</h2>
-        <span style="color: #909090">{{ expensiveSelected.care.description }}</span>
+        <span style="color: #909090">{{
+          expensiveSelected.care.description
+        }}</span>
       </div>
 
       <div style="margin-bottom: 4.5%">
@@ -1550,8 +1570,6 @@
     </div>
   </div>
 </ng-container>
-
-<ng-container *ngIf="page == 'Shop'"> SHOP </ng-container>
 
 <ng-container *ngIf="page == 'PetGalerry'">
   <div class="content">
@@ -2355,8 +2373,6 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="page == 'Package'"> ESTOQUE </ng-container>
-
 <ng-container *ngIf="page == 'Memorial'">
   <div class="content">
     <h2
@@ -2468,8 +2484,6 @@
     </div>
   </div>
 </ng-container>
-
-<ng-container *ngIf="page == 'CalendarAdmin'"> EM BREVE.. </ng-container>
 
 <ng-container *ngIf="page == 'aboutDonationPet'">
   <div class="content">

@@ -1,13 +1,13 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+import { Component, Input, ViewChild } from "@angular/core";
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
+import { BaseChartDirective } from "ng2-charts";
 
-import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+import DataLabelsPlugin from "chartjs-plugin-datalabels";
 
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: [ './bar-chart.component.scss' ],
+  selector: "app-bar-chart",
+  templateUrl: "./bar-chart.component.html",
+  styleUrls: ["./bar-chart.component.scss"],
 })
 export class BarChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
@@ -16,14 +16,26 @@ export class BarChartComponent {
   @Input() barChartOptions: any;
   @Input() barChartPlugins: any;
 
-  public barChartType: ChartType = 'bar';
+  public barChartType: ChartType = "bar";
 
   // events
-  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
+  public chartClicked({
+    event,
+    active,
+  }: {
+    event?: ChartEvent;
+    active?: {}[];
+  }): void {
     console.log(event, active);
   }
 
-  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
+  public chartHovered({
+    event,
+    active,
+  }: {
+    event?: ChartEvent;
+    active?: {}[];
+  }): void {
     console.log(event, active);
   }
 
@@ -36,7 +48,8 @@ export class BarChartComponent {
       Math.round(Math.random() * 100),
       56,
       Math.round(Math.random() * 100),
-      40 ];
+      40,
+    ];
 
     this.chart?.update();
   }

@@ -1,55 +1,6 @@
 import { Component, ElementRef, Renderer2 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-
-interface UserData {
-  image: string,
-  id: number;
-  firstname: string;
-  lastname: string;
-  username: string;
-  password: string;
-  address: Address | null;
-  email: string;
-  receiveNews: boolean | null;
-  birthDay: string;
-  phone: Phone | null;
-  cpf: string;
-  personType: string | null;
-  cardNumber: number;
-  cardName: string;
-  flag: string;
-  securityCode: string | null;
-  age: number;
-  authorities: Authority[] | null;
-  tokens: Token[] | null;
-  role: String;
-}
-
-interface Phone {
-  dd: number;
-  number: number;
-}
-
-interface Address {
-  street: string;
-  houseNumber: number;
-  zipCode: string;
-  reference: string;
-  city: string;
-  state: string;
-}
-
-interface Authority {
-  authority: string;
-}
-
-interface Token {
-  id: number;
-  token: string;
-  tokenType: string;
-  revoked: boolean;
-  expired: boolean;
-}
+import { UserData } from "../app/interfaces/UserData";
 
 @Component({
   selector: "app-root",

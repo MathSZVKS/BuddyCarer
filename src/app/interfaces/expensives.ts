@@ -1,4 +1,4 @@
-import { Procedimento } from "../interfaces/procedimento";
+import { Procedimento } from "./Procedimento";
 
 export interface Expensives{
     nome: string

@@ -21,7 +21,7 @@ import { SchedulesService } from "../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { UserService } from "../services/user/user.service";
-import { Procedimento } from "../interfaces/procedimento";
+import { Procedimento } from "../interfaces/Procedimento";
 import { RaceService } from "../services/race/race.service";
 import { ClientsService } from "../services/clients/clients.service";
 import { DonationsService } from "../services/donations/donations.service";
@@ -33,56 +33,7 @@ import { InServicePetsService } from "../services/admin-services/in-service-pets
 import { KeyValuePipe } from "@angular/common";
 import { map } from "rxjs/operators";
 import { RegisterService } from "../services/register/register.service";
-
-interface UserData {
-  image: string,
-  id: number;
-  firstname: string;
-  lastname: string;
-  username: string;
-  password: string;
-  address: Address | null;
-  email: string;
-  receiveNews: boolean | null;
-  birthDay: string;
-  phone: Phone | null;
-  cpf: string;
-  personType: string | null;
-  cardNumber: number;
-  cardName: string;
-  flag: string;
-  securityCode: string | null;
-  age: number;
-  authorities: Authority[] | null;
-  tokens: Token[] | null;
-  role: String;
-}
-
-interface Address {
-  street: string;
-  houseNumber: number;
-  zipCode: string;
-  reference: string;
-  city: string;
-  state: string;
-}
-
-interface Phone {
-  dd: number;
-  number: number;
-}
-
-interface Authority {
-  authority: string;
-}
-
-interface Token {
-  id: number;
-  token: string;
-  tokenType: string;
-  revoked: boolean;
-  expired: boolean;
-}
+import { UserData } from "../../app/interfaces/UserData";
 
 @Component({
   selector: "app-content",
@@ -227,7 +178,7 @@ export class ContentComponent {
     porte: "",
     expectativaVida: "",
     origemRaca: "",
-    historia: ""
+    historia: "",
   };
 
   petPictureUrl: any;
@@ -336,7 +287,7 @@ export class ContentComponent {
     private donationsService: DonationsService,
     private PetShopServicesService: PetShopServicesService,
     private inServicePetsService: InServicePetsService,
-    public registerService: RegisterService,
+    public registerService: RegisterService
   ) {}
 
   ngOnInit() {
@@ -391,46 +342,49 @@ export class ContentComponent {
     }
   }
 
-  loadMemorial(){
-    this.myPetsService.getMemorial(this.userLogged.username).pipe(
-      map((res: any) => res)
-    ).subscribe({
-      next: (data: any) => {
-        this.petsMemorial = data; 
-        console.log(this.petsMemorial); 
-      },
-      error: (error) => {
-        this.toastr.error("Erro ao buscar os Pets do memorial", error);
-      },
-    });
+  loadMemorial() {
+    this.myPetsService
+      .getMemorial(this.userLogged.username)
+      .pipe(map((res: any) => res))
+      .subscribe({
+        next: (data: any) => {
+          this.petsMemorial = data;
+          console.log(this.petsMemorial);
+        },
+        error: (error) => {
+          this.toastr.error("Erro ao buscar os Pets do memorial", error);
+        },
+      });
   }
 
   loadAllDonations() {
-    this.donationsService.getAllDonations().pipe(
-      map((res: any) => res)
-    ).subscribe({
-      next: (data: any) => {
-        this.donations = data; 
-        console.log(this.donations); 
-      },
-      error: (error) => {
-        this.toastr.error("Erro ao buscar os Pets para doação", error);
-      },
-    });
+    this.donationsService
+      .getAllDonations()
+      .pipe(map((res: any) => res))
+      .subscribe({
+        next: (data: any) => {
+          this.donations = data;
+          console.log(this.donations);
+        },
+        error: (error) => {
+          this.toastr.error("Erro ao buscar os Pets para doação", error);
+        },
+      });
   }
 
   loadPetsOfClient() {
-    this.myPetsService.getMyPets(this.userLogged.username).pipe(
-      map((res: any) => res)
-    ).subscribe({
-      next: (data: any) => {
-        this.myPets = data; 
-        console.log(this.myPets); 
-      },
-      error: (error) => {
-        this.toastr.error("Erro ao buscar os Pets", error);
-      },
-    });
+    this.myPetsService
+      .getMyPets(this.userLogged.username)
+      .pipe(map((res: any) => res))
+      .subscribe({
+        next: (data: any) => {
+          this.myPets = data;
+          console.log(this.myPets);
+        },
+        error: (error) => {
+          this.toastr.error("Erro ao buscar os Pets", error);
+        },
+      });
   }
 
   alterPage(page: string) {
@@ -451,7 +405,12 @@ export class ContentComponent {
     this.petPictureUrl = undefined;
   }
 
-  alterPageAndRegisterExpensiveSelected(page: string, expensive: any, pet: any, status: any) {
+  alterPageAndRegisterExpensiveSelected(
+    page: string,
+    expensive: any,
+    pet: any,
+    status: any
+  ) {
     this.page = page;
     this.choosePage.emit(page);
     this.petSelected = pet;
@@ -723,7 +682,7 @@ export class ContentComponent {
     }
   }
 
-  petToRegister: any
+  petToRegister: any;
   registerNewPet(type: string) {
     if (
       this.newPet.nome == "" ||
@@ -869,9 +828,9 @@ export class ContentComponent {
       return;
     }
 
-    if(type == "newPetDonation"){
+    if (type == "newPetDonation") {
       this.petToRegister = {
-        pet:{
+        pet: {
           name: this.newPet.nome,
           image: this.newPet.imagem,
           cardColor: this.newPet.cardColor,
@@ -879,9 +838,10 @@ export class ContentComponent {
           age: this.newPet.idade,
           gender: this.newPet.sexo,
           behavior: this.newPet.comportamento,
-          trained: this.newPet.adestrado == "Sim"? true: false,
-          neutered: this.newPet.castrado == "Sim"? true: false,
-          specialCondition: this.newPet.condicaoEspecial == "Sim"? true: false,
+          trained: this.newPet.adestrado == "Sim" ? true : false,
+          neutered: this.newPet.castrado == "Sim" ? true : false,
+          specialCondition:
+            this.newPet.condicaoEspecial == "Sim" ? true : false,
           weight: this.newPet.peso,
           size: this.newPet.porte,
           lifeExpectancy: this.newPet.expectativaVida,
@@ -889,15 +849,15 @@ export class ContentComponent {
           deathDay: null,
           isAlive: true,
           isDonation: true,
-          history: this.newPet.historia
+          history: this.newPet.historia,
         },
-          careName: "Tosa Higiênica",
-          breedName: this.newPet.raca,
-          userName: this.userLogged.username
-      }
-    }else{
+        careName: "Tosa Higiênica",
+        breedName: this.newPet.raca,
+        userName: this.userLogged.username,
+      };
+    } else {
       this.petToRegister = {
-        pet:{
+        pet: {
           name: this.newPet.nome,
           image: this.newPet.imagem,
           cardColor: this.newPet.cardColor,
@@ -905,9 +865,10 @@ export class ContentComponent {
           age: this.newPet.idade,
           gender: this.newPet.sexo,
           behavior: this.newPet.comportamento,
-          trained: this.newPet.adestrado == "Sim"? true: false,
-          neutered: this.newPet.castrado == "Sim"? true: false,
-          specialCondition: this.newPet.condicaoEspecial == "Sim"? true: false,
+          trained: this.newPet.adestrado == "Sim" ? true : false,
+          neutered: this.newPet.castrado == "Sim" ? true : false,
+          specialCondition:
+            this.newPet.condicaoEspecial == "Sim" ? true : false,
           weight: this.newPet.peso,
           size: this.newPet.porte,
           lifeExpectancy: this.newPet.expectativaVida,
@@ -915,21 +876,21 @@ export class ContentComponent {
           deathDay: null,
           isAlive: true,
           isDonation: false,
-          history: this.newPet.historia
+          history: this.newPet.historia,
         },
-          careName: "Tosa Higiênica",
-          breedName: this.newPet.raca,
-          userName: this.userLogged.username
-      }
+        careName: "Tosa Higiênica",
+        breedName: this.newPet.raca,
+        userName: this.userLogged.username,
+      };
     }
 
     this.registerService.registerPet(this.petToRegister).subscribe({
-      next: (res:any) => {
-        this.toastr.success('Pet cadastrado com sucesso! :D');
+      next: (res: any) => {
+        this.toastr.success("Pet cadastrado com sucesso! :D");
       },
       error: (error) => {
-        this.toastr.error('Erro ao cadastrar o Pet:', error);
-      }
+        this.toastr.error("Erro ao cadastrar o Pet:", error);
+      },
     });
 
     if (type == "newPetDonation") {
@@ -960,32 +921,36 @@ export class ContentComponent {
   finishDonation(pet: any) {
     let petForDonation = {
       id: pet.pet.id,
-      isDonation: false
-    }
+      isDonation: false,
+    };
 
     this.myPetsService.updatePet(petForDonation, this.userLogged.id).subscribe({
-      next: (data: any) =>{
-        this.toastr.success("Pet enviado para avaliação de adoção com sucesso!");
+      next: (data: any) => {
+        this.toastr.success(
+          "Pet enviado para avaliação de adoção com sucesso!"
+        );
         this.loadAllDonations();
         this.inDonationProcess = false;
         this.termsAccepted = false;
       },
-      error: (error)=>{
+      error: (error) => {
         this.toastr.error("Erro ao enviar pedido de adoção", error);
-      }
-    })  
+      },
+    });
   }
 
   goodBye(pet: any) {
     let deathPet = {
       id: pet.id,
-      isAlive: false
-    }
+      isAlive: false,
+    };
 
     this.myPetsService.updatePet(deathPet, this.userLogged.id).subscribe({
-      next: (data: any) =>{
+      next: (data: any) => {
         this.toastr.warning("A equipe BuddyCarer sente muito por sua perda :(");
-        this.toastr.success("O perfil de " + pet.name + " foi criado no memorial");
+        this.toastr.success(
+          "O perfil de " + pet.name + " foi criado no memorial"
+        );
         this.loadPetsOfClient();
 
         setTimeout(() => {
@@ -994,10 +959,10 @@ export class ContentComponent {
 
         console.log(pet);
       },
-      error: (error)=>{
+      error: (error) => {
         this.toastr.error("Erro ao enviar seu pet ao cemitério :O", error);
-      }
-    })  
+      },
+    });
   }
 
   returnAtualDate() {
