@@ -11,7 +11,6 @@ export class AppComponent {
   constructor(
     private toastr: ToastrService,
     private elementRef: ElementRef,
-    private renderer: Renderer2
   ) {}
 
   title = "buddyCarer";

@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { UserService } from "../services/user/user.service";
-import { RegisterService } from "../services/register/register.service";
-import { UserData } from "../../app/interfaces/UserData";
+import { UserService } from "../../services/user/user.service";
+import { RegisterService } from "../../services/register/register.service";
+import { UserData } from "../../interfaces/UserData";
 
 @Component({
   selector: "app-login",

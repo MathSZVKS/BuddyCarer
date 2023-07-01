@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { ContentComponent } from "./content/content.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { SearchComponent } from "./search/search.component";
-import { LoginComponent } from "./login/login.component";
+import { LoginComponent } from "./components/login/login.component";
 import { ToastrModule } from "ngx-toastr";
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { ProgressBarModule } from "angular-progress-bar";
