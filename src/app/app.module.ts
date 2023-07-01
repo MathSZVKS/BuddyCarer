@@ -7,7 +7,7 @@ import { SideBarComponent } from "./components/side-bar/side-bar.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularMaterialModule } from "./externalComponents/angular-material/angular-material.module";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { ContentComponent } from "./content/content.component";
+import { ContentComponent } from "./components/content/content.component";
 import { TopBarComponent } from "./components/top-bar/top-bar.component";
 import { SearchComponent } from "./components/search/search.component";
 import { LoginComponent } from "./components/login/login.component";

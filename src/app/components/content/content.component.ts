@@ -6,7 +6,7 @@ import {
   Output,
   ɵɵNgOnChangesFeature,
 } from "@angular/core";
-import { MyPetsService } from "../services/myPets/my-pets.service";
+import { MyPetsService } from "../../services/myPets/my-pets.service";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import {
   CalendarOptions,
@@ -15,25 +15,25 @@ import {
   EventApi,
 } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
-import { VaccinesService } from "../services/vaccines/vaccines.service";
+import { VaccinesService } from "../../services/vaccines/vaccines.service";
 import { Uploader, UploadWidgetConfig, UploadWidgetResult } from "uploader";
-import { SchedulesService } from "../services/schedules/schedules.service";
+import { SchedulesService } from "../../services/schedules/schedules.service";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
-import { UserService } from "../services/user/user.service";
-import { Procedimento } from "../interfaces/Procedimento";
-import { RaceService } from "../services/race/race.service";
-import { ClientsService } from "../services/clients/clients.service";
-import { DonationsService } from "../services/donations/donations.service";
+import { UserService } from "../../services/user/user.service";
+import { Procedimento } from "../../interfaces/Procedimento";
+import { RaceService } from "../../services/race/race.service";
+import { ClientsService } from "../../services/clients/clients.service";
+import { DonationsService } from "../../services/donations/donations.service";
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
-import { PetShopServicesService } from "../services/pet-shop-services/pet-shop-services.service";
+import { PetShopServicesService } from "../../services/pet-shop-services/pet-shop-services.service";
 import { BaseChartDirective } from "ng2-charts";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
-import { InServicePetsService } from "../services/admin-services/in-service-pets.service";
+import { InServicePetsService } from "../../services/admin-services/in-service-pets.service";
 import { KeyValuePipe } from "@angular/common";
 import { map } from "rxjs/operators";
-import { RegisterService } from "../services/register/register.service";
-import { UserData } from "../../app/interfaces/UserData";
+import { RegisterService } from "../../services/register/register.service";
+import { UserData } from "../../interfaces/UserData";
 
 @Component({
   selector: "app-content",
