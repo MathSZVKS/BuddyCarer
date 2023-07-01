@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faExpand } from "@fortawesome/free-solid-svg-icons";
-import { UserData } from "../../app/interfaces/UserData";
+import { UserData } from "../../interfaces/UserData";
 
 @Component({
   selector: "app-top-bar",
