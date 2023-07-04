@@ -20,6 +20,7 @@
             "outputPath": "dist/buddy-carer",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "aot": true,
             "polyfills": [
               "zone.js"
             ],
