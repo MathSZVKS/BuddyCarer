@@ -44,7 +44,7 @@
     "ng-circle-progress": "^1.7.1",
     "ng2-charts": "^4.1.1",
     "ngx-color-picker": "^14.0.0",
-    "ngx-toastr": "^16.1.0",
+    "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uploader": "^3.29.0",
