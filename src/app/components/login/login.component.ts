@@ -5,6 +5,7 @@ import { RegisterService } from "../../services/register/register.service";
 import { UserData } from "../../interfaces/UserData";
 import { DataLogin } from "../../interfaces/DataLogin";
 import { UtilService } from "../../util/util.service";
+import { ReturnValidate } from "src/app/interfaces/ReturnValidate";
 
 @Component({
   selector: "app-login",
@@ -72,9 +73,10 @@ export class LoginComponent {
       return;
     }
 
-    if(!this.UtilService.validateEmail(this.userToRegister.email)){
-      this.toastr.warning("E-mail inválido");
-      return
+    let respValidateEmail: ReturnValidate = this.UtilService.validatePassword(this.userToRegister.password);
+    if(!respValidateEmail.valid){
+      this.toastr.warning(respValidateEmail.msg);
+      return;
     }
 
     let userToRegister = {
