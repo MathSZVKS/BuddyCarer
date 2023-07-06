@@ -12,25 +12,22 @@ import { UtilService } from "../../util/util.service";
   styleUrls: ["./login.component.scss"],
   providers: [UserService],
 })
+
 export class LoginComponent {
   @Output() loginStatus = new EventEmitter<object>();
   @Output() return = new EventEmitter<string>();
 
   inLogin = true;
   
-  userToRegister: DataLogin = {
+  defaultDataLogin: DataLogin = {
     username: '',
     password: '',
     name: '',
     email: ''
-  }
-
-  userToLogin: DataLogin = {
-    username: '',
-    password: '',
-    name: '',
-    email: ''
-  }
+  };
+  
+  userToRegister: DataLogin = { ...this.defaultDataLogin };
+  userToLogin: DataLogin = { ...this.defaultDataLogin };
 
   constructor(
     public userService: UserService,
@@ -59,7 +56,7 @@ export class LoginComponent {
         this.userToRegister.name = value;
         break;
       case "email":
-        this.userToRegister.username = value;
+        this.userToRegister.email = value;
         break;
     }
   }

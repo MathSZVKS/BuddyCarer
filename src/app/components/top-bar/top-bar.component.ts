@@ -13,6 +13,7 @@ export class TopBarComponent {
   @Output() openUserPage = new EventEmitter<string>();
   @Output() logOffUser = new EventEmitter();
   @Output() alterBackgroundColor = new EventEmitter<string>();
+  
   @Input() userLogged: UserData = {
     image: "https://friconix.com/png/fi-cnsuxl-user-circle.png",
     id: 0,
