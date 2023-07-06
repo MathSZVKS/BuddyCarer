@@ -41,7 +41,6 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    ProgressBarModule,
     NgSelectModule,
     NgChartsModule,
     StarRatingModule.forRoot(),
